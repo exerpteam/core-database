@@ -1,7 +1,7 @@
 # Exerp Table Documentation
 Documentation generated from `db/exerp/tables` SQL definitions with query-usage relation hints.
 
-- Total documented tables: 374
+- Total documented tables: 366
 
 - [access_code](access_code.md)
 - [account_payables](account_payables.md)
@@ -117,14 +117,6 @@ Documentation generated from `db/exerp/tables` SQL definitions with query-usage 
 - [custom_journal_document_types](custom_journal_document_types.md)
 - [customer_credit_note](customer_credit_note.md)
 - [customer_invoice](customer_invoice.md)
-- [d20210709_dev25049_book_res](d20210709_dev25049_book_res.md)
-- [d20210709_dev25049_book_rs_grp](d20210709_dev25049_book_rs_grp.md)
-- [d20210709_dev25049_journalentries](d20210709_dev25049_journalentries.md)
-- [d20211126_add_scl_clipcards_intseq](d20211126_add_scl_clipcards_intseq.md)
-- [d20250722_ec10082_centers](d20250722_ec10082_centers.md)
-- [d20250722_ec10082_countries](d20250722_ec10082_countries.md)
-- [d20250722_ec10082_persons](d20250722_ec10082_persons.md)
-- [d20250722_ec10082_zipcodes](d20250722_ec10082_zipcodes.md)
 - [daily_member_status_changes](daily_member_status_changes.md)
 - [data_cleaning_in](data_cleaning_in.md)
 - [data_cleaning_in_line](data_cleaning_in_line.md)
