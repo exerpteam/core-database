@@ -1,0 +1,79 @@
+SELECT
+    s.OWNER_CENTER || 'p' || s.OWNER_ID pid,
+    s.CENTER || 'ss' || s.ID sid,
+    longToDate(s.CREATION_TIME) CREATION_TIME,
+    s.END_DATE SUBSCRIPTION_STOP_DATE,
+    longToDate(pr.ENTRY_TIME) request_generation_date,
+    s.START_DATE,
+    c.SHORTNAME,
+    prod.NAME PRODUCT_NAME,
+    pg.NAME PRODUCT_GROUP_NAME,
+    p.FIRSTNAME || ' ' || p.LASTNAME name
+FROM
+    PULSE.SUBSCRIPTIONS s
+join PULSE.PERSONS p on p.CENTER = s.OWNER_CENTER and p.ID = s.OWNER_ID
+JOIN PULSE.CENTERS c
+ON
+    c.id = s.CENTER
+JOIN PULSE.PRODUCTS prod
+ON
+    prod.CENTER = s.SUBSCRIPTIONTYPE_CENTER
+    AND prod.ID = s.SUBSCRIPTIONTYPE_ID
+JOIN PULSE.SUBSCRIPTIONTYPES st
+ON
+    st.CENTER = s.SUBSCRIPTIONTYPE_CENTER
+    AND st.ID = s.SUBSCRIPTIONTYPE_ID
+    and st.ST_TYPE = 1
+JOIN PULSE.PRODUCT_GROUP pg
+ON
+    pg.ID = prod.PRIMARY_PRODUCT_GROUP_ID
+JOIN PULSE.SUBSCRIPTIONPERIODPARTS spp
+ON
+    spp.CENTER = s.CENTER
+    AND spp.ID = s.ID
+    AND spp.SPP_TYPE = 1
+    AND spp.SPP_STATE = 1
+JOIN PULSE.SPP_INVOICELINES_LINK link
+ON
+    link.PERIOD_CENTER = spp.CENTER
+    AND link.PERIOD_ID = spp.ID
+    AND link.PERIOD_SUBID= spp.SUBID
+JOIN PULSE.INVOICELINES invl
+ON
+    invl.CENTER = link.INVOICELINE_CENTER
+    AND invl.ID = link.INVOICELINE_ID
+    AND invl.SUBID = link.INVOICELINE_SUBID
+JOIN PULSE.AR_TRANS art
+ON
+    art.REF_TYPE = 'INVOICE'
+    AND art.REF_CENTER = link.INVOICELINE_CENTER
+    AND art.REF_ID = link.INVOICELINE_ID
+    AND art.COLLECTED = 1
+JOIN PULSE.PAYMENT_REQUEST_SPECIFICATIONS prs
+ON
+    prs.CENTER = art.PAYREQ_SPEC_CENTER
+    AND prs.id = art.PAYREQ_SPEC_id
+    AND prs.SUBID = art.PAYREQ_SPEC_SUBID
+JOIN PULSE.PAYMENT_REQUESTS pr
+ON
+    pr.INV_COLL_CENTER = prs.CENTER
+    AND pr.INV_COLL_ID = prs.id
+    AND pr.INV_COLL_SUBID = prs.SUBID
+WHERE
+    spp.CENTER IN (:scope)
+    AND pr.STATE NOT IN (1,2,3,4,8)
+    AND spp.SUBID =
+    (
+        SELECT
+            min(spp2.SUBID)
+        FROM
+            PULSE.SUBSCRIPTIONPERIODPARTS spp2
+        WHERE
+            spp2.CENTER = spp.CENTER
+            AND spp2.ID = spp.ID
+            AND spp2.SPP_TYPE = 1
+            AND spp2.SPP_STATE = 1
+    )
+    AND pr.REQ_AMOUNT>0
+    AND invl.TOTAL_AMOUNT > 0
+    and s.CREATION_TIME between :creationFrom and :creationTo

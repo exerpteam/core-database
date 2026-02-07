@@ -1,0 +1,80 @@
+WITH
+    params AS materialized
+    (
+        SELECT 
+            DISTINCT datetolongTZ(to_char(current_timestamp,'YYYY-MM-DD HH24:MI'), c.TIME_ZONE) AS currentDate
+	    FROM
+            CENTERS c
+        WHERE
+          c.TIME_ZONE IS NOT NULL
+    )
+
+SELECT 
+	DISTINCT per.CENTER || 'p'||per.ID AS MemberID,
+	per.FIRSTNAME AS FIRSTNAME,
+	per.LASTNAME AS LASTNAME,
+	ss.SALES_DATE AS SALES,
+	cen.ID AS CENTERID,
+	cen.NAME AS CENTERNAME
+FROM SUBSCRIPTION_SALES ss
+LEFT JOIN PERSONS per
+ON
+	ss.OWNER_CENTER = per.CENTER
+	AND ss.OWNER_ID = per.ID
+LEFT JOIN SUBSCRIPTIONS sub
+ON
+	ss.SUBSCRIPTION_CENTER = sub.CENTER
+	AND ss.SUBSCRIPTION_ID	= sub.id
+
+LEFT JOIN PRODUCTS prod
+ON
+	ss.SUBSCRIPTION_TYPE_CENTER = prod.CENTER
+	AND ss.SUBSCRIPTION_TYPE_ID	= prod.ID
+LEFT JOIN PRODUCT_GROUP pg
+ON
+	prod.PRIMARY_PRODUCT_GROUP_ID = pg.ID
+LEFT JOIN SUBSCRIPTION_PRICE sp
+ON
+	sub.CENTER = sp.SUBSCRIPTION_CENTER
+	AND sub.ID = sp.SUBSCRIPTION_ID
+    AND sp.FROM_DATE <= sub.START_DATE
+    AND
+        (sp.TO_DATE IS NULL
+        OR sp.TO_DATE >= sub.START_DATE)
+	AND SP.CANCELLED = 0
+LEFT JOIN CENTERS cen
+	ON
+	ss.OWNER_CENTER = cen.ID
+WHERE
+	ss.OWNER_CENTER IN (:Scope)
+	AND ss.SALES_DATE  >= longToDate(:From_date)
+ 	AND ss.SALES_DATE < longToDate(:To_date)
+	AND per.FIRST_ACTIVE_START_DATE  >= longToDate(:From_date) 	
+--AND ss.OWNER_TYPE != 2
+ 	AND per.CENTER IN (:Scope)
+	AND per.CENTER ||'p'||per.ID NOT IN(
+		SELECT
+    		p.CENTER ||'p'|| p.ID
+		FROM
+    		PERSONS p
+		CROSS JOIN params
+		JOIN
+    		PARTICIPATIONS part ON p.CENTER = part.PARTICIPANT_CENTER AND p.ID = part.PARTICIPANT_ID
+		JOIN centers cen
+		ON
+			cen.id = part.booking_center	
+		JOIN    
+    		BOOKINGS b ON b.CENTER = part.BOOKING_CENTER AND b.ID = part.BOOKING_ID
+		JOIN
+    		ACTIVITY a ON b.ACTIVITY = a.ID
+		JOIN
+    		ACTIVITY_GROUP ag ON a.ACTIVITY_GROUP_ID = ag.ID
+		WHERE
+    		 (a.ID IN (31608, 31609,36007) -- THIS MEANS TRÄNINGSSTART1
+    		  OR a.ID IN (18822, 33611, 34065) -- THIS MEANS TRÄNINGSSTART1 PT
+			  OR a.ID IN (18823, 33612, 31610, 34068) -- THIS MEANS TRÄNINGSTART2 OR TRÄNINGSTART2 PT
+			 )
+			AND b.STATE != 'CANCELLED'
+    		AND part.START_TIME > :From_date
+    		AND b.CENTER IN (:Scope)
+		)

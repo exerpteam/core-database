@@ -1,0 +1,52 @@
+SELECT distinct 
+    c.SHORTNAME                                  club_name
+  , ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID AS p_number
+  , p.FULLNAME                                   member_name
+,pa.ENDED_REASON_CODE
+FROM
+    PUREGYM.PAYMENT_AGREEMENTS pa
+JOIN
+    PUREGYM.PAYMENT_ACCOUNTS pac
+ON
+    pac.ACTIVE_AGR_CENTER = pa.CENTER
+    AND pac.ACTIVE_AGR_ID = pa.ID
+    AND pac.ACTIVE_AGR_SUBID = pa.SUBID
+JOIN
+    PUREGYM.ACCOUNT_RECEIVABLES ar
+ON
+    ar.CENTER = pac.CENTER
+    AND ar.ID = pac.ID
+    AND ar.AR_TYPE = 4
+JOIN
+    PERSONS p
+ON
+    p.CENTER = ar.CUSTOMERCENTER
+    AND p.ID = ar.CUSTOMERID
+    AND p.BLACKLISTED not in (1,2)
+    
+JOIN
+    PERSON_EXT_ATTRS atts
+ON
+    atts.NAME = '_eClub_Email'
+    AND atts.PERSONCENTER = p.CENTER
+    AND atts.PERSONID = p.id
+JOIN
+    CENTERS c
+ON
+    c.id = ar.CUSTOMERCENTER
+JOIN
+    PUREGYM.CASHCOLLECTIONCASES ccc
+ON
+    ccc.PERSONCENTER = ar.CUSTOMERCENTER
+    AND ccc.PERSONID = ar.CUSTOMERID
+    AND ccc.MISSINGPAYMENT = 0
+    AND ccc.CLOSED = 0
+JOIN
+    PUREGYM.CLEARING_IN ci
+ON
+    ci.ID = pa.ENDED_CLEARING_IN
+WHERE
+    pa.STATE = 3
+    AND pa.ENDED_REASON_CODE IN ($$codes$$)
+    AND ci.RECEIVED_DATE BETWEEN TRUNC(SYSDATE-6) AND TRUNC(SYSDATE+1)
+    AND ar.CUSTOMERCENTER IN (:center)

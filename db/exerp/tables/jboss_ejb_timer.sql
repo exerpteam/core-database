@@ -1,0 +1,31 @@
+CREATE TABLE 
+    jboss_ejb_timer 
+    ( 
+        id              VARCHAR(2147483647) NOT NULL, 
+        timed_object_id VARCHAR(2147483647) NOT NULL, 
+        initial_date    TIMESTAMP, 
+        repeat_interval int8, 
+        next_date                  TIMESTAMP, 
+        previous_run               TIMESTAMP, 
+        primary_key                VARCHAR(2147483647), 
+        info                       text(2147483647), 
+        timer_state                VARCHAR(2147483647), 
+        schedule_expr_second       VARCHAR(2147483647), 
+        schedule_expr_minute       VARCHAR(2147483647), 
+        schedule_expr_hour         VARCHAR(2147483647), 
+        schedule_expr_day_of_week  VARCHAR(2147483647), 
+        schedule_expr_day_of_month VARCHAR(2147483647), 
+        schedule_expr_month        VARCHAR(2147483647), 
+        schedule_expr_year         VARCHAR(2147483647), 
+        schedule_expr_start_date   VARCHAR(2147483647), 
+        schedule_expr_end_date     VARCHAR(2147483647), 
+        schedule_expr_timezone     VARCHAR(2147483647), 
+        auto_timer bool, 
+        timeout_method_declaring_class VARCHAR(2147483647), 
+        timeout_method_name            VARCHAR(2147483647), 
+        timeout_method_descriptor      VARCHAR(2147483647), 
+        calendar_timer bool, 
+        partition_name VARCHAR(2147483647) NOT NULL, 
+        node_name      VARCHAR(2147483647), 
+        PRIMARY KEY (id) 
+    );

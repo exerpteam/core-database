@@ -1,0 +1,7 @@
+SELECT
+    brg.ID    AS "ID",
+    brg.NAME  AS "NAME",
+    brg.STATE AS "STATE",
+    brg.LAST_MODIFIED AS "ETS"
+FROM
+    BOOKING_RESOURCE_GROUPS brg

@@ -1,0 +1,1 @@
+select * from BI_COMPANIES WHERE rownum >= 1

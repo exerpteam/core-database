@@ -1,0 +1,70 @@
+-- This is the version from 2026-02-05
+--  
+SELECT  
+    C.Shortname AS "Club",
+
+    CASE p.STATUS 
+        WHEN 0 THEN 'LEAD' WHEN 1 THEN 'ACTIVE' WHEN 2 THEN 'INACTIVE' WHEN 3 THEN 'TEMPORARYINACTIVE'
+        WHEN 4 THEN 'TRANSFERRED' WHEN 5 THEN 'DUPLICATE' WHEN 6 THEN 'PROSPECT' WHEN 7 THEN 'DELETED'
+        WHEN 8 THEN 'ANONYMIZED' WHEN 9 THEN 'CONTACT' ELSE 'Undefined' 
+    END AS PERSON_STATUS,
+	p.birthdate as "Birth Day",
+
+    CASE S.State  
+        WHEN 2 THEN 'ACTIVE' WHEN 3 THEN 'ENDED' WHEN 4 THEN 'FROZEN' WHEN 7 THEN 'WINDOW' WHEN 8 THEN 'CREATED'
+        ELSE 'Undefined'
+    END AS Subscription_State,
+
+    CASE S.Sub_State  
+        WHEN 1 THEN 'NONE' WHEN 2 THEN 'N/A' WHEN 3 THEN 'UPGRADED' WHEN 4 THEN 'DOWNGRADED'
+        WHEN 5 THEN 'EXTENDED' WHEN 6 THEN 'TRANSFERRED' WHEN 7 THEN 'REGRETTED' WHEN 8 THEN 'CANCELLED'
+        WHEN 9 THEN 'BLOCKED' WHEN 10 THEN 'CHANGED' ELSE 'Undefined' 
+    END AS SUBSCRIPTION_SUBSTATE,
+
+    p.center || 'p' || p.id AS memberid,
+    PR.NAME AS Subscription,
+    S.Start_date,
+    TO_CHAR(S.END_DATE,'yyyy-MM-dd') AS Cancellation_date,
+    TO_CHAR(S.BINDING_END_DATE,'yyyy-MM-dd') AS Contract_End_Date
+
+FROM persons p
+JOIN Centers C 
+    ON C.ID = p.Center
+
+
+LEFT JOIN LATERAL (
+    SELECT *
+    FROM SUBSCRIPTIONS S
+    WHERE S.OWNER_CENTER = p.CENTER
+      AND S.OWNER_ID = p.ID
+      AND S.STATE IN (3,7)
+    ORDER BY S.START_DATE DESC
+    FETCH FIRST 1 ROW ONLY
+) S ON 1=1
+
+JOIN SUBSCRIPTIONTYPES ST
+    ON ST.CENTER = S.SUBSCRIPTIONTYPE_CENTER
+   AND ST.id = S.SUBSCRIPTIONTYPE_ID
+
+JOIN PRODUCTS PR
+    ON PR.CENTER = S.SUBSCRIPTIONTYPE_CENTER
+   AND PR.id = S.SUBSCRIPTIONTYPE_ID
+
+
+
+WHERE 
+  PR.NAME NOT LIKE '%PT%'
+  AND PR.NAME NOT LIKE '%Free Trial%'
+AND PR.NAME NOT LIKE '%Trial Membership%'
+AND PR.NAME NOT LIKE '%Staff%'
+AND PR.NAME NOT LIKE '%Online Membership%'
+AND PR.NAME NOT LIKE '%Guest Pass%'
+AND PR.NAME NOT LIKE '%Coaching%'
+AND PR.NAME NOT LIKE '%Coach%'
+AND PR.NAME NOT LIKE '%Overseas%'
+AND PR.NAME NOT LIKE '%Invite A Friend%'
+AND PR.NAME NOT LIKE '%Complimentary%'
+AND PR.NAME NOT LIKE '%Corporate Funded%'
+  AND P.status = '2'
+  AND P.center in (:center)
+

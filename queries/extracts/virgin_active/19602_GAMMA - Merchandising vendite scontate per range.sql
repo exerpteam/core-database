@@ -1,0 +1,31 @@
+ SELECT   c.SHORTNAME as club,  empl1.FULLNAME as employer, person.FULLNAME as person, payer.FULLNAME AS PAYER, p.NAME, invl.TOTAL_AMOUNT as amount,
+ invl.PRODUCT_NORMAL_PRICE as normalprice,
+ invl.PRODUCT_NORMAL_PRICE - invl.TOTAL_AMOUNT as priceDelta,
+  longToDate(inv.ENTRY_TIME) AS salesdate,
+  CONCAT(CONCAT(invl.CENTER, 'inv'), invl.ID) AS invoiceid, CONCAT(CONCAT(payer.CENTER, 'p'), payer.ID) AS payerid,
+ CONCAT(CONCAT(person.CENTER, 'p'), person.ID) AS personid,CONCAT(CONCAT(empl1.CENTER, 'p'), empl1.ID) AS employerid
+ FROM
+ INVOICES inv INNER JOIN
+ INVOICELINES invl
+ ON inv.CENTER = invl.CENTER AND inv.ID = invl.ID
+ INNER JOIN PERSONS payer
+ ON payer.CENTER = inv.PAYER_CENTER AND payer.ID = inv.PAYER_ID
+ INNER JOIN PERSONS person
+ ON person.CENTER = invl.PERSON_CENTER AND person.ID = invl.PERSON_ID
+ INNER JOIN EMPLOYEES empl
+ ON empl.CENTER = inv.EMPLOYEE_CENTER AND empl.ID = inv.EMPLOYEE_ID
+ INNER JOIN PERSONS empl1
+ ON empl1.CENTER = empl.PERSONCENTER AND empl1.ID = empl.PERSONID
+ INNER JOIN (select DISTINCT  CENTER, ID, NAME FROM  PRODUCTS) p
+ ON p.ID = invl.PRODUCTID and p.CENTER = invl.PRODUCTCENTER
+ INNER JOIN CENTERS c
+ ON inv.CENTER = c.id
+ INNER JOIN
+ (SELECT PRODUCT_CENTER, PRODUCT_ID FROM PRODUCT_AND_PRODUCT_GROUP_LINK WHERE PRODUCT_GROUP_ID IN(5245, 5616) GROUP BY PRODUCT_CENTER, PRODUCT_ID) prodgrp
+ on prodgrp.PRODUCT_CENTER = p.CENTER AND prodgrp.PRODUCT_ID = p.ID
+ WHERE
+  invl.PRODUCT_NORMAL_PRICE > invl.TOTAL_AMOUNT AND invl.TOTAL_AMOUNT <>0 AND
+  longToDate(inv.ENTRY_TIME) BETWEEN  $$dateFrom$$ AND $$dateTo$$  + INTERVAL '1' DAY
+ and c.COUNTRY = 'IT'
+ and person.center in (:scope)
+ ORDER BY c.SHORTNAME, empl1.FULLNAME, inv.ENTRY_TIME

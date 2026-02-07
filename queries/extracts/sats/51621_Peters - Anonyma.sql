@@ -1,0 +1,1 @@
+select * from sats.persons where id=506 AND center=20892

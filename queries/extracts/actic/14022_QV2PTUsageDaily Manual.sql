@@ -1,0 +1,104 @@
+/* QV2PTUsageDaily Manual
+ *
+ * All PT attends (drop in & bookings)
+ */
+-- TODO
+
+SELECT
+	c1.COUNTRY,
+	c1.EXTERNAL_ID AS Cost,
+	a.CENTER,
+	c1.SHORTNAME AS CenterName,
+	a.PERSON_CENTER || 'p' || a.PERSON_ID AS PersonId,
+	TO_CHAR(trunc(months_between(TRUNC(:MemberBaseDate), p1.birthdate)/12)) AS Age,
+	longToDate(a.START_TIME) AS Dato,
+	--br.NAME AS AttendType,
+	1 AS DropIn,
+	NULL AS Booked,
+/*	CASE
+        WHEN ins2.CENTER IS NULL
+        THEN NULL
+        ELSE ins2.CENTER || 'p' || ins2.ID
+    END instructorId,
+    CASE
+        WHEN ins2.CENTER IS NULL
+        THEN NULL
+        ELSE ins2.FIRSTNAME || ' ' || ins2.LASTNAME
+    END instructorName */
+	NULL AS instructorId,
+	NULL AS instructorName
+	
+FROM
+	ATTENDS a
+LEFT JOIN BOOKING_RESOURCES br
+ON
+	a.BOOKING_RESOURCE_CENTER = br.CENTER
+	AND a.BOOKING_RESOURCE_ID = br.ID
+LEFT JOIN PERSONS p1
+ON
+	a.PERSON_CENTER = p1.CENTER
+	AND a.PERSON_ID = p1.ID
+LEFT JOIN CENTERS c1
+ON
+	a.CENTER = c1.ID
+WHERE
+	a.CENTER IN (:ChosenScope)
+	AND a.STATE LIKE 'ACTIVE'
+	AND br.ATTEND_PRIVILEGE_ID = 1001 --PT
+--  AND a.START_TIME >= datetolong(TO_CHAR(ROUND(exerpsysdate() -2), 'YYYY-MM-DD HH24:MI')) -- yesterday at midnight
+--	AND a.START_TIME < datetolong(TO_CHAR(ROUND(exerpsysdate() -2), 'YYYY-MM-DD HH24:MI')) + 86399*1000 -- yesterday at midnight +24 hours in ms
+	AND a.START_TIME >= datetolong(TO_CHAR(:MemberBaseDate, 'YYYY-MM-DD HH24:MI'))
+	AND a.START_TIME <= datetolong(TO_CHAR(:MemberBaseDate, 'YYYY-MM-DD HH24:MI')) + 86400 * 1000 - 1
+
+	
+UNION ALL
+
+SELECT
+	c2.COUNTRY,
+	c2.EXTERNAL_ID AS Cost,
+	b.CENTER,
+	c2.SHORTNAME AS CenterName,
+	b.OWNER_CENTER || 'p' || b.OWNER_ID AS PersonID,
+	TO_CHAR(trunc(months_between(TRUNC(:MemberBaseDate), p2.birthdate)/12)) AS Age,
+	longToDate(b.STARTTIME) AS Dato,
+	--b.NAME AS AttendType,
+	NULL AS DropIn,
+	1 AS Booked,
+	CASE
+        WHEN ins2.CENTER IS NULL
+        THEN NULL
+        ELSE ins2.CENTER || 'p' || ins2.ID
+    END instructorId,
+    CASE
+        WHEN ins2.CENTER IS NULL
+        THEN NULL
+        ELSE ins2.FIRSTNAME || ' ' || ins2.LASTNAME
+    END instructorName
+FROM BOOKINGS b
+LEFT JOIN STAFF_USAGE st2
+ON
+    b.center = st2.BOOKING_CENTER
+    AND b.id = st2.BOOKING_ID
+LEFT JOIN PERSONS ins2
+ON
+    st2.PERSON_CENTER = ins2.CENTER
+    AND st2.PERSON_ID = ins2.ID
+LEFT JOIN PERSONS p2
+ON
+	b.OWNER_CENTER = p2.CENTER
+	AND b.OWNER_ID = p2.ID
+LEFT JOIN CENTERS c2
+ON
+	b.CENTER = c2.ID
+WHERE
+	b.CENTER IN (:ChosenScope)
+	AND b.STATE LIKE 'ACTIVE'
+	AND b.ACTIVITY IN (3008, 4807, 22816) -- se and no bookings
+--	AND b.NAME LIKE 'Personlig Träning'
+--  AND b.STARTTIME >= datetolong(TO_CHAR(ROUND(exerpsysdate() -2), 'YYYY-MM-DD HH24:MI')) -- yesterday at midnight
+--	AND b.STARTTIME < datetolong(TO_CHAR(ROUND(exerpsysdate() -2), 'YYYY-MM-DD HH24:MI')) + 86399*1000 -- yesterday at midnight +24 hours in ms
+	AND b.STARTTIME >= datetolong(TO_CHAR(:MemberBaseDate, 'YYYY-MM-DD HH24:MI'))
+	AND b.STARTTIME <= datetolong(TO_CHAR(:MemberBaseDate, 'YYYY-MM-DD HH24:MI')) + 86400 * 1000 - 1
+
+
+ORDER BY Dato

@@ -1,0 +1,1 @@
+select * from checkins limit 10000;

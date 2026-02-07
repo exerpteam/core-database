@@ -1,0 +1,13 @@
+SELECT
+    ta.ID          AS "ID",
+    ta.STATUS      AS "STATUS",
+    wf.EXTERNAL_ID AS "WORKFLOW",
+    ta.NAME        AS "NAME",
+    ta.EXTERNAL_ID AS "EXTERNAL_ID",
+    ta.AUTOMATIC   AS "IS_AUTOMATIC"
+FROM
+    TASK_ACTIONS ta
+LEFT JOIN
+    WORKFLOWS wf
+ON
+    wf.ID = ta.WORKFLOW_ID    

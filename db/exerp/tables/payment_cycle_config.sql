@@ -1,0 +1,30 @@
+CREATE TABLE 
+    payment_cycle_config 
+    ( 
+        id int4 NOT NULL, 
+        name text(2147483647), 
+        company bool DEFAULT FALSE NOT NULL, 
+        scope_type text(2147483647) DEFAULT 'T'::text NOT NULL, 
+        scope_id int4 DEFAULT 1 NOT NULL, 
+        cycle_type text(2147483647) DEFAULT 'LEGACY'::text NOT NULL, 
+        interval_type int4 NOT NULL, 
+        INTERVAL int4 NOT NULL, 
+        day_in_interval int4, 
+        days_before_due int4 NOT NULL, 
+        relative_renewal_days int4, 
+        deduction_date int4, 
+        cashcollection_delay int4, 
+        booking_date int4, 
+        sign_up_deadline int4, 
+        sign_off_deadline int4, 
+        payment_coll_policy int4, 
+        renewal_policy int4, 
+        notify_deduction_change bool DEFAULT FALSE NOT NULL, 
+        pay_req_notification_mode text(2147483647) DEFAULT 'NEVER'::text NOT NULL, 
+        refunds_enablement_mode   text(2147483647), 
+        recollect_account_balance bool DEFAULT FALSE NOT NULL, 
+        collect_future_days int4, 
+        exclude_collection_on_debt bool DEFAULT FALSE NOT NULL, 
+        deduction_days_allowed text(2147483647), 
+        PRIMARY KEY (id) 
+    );

@@ -1,0 +1,79 @@
+/**
+* Get information of members and checkins from crossfit clubs.
+* Only members with products in productgroup 11230 (CrossFit).
+* Creator: Henrik Håkanson
+*/
+SELECT 
+	c.NAME AS "CENTER_NAME",
+	p.CENTER ||'p'|| p.ID AS "MEMBER_ID",
+	p.FULLNAME AS "NAME",
+	pea.TXTVALUE AS "PHONE_NUMBER",
+	prod.NAME AS "PRODUCT_NAME",
+	TO_CHAR(LONGTODATE(checkins.LAST_CHECKIN),'YYYY-MM-DD') AS "LAST_CHECKIN_DATE",
+	participations.MAX_DATE AS "LAST_CLASS_ATTENDED"
+FROM
+	PERSONS p
+FULL JOIN PERSON_EXT_ATTRS pea ON
+	pea.PERSONCENTER = p.CENTER
+	AND pea.PERSONID = p.ID
+	AND pea.NAME in ('_eClub_PhoneSMS')
+JOIN SUBSCRIPTIONS s ON
+	P.CENTER = S.OWNER_CENTER  
+	AND P.ID = S.OWNER_ID
+JOIN SUBSCRIPTIONTYPES st ON 
+	st.CENTER = s.SUBSCRIPTIONTYPE_CENTER
+	AND st.ID = s.SUBSCRIPTIONTYPE_ID
+JOIN PRODUCTS prod ON 
+    st.CENTER = prod.CENTER
+    AND st.ID = prod.ID
+FULL JOIN 
+	(
+		SELECT 
+			PERSON_CENTER,
+			PERSON_ID,
+			MAX(CHECKIN_TIME) LAST_CHECKIN
+		FROM			
+			CHECKINS checkins
+		GROUP BY 
+			PERSON_CENTER,
+			PERSON_ID
+	) checkins
+	ON checkins.PERSON_CENTER = p.CENTER
+	AND checkins.PERSON_ID = p.ID
+FULL JOIN
+	(
+		SELECT 
+			part.PARTICIPANT_CENTER,
+			part.PARTICIPANT_ID,
+			MAX(LONGTODATE(book.STARTTIME)) AS MAX_DATE	
+		FROM PARTICIPATIONS part
+	
+		JOIN BOOKINGS book ON
+			part.BOOKING_CENTER = book.CENTER
+			AND part.BOOKING_ID = book.ID
+
+		JOIN ACTIVITY act ON
+			book.ACTIVITY = act.ID
+
+		JOIN ACTIVITY_GROUP gr ON
+			gr.ID = act.ACTIVITY_GROUP_ID
+		WHERE
+			part.STATE = 'PARTICIPATION'		
+			AND gr.NAME='CrossFit'
+		GROUP BY
+			part.PARTICIPANT_CENTER,
+			part.PARTICIPANT_ID
+	) participations
+	ON participations.PARTICIPANT_CENTER = p.CENTER
+	AND participations.PARTICIPANT_ID = p.ID
+JOIN PRODUCT_AND_PRODUCT_GROUP_LINK pgLink ON
+	pgLink.PRODUCT_CENTER = prod.CENTER
+	AND pgLink.PRODUCT_ID = prod.ID
+
+JOIN CENTERS c ON 
+	s.CENTER = c.ID
+WHERE
+	p.STATUS IN(1)
+	AND p.CENTER = :center
+	AND s.STATE = 2
+	AND pgLink.PRODUCT_GROUP_ID = 11230

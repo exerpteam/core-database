@@ -1,0 +1,24 @@
+SELECT
+    count(*) cnt,   
+    prod.NAME SUB_TYPE,
+    pg.NAME SUB_GROUP_NAME,
+    mpr.CACHED_PRODUCTNAME ADDON_NAME,
+    mpr.GLOBALID ADDON_GLOBAL_ID
+FROM
+    SUBSCRIPTION_ADDON sa
+join SUBSCRIPTIONS s on s.CENTER = sa.SUBSCRIPTION_CENTER and s.id = sa.SUBSCRIPTION_ID
+join PRODUCTS prod on prod.CENTER = s.SUBSCRIPTIONTYPE_CENTER and  prod.ID = s.SUBSCRIPTIONTYPE_ID
+join PRODUCT_GROUP pg on pg.ID = prod.PRIMARY_PRODUCT_GROUP_ID
+join PERSONS p on p.CENTER = s.OWNER_CENTER and p.ID = s.OWNER_ID 
+join MASTERPRODUCTREGISTER mpr on mpr.ID = sa.ADDON_PRODUCT_ID    
+WHERE
+    sa.CANCELLED = 0
+    AND (
+        sa.END_DATE IS NULL
+        OR sa.END_DATE > exerpsysdate())
+        and sa.USE_INDIVIDUAL_PRICE = 0
+group by 
+    prod.NAME ,
+    pg.NAME ,
+    mpr.CACHED_PRODUCTNAME ,
+    mpr.GLOBALID 

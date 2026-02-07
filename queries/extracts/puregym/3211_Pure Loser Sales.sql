@@ -1,0 +1,23 @@
+SELECT
+    cen.NAME as CENTER,
+    COUNT(s.CENTER) as SOLD 
+FROM
+    PUREGYM.SUBSCRIPTIONS s
+JOIN
+    PUREGYM.PRODUCTS prod
+ON
+    prod.CENTER = s.SUBSCRIPTIONTYPE_CENTER
+    AND prod.ID = s.SUBSCRIPTIONTYPE_id
+JOIN
+    PUREGYM.CENTERS cen
+ON cen.ID = s.SUBSCRIPTIONTYPE_CENTER
+WHERE
+    prod.GLOBALID IN ('PURE_LOSER')
+    AND s.CREATION_TIME >= :Creation_Date_From
+    AND s.CREATION_TIME < (:Creation_Date_To + 24*3600*1000)
+	AND s.CENTER in (:center)
+GROUP BY
+    cen.NAME
+   
+Order by
+    cen.NAME

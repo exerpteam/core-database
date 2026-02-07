@@ -1,0 +1,10 @@
+SELECT
+    P.FULLNAME, biview.*
+FROM
+    BI_SUBSCRIPTIONS biview
+JOIN
+    PERSONS P
+ON
+    biview."PERSON_ID" = P.EXTERNAL_ID 
+WHERE
+    biview."SUBSCRIPTION_CENTER" = :ClubID

@@ -1,0 +1,17 @@
+select 
+
+
+ac.CUSTOMERCENTER||'p'||ac.CUSTOMERID  AS MEMBER_ID,
+p.FULLNAME,
+pa.CENTER ||'-'|| pa.ID ||'-'|| pa.SUBID AS AGREEMENT_ID
+
+
+from PAYMENT_AGREEMENTS pa
+
+join PAYMENT_ACCOUNTS pac on pac.ACTIVE_AGR_CENTER = pa.CENTER and pac.ACTIVE_AGR_ID = pa.ID and pac.ACTIVE_AGR_SUBID = pa.SUBID
+
+join ACCOUNT_RECEIVABLES ac on ac.CENTER = pac.CENTER and ac.ID = pac.ID
+
+join PERSONS p on ac.CUSTOMERCENTER = p.CENTER and ac.CUSTOMERID = p.ID
+
+where pa.PAYMENT_CYCLE_CONFIG_ID = 601

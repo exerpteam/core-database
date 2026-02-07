@@ -1,0 +1,1 @@
+select longtodate(sysdate) from dual

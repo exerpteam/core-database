@@ -1,0 +1,12 @@
+select 
+    c.CENTER_ID
+  , c.EXTERNAL_ID
+  , c.NAME
+  , c.SHORTNAME
+  , c.STARTUP_DATE
+  , c.COUNTRY_CODE
+  , c.POSTAL_CODE
+  , c.CITY
+  , c.LATITUDE
+  , c.LONGITUDE
+from BI_CENTERS c

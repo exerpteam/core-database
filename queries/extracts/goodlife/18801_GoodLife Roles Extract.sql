@@ -1,0 +1,3 @@
+SELECT * 
+FROM	ROLES r
+WHERE r.IS_ACTION = 'f'

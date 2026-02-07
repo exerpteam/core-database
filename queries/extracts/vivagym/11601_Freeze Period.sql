@@ -1,0 +1,1 @@
+EXISTS ( SELECT 1 FROM subscription_freeze_period sfp WHERE sfp.SUBSCRIPTION_CENTER = S.CENTER AND sfp.SUBSCRIPTION_ID = S.ID AND sfp.cancel_time IS NULL AND sfp.end_date >= :Freeze_From AND sfp.start_date <= :Freeze_To)

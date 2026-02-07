@@ -1,0 +1,34 @@
+WITH PARAMS AS
+(
+        SELECT
+                /*+ materialize */
+                datetolong(TO_CHAR(CURRENT_DATE -5, 'YYYY-MM-DD HH24:MM')) AS FROMDATE,
+                datetolong(TO_CHAR(CURRENT_DATE, 'YYYY-MM-DD HH24:MM')) AS TODATE
+)
+SELECT distinct
+    p2.EXTERNAL_ID,
+    ch.CHECKIN_CENTER,
+    TO_CHAR(longtodate(ch.CHECKIN_TIME),'yyyy-MM-dd HH24:MI') AS CHECKIN_TIME
+FROM
+    CHECKINS ch
+CROSS JOIN PARAMS
+JOIN
+    PERSONS p
+ON
+    p.CENTER = ch.PERSON_CENTER
+    AND p.id = ch.PERSON_ID
+JOIN
+    PERSONS p2
+ON
+    p2.center = p.CURRENT_PERSON_CENTER
+    AND p2.id = p.CURRENT_PERSON_ID
+JOIN
+   CENTERS c
+ON
+    c.id = p2.center      
+WHERE
+    p2.STATUS NOT IN (4,5,7,8)
+    AND p2.PERSONTYPE != 2
+	AND c.COUNTRY IN ('AT', 'CH')
+    AND ch.CHECKIN_TIME BETWEEN PARAMS.FROMDATE AND PARAMS.TODATE
+	

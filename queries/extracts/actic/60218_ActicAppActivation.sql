@@ -1,0 +1,15 @@
+SELECT 
+	p.EXTERNAL_ID AS ExterntId,
+	p.CENTER ||'p' || p.ID AS Medlemsnummer,
+	p.FULLNAME AS Namn,
+	pe.TXTVALUE
+FROM PERSONS p
+FULL JOIN PERSON_EXT_ATTRS pe ON
+	p.CENTER = pe.PERSONCENTER AND
+	p.ID = pe.PERSONID
+	AND pe.NAME = 'TWIIKID'		
+			
+WHERE 
+	p.CENTER = :center
+	AND p.STATUS = 1
+

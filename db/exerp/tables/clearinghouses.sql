@@ -1,0 +1,30 @@
+CREATE TABLE 
+    clearinghouses 
+    ( 
+        id int4 NOT NULL, 
+        scope_type text(2147483647), 
+        scope_id int4, 
+        blocked bool DEFAULT FALSE NOT NULL, 
+        STATE text(2147483647) NOT NULL, 
+        ctype int4 NOT NULL, 
+        name            text(2147483647), 
+        datasupplier_id text(2147483647), 
+        serial int4 NOT NULL, 
+        external_clearinghouse_id text(2147483647), 
+        gen_payment_type          text(2147483647), 
+        use_ch_notification bool DEFAULT FALSE NOT NULL, 
+        available_on_web bool DEFAULT FALSE NOT NULL, 
+        external_authorization bool DEFAULT FALSE NOT NULL, 
+        agr_signature_required bool DEFAULT FALSE NOT NULL, 
+        coll_default_fee text(2147483647), 
+        rejection_fee    text(2147483647), 
+        coll_invalid_fee text(2147483647), 
+        cc_end_agr_on_expiry_date bool DEFAULT FALSE NOT NULL, 
+        cancel_pa_on_rejected_rep_sc bool DEFAULT FALSE NOT NULL, 
+        properties_config bytea, 
+        cycle_bookdate_on_collect_fee bool DEFAULT FALSE NOT NULL, 
+        enable_card_on_file bool DEFAULT FALSE NOT NULL, 
+        enable_dynamic_trans_fee bool DEFAULT FALSE NOT NULL, 
+        dynamic_trans_fee VARCHAR(100), 
+        PRIMARY KEY (id) 
+    );

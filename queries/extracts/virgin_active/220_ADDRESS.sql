@@ -1,0 +1,17 @@
+SELECT
+    'EXERP' "SOURCESYSTEM",
+    'N/A' "EXTREF",
+    p.EXTERNAL_ID "ADDRESSID",
+    'AS member of conpany or comp address?' "COMPANYNAME",
+    p.ADDRESS1 "ADDRESS1",
+    p.ADDRESS2 "ADDRESS2",
+    p.ADDRESS3 "ADDRESS3",
+    p.CITY "TOWN",
+    p.COUNTRY "COUNTY",
+    p.ZIPCODE "POSTCODE"
+FROM
+    PERSONS pOld
+JOIN PERSONS p
+ON
+    p.CENTER = pOld.CURRENT_PERSON_CENTER
+    AND p.ID = pOld.CURRENT_PERSON_ID

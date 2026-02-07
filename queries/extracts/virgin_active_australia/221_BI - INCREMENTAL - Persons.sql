@@ -1,0 +1,25 @@
+-- This is the version from 2026-02-05
+--  
+ WITH
+     params AS Materialized
+     (
+         SELECT
+             c.id,
+             datetolongtz(TO_CHAR(TO_DATE(getCenterTime(c.id),'YYYY-MM-DD') - interval '5 days', 'YYYY-MM-DD HH24:MI'), c.time_zone) AS FROMDATE,
+             datetolongtz(TO_CHAR(TO_DATE(getCenterTime(c.id),'YYYY-MM-DD') + interval '1 days', 'YYYY-MM-DD HH24:MI'), c.time_zone) AS TODATE
+         FROM
+             centers c
+         WHERE
+             id IN ($$scope$$)
+     )
+ SELECT
+     biview.*
+ FROM
+     ( SELECT p.external_id AS "PERSON_ID", (p.center)::character varying(255) AS "HOME_CENTER_ID", (p.id)::character varying(255) AS "HOME_CENTER_PERSON_ID", CASE WHEN ((dup_of.center <> p.center) OR (dup_of.id <> p.id)) THEN dup_of.external_id ELSE NULL::character varying END AS "DUPLICATE_OF_PERSON_ID", salutation.txtvalue AS "TITLE", p.country AS "COUNTRY_ID", p.zipcode AS "POSTAL_CODE", p.city AS "CITY", to_char((p.birthdate)::timestamp with time zone, 'YYYY-MM-DD'::text) AS "DATE_OF_BIRTH", CASE WHEN ((p.sex)::text = 'M'::text) THEN 'MALE'::text WHEN ((p.sex)::text = 'F'::text) THEN 'FEMALE'::text ELSE 'UNKNOWN'::text END AS "GENDER", bi_decode_field('PERSONS'::character varying, 'PERSONTYPE'::character varying, p.persontype) AS "PERSON_TYPE", bi_decode_field('PERSONS'::character varying, 'STATUS'::character varying, p.status) AS "PERSON_STATUS", creationdate.txtvalue AS "CREATION_DATE", CASE WHEN ((payer.sex)::text <> 'C'::text) THEN CASE WHEN ((payer.center <> payer.transfers_current_prs_center) OR (payer.id <> payer.transfers_current_prs_id)) THEN ( SELECT persons.external_id FROM persons WHERE ((persons.center = payer.transfers_current_prs_center) AND (persons.id = payer.transfers_current_prs_id))) ELSE payer.external_id END ELSE NULL::character varying END AS "PAYER_PERSON_ID", CASE WHEN ((payer.sex)::text = 'C'::text) THEN CASE WHEN ((payer.center <> payer.transfers_current_prs_center) OR (payer.id <> payer.transfers_current_prs_id)) THEN ( SELECT persons.external_id FROM persons WHERE ((persons.center = payer.transfers_current_prs_center) AND (persons.id = payer.transfers_current_prs_id))) ELSE payer.external_id END ELSE NULL::character varying END AS "PAYER_COMPANY_ID", company.external_id AS "COMPANY_ID", z.county AS "COUNTY", z.province AS "STATE", upper((channelemail.txtvalue)::text) AS "CAN_EMAIL", upper((channelsms.txtvalue)::text) AS "CAN_SMS", p.center AS "CENTER_ID", p.last_modified AS "ETS", staffexternalid.txtvalue AS "STAFF_EXTERNAL_ID", employeetitle.txtvalue AS "EMPLOYEE_TITLE", CASE WHEN (p.blacklisted = 0) THEN 'NONE'::text WHEN (p.blacklisted = 1) THEN 'BLACKLISTED'::text WHEN (p.blacklisted = 2) THEN 'SUSPENDED'::text WHEN (p.blacklisted = 3) THEN 'BLOCKED'::text ELSE NULL::text END AS "BLACKLISTED" FROM ((((((((((((persons p JOIN persons dup_of ON (((dup_of.center = p.current_person_center) AND (dup_of.id = p.current_person_id)))) LEFT JOIN relatives op_rel ON (((op_rel.relativecenter = p.center) AND (op_rel.relativeid = p.id) AND (op_rel.rtype = 12) AND (op_rel.status < 3)))) LEFT JOIN persons payer ON (((payer.center = op_rel.center) AND (payer.id = op_rel.id)))) LEFT JOIN relatives com_rel ON (((com_rel.relativecenter = p.center) AND (com_rel.relativeid = p.id) AND (com_rel.rtype = 2) AND (com_rel.status < 3)))) LEFT JOIN persons company ON (((company.center = com_rel.center) AND (company.id = com_rel.id)))) LEFT JOIN person_ext_attrs creationdate ON (((creationdate.personcenter = p.center) AND (creationdate.personid = p.id) AND ((creationdate.name)::text = 'CREATION_DATE'::text)))) LEFT JOIN zipcodes z ON ((((z.country)::text = (p.country)::text) AND ((z.zipcode)::text = (p.zipcode)::text) AND ((z.city)::text = (p.city)::text)))) LEFT JOIN person_ext_attrs channelsms ON (((p.center = channelsms.personcenter) AND (p.id = channelsms.personid) AND ((channelsms.name)::text = '_eClub_AllowedChannelSMS'::text)))) LEFT JOIN person_ext_attrs channelemail ON (((p.center = channelemail.personcenter) AND (p.id = channelemail.personid) AND ((channelemail.name)::text = '_eClub_AllowedChannelEmail'::text)))) LEFT JOIN person_ext_attrs salutation ON (((p.center = salutation.personcenter) AND (p.id = salutation.personid) AND ((salutation.name)::text = '_eClub_Salutation'::text)))) LEFT JOIN person_ext_attrs staffexternalid ON (((p.center = staffexternalid.personcenter) AND (p.id = staffexternalid.personid) AND ((staffexternalid.name)::text = '_eClub_StaffExternalId'::text)))) LEFT JOIN person_ext_attrs employeetitle ON (((p.center = employeetitle.personcenter) AND (p.id = employeetitle.personid) AND ((employeetitle.name)::text = '_eClub_EmployeeTitle'::text)))) WHERE (((p.sex)::text <> 'C'::text) AND (p.external_id IS NOT NULL)) ) biview
+ JOIN
+     PARAMS
+ ON
+     params.id = biview."CENTER_ID"
+ WHERE
+     biview."ETS" >= PARAMS.FROMDATE
+ AND biview."ETS" < PARAMS.TODATE

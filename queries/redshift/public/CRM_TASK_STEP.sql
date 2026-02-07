@@ -1,0 +1,13 @@
+SELECT
+    ts.ID          AS "ID",
+    ts.STATUS      AS "STATUS",
+    wf.EXTERNAL_ID AS "WORKFLOW",
+    ts.NAME        AS "NAME",
+    ts.EXTERNAL_ID AS "EXTERNAL_ID",
+    ts.DESCRIPTION AS "DESCRIPTION"    
+FROM
+    TASK_STEPS ts
+LEFT JOIN
+    WORKFLOWS wf
+ON
+    wf.ID = ts.WORKFLOW_ID

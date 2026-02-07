@@ -1,0 +1,3 @@
+select v.ID, v.CENTER, v.NAME, v.EXTERNAL_ID, v.STATE
+from 
+VENDING_MACHINE v

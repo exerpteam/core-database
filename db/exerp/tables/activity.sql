@@ -1,0 +1,62 @@
+CREATE TABLE 
+    activity 
+    ( 
+        id int4 NOT NULL, 
+        top_node_id int4, 
+        scope_type text(2147483647) NOT NULL, 
+        scope_id int4 NOT NULL, 
+        name         text(2147483647), 
+        STATE        text(2147483647) NOT NULL, 
+        availability VARCHAR(2000) DEFAULT 'NULL::character varying', 
+        activity_type int4 NOT NULL, 
+        activity_group_id int4, 
+        colour_group_id int4, 
+        creation_privilege_group_id int4, 
+        duration_list         text(2147483647), 
+        description           text(2147483647), 
+        description_mime_type text(2147483647), 
+        description_mime_document bytea, 
+        max_participants int4, 
+        max_waiting_list_participants int4, 
+        requires_planning bool, 
+        allow_name_override bool, 
+        allow_recurring_bookings bool, 
+        maximum_sub_staff_usages int4, 
+        override_resource_configs bool DEFAULT FALSE NOT NULL, 
+        override_staff_configs bool DEFAULT FALSE NOT NULL, 
+        override_participation_configs bool DEFAULT FALSE NOT NULL, 
+        override_time_config bool DEFAULT FALSE, 
+        time_config_id int4, 
+        sub_staff_usage_interval int4, 
+        energy_consumption_kcal_hour int4, 
+        external_id text(2147483647), 
+        lessons int4, 
+        age_group_id int4, 
+        course_type_id int4, 
+        course_level_id int4, 
+        seat_booking_support_type int4 DEFAULT 0, 
+        headcount_manual_adjustment bool DEFAULT FALSE, 
+        available_from DATE, 
+        available_to   DATE, 
+        course_schedule_type int4, 
+        print_showup_receipt bool, 
+        last_modified int8, 
+        allow_overlapping_bookings bool, 
+        age_restriction_on_bookings bool, 
+        allow_multiple_camps bool, 
+        enable_streaming_id bool, 
+        documentation_setting_id int4, 
+        additional_info VARCHAR(200), 
+        set_up_activity_id int4, 
+        set_up_mandatory bool, 
+        dismantling_activity_id int4, 
+        dismantling_mandatory bool, 
+        PRIMARY KEY (id), 
+        CONSTRAINT activity_to_time_config_fk FOREIGN KEY (time_config_id) REFERENCES 
+        "exerp"."booking_time_configs" ("id") ON 
+UPDATE 
+    NO ACTION 
+ON 
+DELETE 
+    NO ACTION 
+    );

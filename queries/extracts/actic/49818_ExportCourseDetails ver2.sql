@@ -1,0 +1,78 @@
+SELECT 
+	b2.CENTER as BOOKING_CENTER,
+	b2.ID as BOOKING_ID,
+	b2.BOOKING_PROGRAM_ID as PROGRAM_ID,
+	b2.NAME as COURSE_NAME,
+	TO_CHAR(LONGTODATE(b2.STARTTIME),'YYYY-MM-DD') as START_DATE,
+	TO_CHAR(LONGTODATE(b2.STARTTIME),'HH24:MI') as START_TIME,
+	TO_CHAR(LONGTODATE(b2.STOPTIME),'HH24:MI') as END_TIME,
+	b2.DESCRIPTION as DESCRIPTION,
+	COUNT (DISTINCT par.ID) as BOOKED,
+	b2.CLASS_CAPACITY as CAPACITY,
+	mpr.CACHED_PRODUCTPRICE as PRICE_PER_BOOKING,
+	c.name as CENTER_NAME
+			
+
+FROM BOOKINGS b2
+JOIN activity an
+ON
+    b2.activity = an.id
+
+
+JOIN PARTICIPATION_CONFIGURATIONS pc ON
+	pc.ACTIVITY_ID = b2.ACTIVITY
+JOIN BOOKING_PRIVILEGE_GROUPS bpg ON
+	bpg.ID = pc.ACCESS_GROUP_ID
+JOIN BOOKING_PRIVILEGES bp ON
+	bpg.ID = bp.GROUP_ID
+JOIN PRIVILEGE_SETS ps ON
+	ps.id = bp.PRIVILEGE_SET
+	and ps.state = 'ACTIVE'
+join
+PRIVILEGE_GRANTS pg
+on
+ps.id = pg.PRIVILEGE_SET
+and granter_service = 'GlobalCard'
+and pg.VALID_TO is null
+join
+MASTERPRODUCTREGISTER mpr
+on
+mpr.id = pg.GRANTER_ID
+and b2.CENTER = mpr.scope_id 
+and
+mpr.STATE = 'ACTIVE'
+join products pr
+on
+mpr.GLOBALID = pr.globalid
+and
+pr.center = b2.center
+and pr.blocked = 0
+ 	
+
+left JOIN participations par
+on
+par.booking_center = b2.center
+AND par.booking_id = b2.id
+and par.state != 'CANCELLED'
+
+left JOIN CENTERS c ON
+	b2.CENTER = c.ID
+WHERE 
+	b2.CENTER = :centerId
+	AND b2.BOOKING_PROGRAM_ID = :courseId
+	AND b2.STATE = 'ACTIVE'
+GROUP BY
+	b2.ID,
+	b2.CENTER,
+	b2.BOOKING_PROGRAM_ID,
+	mpr.CACHED_PRODUCTPRICE,
+	b2.NAME,
+	b2.STARTTIME,
+	b2.STOPTIME,
+	b2.DESCRIPTION,
+	b2.CLASS_CAPACITY,
+	c.NAME,
+	c.ID
+	
+order by
+b2.STARTTIME

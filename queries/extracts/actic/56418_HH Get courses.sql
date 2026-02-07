@@ -1,0 +1,72 @@
+SELECT
+	per.EXTERNAL_ID AS "EXTERNAL_ID",
+	per.CENTER ||'p'|| per.ID AS "MEMBER_ID",
+	per.FIRSTNAME AS "FIRST_NAME",
+	per.LASTNAME AS "LAST_NAME",
+	bk.NAME AS "CLASS_NAME",
+	TO_CHAR(MIN(longtodate(bk.STARTTIME)),'YYYY-MM-DD HH24:MI') AS "STARTTIME",
+	TO_CHAR(MAX(longtodate(bk.STARTTIME)),'YYYY-MM-DD HH24:MI') AS "ENDTIME",
+	rel_per.FULLNAME,
+	rel_email.TXTVALUE AS "RELATIVE_EMAIL",
+	per_email.TXTVALUE AS "PERSON_EMAIL",
+	rel_per.CENTER ||'p'|| rel_per.ID AS "RELATION_ID",
+	c.ID AS "CENTER_ID",
+	c.NAME AS "CENTER_NAME"
+	
+
+FROM PERSONS per 
+
+JOIN PARTICIPATIONS par ON
+	par.PARTICIPANT_CENTER = per.CENTER
+	AND par.PARTICIPANT_ID = per.ID
+JOIN BOOKINGS bk ON
+	par.BOOKING_CENTER = bk.CENTER
+	AND par.BOOKING_ID = bk.ID
+JOIN ACTIVITY act ON
+	bk.ACTIVITY = act.ID
+JOIN CENTERS c ON
+	par.CENTER = c.ID
+
+FULL JOIN RELATIVES rel ON
+	per.CENTER = rel.CENTER
+	AND per.ID = rel.ID
+	AND rel.RTYPE NOT IN(8, 12)
+	AND rel.STATUS != 3
+FULL JOIN PERSONS rel_per ON
+	rel_per.CENTER = rel.RELATIVECENTER
+	AND rel_per.ID = rel.RELATIVEID
+FULL JOIN PERSON_EXT_ATTRS rel_email ON
+	rel_per.CENTER = rel_email.PERSONCENTER
+	AND rel_per.ID = rel_email.PERSONID
+	AND rel_email.NAME = '_eClub_Email'
+FULL JOIN PERSON_EXT_ATTRS per_email ON
+	per.CENTER = per_email.PERSONCENTER
+	AND per.ID = per_email.PERSONID
+	AND per_email.NAME = '_eClub_Email'
+
+WHERE 
+	par.STATE IN ('BOOKED')
+	AND act.ACTIVITY_TYPE = 9
+	AND bk.CENTER IN (:scope)
+	AND bk.STARTTIME > :fromDate
+GROUP BY 
+	per.EXTERNAL_ID,
+	per.FIRSTNAME,
+	per.LASTNAME,
+	per.CENTER,
+	per.ID,
+	rel_per.FULLNAME,
+	bk.NAME,
+	rel.rtype,
+	rel.status,
+
+	rel_email.TXTVALUE,
+	per_email.TXTVALUE,
+	rel_per.CENTER,
+	rel_per.ID,
+	c.ID,
+	c.NAME
+ORDER BY 
+	bk.NAME,
+	per.FULLNAME,
+	per.EXTERNAL_ID

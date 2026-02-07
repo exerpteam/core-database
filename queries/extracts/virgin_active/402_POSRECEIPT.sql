@@ -1,0 +1,51 @@
+SELECT
+    inv.CENTER || 'inv' || inv.ID "POSRECEIPTID",
+    p.EXTERNAL_ID "PERSONID",
+    inv.CENTER "SITEID",
+    SUM(invl.TOTAL_AMOUNT)- NVL(SUM (cnl.TOTAL_AMOUNT),0) "RECEIPTTOTAL",
+    SUM(NVL(art.UNSETTLED_AMOUNT,0)) "OUTSTANDINGAMOUNT",
+    MAX(
+        CASE
+            WHEN ar.AR_TYPE = 4
+            THEN 1
+            ELSE 0
+        END) AS "ISONACCOUNT",
+    longToDate(inv.TRANS_TIME) "CREATEDDATE",
+    'EXERP' "SOURCESYSTEM",
+    inv.CENTER || 'inv' || inv.ID "EXTREF"
+FROM
+    INVOICES inv
+JOIN INVOICELINES invl
+ON
+    invl.CENTER = inv.CENTER
+    AND invl.ID = inv.ID
+LEFT JOIN CREDIT_NOTE_LINES cnl
+ON
+    cnl.INVOICELINE_CENTER = invl.CENTER
+    AND cnl.INVOICELINE_ID = invl.ID
+    AND cnl.INVOICELINE_SUBID = invl.SUBID
+LEFT JOIN PERSONS op
+ON
+    op.CENTER = inv.PAYER_CENTER
+    AND op.ID = inv.PAYER_ID
+LEFT JOIN PERSONS p
+ON
+    p.CENTER = op.CURRENT_PERSON_CENTER
+    AND p.ID = op.CURRENT_PERSON_ID
+LEFT JOIN AR_TRANS art
+ON
+    art.REF_TYPE = 'INVOICE'
+    AND art.REF_CENTER = inv.CENTER
+    AND art.REF_ID = inv.ID
+LEFT JOIN ACCOUNT_RECEIVABLES ar
+ON
+    ar.CENTER = art.CENTER
+    AND ar.ID = art.ID
+WHERE
+    inv.PAYSESSIONID IS NOT NULL
+GROUP BY
+    p.EXTERNAL_ID ,
+    inv.CENTER ,
+    inv.TRANS_TIME,
+    inv.CENTER,
+    inv.ID

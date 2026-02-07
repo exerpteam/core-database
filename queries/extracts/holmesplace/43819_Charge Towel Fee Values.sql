@@ -1,0 +1,115 @@
+SELECT
+		p.center || 'p' || p.id AS PersonId,
+		p.EXTERNAL_ID,
+     p.FIRSTNAME,
+     p.LASTNAME,
+     c.Shortname        AS "Club",
+     c.Id          AS "Center ID",
+     email.TXTVALUE      AS "email",
+      CASE p.STATUS
+        WHEN 0 THEN 'LEAD'
+        WHEN 1 THEN 'ACTIVE'
+        WHEN 2 THEN 'INACTIVE'
+        WHEN 3 THEN 'TEMPORARY INACTIVE'
+        WHEN 4 THEN 'TRANSFERRED'
+        WHEN 5 THEN 'DUPLICATE'
+        WHEN 6 THEN 'PROSPECT'
+        WHEN 7 THEN 'DELETED'
+        WHEN 8 THEN 'ANONYMIZED'
+        WHEN 9 THEN 'CONTACT'
+        ELSE 'UNKNOWN'
+    END AS "STATUS",
+     
+     CASE p.persontype
+        WHEN 0 THEN 'PRIVATE'
+        WHEN 1 THEN 'STUDENT'
+        WHEN 2 THEN 'STAFF'
+        WHEN 3 THEN 'FRIEND'
+        WHEN 4 THEN 'CORPORATE'
+        WHEN 5 THEN 'ONEMANCORPORATE'
+        WHEN 6 THEN 'FAMILY'
+        WHEN 7 THEN 'SENIOR'
+        WHEN 8 THEN 'GUEST'
+        WHEN 9 THEN 'CHILD'
+        WHEN 10 THEN 'EXTERNAL_STAFF'
+        ELSE 'UNKNOWN'
+    END AS "PERSONTYPE",
+TOWEL.TXTVALUE AS "TOWELAMOUNT",
+TOWELFEE.TXTVALUE AS "TOWEL10",
+TOWELFEE15.TXTVALUE AS "TOWEL15",
+TOWELFEE20.TXTVALUE AS "TOWEL20",
+TOWELFEE30.TXTVALUE AS "TOWEL30",
+TOWELFEE39.TXTVALUE AS "TOWEL3990"
+
+
+
+
+ 
+FROM
+             PERSONS p
+         JOIN
+             CENTERS c
+         ON
+             c.id = p.CENTER
+         
+              
+ LEFT JOIN
+     PERSON_EXT_ATTRS email
+ ON
+     p.center=email.PERSONCENTER
+     AND p.id=email.PERSONID
+     AND email.name='_eClub_Email'
+ LEFT JOIN
+     PERSON_EXT_ATTRS mobile
+ ON
+     p.center=mobile.PERSONCENTER
+     AND p.id=mobile.PERSONID
+     AND mobile.name='_eClub_PhoneSMS'
+ LEFT JOIN
+     PERSON_EXT_ATTRS home
+ ON
+     p.center=home.PERSONCENTER
+     AND p.id=home.PERSONID
+     AND home.name='_eClub_PhoneHome'
+
+LEFT JOIN
+     PERSON_EXT_ATTRS TOWEL
+ ON
+     p.center=TOWEL.PERSONCENTER
+     AND p.id=TOWEL.PERSONID
+     AND TOWEL.name='CHARGETOWDE'
+
+LEFT JOIN
+     PERSON_EXT_ATTRS TOWELFEE
+ ON
+     p.center=TOWELFEE.PERSONCENTER
+     AND p.id=TOWELFEE.PERSONID
+     AND TOWELFEE.name='CHARGETOWFEEDE'
+ LEFT JOIN
+     PERSON_EXT_ATTRS TOWELFEE15
+ ON
+     p.center=TOWELFEE15.PERSONCENTER
+     AND p.id=TOWELFEE15.PERSONID
+     AND TOWELFEE15.name='CHARGETOWFEEDE15'
+ LEFT JOIN
+     PERSON_EXT_ATTRS TOWELFEE20
+ ON
+     p.center=TOWELFEE20.PERSONCENTER
+     AND p.id=TOWELFEE20.PERSONID
+     AND TOWELFEE20.name='CHARGETOWFEEDE20'
+ LEFT JOIN
+     PERSON_EXT_ATTRS TOWELFEE30
+ ON
+     p.center=TOWELFEE30.PERSONCENTER
+     AND p.id=TOWELFEE30.PERSONID
+     AND TOWELFEE30.name='CHARGETOWFEEDE30'
+ LEFT JOIN
+     PERSON_EXT_ATTRS TOWELFEE39
+ ON
+     p.center=TOWELFEE39.PERSONCENTER
+     AND p.id=TOWELFEE39.PERSONID
+     AND TOWELFEE39.name='CHARGETOWFEEDE3090'
+ 
+
+where p.center in(:scope)AND p.status in (:status)
+

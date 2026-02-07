@@ -1,0 +1,1 @@
+select * from sats.persons where sex = 'C'

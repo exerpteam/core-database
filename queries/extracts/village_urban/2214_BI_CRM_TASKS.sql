@@ -1,0 +1,16 @@
+ SELECT
+     biview.*
+ FROM
+     BI_CRM_TASKS biview
+  WHERE
+     biview."ETS" BETWEEN
+    CASE
+        WHEN $$offset$$=-1
+        THEN 0
+        ELSE CAST((CURRENT_DATE-$$offset$$-to_date('1-1-1970','MM-DD-YYYY')) AS BIGINT)*24*3600*1000
+    END
+    AND CAST((CURRENT_DATE+1-to_date('1-1-1970','MM-DD-YYYY'))AS BIGINT)*24*3600*1000    
+ UNION ALL
+ SELECT
+ null AS TASK_ID,null AS STATUS,null AS PERSON_ID,null AS ASSIGNED_PERSON_ID,null AS PROGRESS_GROUP,null AS TASK_STEP,null AS CREATION_DATE,null AS CENTER_ID,null AS FOLLOW_UP_DATE,null AS SOURCE_TYPE,null AS WORKFLOW,null AS ETS
+ 

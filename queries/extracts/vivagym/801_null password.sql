@@ -1,0 +1,1 @@
+select count(*) from persons p where p.password IS NULL

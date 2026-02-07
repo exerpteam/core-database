@@ -1,0 +1,57 @@
+-- This is the version from 2026-02-05
+--  
+SELECT 
+    e.identity,
+    p.center || 'p' || p.ID AS "Exerp ID",
+    CASE 
+        WHEN p.PERSONTYPE = 0 THEN 'PRIVATE'
+        WHEN p.PERSONTYPE = 1 THEN 'STUDENT'
+        WHEN p.PERSONTYPE = 2 THEN 'STAFF'
+        WHEN p.PERSONTYPE = 3 THEN 'FRIEND'
+        WHEN p.PERSONTYPE = 4 THEN 'CORPORATE'
+        WHEN p.PERSONTYPE = 5 THEN 'ONEMANCORPORATE'
+        WHEN p.PERSONTYPE = 6 THEN 'FAMILY'
+        WHEN p.PERSONTYPE = 7 THEN 'SENIOR'
+        WHEN p.PERSONTYPE = 8 THEN 'GUEST'
+        WHEN p.PERSONTYPE = 10 THEN 'EXTERNAL STAFF'
+        ELSE 'UNKNOWN'
+    END AS PERSONTYPE,
+    CASE 
+        WHEN p.STATUS = 0 THEN 'LEAD'
+        WHEN p.STATUS = 1 THEN 'ACTIVE'
+        WHEN p.STATUS = 2 THEN 'INACTIVE'
+        WHEN p.STATUS = 3 THEN 'TEMPORARYINACTIVE'
+        WHEN p.STATUS = 4 THEN 'TRANSFERRED'
+        WHEN p.STATUS = 5 THEN 'DUPLICATE'
+        WHEN p.STATUS = 6 THEN 'PROSPECT'
+        WHEN p.STATUS = 7 THEN 'DELETED'
+        WHEN p.STATUS = 8 THEN 'ANONYMIZED'
+        WHEN p.STATUS = 9 THEN 'CONTACT'
+        ELSE 'Undefined'
+    END AS MEDLEMSSTATUS,
+    CASE 
+        WHEN e.ENTITYSTATUS = 1 THEN 'OK'
+        WHEN e.ENTITYSTATUS = 2 THEN 'STOLEN'
+        WHEN e.ENTITYSTATUS = 3 THEN 'MISSING'
+        WHEN e.ENTITYSTATUS = 4 THEN 'BLOCKED'
+        WHEN e.ENTITYSTATUS = 5 THEN 'BROKEN'
+        WHEN e.ENTITYSTATUS = 6 THEN 'RETURNED'
+        WHEN e.ENTITYSTATUS = 7 THEN 'EXPIRED'
+        WHEN e.ENTITYSTATUS = 8 THEN 'DELETED'
+        WHEN e.ENTITYSTATUS = 9 THEN 'COMPROMISED'
+        WHEN e.ENTITYSTATUS = 10 THEN 'FORGOTTEN'
+        WHEN e.ENTITYSTATUS = 11 THEN 'BANNED'
+        ELSE 'UNKNOWN'
+    END AS "KORT_STATUS",
+    TO_CHAR(longtodateC(e.START_TIME, e.REF_CENTER), 'YYYY-MM-DD') AS Startdate,
+    TO_CHAR(longtodateC(e.STOP_TIME, e.REF_CENTER), 'YYYY-MM-DD') AS Stopdate
+FROM
+    entityidentifiers e
+LEFT JOIN
+    persons p
+ON 
+    p.center = e.ref_center AND p.ID = e.ref_ID
+WHERE
+    e.ENTITYSTATUS = 1
+    -- AND p.status IN (1, 3)
+    AND e.identity IN (:Kortnummer)

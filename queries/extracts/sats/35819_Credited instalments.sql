@@ -1,0 +1,38 @@
+SELECT
+ar.CUSTOMERCENTER||'p'||ar.CUSTOMERID,
+cl.NAME,
+exerpro.longtodate(art.TRANS_TIME),
+art.AMOUNT
+FROM
+sats.AR_TRANS art
+JOIN
+sats.ACCOUNT_RECEIVABLES ar
+ON
+ar.CENTER = art.CENTER
+AND ar.id = art.id
+AND ar.AR_TYPE = 5
+JOIN
+SATS.ACCOUNT_RECEIVABLES ar2
+ON
+ar2.CUSTOMERCENTER = ar.CUSTOMERCENTER
+AND ar2.CUSTOMERID = ar.CUSTOMERID
+AND ar2.AR_TYPE = 4
+JOIN
+SATS.PAYMENT_ACCOUNTS pac
+ON
+pac.center = ar2.center
+AND pac.id = ar2.id
+JOIN
+SATS.PAYMENT_AGREEMENTS pa
+ON
+pa.center = pac.ACTIVE_AGR_CENTER
+AND pa.id = pac.ACTIVE_AGR_ID
+AND pa.SUBID = pac.ACTIVE_AGR_SUBID
+JOIN
+
+SATS.CLEARINGHOUSES cl
+ON
+cl.id = pa.CLEARINGHOUSE
+WHERE
+art.REF_TYPE = 'CREDIT_NOTE'
+AND art.TRANS_TIME > exerpro.dateToLong(to_char(exerpsysdate() - 26, 'YYYY-MM-dd HH24:MI'))

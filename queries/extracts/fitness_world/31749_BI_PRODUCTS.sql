@@ -1,0 +1,212 @@
+-- This is the version from 2026-02-05
+--  
+WITH
+    params AS Materialized
+    (
+        SELECT
+            CASE
+                WHEN $$offset$$ = -1
+                THEN 0
+                ELSE CAST(datetolong(TO_CHAR(CURRENT_DATE - interval '1 day'*$$offset$$, 'yyyy-MM-dd HH24:MI')) AS BIGINT) END AS FROMDATE,
+            CAST(datetolong(TO_CHAR(CURRENT_DATE + interval '1 day', 'yyyy-MM-dd HH24:MI')) AS BIGINT) AS TODATE
+    )
+SELECT
+    p.CENTER || 'prod' || p.ID                         "PRODUCT_ID",
+    CAST ( p.CENTER AS VARCHAR(255))                   "PRODUCT_CENTER",
+    CAST ( mp.ID AS VARCHAR(255))                      "MASTER_PRODUCT_ID",
+    CAST ( p.PRIMARY_PRODUCT_GROUP_ID AS VARCHAR(255)) "PRODUCT_GROUP_ID",
+    p.NAME                                      AS                                          "NAME",
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS                                          "PRODUCT_TYPE",
+    p.EXTERNAL_ID                               AS                                          "EXTERNAL_ID",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "SALES_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.MIN_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "MINIMUM_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.COST_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS  "COST_PRICE",
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS "BLOCKED",
+    REPLACE(TO_CHAR(p.SALES_COMMISSION,'FM999G999G999G999G999'),',','.') AS "SALES_COMMISSION",
+    REPLACE(TO_CHAR(p.SALES_UNITS,'FM999G999G999G999G999'),',','.') AS "SALES_UNITS",
+    REPLACE(TO_CHAR(p.PERIOD_COMMISSION,'FM999G999G999G999G999'),',','.') AS "PERIOD_COMMISSION",
+    CASE
+        WHEN MAX(pg.EXCLUDE_FROM_MEMBER_COUNT) =0
+            AND p.PTYPE = 10
+        THEN 'TRUE'
+        ELSE 'FALSE'
+    END      AS     "INCLUDED_MEMBER_COUNT",
+    p.center AS     "CENTER_ID",
+    REPLACE(TO_CHAR(p.LAST_MODIFIED,'FM999G999G999G999G999'),',','.') AS "ETS"
+FROM
+    PARAMS, PRODUCTS p
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND p.GLOBALID = mp.GLOBALID
+JOIN
+    PRODUCT_AND_PRODUCT_GROUP_LINK ppgl
+ON
+    ppgl.PRODUCT_CENTER = p.center
+    AND ppgl.PRODUCT_ID = p.id
+JOIN
+    PRODUCT_GROUP pg
+ON
+    pg.ID = ppgl.PRODUCT_GROUP_ID
+WHERE
+    p.PTYPE NOT IN (5,7,12)
+    AND p.LAST_MODIFIED BETWEEN PARAMS.FROMDATE AND PARAMS.TODATE
+GROUP BY
+    p.CENTER || 'prod' || p.ID ,
+    p.CENTER ,
+    mp.id ,
+    p.PRIMARY_PRODUCT_GROUP_ID ,
+    p.NAME ,
+    p.PTYPE,
+    p.EXTERNAL_ID ,
+    p.PRICE ,
+    p.MIN_PRICE ,
+    p.COST_PRICE ,
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END ,
+    p.SALES_COMMISSION ,
+    p.SALES_UNITS ,
+    p.PERIOD_COMMISSION ,
+    p.LAST_MODIFIED
+UNION ALL
+SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    CAST ( p.CENTER AS VARCHAR(255))                   "PRODUCT_CENTER",
+    CAST ( mp.ID AS VARCHAR(255))                      "MASTER_PRODUCT_ID",
+    CAST ( p.PRIMARY_PRODUCT_GROUP_ID AS VARCHAR(255)) "PRODUCT_GROUP_ID",
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    spr.EXTERNAL_ID,
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "SALES_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.MIN_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "MINIMUM_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.COST_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS  "COST_PRICE",
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    REPLACE(TO_CHAR(p.SALES_COMMISSION,'FM999G999G999G999G999'),',','.') AS "SALES_COMMISSION",
+    REPLACE(TO_CHAR(p.SALES_UNITS,'FM999G999G999G999G999'),',','.') AS "SALES_UNITS",
+    REPLACE(TO_CHAR(p.PERIOD_COMMISSION,'FM999G999G999G999G999'),',','.') AS "PERIOD_COMMISSION",
+    'FALSE'             AS "INCLUDED_MEMBER_COUNT",
+    p.center            AS "CENTER_ID",
+    REPLACE(TO_CHAR(p.LAST_MODIFIED,'FM999G999G999G999G999'),',','.') AS "ETS"
+FROM
+    PARAMS, PRODUCTS p
+JOIN
+    subscriptiontypes st
+ON
+    st.PRODUCTNEW_CENTER = p.center
+    AND st.PRODUCTNEW_ID = p.id
+JOIN
+    products spr
+ON
+    spr.center = st.center
+    AND spr.id = st.id
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND spr.GLOBALID = mp.GLOBALID
+WHERE
+    p.PTYPE = 5
+    AND p.LAST_MODIFIED BETWEEN PARAMS.FROMDATE AND PARAMS.TODATE
+UNION ALL
+SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    CAST ( p.CENTER AS VARCHAR(255))                   "PRODUCT_CENTER",
+    CAST ( mp.ID AS VARCHAR(255))                      "MASTER_PRODUCT_ID",
+    CAST ( p.PRIMARY_PRODUCT_GROUP_ID AS VARCHAR(255)) "PRODUCT_GROUP_ID",
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    spr.EXTERNAL_ID,
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "SALES_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.MIN_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "MINIMUM_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.COST_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS  "COST_PRICE",
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    REPLACE(TO_CHAR(p.SALES_COMMISSION,'FM999G999G999G999G999'),',','.') AS "SALES_COMMISSION",
+    REPLACE(TO_CHAR(p.SALES_UNITS,'FM999G999G999G999G999'),',','.') AS "SALES_UNITS",
+    REPLACE(TO_CHAR(p.PERIOD_COMMISSION,'FM999G999G999G999G999'),',','.') AS "PERIOD_COMMISSION",
+    'FALSE'             AS "INCLUDED_MEMBER_COUNT",
+    p.center            AS "CENTER_ID",
+    REPLACE(TO_CHAR(p.LAST_MODIFIED,'FM999G999G999G999G999'),',','.') AS "ETS"
+FROM
+    PARAMS, PRODUCTS p
+JOIN
+    subscriptiontypes st
+ON
+    st.FREEZEPERIODPRODUCT_CENTER = p.center
+    AND st.FREEZEPERIODPRODUCT_ID = p.id
+JOIN
+    products spr
+ON
+    spr.center = st.center
+    AND spr.id = st.id
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND spr.GLOBALID = mp.GLOBALID
+WHERE
+    p.PTYPE = 7
+    AND p.LAST_MODIFIED BETWEEN PARAMS.FROMDATE AND PARAMS.TODATE
+UNION ALL
+SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    CAST ( p.CENTER AS VARCHAR(255))                   "PRODUCT_CENTER",
+    CAST ( mp.ID AS VARCHAR(255))                      "MASTER_PRODUCT_ID",
+    CAST ( p.PRIMARY_PRODUCT_GROUP_ID AS VARCHAR(255)) "PRODUCT_GROUP_ID",
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    spr.EXTERNAL_ID,
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "SALES_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.MIN_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS "MINIMUM_PRICE",
+    REPLACE(REPLACE(REPLACE(TO_CHAR(p.COST_PRICE, 'FM999G999G999G999G990D00'), '.', '|'), ',', '.'),'|',',') AS  "COST_PRICE",
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    REPLACE(TO_CHAR(p.SALES_COMMISSION,'FM999G999G999G999G999'),',','.') AS "SALES_COMMISSION",
+    REPLACE(TO_CHAR(p.SALES_UNITS,'FM999G999G999G999G999'),',','.') AS "SALES_UNITS",
+    REPLACE(TO_CHAR(p.PERIOD_COMMISSION,'FM999G999G999G999G999'),',','.') AS "PERIOD_COMMISSION",
+    'FALSE'             AS "INCLUDED_MEMBER_COUNT",
+    p.center            AS "CENTER_ID",
+    REPLACE(TO_CHAR(p.LAST_MODIFIED,'FM999G999G999G999G999'),',','.') AS "ETS"
+FROM
+    PARAMS, PRODUCTS p
+JOIN
+    subscriptiontypes st
+ON
+    st.prorataproduct_center = p.center
+    AND st.prorataproduct_id = p.id
+JOIN
+    products spr
+ON
+    spr.center = st.center
+    AND spr.id = st.id
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND spr.GLOBALID = mp.GLOBALID
+WHERE
+    p.PTYPE = 12
+AND p.LAST_MODIFIED BETWEEN PARAMS.FROMDATE AND PARAMS.TODATE

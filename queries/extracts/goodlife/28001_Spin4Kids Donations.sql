@@ -1,0 +1,7 @@
+--Extract Requirements: Sales Report for all 'DONATE SPIN4KIDS' Products, Date Parameters
+--Name of donor
+--Address
+--Email
+--Amount donated
+--Club name/number
+--Date of donation

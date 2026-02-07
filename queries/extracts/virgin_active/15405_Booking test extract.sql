@@ -1,0 +1,23 @@
+SELECT
+    longToDate(par.CREATION_TIME) "CREATED",
+    act.NAME CLASS,
+    par.PARTICIPATION_NUMBER,
+    longToDate(par.START_TIME) "START",
+    longToDate(par.STOP_TIME) STOP,
+    longToDate(par.SHOWUP_TIME) SHOWUP,
+    par.SHOWUP_INTERFACE_TYPE,
+    par.ON_WAITING_LIST,
+    par.STATE,
+    par.CANCELATION_REASON,
+    par.CANCELATION_INTERFACE_TYPE,
+    par.CANCELATION_NOTIFIED,
+    par.SHOWUP_USING_CARD,
+    par.SEAT_ID,
+    par.SEAT_STATE
+FROM
+    PARTICIPATIONS par
+join BOOKINGS book on book.CENTER = par.BOOKING_CENTER and book.ID = par.BOOKING_ID
+join ACTIVITY act on act.ID = book.ACTIVITY
+WHERE
+    (
+        par.PARTICIPANT_CENTER,par.PARTICIPANT_ID) in  ($$PID$$)

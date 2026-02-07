@@ -1,0 +1,1 @@
+SELECT * FROM payment_agreements pa WHERE pa.ref LIKE 'ES010100000598460009'

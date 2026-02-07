@@ -1,0 +1,27 @@
+SELECT 
+	p.CENTER || 'p' || p.ID, 
+	c.NAME,
+	p.FULLNAME, 
+	pe.NAME, 
+	pe.TXTVALUE,
+	DECODE(p.STATUS, 1,'ACTIVE',3,'TEMP INACTIVE') 
+FROM PERSONS p
+JOIN PERSON_EXT_ATTRS pe ON
+	p.CENTER = pe.PERSONCENTER
+	AND p.ID = pe.PERSONID
+	AND pe.NAME = '_eClub_Email'
+JOIN CENTERS c ON 
+	c.id = p.CENTER
+WHERE
+	(p.CENTER, p.ID) NOT IN (
+        SELECT
+            pea.PERSONCENTER,
+			pea.PERSONID
+        FROM PERSON_EXT_ATTRS pea
+		WHERE
+			pea.NAME = 'TWIIKID'		
+			AND pea.PERSONCENTER IN (:scope)	     
+    )
+AND
+	c.ID IN (:scope)
+	AND p.STATUS IN (1,3)

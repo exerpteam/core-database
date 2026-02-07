@@ -1,0 +1,21 @@
+-- This is the version from 2026-02-05
+--  
+SELECT
+    center,
+    id,
+    p.PERSONTYPE,
+	p.center ||'p'|| p.id      AS "Member ID",
+    CASE  STATUS  WHEN 0 THEN 'LEAD'  WHEN 1 THEN 'ACTIVE'  WHEN 2 THEN 'INACTIVE'  WHEN 3 THEN 'TEMPORARYINACTIVE'  WHEN 4 THEN 'TRANSFERED'  WHEN 5 THEN 'DUPLICATE'  WHEN 6 THEN 'PROSPECT'  WHEN 7 THEN 'DELETED' ELSE 'UNKNOWN' END AS STATUS,
+    p.FIRSTNAME,
+    p.LASTNAME,
+    p.ADDRESS1,
+    p.ZIPCODE,
+    p.CITY, ssn
+FROM
+    PERSONS p
+WHERE
+    ssn IS NULL
+    AND p.STATUS NOT IN (4,5,7)
+--AND p.FIRSTNAME IS NOT NULL
+--AND p.LASTNAME IS NOT NULL
+and center in (:scope)

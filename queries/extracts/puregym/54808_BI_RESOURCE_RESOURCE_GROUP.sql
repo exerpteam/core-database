@@ -1,0 +1,4 @@
+SELECT
+    biview.*
+FROM
+   BI_RESOURCE_RESOURCE_GROUP  biview

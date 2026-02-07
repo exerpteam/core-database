@@ -1,0 +1,47 @@
+/**
+* List all employees on CompanyAgreements.
+*
+* Creator: Henrik Håkanson
+* Created: 2025-02-24
+*/
+
+SELECT 
+	p.CENTER||'p'||p.ID AS "MEMBERID",
+	p.FULLNAME AS "MEMBERNAME",
+	CASE p.STATUS
+    	WHEN 0 THEN 'LEAD'
+    	WHEN 1 THEN 'ACTIVE'
+    	WHEN 2 THEN 'INACTIVE'
+    	WHEN 3 THEN 'TEMPORARYINACTIVE'
+    	WHEN 4 THEN 'TRANSFERED'
+    	WHEN 5 THEN 'DUPLICATE'
+    	WHEN 6 THEN 'PROSPECT'
+    	WHEN 7 THEN 'DELETED'
+    ELSE 'UNKNOWN'
+	END AS "PERSONSTATUS",
+	c.NAME AS "HOMECENTER",
+	company.CENTER||'p'||company.ID AS "COMPANYID",
+	company.FULLNAME AS "COMPANYNAME",
+	ca.NAME AS "COMPANYAGREEMENT"
+	
+FROM 
+PERSONS company
+JOIN COMPANYAGREEMENTS ca 
+	ON ca.CENTER = company.CENTER
+	AND ca.ID = company.ID
+JOIN RELATIVES rel
+	ON rel.RELATIVECENTER = ca.CENTER
+	AND rel.RELATIVEID = ca.ID
+	AND rel.RELATIVESUBID = ca.SUBID
+	AND rel.RTYPE = 3
+JOIN PERSONS p
+	ON rel.CENTER = p.CENTER
+	AND rel.ID = p.ID
+	AND rel.STATUS = 1
+JOIN CENTERS c 
+	ON c.ID = p.CENTER
+	
+WHERE 
+	ca.STATE = 1
+	AND company.SEX = 'C'
+	AND company.CENTER IN (:scope)

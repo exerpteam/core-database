@@ -1,0 +1,4 @@
+SELECT a.SCOPE_ID Gym_ID, a.name Activity, a.DURATION_LIST Class_Duration, a.DESCRIPTION Description
+FROM PUREGYM.ACTIVITY a
+join PUREGYM.PARTICIPATION_CONFIGURATIONS pa on a.ID=pa.ACTIVITY_ID and pa.NAME='Class'
+where pa.ACCESS_GROUP_ID is null and a.STATE='ACTIVE'

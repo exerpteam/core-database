@@ -1,0 +1,38 @@
+SELECT
+    ar.CUSTOMERCENTER ||'p' || ar.CUSTOMERID personid,
+    pa.STATE agrState,
+    pr.REQ_AMOUNT,
+    sub.SUBSCRIPTION_PRICE,
+    ar.BALANCE accountBalance
+FROM
+    PAYMENT_REQUESTS pr
+JOIN PAYMENT_REQUEST_SPECIFICATIONS prs
+ON
+    pr.INV_COLL_CENTER = prs.CENTER
+    AND pr.INV_COLL_ID = prs.ID
+    AND pr.INV_COLL_SUBID = prs.SUBID
+JOIN ACCOUNT_RECEIVABLES ar
+ON
+    pr.center = ar.center
+    AND pr.id = ar.id
+JOIN PAYMENT_ACCOUNTS pm
+ON
+    pm.center = ar.center
+    AND pm.id = ar.id
+LEFT JOIN PAYMENT_AGREEMENTS pa
+ON
+    pm.ACTIVE_AGR_CENTER = pa.center
+    AND pm.ACTIVE_AGR_ID = pa.id
+    AND pm.ACTIVE_AGR_SUBID = pa.subid
+LEFT JOIN SUBSCRIPTIONS sub
+ON
+    ar.CUSTOMERCENTER = sub.OWNER_CENTER
+    AND ar.CUSTOMERID = sub.OWNER_ID
+    AND sub.STATE IN (2,4)
+WHERE
+    pr.CLEARINGHOUSE_ID IN (201,401)
+    AND pr.REQ_DATE = TO_DATE('2010-01-28','YYYY-MM-DD')
+    AND sub.SUBSCRIPTION_PRICE <> pr.REQ_AMOUNT
+    AND sub.START_DATE < TO_DATE('2010-01-14','YYYY-MM-DD') 
+    AND sub.START_DATE > TO_DATE('2009-12-16','YYYY-MM-DD') 
+    AND pr.center in (:scope)

@@ -1,0 +1,58 @@
+SELECT
+    cen.NAME CLUB,
+	per.center,
+    per.center || 'p' || per.id personid,
+	per.birthdate,
+    DECODE (per.PERSONTYPE, 0,'PRIVATE', 1,'STUDENT', 2,'STAFF', 3,'FRIEND', 4,'CORPORATE', 5,'ONEMANCORPORATE', 6,'FAMILY', 7,'SENIOR', 8,'GUEST','UNKNOWN') PERSONTYPE, 
+    DECODE (per.STATUS, 0,'LEAD', 1,'ACTIVE', 2,'INACTIVE', 3,'TEMPORARYINACTIVE', 4,'TRANSFERED', 5,'DUPLICATE', 6,'PROSPECT', 7,'DELETED','UNKNOWN') PERSONSTATUS,
+    per.FIRSTNAME,
+    per.LASTNAME,
+    per.CITY,
+	sub.END_DATE AS Sub_ENDDATE,
+    DECODE (sub.STATE, 2,'ACTIVE', 3,'ENDED', 4,'FROZEN', 7,'WINDOW', 8,'CREATED','UNKNOWN') subscription_STATE,
+    DECODE (sub.SUB_STATE, 1,'NONE', 2,'AWAITING_ACTIVATION', 3,'UPGRADED', 4,'DOWNGRADED', 5,'EXTENDED', 6, 'TRANSFERRED',7,'REGRETTED',8,'CANCELLED',9,'BLOCKED','UNKNOWN')  SUBSCRIPTION_SUB_STATE,
+	pcl.NEW_VALUE AS NewPersonId,
+	TO_CHAR(longtodate(pcl.ENTRY_TIME), 'YYYY-MM-DD') AS TransferDate,
+	DECODE (newper.STATUS, 0,'LEAD', 1,'ACTIVE', 2,'INACTIVE', 3,'TEMPORARYINACTIVE', 4,'TRANSFERED', 5,'DUPLICATE', 6,'PROSPECT', 7,'DELETED','UNKNOWN') NewPersonStatus,
+--    DECODE(subType.ST_TYPE, 0, 'KONTANT', 1, 'AUTOGIRO') currenttype,
+	TO_CHAR(TRUNC(exerpsysdate()), 'YYYY-MM-DD') todays_date
+FROM
+    PERSONS per
+
+LEFT JOIN PERSON_CHANGE_LOGS pcl
+ON
+	per.CENTER = pcl.PERSON_CENTER
+	AND per.ID = pcl.PERSON_ID
+	AND pcl.CHANGE_ATTRIBUTE = '_eClub_TransferredToId'
+	AND pcl.ENTRY_TIME BETWEEN :From_date AND :To_date --longdate
+LEFT JOIN
+	(
+		SELECT
+			per2.CENTER || 'p' || per2.ID AS pid,
+			per2.STATUS
+		FROM
+			PERSONS per2
+	) newper
+ON
+	pcl.NEW_VALUE = newper.pid
+
+JOIN centers cen
+ON
+    cen.ID = per.CENTER
+LEFT JOIN SUBSCRIPTIONS sub
+ON
+	sub.OWNER_CENTER = per.CENTER
+	AND sub.OWNER_ID = per.ID
+/*
+LEFT JOIN SUBSCRIPTIONTYPES subType
+ON
+    subType.CENTER = sub.SUBSCRIPTIONTYPE_CENTER
+    AND subType.ID = sub.SUBSCRIPTIONTYPE_ID
+*/
+WHERE
+	per.CENTER IN (:ChosenScope) --scope
+	AND sub.END_DATE BETWEEN :From_enddate AND :To_enddate --date
+	AND sub.SUB_STATE IN (6)
+
+				
+ORDER BY sub.END_DATE

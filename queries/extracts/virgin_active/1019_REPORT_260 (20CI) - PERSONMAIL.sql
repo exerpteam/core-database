@@ -1,0 +1,29 @@
+SELECT
+    p.EXTERNAL_ID "PERSONEMAILID",
+    p.EXTERNAL_ID "PERSONID",
+    'HOME' "EMAILTYPE",
+    atts.TXTVALUE "EMAILADDRESS",
+    longToDateC(MAX(pcl.ENTRY_TIME),p.center) "LASTSEENDATE"
+FROM
+    PERSON_EXT_ATTRS atts
+JOIN PERSONS pOld
+ON
+    pOld.CENTER = atts.PERSONCENTER
+    AND pOld.ID = atts.PERSONID
+JOIN PERSONS p
+ON
+    p.CENTER = pOld.CURRENT_PERSON_CENTER
+    AND p.ID = pOld.CURRENT_PERSON_ID
+LEFT JOIN PERSON_CHANGE_LOGS pcl
+ON
+    pcl.PERSON_CENTER = p.CENTER
+    AND pcl.PERSON_ID = p.ID
+    AND pcl.CHANGE_ATTRIBUTE = 'E_MAIL'
+WHERE
+    atts.NAME = '_eClub_Email'
+	and p.SEX != 'C'
+	and p.center IN (select c.ID from CENTERS c where  c.COUNTRY = 'GB')
+GROUP BY
+	p.center,
+    p.EXTERNAL_ID ,
+    atts.TXTVALUE

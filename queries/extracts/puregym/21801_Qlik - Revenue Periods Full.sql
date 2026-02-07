@@ -1,0 +1,40 @@
+SELECT
+    sppl.INVOICELINE_CENTER || 'inv' || sppl.INVOICELINE_ID || 'ln' || sppl.INVOICELINE_SUBID SALES_LINE_ID,
+    TO_CHAR(spp.FROM_DATE,'yyyy-MM-dd')                                                       FROM_DATE,
+    TO_CHAR(spp.TO_DATE,'yyyy-MM-dd')                                                         TO_DATE,
+    ROUND(il.TOTAL_AMOUNT, 2)                                                                 TOTAL_AMOUNT,
+    il.RATE                                                                                   VAT_RATE,
+    spp.TO_DATE-spp.FROM_DATE +1                                                              PERIOD_DAYS,
+    'SUBSCRIPTION_PERIOD'                                                                     SOURCE_TYPE,
+    spp.center||'ss'||spp.id||'id'||spp.SUBID                                                 SOURCE_ID,
+    DECODE (spp.SPP_STATE, 1,'ACTIVE', 2,'CANCELLED','UNKNOWN')                               STATE,
+    longtodate(inv.TRANS_TIME)                                                                AS BOOK_DATE
+FROM
+    SUBSCRIPTIONPERIODPARTS spp
+JOIN
+    SUBSCRIPTIONS s
+ON
+    s.center = spp.CENTER
+    AND s.id = spp.id
+JOIN
+    SPP_INVOICELINES_LINK sppl
+ON
+    sppl.PERIOD_CENTER = spp.CENTER
+    AND sppl.PERIOD_ID = spp.id
+    AND sppl.PERIOD_SUBID = spp.SUBID
+JOIN
+    PERSONS p
+ON
+    p.center = s.OWNER_CENTER
+    AND p.id = s.OWNER_ID
+JOIN
+    PERSONS cp
+ON
+    cp.center = p.CURRENT_PERSON_CENTER
+    AND cp.id = p.CURRENT_PERSON_ID
+JOIN
+    PUREGYM.INVOICELINES il
+ON
+    il.center = sppl.INVOICELINE_CENTER
+    AND il.ID = sppl.INVOICELINE_ID
+    AND il.SUBID =sppl.INVOICELINE_SUBID

@@ -1,0 +1,1 @@
+select * from persons where center = 100

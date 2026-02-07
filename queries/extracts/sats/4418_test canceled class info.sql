@@ -1,0 +1,17 @@
+select
+pa.PARTICIPANT_CENTER,
+pa.PARTICIPANT_ID,
+pa.PARTICIPATION_NUMBER,
+to_char(eclub2.longtodate(pa.START_TIME), 'YYYY-MM-DD HH24:MI') as START_TIME,
+to_char(eclub2.longtodate(pa.STOP_TIME), 'YYYY-MM-DD HH24:MI') as STOP_TIME,
+pa.BOOKING_CENTER,
+pa.BOOKING_ID,
+pa.STATE,
+pa.CANCELATION_REASON
+from ECLUB2.PARTICIPATIONS pa,  eclub2.bookings bk
+where 
+bk.center = pa.BOOKING_CENTER and
+bk.id=pa.BOOKING_ID and
+
+pa.PARTICIPANT_CENTER =533 and
+pa.PARTICIPANT_ID=4289

@@ -1,0 +1,3 @@
+Select *
+from BI_SUBSCRIPTION_PRICE
+where id=19052659

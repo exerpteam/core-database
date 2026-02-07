@@ -1,0 +1,1 @@
+SELECT * FROM questionnaire_campaigns

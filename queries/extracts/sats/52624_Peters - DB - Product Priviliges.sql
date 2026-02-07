@@ -1,0 +1,2 @@
+select * from PRODUCT_PRIVILEGES  WHERE ROWNUM <=100 
+-- and 

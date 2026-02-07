@@ -1,0 +1,6 @@
+SELECT
+    ID      "ID",
+    NAME                      AS "NAME",
+    COUNTRIES.DEFAULTTIMEZONE AS "TIMEZONE"
+FROM
+    COUNTRIES

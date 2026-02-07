@@ -1,0 +1,35 @@
+/**
+* Creator: Martin Blomgren
+* Purpose: Count active or frozen memberships by country.
+*
+*/
+SELECT
+	COUNT(CASE WHEN cen.COUNTRY LIKE 'SE' THEN sub.ID END) AS Sweden,
+	COUNT(CASE WHEN cen.COUNTRY LIKE 'NO' THEN sub.ID END) AS Norway,
+	COUNT(CASE WHEN cen.COUNTRY LIKE 'FI' THEN sub.ID END) AS Finland,
+	COUNT(CASE WHEN cen.COUNTRY LIKE 'DE' THEN sub.ID END) AS Germany
+	
+	
+FROM
+	SUBSCRIPTIONS sub
+LEFT JOIN SUBSCRIPTIONTYPES st
+ON
+    st.CENTER = sub.SUBSCRIPTIONTYPE_CENTER
+    AND st.ID = sub.SUBSCRIPTIONTYPE_ID
+LEFT JOIN PRODUCTS prod
+ON
+    st.CENTER = prod.CENTER
+    AND st.ID = prod.ID
+LEFT JOIN PERSONS per
+ON
+	sub.OWNER_CENTER = per.CENTER
+	AND sub.OWNER_ID = per.ID
+LEFT JOIN CENTERS cen
+ON
+	sub.CENTER = cen.ID
+
+WHERE
+	sub.CENTER IN (:ChosenScope)
+	AND sub.STATE IN (2, 4)
+	AND prod.PRIMARY_PRODUCT_GROUP_ID IN (7, 8, 9, 10, 11, 12, 218, 219, 221, 220)
+	AND per.PERSONTYPE != 2

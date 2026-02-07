@@ -1,0 +1,19 @@
+ SELECT
+     mpr.CACHED_PRODUCTNAME,
+     COALESCE(c.NAME,a.NAME) AS "Scope Name",
+     mpr.STATE
+ FROM
+     MASTERPRODUCTREGISTER mpr
+ LEFT JOIN
+     AREAS a
+ ON
+     mpr.SCOPE_TYPE = 'A'
+     AND mpr.SCOPE_ID = a.id
+ LEFT JOIN
+     CENTERS c
+ ON
+     c.id = mpr.SCOPE_ID
+     AND mpr.SCOPE_TYPE = 'C'
+ WHERE
+     mpr.USE_CONTRACT_TEMPLATE = 1
+     AND mpr.CONTRACT_TEMPLATE_ID IS NULL

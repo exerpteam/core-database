@@ -1,0 +1,12 @@
+SELECT
+    *
+FROM
+    MESSAGES ms
+JOIN
+    SUBSCRIPTION_PRICE sp
+ON
+    'sp' || sp.ID = ms.REFERENCE
+WHERE
+    ms.CENTER = 401
+    AND ms.MESSAGE_TYPE_ID = 12
+    AND sp.TYPE <> 'SCHEDULED'

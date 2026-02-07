@@ -1,0 +1,264 @@
+WITH
+    PARAMS AS
+    (
+        SELECT
+                /*+ materialize */
+				TO_CHAR(TRUNC(ADD_MONTHS(LAST_DAY(to_date(getcentertime(100), 'YYYY-MM-DD HH24:MI'))+1,-2)),'YYYY-MM-DD') AS periodFrom,
+				TO_CHAR(TRUNC(ADD_MONTHS(LAST_DAY(to_date(getcentertime(100), 'YYYY-MM-DD HH24:MI')),-1)),'YYYY-MM-DD') AS periodTo,
+				datetolongTZ(TO_CHAR(TRUNC(ADD_MONTHS(LAST_DAY(to_date(getcentertime(100), 'YYYY-MM-DD HH24:MI'))+1,-2)), 'YYYY-MM-DD HH24:MI'),'Europe/Stockholm') AS periodFromLong,
+				datetolongTZ(TO_CHAR(TRUNC(ADD_MONTHS(LAST_DAY(to_date(getcentertime(100), 'YYYY-MM-DD HH24:MI'))+1,-1)), 'YYYY-MM-DD HH24:MI'),'Europe/Stockholm') AS periodToLong,
+				getcentertime(100) AS todaysDate
+		FROM DUAL
+    )
+
+SELECT
+	INV0.CENTER AS SALES_CENTER
+	,TO_CHAR(longtodate(INV0.ENTRY_TIME), 'YYYY-MM-DD HH24:MI') AS SALES_DATE
+	, CASE
+		WHEN IL.PERSON_CENTER IS NOT NULL
+			THEN IL.PERSON_CENTER || 'p' || IL.PERSON_ID
+		ELSE NULL
+	END AS MEDLEMS_NUMMER
+	, CASE
+		WHEN IL.PERSON_CENTER IS NOT NULL
+			THEN DECODE ( PER.PERSONTYPE, 0,'PRIVATE', 1,'STUDENT', 2,'STAFF', 3,'FRIEND', 4, 'CORPORATE', 5, 'ONEMANCORPORATE', 6, 'FAMILY', 7,'SENIOR', 8,'GUEST','UNKNOWN')
+		ELSE NULL
+	END AS PERSONTYP
+	, TO_CHAR(s.START_DATE, 'YYYY-MM-DD') AS START_DATE
+	, TO_CHAR(s.END_DATE, 'YYYY-MM-DD') AS END_DATE
+	, (IL.TEXT) || '...' AS PRODUKT
+	, (ROUND(IL.TOTAL_AMOUNT, 2)) AS SUMMA
+	, ROUND(IL.TOTAL_AMOUNT - (IL.TOTAL_AMOUNT * (1 - (1 / (1 + IL.RATE)))),2) NETTO
+    , ROUND(IL.TOTAL_AMOUNT * (1 - (1 / (1 + IL.RATE))),2)                     MOMS
+,DECODE(prod.PTYPE, 1, 'Retail', 2, 'Service', 4, 'Clipcard', 5, 'Subscription creation', 6, 'Transfer', 7, 'Freeze period', 8, 'Gift card', 9, 'Free gift card', 10, 'Subscription', 12, 'Subscription pro-rata', 13, 'Subscription add-on', 14, 'Access product') AS PROD_TYPE_NAME
+, DECODE(CRT.CRTTYPE, 1, 'CASH', 6, 'CARD', 7, 'CARD', 8, 'CARD', 5, 'AR_CASH', 2, 'CHANGE', 9, 'GIFTCARD', 13, 'CUSTOM') AS BETALMEDEL
+,c.NAME AS CENTER_NAME
+,TO_CHAR(longtodate(params.periodFromLong),'YYYY-MM-DD') AS PERIOD_FROM
+,TO_CHAR(longtodate(params.periodtoLong),'YYYY-MM-DD') AS PERIOD_TO
+
+,getcentertime(100) AS TODAY
+,company.COMPANY_NAME AS COMPANY_NAME
+,company.ADDRESS1 AS ADDRESS1
+,company.ADDRESS2 AS ADDRESS2
+,company.ZIPCODE AS ZIPCODE
+,company.CITY AS CITY
+,ROUND(company.SPLIT_RATE_COMMUNITY * (IL.TOTAL_AMOUNT - (IL.TOTAL_AMOUNT * (1 - (1 / (1 + IL.RATE))))),2) AS COMMUNITY_PART
+
+FROM
+	INVOICELINES IL
+	CROSS JOIN PARAMS params
+	JOIN
+		PRODUCTS prod
+	ON
+		prod.CENTER = IL.PRODUCTCENTER
+		AND prod.ID = IL.PRODUCTID
+		-- To get the Share municipality link
+	LEFT JOIN PRODUCT_AND_PRODUCT_GROUP_LINK spl
+	ON
+		spl.PRODUCT_CENTER = prod.CENTER
+		AND spl.PRODUCT_ID = prod.ID
+		AND spl.PRODUCT_GROUP_ID = 8825
+	INNER JOIN INVOICES INV0
+	ON
+		IL.CENTER = INV0.CENTER
+		AND IL.ID = INV0.ID
+	LEFT JOIN CASHREGISTERREPORTS CRR
+	ON
+		CRR.CENTER = INV0.CASHREGISTER_CENTER
+		AND CRR.ID = INV0.CASHREGISTER_ID
+		AND CRR.STARTTIME <= INV0.ENTRY_TIME
+		AND CRR.REPORTTIME > INV0.ENTRY_TIME
+	LEFT JOIN PERSONS PER
+	ON
+		IL.PERSON_CENTER = PER.center
+		AND IL.PERSON_ID = PER.id
+	LEFT JOIN AR_TRANS ART
+	ON
+		ART.REF_CENTER = INV0.CENTER
+		AND ART.REF_ID = INV0.ID
+		AND ART.REF_TYPE = 'INVOICE'
+	LEFT JOIN ACCOUNT_RECEIVABLES AR
+	ON
+		ART.CENTER = AR.CENTER
+		AND ART.ID = AR.ID
+	LEFT JOIN CASHREGISTERTRANSACTIONS CRT
+	ON
+		CRT.CENTER = INV0.CASHREGISTER_CENTER
+		AND CRT.ID = INV0.CASHREGISTER_ID
+		AND CRT.PAYSESSIONID = INV0.PAYSESSIONID
+	LEFT JOIN SUBSCRIPTIONS s
+	ON
+		s.OWNER_CENTER = per.CENTER
+		AND s.OWNER_ID = per.ID
+		AND s.STATE = 2
+	LEFT JOIN CENTERS c
+		ON per.CENTER = c.ID
+JOIN
+    (
+        SELECT
+          p.LASTNAME                      COMPANY_NAME
+          ,p.ADDRESS1
+          ,p.ADDRESS2
+          ,p.ZIPCODE
+          ,p.CITY
+          ,atts.TXTVALUE / 100 SPLIT_RATE_COMMUNITY
+          ,c.NAME              CENTER_NAME
+        FROM
+            PERSONS p
+        JOIN
+            CENTERS c
+        ON
+            c.id = $$center$$
+        JOIN
+            PERSON_EXT_ATTRS atts
+        ON
+            atts.PERSONCENTER = p.CENTER
+            AND atts.PERSONID = p.ID
+            AND atts.NAME = 'SPLIT_RATE_COMMUNITY'
+        WHERE
+            (p.LASTNAME LIKE '9' || REPLACE(lpad($$center$$,3),' ','0') || ' %') or (p.LASTNAME LIKE '9' || REPLACE(lpad($$center$$,4),' ','0') || ' %')) company
+ON
+    1 = 1
+WHERE
+	INV0.CASHREGISTER_CENTER = 100 and per.center = $$center$$
+	AND CRT.CRTTYPE NOT IN(5,12)
+	AND IL.TOTAL_AMOUNT <> 0
+	AND INV0.ENTRY_TIME >= params.periodFromLong
+	AND INV0.ENTRY_TIME < params.periodToLong
+	AND NOT EXISTS (
+		SELECT * FROM PRODUCT_AND_PRODUCT_GROUP_LINK pgl
+		JOIN PRODUCT_GROUP pg
+		ON
+			pgl.PRODUCT_GROUP_ID = pg.ID
+		WHERE
+			prod.CENTER = pgl.PRODUCT_CENTER
+			AND prod.ID = pgl.PRODUCT_ID
+			AND pg.NAME = 'Excluded subscriptions'
+	)
+
+
+
+/*UNION ON THE CREDITTRANSACTIONS AS WELL*/
+UNION ALL
+SELECT
+	CN.CENTER AS SALES_CENTER
+	, TO_CHAR(longtodate(CN.ENTRY_TIME), 'YYYY-MM-DD HH24:MI') AS SALES_DATE
+	, CASE
+		WHEN CNL.PERSON_CENTER IS NOT NULL
+			THEN CNL.PERSON_CENTER || 'p' || CNL.PERSON_ID
+		ELSE NULL
+		END AS MEDLEMS_NUMMER
+	, CASE
+		WHEN CNL.PERSON_CENTER IS NOT NULL
+			THEN DECODE ( PER.PERSONTYPE, 0,'PRIVATE', 1,'STUDENT', 2,'STAFF', 3,'FRIEND', 4, 'CORPORATE', 5, 'ONEMANCORPORATE', 6, 'FAMILY', 7,'SENIOR', 8,'GUEST','UNKNOWN')
+		ELSE NULL
+	END AS PERSONTYP
+	, TO_CHAR(s.START_DATE, 'YYYY-MM-DD') AS START_DATE
+	, TO_CHAR(s.END_DATE, 'YYYY-MM-DD') AS END_DATE
+	, (CNL.TEXT) || '...' AS PRODUKT
+	, (ROUND(CNL.TOTAL_AMOUNT, 2)) AS SUMMA
+	, ROUND(CNL.TOTAL_AMOUNT - (CNL.TOTAL_AMOUNT * (1 - (1 / (1 + CNL.RATE)))),2) NETTO
+    , ROUND(CNL.TOTAL_AMOUNT * (1 - (1 / (1 + CNL.RATE))),2)                     MOMS
+	,DECODE(prod.PTYPE, 1, 'Retail', 2, 'Service', 4, 'Clipcard', 5, 'Subscription creation', 6, 'Transfer', 7, 'Freeze period', 8, 'Gift card', 9, 'Free gift card', 10, 'Subscription', 12, 'Subscription pro-rata', 13, 'Subscription add-on', 14, 'Access product') AS PROD_TYPE_NAME
+	, DECODE(CRT.CRTTYPE, 1, 'CASH', 6, 'CARD', 7, 'CARD', 8, 'CARD', 5, 'AR_CASH', 2, 'CHANGE', 9, 'GIFTCARD', 13, 'CUSTOM') AS BETALMEDEL
+,c.NAME AS CENTER_NAME
+,TO_CHAR(longtodate(params.periodFromLong),'YYYY-MM-DD') AS PERIOD_FROM
+,TO_CHAR(longtodate(params.periodToLong),'YYYY-MM-DD') AS PERIOD_TO
+,TO_CHAR('YYYY-MM-DD') AS TODAY
+,company.COMPANY_NAME AS COMPANY_NAME
+,company.ADDRESS1 AS ADDRESS1
+,company.ADDRESS2 AS ADDRESS2
+,company.ZIPCODE AS ZIPCODE
+,company.CITY AS CITY
+,ROUND(company.SPLIT_RATE_COMMUNITY * (CNL.TOTAL_AMOUNT - (CNL.TOTAL_AMOUNT * (1 - (1 / (1 + CNL.RATE))))),2) AS COMMUNITY_PART
+FROM
+	CREDIT_NOTE_LINES CNL
+	CROSS JOIN PARAMS params
+	JOIN PRODUCTS prod
+	ON
+		prod.CENTER = CNL.PRODUCTCENTER
+		AND prod.id = CNL.PRODUCTID
+	LEFT JOIN PRODUCT_AND_PRODUCT_GROUP_LINK spl
+	ON
+		spl.PRODUCT_CENTER = prod.CENTER
+		AND spl.PRODUCT_ID = prod.ID
+		AND spl.PRODUCT_GROUP_ID = 8825
+	INNER JOIN CREDIT_NOTES CN
+	ON
+		CNL.CENTER = CN.CENTER
+		AND CNL.ID = CN.ID
+	LEFT JOIN CASHREGISTERREPORTS CRR
+	ON
+		CRR.CENTER = CN.CASHREGISTER_CENTER
+		AND CRR.ID = CN.CASHREGISTER_ID
+		AND CRR.STARTTIME <= CN.ENTRY_TIME
+		AND CRR.REPORTTIME > CN.ENTRY_TIME
+	LEFT JOIN PERSONS PER
+	ON
+		CNL.PERSON_CENTER = PER.center
+		AND CNL.PERSON_ID = PER.id
+	LEFT JOIN AR_TRANS ART
+	ON
+		ART.REF_CENTER = CN.CENTER
+		AND ART.REF_ID = CN.ID
+		AND ART.REF_TYPE = 'CREDIT_NOTE'
+	LEFT JOIN ACCOUNT_RECEIVABLES AR
+	ON
+		ART.CENTER = AR.CENTER
+		AND ART.ID = AR.ID
+	LEFT JOIN CASHREGISTERTRANSACTIONS CRT
+	ON
+		CRT.CENTER = CN.CASHREGISTER_CENTER
+		AND CRT.ID = CN.CASHREGISTER_ID
+		AND CRT.PAYSESSIONID = CN.PAYSESSIONID
+	LEFT JOIN SUBSCRIPTIONS s
+	ON
+		s.OWNER_CENTER = per.CENTER
+		AND s.OWNER_ID = per.ID
+		AND s.STATE = 2
+	LEFT JOIN CENTERS c
+		ON per.CENTER = c.ID
+JOIN
+    (
+        SELECT
+          p.LASTNAME                      COMPANY_NAME
+          ,p.ADDRESS1
+          ,p.ADDRESS2
+          ,p.ZIPCODE
+          ,p.CITY
+          ,atts.TXTVALUE / 100 SPLIT_RATE_COMMUNITY
+          ,c.NAME              CENTER_NAME
+        FROM
+            PERSONS p
+        JOIN
+            CENTERS c
+        ON
+            c.id = $$center$$
+        JOIN
+            PERSON_EXT_ATTRS atts
+        ON
+            atts.PERSONCENTER = p.CENTER
+            AND atts.PERSONID = p.ID
+            AND atts.NAME = 'SPLIT_RATE_COMMUNITY'
+        WHERE
+            (p.LASTNAME LIKE '9' || REPLACE(lpad($$center$$,3),' ','0') || ' %') or (p.LASTNAME LIKE '9' || REPLACE(lpad($$center$$,4),' ','0') || ' %')) company
+ON
+    1 = 1
+WHERE
+	CN.CASHREGISTER_CENTER = 100
+	AND CRT.CRTTYPE NOT IN(5,12)
+	AND CNL.TOTAL_AMOUNT <> 0
+	AND PER.CENTER = $$center$$
+	AND CN.ENTRY_TIME >= params.periodFromLong
+	AND CN.ENTRY_TIME < params.periodToLong
+	
+	AND NOT EXISTS (
+		SELECT * FROM PRODUCT_AND_PRODUCT_GROUP_LINK pgl
+		JOIN PRODUCT_GROUP pg
+		ON
+			pgl.PRODUCT_GROUP_ID = pg.ID
+		WHERE
+			prod.CENTER = pgl.PRODUCT_CENTER
+			AND prod.ID = pgl.PRODUCT_ID
+			AND pg.NAME = 'Excluded subscriptions'
+	)

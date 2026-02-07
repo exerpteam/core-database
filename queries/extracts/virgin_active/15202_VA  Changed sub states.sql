@@ -1,0 +1,7 @@
+ SELECT
+    s.OWNER_CENTER,
+    s.OWNER_ID
+ FROM
+    SUBSCRIPTIONS s
+ WHERE 
+	S.State = 8

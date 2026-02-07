@@ -1,0 +1,13 @@
+-- This is the version from 2026-02-05
+--  
+SELECT
+    ppgl.PRODUCT_CENTER||'prod'||ppgl.PRODUCT_ID  AS "PRODUCT_ID",
+    CAST ( ppgl.PRODUCT_GROUP_ID AS VARCHAR(255)) AS "PRODUCT_GROUP_ID",
+    REPLACE(TO_CHAR(pr.LAST_MODIFIED,'FM999G999G999G999G999'),',','.') AS "ETS"
+FROM
+    PRODUCT_AND_PRODUCT_GROUP_LINK ppgl
+JOIN
+    PRODUCTS pr
+ON
+    pr.center = ppgl.PRODUCT_CENTER
+    AND pr.id = ppgl.PRODUCT_ID

@@ -1,0 +1,13 @@
+SELECT
+    longToDate(el.TIME_STAMP),etc.NAME event_name,cc.OWNER_CENTER || 'p' || cc.OWNER_ID pid, el.REFERENCE_CENTER || 'cc' || el.REFERENCE_ID  || 'cc' || el.REFERENCE_SUB_ID ref
+FROM
+    SATS.EVENT_LOG el
+join SATS.EVENT_TYPE_CONFIG etc on etc.ID = el.EVENT_CONFIGURATION_ID
+join SATS.CLIPCARDS cc on cc.CENTER = el.REFERENCE_CENTER and 
+cc.ID = el.REFERENCE_ID and 
+cc.SUBID = el.REFERENCE_SUB_ID
+WHERE
+    el.REFERENCE_TABLE = 'CLIPCARDS' and el.EVENT_CONFIGURATION_ID = 6144
+    and el.TIME_STAMP between :eventFrom and :eventTo
+ORDER BY
+    el.TIME_STAMP DESC

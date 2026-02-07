@@ -1,0 +1,4 @@
+SELECT
+    *
+FROM
+    BI_PRIVILEGE_SET

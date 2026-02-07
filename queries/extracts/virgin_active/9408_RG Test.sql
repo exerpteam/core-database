@@ -1,0 +1,39 @@
+SELECT
+	p.external_id,
+longtodate(je.creation_time),
+jes.*
+
+FROM
+    persons p
+JOIN
+    SUBSCRIPTIONS s
+ON
+    p.CENTER = s.OWNER_CENTER
+AND p.id = s.OWNER_ID
+JOIN
+    SUBSCRIPTION_SALES ss
+ON
+    ss.SUBSCRIPTION_CENTER = s.CENTER
+AND ss.SUBSCRIPTION_ID = s.id
+JOIN
+    JOURNALENTRIES je
+ON
+    je.PERSON_CENTER = p.CENTER
+AND je.PERSON_ID = p.id
+AND je.JETYPE = 1
+AND je.REF_CENTER = s.CENTER
+AND je.REF_ID = s.id
+LEFT JOIN
+    JOURNALENTRY_SIGNATURES jes
+ON
+    jes.JOURNALENTRY_ID = je.ID
+LEFT JOIN
+    CENTERS c
+ON
+    p.CENTER = c.id
+WHERE 
+    P.External_ID = '33804130'
+AND
+	    1=1
+
+AND jes.id IS NOT NULL

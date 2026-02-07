@@ -1,0 +1,26 @@
+SELECT 
+	CONCAT(CONCAT(cast(per.CENTER as char(3)),'p'), cast(per.ID as varchar(8))) as personId
+	, p.NAME
+	, MIN(s.START_DATE) as dataInizio
+
+FROM
+	SUBSCRIPTIONS s
+JOIN 
+	CENTERS c ON s.CENTER = c.ID
+JOIN 
+	PERSONS per ON per.CENTER = s.OWNER_CENTER AND per.ID = s.OWNER_ID
+JOIN 
+	PRODUCTS p ON 
+		p.CENTER = s.SUBSCRIPTIONTYPE_CENTER 
+		AND 
+		p.ID = s.SUBSCRIPTIONTYPE_ID 
+		AND 
+		s.START_DATE > TRUNC(SYSDATE) 
+		AND 
+		c.COUNTRY= 'IT'
+WHERE 
+	s.STATE <> 3
+GROUP BY 
+	per.ID
+	, per.CENTER
+	, p.NAME

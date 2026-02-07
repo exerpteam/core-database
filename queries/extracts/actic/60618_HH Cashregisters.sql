@@ -1,0 +1,1 @@
+SELECT * FROM clearinghouses ch LIMIT 30

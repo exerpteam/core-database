@@ -1,0 +1,19 @@
+SELECT
+    CUSTOMERCENTER,
+    CUSTOMERID,
+    PERSONS.firstname,
+    PERSONS.lastname,
+    PERSONS.STATUS,
+    BALANCE
+FROM
+    ACCOUNT_RECEIVABLES
+JOIN
+    persons
+ON
+    ACCOUNT_RECEIVABLES.customercenter = PERSONS.center
+    AND ACCOUNT_RECEIVABLES.customerid=PERSONS.id
+WHERE
+    ACCOUNT_RECEIVABLES.CENTER in (:scope)
+    AND ACCOUNT_RECEIVABLES.AR_TYPE = :Kontotype
+    AND BALANCE > :MoreThan
+    AND BALANCE < :LessThan

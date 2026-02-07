@@ -1,0 +1,3 @@
+SELECT *
+from CENTER_CAPACITIES
+where id = 197

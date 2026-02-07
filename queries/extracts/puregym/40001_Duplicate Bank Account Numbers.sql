@@ -1,0 +1,57 @@
+SELECT p.CENTER || 'p' || p.ID AS "Member ID", pag.CENTER AS "Center", p.FULLNAME AS "Member Name", pag.BANK_ACCOUNT_HOLDER AS "Bank Account Owner", pag.BANK_ACCOUNT_NUMBER_HASH  AS "Bank Account Hash", longToDateTZ(pag.CREATION_TIME, 'Europe/London') AS "Date of aggrement"
+FROM
+    PERSONS p
+JOIN
+    ACCOUNT_RECEIVABLES ar
+ON
+    ar.CUSTOMERCENTER = p.CENTER
+AND ar.CUSTOMERID = p.ID
+JOIN
+    PAYMENT_ACCOUNTS pac
+ON
+    pac.center = ar.center
+AND pac.ID = ar.ID
+AND ar.AR_TYPE = 4
+JOIN
+    PAYMENT_AGREEMENTS pag
+ON
+    pac.ACTIVE_AGR_CENTER = pag.center
+    AND pac.ACTIVE_AGR_ID = pag.ID
+    AND pac.ACTIVE_AGR_SUBID = pag.SUBID
+WHERE
+pag.ACTIVE = 1 AND
+p.status IN (1,3,8) AND
+pag.CREATION_TIME BETWEEN  :from_date AND :to_date + 86400*100
+AND pag.BANK_ACCOUNT_NUMBER_HASH in 
+(
+SELECT
+    pag2.BANK_ACCOUNT_NUMBER_HASH
+FROM
+    PERSONS p2
+JOIN
+    ACCOUNT_RECEIVABLES ar2
+ON
+    ar2.CUSTOMERCENTER = p2.CENTER
+AND ar2.CUSTOMERID = p2.ID
+JOIN
+    PAYMENT_ACCOUNTS pac2
+ON
+    pac2.center = ar2.center
+AND pac2.ID = ar2.ID
+AND ar2.AR_TYPE = 4
+JOIN
+    PAYMENT_AGREEMENTS pag2
+ON
+    pac2.ACTIVE_AGR_CENTER = pag2.center
+    AND pac2.ACTIVE_AGR_ID = pag2.ID
+    AND pac2.ACTIVE_AGR_SUBID = pag2.SUBID
+WHERE
+pag2.ACTIVE = 1 AND
+pag2.BANK_ACCOUNT_NUMBER_HASH is not NULL  AND
+p2.status IN (1,3,8) AND
+pag2.CREATION_TIME BETWEEN  :from_date AND :to_date + 86400*100
+GROUP BY 
+  pag2.BANK_ACCOUNT_NUMBER_HASH 
+HAVING count(*) > 3
+)
+

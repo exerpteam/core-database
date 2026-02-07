@@ -1,0 +1,177 @@
+ select
+ DISTINCT
+ CONCAT(CONCAT(cast(p1.CENTER as char(3)),'p'), cast(p1.ID as varchar(8))) as personId,
+ CASE Extract(DAY FROM pr.REQ_DATE) WHEN 1 THEN pr.REQ_DATE  ELSE pr.REQ_DATE -1 END AS DUE_DATE,
+ prs.OPEN_AMOUNT,
+ CASHCOLLECTION_DELAY + DAYS_BEFORE_DUE as CASH_COLLECTION
+ FROM
+         PERSONS p1
+ LEFT JOIN CENTERS c
+ ON c.ID = p1.CENTER
+ JOIN
+ ACCOUNT_RECEIVABLES ar
+ on
+  ar.CUSTOMERCENTER = p1.CENTER
+     AND ar.CUSTOMERID = p1.ID
+ AND ar.AR_TYPE = 4
+ LEFT
+         JOIN PAYMENT_ACCOUNTS pac
+ ON
+     pac.CENTER = ar.CENTER
+     AND pac.ID = ar.ID
+ LEFT JOIN
+     PAYMENT_REQUESTS pr
+ ON
+   pr.CENTER = ar.CENTER
+     AND pr.ID = ar.id
+ LEFT JOIN
+ CH_AND_PCC_LINK cpl
+ ON cpl.CLEARING_HOUSE_ID=  pr.CLEARINGHOUSE_ID
+ LEFT JOIN PAYMENT_CYCLE_CONFIG pcc
+ ON
+ pcc.ID = cpl.PAYMENT_CYCLE_ID
+ LEFT JOIN
+     PAYMENT_REQUEST_SPECIFICATIONS prs
+ ON
+     pr.INV_COLL_CENTER = prs.CENTER
+     AND pr.INV_COLL_ID = prs.ID
+     AND pr.INV_COLL_SUBID = prs.SUBID
+ LEFT JOIN AR_TRANS art
+         ON art.PAYREQ_SPEC_SUBID = prs.SUBID
+         and art.PAYREQ_SPEC_ID = prs.ID
+         and art.PAYREQ_SPEC_CENTER = prs.CENTER
+ LEFT JOIN INVOICELINES invl
+         ON art.REF_CENTER = invl.CENTER
+         AND art.REF_ID = invl.ID
+ LEFT JOIN ACCOUNT_TRANS act1
+     ON act1.CENTER = invl.VAT_ACC_TRANS_CENTER
+         AND act1.ID = invl.VAT_ACC_TRANS_ID
+         AND act1.SUBID = invl.VAT_ACC_TRANS_SUBID
+ LEFT JOIN VAT_TYPES vat
+         ON vat.CENTER = act1.VAT_TYPE_CENTER
+     AND vat.ID = act1.VAT_TYPE_ID
+ WHERE
+ --pr.CENTER = 101
+ pr.CENTER IN(select c.ID from CENTERS c where  c.COUNTRY = 'IT')
+ AND pr.CLEARINGHOUSE_ID = 803
+ AND prs.OPEN_AMOUNT > 0
+ AND ART.REF_TYPE = 'INVOICE'
+ and extract(DAY FROM pr.req_date) <=2
+ and (
+ (extract(MONTH FROM pr.req_date)  = extract(MONTH FROM ADD_MONTHS(LAST_DAY(CURRENT_DATE),-1))
+ and extract(YEAR FROM pr.req_date)  = extract(YEAR FROM ADD_MONTHS(LAST_DAY(CURRENT_DATE),-1)))
+ OR
+ (extract(MONTH FROM pr.req_date)  = extract(MONTH FROM CURRENT_DATE)
+ and extract(YEAR FROM pr.req_date)  = extract(YEAR FROM CURRENT_DATE))
+ )
+ AND pr.STATE != 12
+ UNION ALL
+ select
+  CONCAT(CONCAT(cast(p1.CENTER as char(3)),'p'), cast(p1.ID as varchar(8))) as personId,
+ CASE Extract(DAY FROM pr.REQ_DATE) WHEN 1 THEN pr.REQ_DATE  ELSE pr.REQ_DATE -1 END AS DUE_DATE,
+  prs.OPEN_AMOUNT,
+ CASHCOLLECTION_DELAY + DAYS_BEFORE_DUE as CASH_COLLECTION
+ FROM
+         PERSONS p1
+ JOIN
+ ACCOUNT_RECEIVABLES ar
+ on
+  ar.CUSTOMERCENTER = p1.CENTER
+     AND ar.CUSTOMERID = p1.ID
+ AND ar.AR_TYPE = 4
+ LEFT
+         JOIN PAYMENT_ACCOUNTS pac
+ ON
+     pac.CENTER = ar.CENTER
+     AND pac.ID = ar.ID
+ LEFT JOIN
+     PAYMENT_REQUESTS pr
+ ON
+   pr.CENTER = ar.CENTER
+     AND pr.ID = ar.id
+ LEFT JOIN
+ CH_AND_PCC_LINK cpl
+ ON cpl.CLEARING_HOUSE_ID=  pr.CLEARINGHOUSE_ID
+ LEFT JOIN PAYMENT_CYCLE_CONFIG pcc
+ ON
+ pcc.ID = cpl.PAYMENT_CYCLE_ID
+ LEFT JOIN
+     PAYMENT_REQUEST_SPECIFICATIONS prs
+ ON
+     pr.INV_COLL_CENTER = prs.CENTER
+     AND pr.INV_COLL_ID = prs.ID
+     AND pr.INV_COLL_SUBID = prs.SUBID
+ LEFT JOIN AR_TRANS art
+         ON art.PAYREQ_SPEC_SUBID = prs.SUBID
+         and art.PAYREQ_SPEC_ID = prs.ID
+         and art.PAYREQ_SPEC_CENTER = prs.CENTER
+ LEFT JOIN AR_TRANS art1
+    ON art1.PAYREQ_SPEC_SUBID = prs.SUBID
+         and art1.PAYREQ_SPEC_ID = prs.ID
+         and art1.PAYREQ_SPEC_CENTER = prs.CENTER
+         and art1.DUE_DATE IS NOT NULL
+         and art1.REF_TYPE = 'ACCOUNT_TRANS'
+         and art1.CENTER = p1.CENTER
+ LEFT JOIN AR_TRANS ART2
+     on Art1.CENTER = ART2.center
+         and Art1.ID = ART2.ID
+         AND art1.PAYREQ_SPEC_SUBID = ART2.PAYREQ_SPEC_SUBID
+         and art1.DUE_DATE IS NOT NULL
+         AND ART2.INFO IS NOT NULL
+ LEFT JOIN
+         (select CENTER,ID, MAX(SUBID) AS SUBID FROM AR_TRANS
+         WHERE TEXT LIKE 'Transfer to cash collection account%'
+         AND AMOUNT > 0
+         GROUP  BY CENTER, ID) art2b
+     on Art2.CENTER = ART2b.center
+         and Art2.ID = ART2b.ID
+         and Art2.SUBID > art2b.SUBID
+ LEFT JOIN AR_TRANS art3
+  ON art2B.CENTER = art3.CENTER
+  AND art2b.ID = art3.ID
+  AND art2b.SUBID = art3.SUBID
+ LEFT JOIN ACCOUNT_TRANS act
+     ON act.CENTER = art1.REF_CENTER
+         AND act.ID = art1.REF_ID
+         AND act.SUBID = art1.REF_SUBID
+ LEFT JOIN AGGREGATED_TRANSACTIONS agr
+         ON agr.CENTER = act.AGGREGATED_TRANSACTION_CENTER
+     AND agr.ID = act.AGGREGATED_TRANSACTION_ID
+ LEFT JOIN INVOICELINES invl
+  on invl.ID = art.REF_ID
+ AND invl.CENTER = art.REF_CENTER
+ INNER JOIN CENTERS c
+ ON C.ID = PR.CENTER
+ LEFT JOIN ACCOUNT_TRANS act1
+     ON act1.CENTER = invl.VAT_ACC_TRANS_CENTER
+         AND act1.ID = invl.VAT_ACC_TRANS_ID
+         AND act1.SUBID = invl.VAT_ACC_TRANS_SUBID
+ LEFT JOIN VAT_TYPES vat
+         ON vat.CENTER = act1.VAT_TYPE_CENTER
+     AND vat.ID = act1.VAT_TYPE_ID
+ WHERE
+ --pr.center IN(101)
+ -- and p1.ID = 17672
+ c.country = 'IT'
+ and (
+ (Extract(MONTH FROM pr.REQ_DATE) = Extract(MONTH FROM(ADD_MONTHS(CURRENT_DATE,0)))
+ and Extract(YEAR FROM pr.REQ_DATE) = Extract(YEAR FROM(ADD_MONTHS(CURRENT_DATE,0)))
+ and extract(day from pr.req_date) <= 2
+ and longtodate(prs.PAID_STATE_LAST_ENTRY_TIME) > pr.REQ_DATE +1)
+ OR
+ (Extract(MONTH FROM pr.REQ_DATE) = Extract(MONTH FROM(ADD_MONTHS(CURRENT_DATE,-1)))
+ and Extract(YEAR FROM pr.REQ_DATE) = Extract(YEAR FROM(ADD_MONTHS(CURRENT_DATE,1)))
+ and extract(day from pr.req_date) <= 2
+ and longtodate(prs.PAID_STATE_LAST_ENTRY_TIME) > pr.REQ_DATE +1)
+ )
+ AND pr.STATE IS NOT NULL
+ AND ART.REF_TYPE = 'INVOICE'
+ AND PR.STATE IN (3,5,12,17)
+ AND ART3.SUBID IS  NULL
+ AND OPEN_AMOUNT  > 0
+ AND art1.ID IS NOT NULL
+ GROUP BY p1.CENTER,
+ P1.ID,
+ CASE Extract(DAY FROM pr.REQ_DATE) WHEN 1 THEN pr.REQ_DATE  ELSE pr.REQ_DATE -1 END,
+ prs.OPEN_AMOUNT,
+ CASHCOLLECTION_DELAY + DAYS_BEFORE_DUE

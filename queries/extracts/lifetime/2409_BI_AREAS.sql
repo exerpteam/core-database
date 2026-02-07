@@ -1,0 +1,4 @@
+SELECT 	
+	BI_AREAS.*
+FROM
+	BI_AREAS

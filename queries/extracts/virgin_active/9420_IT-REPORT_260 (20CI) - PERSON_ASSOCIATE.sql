@@ -1,0 +1,28 @@
+SELECT
+    rel.CENTER || 'rel' || rel.ID || 'sub' || rel.SUBID "PERSONASSOCIATEID",
+    op.EXTERNAL_ID "PERSONID_MASTER",
+    paid.EXTERNAL_ID "PERSONID_ASSOC"/*,
+    'EXERP' "SOURCESYSTEM",
+    rel.CENTER || 'rel' || rel.ID || 'sub' || rel.SUBID "EXTREF"*/
+FROM
+    RELATIVES rel
+JOIN PERSONS oop
+ON
+    oop.CENTER = rel.CENTER
+    AND oop.ID = rel.ID
+JOIN PERSONS op
+ON
+    op.CENTER = oop.CURRENT_PERSON_CENTER
+    AND op.ID = oop.CURRENT_PERSON_ID
+JOIN PERSONS opaid
+ON
+    opaid.CENTER = rel.RELATIVECENTER
+    AND opaid.ID = rel.RELATIVEID
+JOIN PERSONS paid
+ON
+    paid.CENTER = opaid.CURRENT_PERSON_CENTER
+    AND paid.ID = opaid.CURRENT_PERSON_ID
+WHERE
+    rel.RTYPE = 12
+    AND rel.STATUS = 1
+	and op.center IN (select c.ID from CENTERS c where  c.COUNTRY = 'IT')

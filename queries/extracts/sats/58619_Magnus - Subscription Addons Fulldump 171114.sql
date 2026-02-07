@@ -1,0 +1,5 @@
+
+SELECT
+    biview.*
+FROM
+    BI_SUBSCRIPTION_ADDONS biview

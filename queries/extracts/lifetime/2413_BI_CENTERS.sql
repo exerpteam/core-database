@@ -1,0 +1,4 @@
+SELECT
+    BI_CENTERS.*
+FROM
+    BI_CENTERS

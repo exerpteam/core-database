@@ -1,0 +1,40 @@
+ SELECT
+   cp.center as "CENTER",
+c.country,
+   cp.FULLNAME,
+   cp.center||'p'||cp.id,
+CASE cp.STATUS WHEN 0 THEN 'LEAD' WHEN 1 THEN 'ACTIVE' WHEN 2 THEN 'INACTIVE' WHEN 3 THEN 'TEMPORARYINACTIVE' WHEN 4 THEN 'TRANSFERRED' WHEN 5 THEN 'DUPLICATE' WHEN 6 THEN 'PROSPECT' WHEN 7 THEN 'DELETED' WHEN 8 THEN 'ANONYMIZED' WHEN 9 THEN 'CONTACT' ELSE 'Undefined' END AS PERSON_STATUS,
+   
+     CASE
+         WHEN ar.AR_TYPE = 1
+         THEN 'CASH'
+         WHEN ar.AR_TYPE = 4
+         THEN 'PAYMENT'
+         WHEN ar.AR_TYPE = 5
+         THEN 'DEBT'
+         WHEN ar.AR_TYPE = 6
+         THEN 'INSTALLMENT'
+     END            AS "ACCOUNT_TYPE",
+     ac.EXTERNAL_ID AS "GL_ACCOUNT",
+     ar.BALANCE
+ FROM
+     ACCOUNT_RECEIVABLES ar
+ LEFT JOIN
+     ACCOUNTS ac
+ ON
+     ac.center = ar.ASSET_ACCOUNTCENTER
+ AND ac.id = ar.ASSET_ACCOUNTID
+ LEFT JOIN
+     PERSONS p
+ ON
+     p.center = ar.CUSTOMERCENTER
+ AND p.id = ar.CUSTOMERID
+ LEFT JOIN
+     PERSONS cp
+ ON
+     cp.center = p.TRANSFERS_CURRENT_PRS_CENTER
+ AND cp.id = p.TRANSFERS_CURRENT_PRS_ID
+JOIN 
+centers c on cp.center = c.id
+ WHERE
+   ar.center IN (:scope)

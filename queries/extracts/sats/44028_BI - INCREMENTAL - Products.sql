@@ -1,0 +1,160 @@
+WITH
+    any_club_in_scope AS
+    (
+        SELECT id 
+          FROM centers 
+         WHERE id IN ($$scope$$)
+           AND rownum = 1
+    )
+    , params AS
+    (
+        SELECT /*+ materialize */
+            datetolongC(TO_CHAR(TRUNC(SYSDATE)-5, 'YYYY-MM-DD HH24:MI'), any_club_in_scope.id) AS FROMDATE,
+            datetolongC(TO_CHAR(TRUNC(SYSDATE+1), 'YYYY-MM-DD HH24:MI'), any_club_in_scope.id) AS TODATE
+        FROM
+            dual
+        CROSS JOIN any_club_in_scope
+    )
+SELECT
+    p.PRODUCT_ID
+  , p.PRODUCT_CENTER
+  , p.MASTER_PRODUCT_ID
+  , p.NAME
+  , p.PRODUCT_TYPE
+  , p.EXTERNAL_ID
+  , p.SALES_PRICE
+  , p.MINIMUM_PRICE
+  , p.COST_PRICE
+  , p.PRODUCT_GROUP_ID
+  , p.BLOCKED,
+p.ETS
+FROM
+   (SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    p.CENTER                   PRODUCT_CENTER,
+    mp.id                      MASTER_PRODUCT_ID,
+    p.PRIMARY_PRODUCT_GROUP_ID PRODUCT_GROUP_ID,
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    p.EXTERNAL_ID,
+    p.PRICE     SALES_PRICE,
+    p.MIN_PRICE MINIMUM_PRICE,
+    p.COST_PRICE,
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    p.SALES_COMMISSION  AS SALES_COMMISSION,
+    p.SALES_UNITS       AS SALES_UNITS,
+    p.PERIOD_COMMISSION AS PERIOD_COMMISSION,
+    p.LAST_MODIFIED ETS
+FROM
+    PRODUCTS p
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND p.GLOBALID = mp.GLOBALID
+WHERE
+    p.PTYPE NOT IN (5,7,12)
+UNION ALL
+SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    p.CENTER                   PRODUCT_CENTER,
+    mp.id                      MASTER_PRODUCT_ID,
+    p.PRIMARY_PRODUCT_GROUP_ID PRODUCT_GROUP_ID,
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    p.EXTERNAL_ID,
+    p.PRICE     SALES_PRICE,
+    p.MIN_PRICE MINIMUM_PRICE,
+    p.COST_PRICE,
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    p.SALES_COMMISSION  AS SALES_COMMISSION,
+    p.SALES_UNITS       AS SALES_UNITS,
+    p.PERIOD_COMMISSION AS PERIOD_COMMISSION,
+    p.LAST_MODIFIED ETS
+FROM
+    PRODUCTS p
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND p.GLOBALID = 'CREATION_' || mp.GLOBALID
+WHERE
+    p.PTYPE = 5
+UNION ALL
+SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    p.CENTER                   PRODUCT_CENTER,
+    mp.id                      MASTER_PRODUCT_ID,
+    p.PRIMARY_PRODUCT_GROUP_ID PRODUCT_GROUP_ID,
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    p.EXTERNAL_ID,
+    p.PRICE     SALES_PRICE,
+    p.MIN_PRICE MINIMUM_PRICE,
+    p.COST_PRICE,
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    p.SALES_COMMISSION  AS SALES_COMMISSION,
+    p.SALES_UNITS       AS SALES_UNITS,
+    p.PERIOD_COMMISSION AS PERIOD_COMMISSION,
+    p.LAST_MODIFIED ETS
+FROM
+    PRODUCTS p
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND p.GLOBALID = 'FREEZE_' || mp.GLOBALID
+WHERE
+    p.PTYPE = 7
+UNION ALL
+SELECT
+    p.CENTER || 'prod' || p.ID PRODUCT_ID,
+    p.CENTER                   PRODUCT_CENTER,
+    mp.id                      MASTER_PRODUCT_ID,
+    p.PRIMARY_PRODUCT_GROUP_ID PRODUCT_GROUP_ID,
+    p.NAME,
+    BI_DECODE_FIELD('PRODUCTS','PTYPE',p.PTYPE) AS product_type,
+    p.EXTERNAL_ID,
+    p.PRICE     SALES_PRICE,
+    p.MIN_PRICE MINIMUM_PRICE,
+    p.COST_PRICE,
+    CASE
+        WHEN p.BLOCKED = 0
+        THEN 'FALSE'
+        WHEN p.BLOCKED = 1
+        THEN 'TRUE'
+    END                 AS BLOCKED,
+    p.SALES_COMMISSION  AS SALES_COMMISSION,
+    p.SALES_UNITS       AS SALES_UNITS,
+    p.PERIOD_COMMISSION AS PERIOD_COMMISSION,
+    p.LAST_MODIFIED ETS
+FROM
+    PRODUCTS p
+JOIN
+    MASTERPRODUCTREGISTER mp
+ON
+    mp.ID = mp.DEFINITION_KEY
+    AND p.GLOBALID = 'PRORATA_' || mp.GLOBALID
+WHERE
+    p.PTYPE = 12) p
+CROSS JOIN
+    PARAMS
+WHERE
+    p.PRODUCT_CENTER in ($$scope$$)
+    AND p.ETS >= PARAMS.FROMDATE
+    AND p.ETS < PARAMS.TODATE

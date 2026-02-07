@@ -1,0 +1,57 @@
+SELECT
+    act.SCOPE_TYPE,
+    act.SCOPE_ID,
+    act.NAME,
+    act.STATE,
+    act.AVAILABILITY,
+    DECODE(act.ACTIVITY_TYPE,1,'General',2,'Class',3,'resourceBooking',4,'staffBooking',6,'staffAvailability',7,'resourceAvailability',8,'childCare') ACTIVITY_TYPE,
+    ag.NAME Activity_group_name,
+    cg.NAME colur_group_name,
+    NVl2(btc.NAME ,btc.NAME ,'None') TIME_CONFIG_NAME,
+    act.ENERGY_CONSUMPTION_KCAL_HOUR,
+    act.DESCRIPTION,
+    act.MAX_PARTICIPANTS,
+    act.MAX_WAITING_LIST_PARTICIPANTS,
+    act.ALLOW_RECURRING_BOOKINGS Recurring_perticipations,
+    bpg.NAME,
+    pc.PRIVILEGE_AT_SHOWUP_CLIENT,
+    pc.PRIVILEGE_AT_SHOWUP_KIOSK,
+    pc.PRIVILEGE_AT_SHOWUP_WEB,
+    brg.NAME resource_group,
+    arc.OPTIONAL resource_optional,
+    act.DURATION_LIST,
+    act.REQUIRES_PLANNING,
+    asconf.MINIMUM_STAFFS,
+    asconf.MAXIMUM_STAFFS,
+    sg.NAME staff_group
+FROM
+    ACTIVITY act
+LEFT JOIN ACTIVITY_GROUP ag
+ON
+    ag.id = act.ACTIVITY_GROUP_ID
+LEFT JOIN COLOUR_GROUPS cg
+ON
+    cg.ID = act.COLOUR_GROUP_ID
+LEFT JOIN ACTIVITY_STAFF_CONFIGURATIONS asconf
+ON
+    asconf.ACTIVITY_ID = act.ID
+LEFT JOIN STAFF_GROUPS sg
+ON
+    sg.ID = asconf.STAFF_GROUP_ID
+LEFT JOIN BOOKING_TIME_CONFIGS btc
+ON
+    btc.ID = act.TIME_CONFIG_ID
+LEFT JOIN ACTIVITY_RESOURCE_CONFIGS arc
+ON
+    arc.ACTIVITY_ID = act.ID
+LEFT JOIN BOOKING_RESOURCE_GROUPS brg
+ON
+    brg.ID = arc.BOOKING_RESOURCE_GROUP_ID
+LEFT JOIN PARTICIPATION_CONFIGURATIONS pc
+ON
+    pc.ACTIVITY_ID = act.ID
+LEFT JOIN BOOKING_PRIVILEGE_GROUPS bpg
+ON
+    bpg.ID = pc.ACCESS_GROUP_ID
+WHERE
+    act.STATE = 'ACTIVE'

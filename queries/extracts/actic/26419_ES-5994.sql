@@ -1,0 +1,41 @@
+
+SELECT DISTINCT
+
+a.CRT_ID AS CR_TRANSACTIONS,
+a.TRANS_TIME AS TRANSACTION_TIME,
+a.CHANGE_AMOUNT,
+a.CUSTOMER_ID,
+a.CASH_BALANCE AS CR_CURRENT_CASH_BALANCE,
+a.CDI AS CONTROL_UNIT,
+a.HAS_CASH AS CR_INCLUDES_CASH
+
+from (SELECT
+    crt.CENTER||'-'||crt.ID||'-'||crt.SUBID as CRT_ID,
+    crt.CRCENTER||'cr'||                    crt.CRID as "cash register id",
+    longtodatec(crt.TRANSTIME,crt.CENTER)   AS TRANS_TIME,
+    crt.AMOUNT                              AS CHANGE_AMOUNT,
+    crt2.AMOUNT                             AS "CREDIT_CARD_AMOUNT",
+    crt3.AMOUNT                             AS "CREDIT_CARD2_AMOUNT",
+    crt.CUSTOMERCENTER||'p'||crt.CUSTOMERID AS CUSTOMER_ID,
+    crt.EMPLOYEECENTER||'p'||crt.EMPLOYEEID AS "employee id",
+    cr.CASH AS HAS_CASH,
+    cr.CONTROL_DEVICE_ID AS CDI,
+    cr.CASH_BALANCE as CASH_BALANCE
+FROM
+    CASHREGISTERTRANSACTIONS crt
+JOIN
+    CASHREGISTERTRANSACTIONS crt2
+ON
+    crt2.PAYSESSIONID = crt.PAYSESSIONID
+    AND crt2.CRTTYPE = 7
+LEFT JOIN
+    CASHREGISTERTRANSACTIONS crt3
+ON
+    crt2.PAYSESSIONID = crt3.PAYSESSIONID
+    AND crt3.SUBID <> crt2.SUBID
+    AND crt3.CRTTYPE = 7
+    
+    join CASHREGISTERS cr on cr.CENTER = crt.CRCENTER and cr.id = crt.CRID 
+    
+WHERE
+    crt.CRTTYPE = 2 and cr.cash = 0) a

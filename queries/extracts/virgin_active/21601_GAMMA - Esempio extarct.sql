@@ -1,0 +1,7 @@
+SELECT  
+*
+
+FROM
+
+SUBSCRIPTION_ADDON ad
+

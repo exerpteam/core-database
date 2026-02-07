@@ -1,0 +1,37 @@
+SELECT
+    CASE
+        WHEN peaMob.PERSONCENTER IS NOT NULL
+            AND peaAll.PERSONCENTER IS NOT NULL
+        THEN 'MOBILE AND ALLOW'
+        WHEN peaMob.PERSONCENTER IS NOT NULL
+        THEN 'ONLY MOBILE'
+        ELSE 'NO MOBILE'
+    END AS "COMMUNICATION_DETAILS",
+    p.CENTER,
+    COUNT(p.CENTER)
+FROM
+    SATS.PERSONS p
+LEFT JOIN SATS.PERSON_EXT_ATTRS peaMob
+ON
+    peaMob.PERSONCENTER = p.CENTER
+    AND peaMob.PERSONID =p.ID
+    AND peaMob.NAME = '_eClub_PhoneSMS'
+LEFT JOIN SATS.PERSON_EXT_ATTRS peaAll
+ON
+    peaAll.PERSONCENTER = p.CENTER
+    AND peaAll.PERSONID =p.ID
+    AND peaAll.TXTVALUE = 'true'
+    AND peaAll.name = '_eClub_AllowedChannelSMS'
+WHERE
+    p.STATUS = 1
+    AND p.center in (:scope)
+GROUP BY
+    p.CENTER,
+    CASE
+        WHEN peaMob.PERSONCENTER IS NOT NULL
+            AND peaAll.PERSONCENTER IS NOT NULL
+        THEN 'MOBILE AND ALLOW'
+        WHEN peaMob.PERSONCENTER IS NOT NULL
+        THEN 'ONLY MOBILE'
+        ELSE 'NO MOBILE'
+    END

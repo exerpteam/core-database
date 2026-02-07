@@ -1,0 +1,45 @@
+SELECT
+    per.center || 'p' || per.id personid,
+	per.FIRSTNAME,
+	per.LASTNAME,
+    DECODE (per.PERSONTYPE, 0,'PRIVATE', 1,'STUDENT', 2,'STAFF', 3,'FRIEND', 4,'CORPORATE', 5,'ONEMANCORPORATE', 6,'FAMILY', 7,'SENIOR', 8,'GUEST','UNKNOWN') PERSONTYPE, 
+    DECODE (per.STATUS, 0,'LEAD', 1,'ACTIVE', 2,'INACTIVE', 3,'TEMPORARYINACTIVE', 4,'TRANSFERED', 5,'DUPLICATE', 6,'PROSPECT', 7,'DELETED','UNKNOWN') PERSONSTATUS,
+	pa.CREDITOR_ID,
+	pa.BANK_REGNO,
+	pa.BANK_ACCNO,
+	pa.IBAN,
+	pa.BIC,
+	pa.REF,
+	pa.PAYMENT_CYCLE_CONFIG_ID,
+    DECODE (pa.STATE, 1,'Created', 2,'Sent', 3,'Incorrect Account', 4,'Ok', 5,'Account closed', 6,'Cancelled','UNKNOWN') AGREEMENTSTATE,
+	TO_CHAR(longToDate(pa.CREATION_TIME), 'YYYY-MM-DD')		AS PA_CreationTime,
+	TO_CHAR(TRUNC(exerpsysdate()), 'YYYY-MM-DD') todays_date
+
+
+FROM
+	PERSONS per
+
+LEFT JOIN ACCOUNT_RECEIVABLES ar
+ON
+	per.CENTER = ar.CUSTOMERCENTER
+	AND per.ID = ar.CUSTOMERID
+	
+LEFT JOIN PAYMENT_ACCOUNTS pacc
+ON
+	pacc.CENTER = ar.CENTER
+	AND pacc.ID = ar.ID
+
+JOIN PAYMENT_AGREEMENTS pa
+ON
+	pa.CENTER = pacc.ACTIVE_AGR_CENTER
+	AND pa.ID = pacc.ACTIVE_AGR_ID
+	AND pa.SUBID = pacc.ACTIVE_AGR_SUBID
+
+WHERE
+    per.center in (:Scope)
+	AND per.STATUS = 2
+	AND pa.CREDITOR_ID LIKE 'AutoGiro'
+	AND pa.state IN (1, 2, 4)
+ORDER BY
+	per.CENTER,
+	per.ID

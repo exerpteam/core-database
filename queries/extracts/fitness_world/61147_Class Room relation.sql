@@ -1,0 +1,19 @@
+-- This is the version from 2026-02-05
+--  
+Select distinct
+a.NAME,
+br.CENTER,
+br.NAME
+FROM
+ACTIVITY a
+Left join ACTIVITY_RESOURCE_CONFIGS arc
+on a.ID = arc.ACTIVITY_ID
+Left join BOOKING_RESOURCE_CONFIGS brc
+ON arc.BOOKING_RESOURCE_GROUP_ID = brc.GROUP_ID
+Left Join BOOKING_RESOURCES br
+ON brc.BOOKING_RESOURCE_CENTER = br.CENTER AND brc.BOOKING_RESOURCE_ID = br.ID
+Left join centers c
+on br.CENTER = c.ID
+WHERE br.STATE = 'ACTIVE'
+--AND a.STATE = 'ACTIVE'
+AND br.CENTER in (:scope)

@@ -1,0 +1,27 @@
+-- This is the version from 2026-02-05
+-- Ticket 36819
+SELECT
+cc.OWNER_CENTER || 'p' || cc.OWNER_ID pid,
+cc.CLIPS_INITIAL,
+cc.CLIPS_LEFT,
+prod.NAME,
+invl.TOTAL_AMOUNT,
+invl.QUANTITY
+FROM
+CLIPCARDS cc
+JOIN INVOICELINES invl
+ON
+invl.CENTER = cc.INVOICELINE_CENTER
+AND invl.ID = cc.INVOICELINE_ID
+AND invl.SUBID = cc.INVOICELINE_SUBID
+JOIN PRODUCTS prod
+ON
+prod.CENTER = invl.PRODUCTCENTER
+AND prod.ID = invl.PRODUCTID
+JOIN INVOICES inv
+ON
+inv.CENTER = invl.CENTER
+AND inv.ID = invl.ID
+WHERE
+inv.TRANS_TIME BETWEEN :dateFrom AND :dateTo
+--AND prod.NAME like '%Squash%'

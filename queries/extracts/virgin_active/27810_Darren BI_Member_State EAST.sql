@@ -1,0 +1,16 @@
+SELECT * 
+FROM BI_MEMBER_STATE_LOG
+WHERE CENTER_ID IN 
+(2, 
+16, 
+27, 
+34, 
+39, 
+40, 
+57, 
+401, 
+410, 
+415, 
+422, 
+434, 
+438)

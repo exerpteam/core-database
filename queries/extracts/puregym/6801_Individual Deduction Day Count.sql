@@ -1,0 +1,23 @@
+SELECT
+    decode(par.INDIVIDUAL_DEDUCTION_DAY,null,'total',par.INDIVIDUAL_DEDUCTION_DAY),
+    COUNT(*)
+FROM
+    PUREGYM.PERSONS p
+JOIN
+    PUREGYM.ACCOUNT_RECEIVABLES ar
+ON
+    ar.CUSTOMERCENTER = p.CENTER
+    AND ar.CUSTOMERID = p.ID
+    AND ar.AR_TYPE = 4
+JOIN
+    PUREGYM.PAYMENT_ACCOUNTS pa
+    on pa.CENTER = ar.CENTER and pa.id = ar.id
+JOIN
+    PUREGYM.PAYMENT_AGREEMENTS par
+ON
+    pa.ACTIVE_AGR_CENTER = par.CENTER
+    AND pa.ACTIVE_AGR_ID = par.ID
+    AND pa.ACTIVE_AGR_SUBID = par.SUBID
+    where p.STATUS in (1,3) and p.CENTER in ($$scope$$)
+GROUP BY
+    grouping sets ( (par.INDIVIDUAL_DEDUCTION_DAY), ())

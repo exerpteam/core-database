@@ -1,0 +1,7 @@
+
+SELECT
+    biview.*
+FROM
+    BI_SUBSCRIPTION_ADDONS biview
+WHERE
+    biview.START_DATE >= '2017-10-10'

@@ -1,0 +1,73 @@
+SELECT DISTINCT
+    p.CENTER || 'p' || p.ID AS PersonID,
+    cen.NAME                AS GymName,
+    p.FULLNAME,
+    en.IDENTITY AS PIN,
+    p.ADDRESS1,
+    p.ADDRESS2,
+    p.ADDRESS3,
+    p.CITY,
+    p.ZIPCODE,
+    p.BIRTHDATE,
+    ext.TXTVALUE  AS HomePhone,
+    ext2.TXTVALUE AS MobilePhone,
+    ext3.TXTVALUE AS Email
+FROM
+    PUREGYM.PERSONS p
+JOIN
+    PUREGYM.QUESTIONNAIRE_ANSWER qa
+ON
+    qa.CENTER = p.CENTER
+    AND qa.ID = p.ID
+    AND qa.COMPLETED = 1
+JOIN
+    PUREGYM.QUESTIONNAIRE_CAMPAIGNS qc
+ON
+    qc.ID = qa.QUESTIONNAIRE_CAMPAIGN_ID
+    AND qc.STOPDATE > SYSDATE
+    AND qc.NAME='Physical Activity Readiness Questionnaire (PARQ)'
+LEFT JOIN
+    PUREGYM.PERSON_EXT_ATTRS ext
+ON
+    ext.PERSONID = p.ID
+    AND ext.PERSONCENTER = p.CENTER
+    AND ext.NAME = '_eClub_PhoneHome'
+LEFT JOIN
+    PUREGYM.PERSON_EXT_ATTRS ext2
+ON
+    ext2.PERSONCENTER = p.CENTER
+    AND ext2.PERSONID = p.ID
+    AND ext2.NAME = '_eClub_PhoneSMS'
+LEFT JOIN
+    PUREGYM.PERSON_EXT_ATTRS ext3
+ON
+    ext3.PERSONID = p.ID
+    AND ext3.PERSONCENTER = p.CENTER
+    AND ext3.NAME = '_eClub_Email'
+LEFT JOIN
+    PUREGYM.ENTITYIDENTIFIERS en
+ON
+    en.REF_CENTER = p.CENTER
+    AND en.REF_ID = p.ID
+    AND en.REF_TYPE = 1
+    AND en.IDMETHOD = 5
+    and en.ENTITYSTATUS = 1
+LEFT JOIN
+    PUREGYM.CENTERS cen
+    ON
+    p.CENTER = cen.ID
+JOIN
+    PUREGYM.SUBSCRIPTIONS s
+ON
+    s.OWNER_CENTER = p.CENTER
+    AND s.OWNER_ID = p.ID
+JOIN
+    PUREGYM.SUBSCRIPTIONTYPES st
+ON
+    st.CENTER = s.SUBSCRIPTIONTYPE_CENTER
+    AND st.id = s.SUBSCRIPTIONTYPE_ID
+    AND st.ST_TYPE = 1
+
+WHERE
+    p.center IN $$scope$$
+    AND p.STATUS IN (1,3)

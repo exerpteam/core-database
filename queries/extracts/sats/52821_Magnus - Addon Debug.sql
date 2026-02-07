@@ -1,0 +1,5 @@
+ SELECT
+	*
+FROM
+    SUBSCRIPTION_ADDON sa
+WHERE sa.START_DATE >= $$startdate$$

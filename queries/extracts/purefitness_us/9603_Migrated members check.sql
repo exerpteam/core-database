@@ -1,0 +1,1 @@
+select id from centers where id in ($$scope$$)

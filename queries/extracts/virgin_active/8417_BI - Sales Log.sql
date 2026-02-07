@@ -1,0 +1,1 @@
+select * from BI_SALES_Log where BI_SALES_Log.CENTER_ID in ($$Scope$$)

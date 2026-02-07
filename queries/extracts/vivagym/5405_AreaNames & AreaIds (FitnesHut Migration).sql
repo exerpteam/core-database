@@ -1,0 +1,1 @@
+SELECT id,name,parent FROM AREAS WHERE BLOCKED is false and root_area = 1

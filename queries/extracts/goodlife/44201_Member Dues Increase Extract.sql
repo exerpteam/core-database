@@ -1,0 +1,213 @@
+WITH 
+    params AS MATERIALIZED
+    (   SELECT
+            c.id                                        AS center_id,
+            TO_DATE('2017-07-01', 'YYYY-MM-DD')                               AS sub_fromdate,
+            CURRENT_DATE - :LookbackDateRange * interval '1 month'  AS sub_todate,
+            TO_DATE(getCenterTime(c.id), 'YYYY-MM-DD') AS today_date
+        FROM 
+            goodlife.centers c
+    ) 
+    ,
+    -- This query return all the subscriptions that are eligible.
+    --By looking at the where clause you can see all the conditions that we need to meet.
+    eligible_subs AS MATERIALIZED
+    (
+   select t1.*  
+        from    
+     (SELECT
+            ppg.product_group_id,
+            s.center,
+            s.id,
+            per.center AS personcenter,
+            per.id     AS personid,
+            per.external_id,
+            par.sub_todate,
+            s.start_date,
+            p.name,
+            s.subscription_price,
+            rank() over (partition BY s.center, s.id  ORDER BY sp.from_date DESC) AS price_rnk,
+            sp.from_date,
+            sp.pending,
+            s.binding_end_date,
+            st.st_type,
+            st.periodunit,
+            st.periodcount,
+            per.fullname,
+            per.address1,
+            per.city,
+            per.state,
+            per.zipcode,
+            Case When st.periodunit = 0 AND st.periodcount = 2 Then s.subscription_price + (:Biweekly_Price_Increase)
+        When st.periodunit = 2 AND st.periodcount = 1 Then round((s.subscription_price + (:Biweekly_Price_Increase)*26/12),2) 
+        Else s.subscription_price END AS proposed_price
+        
+        FROM 
+            goodlife.subscriptions s
+        JOIN 
+            params par
+            ON  par.center_id = s.center
+        JOIN 
+            goodlife.subscriptiontypes st
+            ON  st.center = s.subscriptiontype_center
+                AND st.id = s.subscriptiontype_id
+        JOIN 
+            goodlife.products p
+            ON  p.center = st.center
+                AND p.id = st.id
+        JOIN 
+            goodlife.product_and_product_group_link ppg
+            ON  ppg.product_center = p.center
+                AND ppg.product_id = p.id
+        JOIN 
+            goodlife.persons per
+            ON  s.owner_center = per.center
+                AND s.owner_id = per.id
+        JOIN 
+            goodlife.subscription_price sp
+            ON  sp.subscription_center = s.center
+                AND sp.subscription_id = s.id
+               -- AND sp.from_date <= par.today_date
+                AND
+                (
+                    sp.to_date >= par.today_date
+                    OR sp.to_date IS NULL) 
+                AND sp.cancelled = false
+        LEFT JOIN 
+            goodlife.person_ext_attrs pea_oldid
+            ON  per.center = pea_oldid.personcenter
+                AND per.id = pea_oldid.personid
+                AND pea_oldid.name = '_eClub_OldSystemPersonId'
+        WHERE
+            -- scope
+            s.center IN ($$scope$$)
+            --sub state active or frozen
+            and
+            s.state IN(2, 4)
+            --AND s.center =104
+            -- start date after 2017, at least 26 months
+            AND s.start_date BETWEEN par.sub_fromdate AND par.sub_todate
+            -- no subscription end date
+            AND s.end_date IS NULL
+            -- not within binding period
+            AND
+            (s.binding_end_date IS NULL
+                OR s.binding_end_date < par.today_date)
+            --AND ppg.product_group_id IN (5, 2801)
+           and ppg.product_group_id in (:Product_Group_INCLUDE)
+           and ppg.product_group_id NOT IN (4201)
+            -- no price change in past 26 months
+            --AND sp.from_date <= par.sub_todate
+            -- member must be at least 19
+            AND date_part('year', age(per.birthdate)) >= 19
+            -- legacy person id is null
+            AND pea_oldid.txtvalue IS NULL
+            AND s.subscription_price > 0
+            AND Case When st.periodunit = 0 AND st.periodcount = 2 Then s.subscription_price < (:Price_Cap)
+		When st.periodunit = 2 AND st.periodcount = 1 Then s.subscription_price < (:Price_Cap)*26/12
+		Else 0=1 End) t1
+		
+		where t1.price_rnk = 1
+		AND t1. pending = false
+		AND t1.from_date <= t1.sub_todate
+    ) 
+    ,
+    -- From the eligible subscriptios, we want to check which ones got hit by CompanyAgreement 
+    -- privilege usage, because if they did within the last X amount of months we want to EXLCUDE 
+    -- them.
+    -- So we made this subquery to find the subscriptions we need to exclude from the eligibles.
+    comp_sub AS MATERIALIZED
+    (   
+    select * from
+    (SELECT
+            es.center,
+            es.id,
+            rank() over (partition by es.center, es.id ORDER by pu.use_time DESC) ranking,
+            pu.use_time AS last_used_time
+        FROM 
+            eligible_subs es
+        JOIN 
+            goodlife.subscriptionperiodparts spp
+            ON  spp.center = es.center
+                AND spp.id = es.id
+        JOIN 
+            goodlife.spp_invoicelines_link spl
+            ON  spp.center = spl.period_center
+                AND spp.id = spl.period_id
+                AND spp.subid = spl.period_subid
+        JOIN 
+            goodlife.privilege_usages pu
+            ON  spl.invoiceline_center = pu.target_center
+                AND spl.invoiceline_id = pu.target_id
+                AND spl.invoiceline_subid = pu.target_subid
+        JOIN 
+            goodlife.privilege_grants pg
+            ON  pu.grant_id = pg.id
+        WHERE
+            pu.state = 'USED'
+            AND pg.granter_service = 'CompanyAgreement'
+            AND pu.target_service = 'InvoiceLine'
+           -- AND sub.center IN (107)
+        ) t1
+            where t1.ranking = 1
+    )
+SELECT DISTINCT
+        --es.product_group_id,
+        --cs.*,
+        es.center||'ss'||es.id            AS "Subscription ID",
+        es.external_id                    AS "Person ID",
+        es.start_date                     AS "Start Date",
+        es.name                           AS "Product Name",
+        es.subscription_price             AS "Price",
+        es.binding_end_date               AS "Binding End Date",
+        (
+        CASE
+            WHEN es.st_type = 0
+            THEN 'PAIDINFULL'
+            WHEN es.periodunit = 2
+            AND es.periodcount = 1
+            THEN 'MONTHLY'
+            WHEN es.periodunit = 0
+            AND es.periodcount = 2
+            THEN 'BIWEEKLY'
+        END) AS "Payment Frequency",
+        es.proposed_price as "Proposed Price",
+        es.fullname AS "Member Full Name",
+        pea.txtvalue       AS "Member Email",
+        es.address1 AS "Member Address",
+        es.city     AS "Member City",
+        es.state    AS "Member Province",
+        es.zipcode  AS "Member Zipcode",
+        payer.external_id  AS "Payer External ID",
+        payer.fullname     AS "Payer Full Name",
+        pea_payer.txtvalue AS "Payer Email",
+        payer.address1     AS "Payer Address",
+        payer.city         AS "Payer City",
+        payer.state        AS "Payer Province",
+        payer.zipcode      AS "Payer Zipcode"
+FROM eligible_subs es
+LEFT JOIN comp_sub cs
+        ON es.center = cs.center
+        AND es.id = cs.id
+LEFT JOIN goodlife.relatives r 
+        ON es.personcenter = r.relativecenter
+        AND es.personid = r.relativeid
+        AND r.rtype=12
+        AND r.status= 1 
+LEFT JOIN goodlife.persons payer 
+        ON r.center = payer.center
+        AND r.id = payer.id 
+LEFT JOIN goodlife.person_ext_attrs pea 
+        ON es.personcenter = pea.personcenter
+        AND es.personid = pea.personid
+        AND pea.name = '_eClub_Email' 
+LEFT JOIN goodlife.person_ext_attrs pea_payer 
+        ON payer.center = pea_payer.personcenter
+        AND payer.id = pea_payer.personid
+        AND pea_payer.name = '_eClub_Email'
+WHERE
+   (cs.last_used_time < datetolongC(es.sub_todate :: text, es.center) OR cs.last_used_time IS NULL )
+AND
+Case When es.periodunit = 0 AND es.periodcount = 2 Then es.proposed_price < (:Price_Cap)
+		When es.periodunit = 2 AND es.periodcount = 1 Then es.proposed_price < CEIL((:Price_Cap)*26/12)
+		Else 0=1 End

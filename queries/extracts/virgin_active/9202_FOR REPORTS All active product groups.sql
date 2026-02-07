@@ -1,0 +1,16 @@
+ SELECT
+     pg.ID,
+     pg.TOP_NODE_ID,
+     pg.SCOPE_TYPE,
+     pg.SCOPE_ID,
+     pg.NAME,
+     pg.STATE,
+     pg.PARENT_PRODUCT_GROUP_ID,
+     pg.SHOW_IN_SHOP,
+     pg.DESCRIPTION,
+     pg.IN_SUBSCRIPTION_SALES,
+     pg.EXCLUDE_FROM_MEMBER_COUNT
+ FROM
+     PRODUCT_GROUP pg
+ WHERE
+     pg.STATE = 'ACTIVE'

@@ -1,0 +1,1 @@
+SELECT id,name,parent FROM AREAS

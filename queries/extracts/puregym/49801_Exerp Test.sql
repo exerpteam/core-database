@@ -1,0 +1,1 @@
+select * from persons where p.center in ($$scope$$)

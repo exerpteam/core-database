@@ -1,0 +1,201 @@
+-- This is the version from 2026-02-05
+--  
+WITH params AS (
+    SELECT
+        EXTRACT(EPOCH FROM $$FromDate$$::TIMESTAMP) * 1000 AS PeriodStart,
+        (EXTRACT(EPOCH FROM $$ToDate$$::TIMESTAMP) * 1000 + 86400 * 1000) AS PeriodEnd
+)
+SELECT
+    centre.SHORTNAME AS club,
+    TO_CHAR(sub.start_date, 'DD-MM-YYYY') AS start_date,
+    CASE
+        WHEN salesPersonOverride.CENTER IS NOT NULL
+            AND (salesPersonOverride.CENTER <> salesperson.CENTER
+                 OR salesPersonOverride.ID <> salesperson.ID)
+        THEN salesPersonOverride.FULLNAME
+        ELSE salesperson.FULLNAME
+    END AS sales_person,
+    CASE
+        WHEN salesPersonOverride.CENTER IS NOT NULL
+            AND (salesPersonOverride.CENTER <> salesperson.CENTER
+                 OR salesPersonOverride.ID <> salesperson.ID)
+        THEN salesperson.FULLNAME
+        ELSE NULL
+    END AS orig_sales_person,
+    TO_CHAR(longtodateTZ(sub.CREATION_TIME, 'Australia/Sydney'), 'DD-MM-YYYY') AS DATE_JOINED,
+    owner.CENTER || 'p' || owner.ID AS member_id,
+    owner.FULLNAME AS member_name,
+    prod.NAME AS MEMBERSHIP,
+    CASE
+        WHEN id_seen.TXTVALUE IN ('Y', 'NA')
+             AND linked_member.TXTVALUE IN ('Y', 'NA')
+             AND Member_Details.TXTVALUE IN ('Y', 'NA')
+             AND parq.TXTVALUE IN ('Y', 'NA')
+             AND signatureTC.TXTVALUE IN ('Y', 'NA')
+             AND validStartdate.TXTVALUE IN ('Y', 'NA')
+             AND signatureDDI.TXTVALUE IN ('Y', 'NA')
+        THEN 'YES'
+        ELSE 'NO'
+    END AS Commissionable,
+    id_seen.TXTVALUE AS id_seen,
+    linked_member.TXTVALUE AS linked_member,
+    Member_Details.TXTVALUE AS Member_Details,
+    parq.TXTVALUE AS parq,
+    signatureTC.TXTVALUE AS signatureTC,
+    validStartdate.TXTVALUE AS validStartDate,
+    signatureDDI.TXTVALUE AS signatureDDI
+FROM
+    SUBSCRIPTION_SALES ss
+CROSS JOIN
+    params
+JOIN
+    SUBSCRIPTIONS sub ON sub.CENTER = ss.SUBSCRIPTION_CENTER
+    AND sub.ID = ss.SUBSCRIPTION_ID
+JOIN
+    SUBSCRIPTIONTYPES stype ON ss.SUBSCRIPTION_TYPE_CENTER = stype.CENTER
+    AND ss.SUBSCRIPTION_TYPE_ID = stype.ID
+JOIN
+    PRODUCTS prod ON stype.CENTER = prod.CENTER
+    AND stype.ID = prod.ID
+JOIN
+    PERSONS owner ON owner.CENTER = sub.OWNER_CENTER
+    AND owner.ID = sub.OWNER_ID
+JOIN
+    CENTERS centre ON owner.CENTER = centre.ID
+JOIN
+    STATE_CHANGE_LOG SCL1 ON (
+        SCL1.CENTER = sub.CENTER
+        AND SCL1.ID = sub.ID
+        AND SCL1.ENTRY_TYPE = 2
+        AND SCL1.STATEID IN (2, 4, 8)
+        AND SCL1.ENTRY_START_TIME >= params.PeriodStart
+        AND (SCL1.ENTRY_END_TIME IS NULL OR SCL1.ENTRY_END_TIME < params.PeriodEnd)
+    )
+LEFT JOIN
+    SUBSCRIPTION_ADDON addon ON sub.CENTER = addon.SUBSCRIPTION_CENTER
+    AND sub.ID = addon.SUBSCRIPTION_ID
+    AND addon.CANCELLED = 0
+LEFT JOIN
+    MASTERPRODUCTREGISTER mp ON addon.ADDON_PRODUCT_ID = mp.ID
+LEFT JOIN
+    PERSON_EXT_ATTRS home ON owner.CENTER = home.PERSONCENTER
+    AND owner.ID = home.PERSONID
+    AND home.NAME = '_eClub_PhoneHome'
+LEFT JOIN
+    PERSON_EXT_ATTRS mobile ON owner.CENTER = mobile.PERSONCENTER
+    AND owner.ID = mobile.PERSONID
+    AND mobile.NAME = '_eClub_PhoneSMS'
+LEFT JOIN
+    PERSON_EXT_ATTRS email ON owner.CENTER = email.PERSONCENTER
+    AND owner.ID = email.PERSONID
+    AND email.NAME = '_eClub_Email'
+LEFT JOIN
+    PERSON_EXT_ATTRS id_seen ON owner.CENTER = id_seen.PERSONCENTER
+    AND owner.ID = id_seen.PERSONID
+    AND id_seen.NAME = 'ID_SEEN_APPROVED'
+LEFT JOIN
+    PERSON_EXT_ATTRS linked_member ON owner.CENTER = linked_member.PERSONCENTER
+    AND owner.ID = linked_member.PERSONID
+    AND linked_member.NAME = 'LINKED_MEMBER_VALID'
+LEFT JOIN
+    PERSON_EXT_ATTRS Member_Details ON owner.CENTER = Member_Details.PERSONCENTER
+    AND owner.ID = Member_Details.PERSONID
+    AND Member_Details.NAME = 'MEMBER_PERSONAL_DETAILS_ACCURATE'
+LEFT JOIN
+    PERSON_EXT_ATTRS parq ON owner.CENTER = parq.PERSONCENTER
+    AND owner.ID = parq.PERSONID
+    AND parq.NAME = 'PARQ_COMPLETED_ALL_NO'
+LEFT JOIN
+    PERSON_EXT_ATTRS signatureTC ON owner.CENTER = signatureTC.PERSONCENTER
+    AND owner.ID = signatureTC.PERSONID
+    AND signatureTC.NAME = 'SIGNATURE_IN_PLACE_TOM'
+LEFT JOIN
+    PERSON_EXT_ATTRS validStartdate ON owner.CENTER = validStartdate.PERSONCENTER
+    AND owner.ID = validStartdate.PERSONID
+    AND validStartdate.NAME = 'VALID_START_DATE'
+LEFT JOIN
+    PERSON_EXT_ATTRS signatureDDI ON owner.CENTER = signatureDDI.PERSONCENTER
+    AND owner.ID = signatureDDI.PERSONID
+    AND signatureDDI.NAME = 'SIGNATURE_IN_PLACE_DDM'
+LEFT JOIN
+    EMPLOYEES emp ON ss.EMPLOYEE_CENTER = emp.CENTER
+    AND ss.EMPLOYEE_ID = emp.ID
+LEFT JOIN
+    PERSONS salesperson ON salesperson.CENTER = emp.PERSONCENTER
+    AND salesperson.ID = emp.PERSONID
+LEFT JOIN
+    PERSON_EXT_ATTRS salesPersonOverrideExt ON owner.CENTER = salesPersonOverrideExt.PERSONCENTER
+    AND owner.ID = salesPersonOverrideExt.PERSONID
+    AND salesPersonOverrideExt.NAME = 'MC'
+LEFT JOIN
+    PERSONS salesPersonOverride ON salesPersonOverride.CENTER || 'p' || salesPersonOverride.ID = salesPersonOverrideExt.TXTVALUE
+WHERE
+    ss.SUBSCRIPTION_CENTER IN ($$Scope$$)
+    AND sub.CREATION_TIME >= params.PeriodStart
+    AND sub.CREATION_TIME < params.PeriodEnd
+    AND NOT EXISTS (
+        SELECT *
+        FROM SUBSCRIPTIONS oldsub
+        JOIN PERSONS oldPerson ON oldSub.OWNER_CENTER = oldPerson.CENTER
+        AND oldSub.OWNER_ID = oldPerson.ID
+        WHERE oldPerson.EXTERNAL_ID = owner.EXTERNAL_ID
+        AND (oldSub.CENTER <> sub.CENTER OR oldSub.ID <> sub.ID)
+        AND oldSub.END_DATE + 30 > longtodateTZ(sub.CREATION_TIME, 'Australia/Sydney')
+        AND (oldSub.STATE != 5 AND NOT (oldSub.STATE = 3 AND oldSub.SUB_STATE = 8))
+    )
+    AND NOT EXISTS (
+        SELECT *
+        FROM STATE_CHANGE_LOG SCLCHECK
+        WHERE SCLCHECK.CENTER = SUB.CENTER
+        AND SCLCHECK.ID = SUB.ID
+        AND SCLCHECK.ENTRY_TYPE = 2
+        AND SCLCHECK.STATEID IN (2, 4, 8)
+        AND SCLCHECK.SUB_STATE IN (3, 4, 5, 6, 7, 8)
+        AND SCL1.ENTRY_START_TIME >= params.PeriodStart
+        AND SCL1.ENTRY_START_TIME < params.PeriodEnd
+        AND EXISTS (
+            SELECT *
+            FROM PRODUCT_AND_PRODUCT_GROUP_LINK pgl
+            WHERE pgl.PRODUCT_CENTER = prod.CENTER
+            AND pgl.PRODUCT_ID = prod.ID
+            AND pgl.PRODUCT_GROUP_ID = 203
+        )
+    )
+    AND ss.EMPLOYEE_CENTER || 'emp' || ss.EMPLOYEE_ID = $$EmployeeId$$
+    AND (
+        CASE
+            WHEN id_seen.TXTVALUE IN ('Y', 'NA')
+                 AND linked_member.TXTVALUE IN ('Y', 'NA')
+                 AND Member_Details.TXTVALUE IN ('Y', 'NA')
+                 AND parq.TXTVALUE IN ('Y', 'NA')
+                 AND signatureTC.TXTVALUE IN ('Y', 'NA')
+                 AND validStartdate.TXTVALUE IN ('Y', 'NA')
+                 AND signatureDDI.TXTVALUE IN ('Y', 'NA')
+            THEN 'YES'
+            ELSE 'NO'
+        END = 'NO'
+    )
+GROUP BY
+    sub.start_date,
+    centre.SHORTNAME,
+    salesperson.FULLNAME,
+    salesperson.CENTER,
+    salesperson.ID,
+    salesPersonOverride.FULLNAME,
+    salesPersonOverride.CENTER,
+    salesPersonOverride.ID,
+    sub.CREATION_TIME,
+    owner.CENTER,
+    owner.ID,
+    owner.FULLNAME,
+    prod.NAME,
+    id_seen.TXTVALUE,
+    linked_member.TXTVALUE,
+    Member_Details.TXTVALUE,
+    parq.TXTVALUE,
+    signatureTC.TXTVALUE,
+    validStartdate.TXTVALUE,
+    signatureDDI.TXTVALUE
+ORDER BY
+    sub.CREATION_TIME,
+    salesperson.FULLNAME;

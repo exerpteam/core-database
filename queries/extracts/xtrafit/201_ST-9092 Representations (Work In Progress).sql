@@ -1,0 +1,71 @@
+SELECT
+        t1.*
+FROM
+(
+        WITH
+            params AS
+            (
+                SELECT
+                    /*+ materialize */
+                    to_date(:req_date, 'YYYY-MM-DD') AS cutDate
+            )
+        SELECT
+            pr.center,
+            pr.id,
+            pr.subid,
+            p.center || 'p' || p.id AS "PERSONKEY"
+        FROM
+            payment_request_specifications prs
+        cross JOIN
+            params
+        JOIN
+            account_receivables ar
+        ON
+            ar.center = prs.center
+        AND ar.id = prs.id
+        JOIN
+            persons p
+        ON
+            p.center = ar.customercenter
+        AND p.id = ar.customerid
+        JOIN
+            payment_requests pr
+        ON
+            prs.center = pr.inv_coll_center
+        AND prs.id = pr.inv_coll_id
+        AND prs.subid = pr.inv_coll_subid
+        AND pr.request_type = 1
+        AND pr.state NOT IN (1,2,3,4,8,12,18)
+       -- AND pr.REJECTED_REASON_CODE IN ('AM04','MS02','MS03','MD06')
+        JOIN
+            payment_accounts pac 
+        ON
+            pac.center = ar.center
+            AND pac.id = ar.id
+        JOIN
+            payment_agreements pag
+        ON
+            pag.center = pac.active_agr_center
+        AND pag.id = pac.active_agr_id
+        AND pag.subid = pac.active_agr_subid
+        LEFT JOIN
+            payment_requests rep_req
+        ON
+            rep_req.inv_coll_center = prs.center
+        AND rep_req.inv_coll_id = prs.id
+        AND rep_req.inv_coll_subid = prs.subid
+        AND rep_req.request_type = 6
+        AND rep_req.state NOT IN (8)
+        WHERE
+            pr.req_date = params.cutDate
+        AND ar.balance < 0
+        AND ar.ar_type = 4
+            -- exclude already represented requests
+        AND rep_req.center IS NULL
+        AND p.sex != 'C'
+        AND prs.open_amount > 0
+        AND pr.clearinghouse_id in (1,601,401,402,403,404,405,406)
+        AND pag.state = 4
+            -- AND pr.center IN (:Scope)
+) t1
+    

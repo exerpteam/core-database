@@ -1,0 +1,18 @@
+ SELECT
+     s.OWNER_CENTER||'p'||s.OWNER_ID AS memberID,
+     s.CENTER||'ss'||s.ID            AS SubscriptionID,
+     to_char(s.END_DATE,'YYYY-MM-DD') AS END_DATE,
+       CASE SUB_STATE WHEN 1 THEN 'ENDED' WHEN 2 THEN 'AWAITING_ACTIVATION' WHEN 3 THEN 'UPGRADED' WHEN 4 THEN 'DOWNGRADED' WHEN 5 THEN 'EXTENDED' WHEN 6 THEN 
+    'TRANSFERRED' WHEN 7 THEN 'REGRETTED' WHEN 8 THEN 'CANCELLED' WHEN 9 THEN 'BLOCKED' WHEN 10 THEN 'CHANGED' ELSE 'Undefined' END AS STATE
+ FROM
+     SUBSCRIPTIONS s
+ JOIN
+     subscriptiontypes st
+ ON
+     st.center = s.SUBSCRIPTIONTYPE_CENTER
+ AND st.id = s.SUBSCRIPTIONTYPE_id
+ AND st.st_type = 0
+ WHERE
+     s.END_DATE >= :Start_Date
+ AND s.END_DATE <= TO_DATE(:End_Date,'YYYY-MM-DD') + interval '1 day'
+ AND s.center IN (:Scope)

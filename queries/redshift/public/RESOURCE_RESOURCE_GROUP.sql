@@ -1,0 +1,7 @@
+SELECT
+    brc.BOOKING_RESOURCE_CENTER||'br'||brc.BOOKING_RESOURCE_ID AS "RESOURCE_ID",
+    brc.GROUP_ID                 AS "RESOURCE_GROUP_ID",
+    brc.BOOKING_RESOURCE_CENTER              AS "CENTER_ID",
+    brc.LAST_MODIFIED                        AS "ETS"
+FROM
+    BOOKING_RESOURCE_CONFIGS brc

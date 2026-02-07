@@ -1,0 +1,29 @@
+-- This is the version from 2026-02-05
+--  
+SELECT 
+	TO_CHAR(longtodate(cct.TRANSTIME), 'dd-MM-YYYY HH24:MI') AS TransactionTime,
+	cct.ACCOUNT_NUMBER AS CreditcardNumber,
+	cct.AMOUNT,
+	cr.CENTER AS CashregisterCenter,
+	cr.NAME AS CashregisterName,
+	CASE 
+	WHEN crt.CUSTOMERCENTER is not null
+	THEN crt.CUSTOMERCENTER ||'p'|| crt.CUSTOMERID
+	ELSE null
+	END AS MemberID
+FROM
+	CREDITCARDTRANSACTIONS cct
+JOIN
+	CASHREGISTERTRANSACTIONS crt
+ON
+	cct.GL_TRANS_CENTER = crt.GLTRANSCENTER
+AND	cct.GL_TRANS_ID = crt.GLTRANSID
+AND	cct.GL_TRANS_SUBID = crt.GLTRANSSUBID
+JOIN
+	CASHREGISTERS cr
+ON
+	crt.CRCENTER = cr.CENTER
+AND	crt.CRID = cr.ID
+WHERE
+	cct.TRANSTIME BETWEEN :FROMDATE AND :TODATE +86400000
+AND	crt.CENTER in (:scope)

@@ -1,0 +1,1 @@
+select * from BI_SUBSCRIPTION_STATE_LOG where SUBSCRIPTION_CENTER_ID in ($$Scope$$)

@@ -1,0 +1,72 @@
+sELECT
+	emp.PERSONCENTER || 'p' || emp.PERSONID AS PId,
+	emp.PERSONCENTER,
+	emp.PERSONID,
+	CASE  per.PERSONTYPE  WHEN 0 THEN 'PRIVATE'  WHEN 1 THEN 'STUDENT'  WHEN 2 THEN 'STAFF'  WHEN 3 THEN 'FRIEND'  WHEN 4 THEN 'CORPORATE'  WHEN 5 THEN 'ONEMANCORPORATE'  WHEN 6 THEN  'FAMILY'  WHEN 7 THEN 'SENIOR'  WHEN 8 THEN 'GUEST' ELSE 'UNKNOWN' END AS PersonType, 
+    CASE per.STATUS
+        WHEN 0 THEN 'LEAD'
+        WHEN 1 THEN 'ACTIVE'
+        WHEN 2 THEN 'INACTIVE'
+        WHEN 3 THEN 'TEMPORARY INACTIVE'
+        WHEN 4 THEN 'TRANSFERRED'
+        WHEN 5 THEN 'DUPLICATE'
+        WHEN 6 THEN 'PROSPECT'
+        WHEN 7 THEN 'DELETED'
+        WHEN 8 THEN 'ANONYMIZED'
+        WHEN 9 THEN 'CONTACT'
+        ELSE 'UNKNOWN'
+    END AS "STATUS",
+	per.FIRSTNAME,
+	per.LASTNAME,
+	emp.CENTER || 'emp' || emp.ID AS EmpId,
+	emp.LAST_LOGIN,
+	emp.BLOCKED,
+	r.ID AS Role_Id,
+	r.ROLENAME
+	
+	
+FROM
+	EMPLOYEES emp
+
+LEFT JOIN PERSONS per
+ON
+	emp.PERSONCENTER = per.CENTER
+	AND emp.PERSONID = per.ID
+LEFT JOIN EMPLOYEESROLES er
+ON
+	emp.CENTER = er.CENTER
+	AND emp.ID = er.ID
+
+LEFT JOIN ROLES r
+ON
+	er.ROLEID = r.ID
+
+	
+WHERE
+	emp.CENTER IN (:Scope)
+	AND emp.BLOCKED = 0
+and per.FIRSTNAME not in ('Exerp', 'exerp', 'eXerp', 'Exerp Support')
+/* and r.ROLENAME in ('HP Admin Manager',
+'HP Admin Manager New',
+'HP BAR',
+'HP Club Manager',
+'HP CRM Manager',
+'HP CZ add on reception',
+'HP Finance manager',
+'HP fitness booking',
+'HP Gym Manager',
+'HP IT Support',
+'HP PT/GYM',
+'HP Reception',
+'HP Reception Manager',
+'HP Reception Spa',
+'HP Regional Admin',
+'HP Reports',
+'HP Retention Manager',
+'HP Sales and Corporate Sales Manager',
+'HP Sales Consultant',
+'HP Sales Consultant CH',
+'HP Sales Consultant CZ',
+'HP Settlement view',
+'HP SPA BAR CZ',
+'HP Super user')*/

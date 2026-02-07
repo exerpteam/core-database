@@ -1,0 +1,20 @@
+-- This is the version from 2026-02-05
+--  
+SELECT
+    p.CENTER || 'p' || p.ID AS MainMember,
+    DECODE (p.STATUS, 0,'LEAD', 1,'ACTIVE', 2,'INACTIVE', 3,'TEMPORARYINACTIVE', 4,'TRANSFERRED', 5
+    ,'DUPLICATE', 6,'PROSPECT', 7,'DELETED',8, 'ANONYMIZED', 9, 'CONTACT', 'UNKNOWN') AS STATUS,
+    tr.CENTER || 'p' || tr.ID                                                         AS OldProfile
+    ,
+    DECODE (tr.STATUS, 0,'LEAD', 1,'ACTIVE', 2,'INACTIVE', 3,'TEMPORARYINACTIVE', 4,'TRANSFERRED',
+    5,'DUPLICATE', 6,'PROSPECT', 7,'DELETED',8, 'ANONYMIZED', 9, 'CONTACT', 'UNKNOWN') AS STATUS
+FROM
+    PERSONS p
+JOIN
+    PERSONS tr
+ON
+    tr.TRANSFERS_CURRENT_PRS_CENTER = p.CENTER
+AND tr.TRANSFERS_CURRENT_PRS_ID = p.ID
+AND tr.STATUS != 8
+WHERE
+    p.STATUS = 8

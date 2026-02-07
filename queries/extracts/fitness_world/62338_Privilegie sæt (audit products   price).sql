@@ -1,0 +1,63 @@
+-- This is the version from 2026-02-05
+--  
+WITH
+	prodgroup AS
+		(
+			SELECT DISTINCT
+				prod.GLOBALID,
+				pp_prodgroup.REF_ID
+		 	FROM
+				PRODUCT_PRIVILEGES pp_prodgroup
+		 	JOIN 
+				PRODUCT_AND_PRODUCT_GROUP_LINK ppgl
+		 	ON
+		  		pp_prodgroup.REF_ID = ppgl.PRODUCT_GROUP_ID
+		 	AND pp_prodgroup.REF_TYPE = 'PRODUCT_GROUP'
+		 	JOIN 
+				PRODUCTS prod
+		 	ON 
+				prod.CENTER = ppgl.PRODUCT_CENTER
+				AND prod.ID = ppgl.PRODUCT_ID
+		) 
+
+SELECT DISTINCT
+	ps.NAME AS "Privilegiesæt navn",
+	ps.STATE AS "Privilegiesæt status",
+	CASE WHEN pp.REF_TYPE = 'GLOBAL_PRODUCT'
+	THEN 'PRODUKT'
+	ELSE 'PRODUKT GRUPPE'
+	END	 AS "Privilegie type",
+	CASE WHEN pp.REF_TYPE = 'GLOBAL_PRODUCT'
+	THEN pp.REF_GLOBALID
+	ELSE prodgroup.GLOBALID
+	END AS "Global ID",
+	CASE
+	WHEN pp.PRICE_MODIFICATION_NAME = 'FREE'
+	THEN 'GRATIS'
+	WHEN pp.PRICE_MODIFICATION_NAME = 'OVERRIDE'
+	THEN 'FAST PRIS' ||' '|| pp.PRICE_MODIFICATION_AMOUNT ||' kr.'
+	WHEN pp.PRICE_MODIFICATION_NAME = 'FIXED_REBATE'
+	THEN pp.PRICE_MODIFICATION_AMOUNT ||' kr.'
+	WHEN pp.PRICE_MODIFICATION_NAME = 'PERCENTAGE_REBATE'
+	THEN pp.PRICE_MODIFICATION_AMOUNT*100 ||'%'
+	ELSE 'INGEN'
+	END AS "Rabat",
+	TO_CHAR(longtodate(pp.VALID_FROM), 'dd-MM-YYYY HH24:MI:SS') AS "Privilegie validt fra",
+	TO_CHAR(longtodate(pp.VALID_TO), 'dd-MM-YYYY HH24:MI:SS')	AS "Privilegie validt til"
+
+FROM
+
+	PRIVILEGE_SETS ps
+
+JOIN
+	PRODUCT_PRIVILEGES pp
+ON
+	pp.PRIVILEGE_SET = ps.ID
+
+LEFT JOIN 
+	prodgroup
+ON
+	prodgroup.REF_ID = pp.REF_ID
+
+WHERE
+	ps.NAME in (:PRIV_NAME)

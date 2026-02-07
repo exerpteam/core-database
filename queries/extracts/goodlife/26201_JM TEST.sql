@@ -1,0 +1,1 @@
+SELECT * from bookings where center = 288 and id = 100276

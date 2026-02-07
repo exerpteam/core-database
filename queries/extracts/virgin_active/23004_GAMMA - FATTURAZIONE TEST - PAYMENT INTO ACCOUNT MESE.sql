@@ -1,0 +1,54 @@
+SELECT 
+NVL(c3.SHORTNAME,NVL(c2.SHORTNAME,NVL(c1.SHORTNAME, c.SHORTNAME))) AS club, nvl(E2.TXTVALUE,nvl(e1.TXTVALUE,nvl(e.TXTVALUE,CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8)))))) as personId, e2.TXTVALUE, e1.TXTVALUE,e.txtvalue, CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8))),
+p.FULLNAME as nominativo, ar.amount as importo, 
+LongToDate(ar.TRANS_TIME) AS dataPagamento
+FROM AR_TRANS ar
+INNER JOIN CENTERS C
+ON ar.CENTER = C.id
+INNER JOIN ACCOUNT_RECEIVABLES A
+ON a.CENTER = AR.CENTER
+AND A.ID = AR.ID
+INNER JOIN 
+PERSONS p
+ON p.ID = a.CUSTOMERID
+AND
+p.CENTER = a.CUSTOMERCENTER
+LEFT JOIN
+PERSON_EXT_ATTRS e
+ON p.ID = e.PERSONID
+AND p.CENTER = e.PERSONCENTER
+AND e.NAME = '_eClub_TransferredToId'
+LEFT JOIN CENTERS c1
+on c1.id = SUBSTR(e.TXTVALUE, 1, 3)
+LEFT JOIN PERSONS p1
+ON CONCAT(CONCAT(cast(p1.CENTER as char(3)),'p'), cast(p1.ID as varchar(8))) = e.TXTVALUE
+LEFT JOIN
+PERSON_EXT_ATTRS e1
+ON p1.ID = e1.PERSONID
+AND p1.CENTER = e1.PERSONCENTER
+AND e1.NAME = '_eClub_TransferredToId'
+LEFT JOIN CENTERS c2
+on c2.id = SUBSTR(e1.TXTVALUE, 1, 3)
+LEFT JOIN PERSONS p2
+ON CONCAT(CONCAT(cast(p2.CENTER as char(3)),'p'), cast(p2.ID as varchar(8))) = e1.TXTVALUE
+LEFT JOIN
+PERSON_EXT_ATTRS e2
+ON p2.ID = e2.PERSONID
+AND p2.CENTER = e2.PERSONCENTER
+AND e2.NAME = '_eClub_TransferredToId'
+LEFT JOIN CENTERS c3
+on c3.id = SUBSTR(e2.TXTVALUE, 1, 3)
+
+
+WHERE
+c.COUNTRY = 'IT'
+
+--AND
+--Extract(MONTH FROM LongToDate(ar.TRANS_TIME)) = 1
+AND
+Extract(YEAR FROM LongToDate(ar.TRANS_TIME)) = 2016
+AND c.COUNTRY = 'IT'
+AND ar.TEXT = 'Payment into account'
+--AND p.CENTER = 202
+--AND p.ID = 4652
+ORDER BY NVL(c1.SHORTNAME, c.SHORTNAME), p.FULLNAME

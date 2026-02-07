@@ -1,0 +1,1 @@
+select * from payment_agreements where center = 11 and id = 394

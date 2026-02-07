@@ -1,0 +1,17 @@
+-- This is the version from 2026-02-05
+--  
+SELECT
+    PERSONS.FIRSTNAME,
+    COUNT(PERSONS.SSN),
+    PERSONS.SSN
+FROM
+    PERSONS
+WHERE
+    PERSONS.STATUS IN (0,2,6,9)
+    and PERSONS.FIRSTNAME is not null
+GROUP BY
+    PERSONS.FIRSTNAME,
+    PERSONS.SSN
+HAVING
+    (
+        COUNT(PERSONS.SSN) > 1 )

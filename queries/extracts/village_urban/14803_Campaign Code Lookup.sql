@@ -1,0 +1,16 @@
+ SELECT DISTINCT
+ pu.PERSON_CENTER ||'p'|| pu.PERSON_ID as  "PERSON_ID",
+ cc.ID,
+ cc.CAMPAIGN_ID as "campaign_code_id",
+ cc.CODE as "Campaign Code",
+ cc.CAMPAIGN_TYPE
+ from CAMPAIGN_CODES cc
+ JOIN
+ CAMPAIGN_CODE_USAGES ccu
+ ON ccu.CAMPAIGN_CODE_ID = cc.ID
+ JOIN
+ PRIVILEGE_USAGES pu
+ ON
+ pu.CAMPAIGN_CODE_ID = cc.ID
+ WHERE
+CAST (cc.code AS VARCHAR) IN (:code)

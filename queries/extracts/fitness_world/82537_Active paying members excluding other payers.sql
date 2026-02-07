@@ -1,0 +1,48 @@
+-- This is the version from 2026-02-05
+--  
+SELECT DISTINCT
+sp.PRICE,
+p.CENTER ||'p'|| p.ID,
+CASE p.PERSONTYPE
+ WHEN 0 THEN 'PRIVATE'  WHEN 1 THEN 'STUDENT'  WHEN 2 THEN 'STAFF'  WHEN 3 THEN 'FRIEND'  WHEN 4 THEN 'CORPORATE'  WHEN 5 THEN 'ONEMANCORPORATE'
+ WHEN 6 THEN  'FAMILY'  WHEN 7 THEN 'SENIOR'  WHEN 8 THEN 'GUEST'  WHEN 10 THEN  'EXTERNAL STAFF' ELSE 'UNKNOWN' END AS "PERSON TYPE"
+FROM SUBSCRIPTIONS s
+JOIN SUBSCRIPTION_PRICE sp
+ON sp.SUBSCRIPTION_CENTER = s.CENTER
+AND sp.SUBSCRIPTION_ID = s.ID
+JOIN SUBSCRIPTIONTYPES st
+ON st.CENTER = s.SUBSCRIPTIONTYPE_CENTER
+AND st.ID = s.SUBSCRIPTIONTYPE_ID
+AND st.ST_TYPE = 1
+JOIN PERSONS p
+ON p.CENTER = s.OWNER_CENTER
+AND p.ID = s.OWNER_ID
+WHERE
+p.PERSONTYPE not in (2,4)
+AND sp.price >= 1
+AND sp.FROM_DATE <= current_date
+AND (sp.TO_DATE is null or sp.TO_DATE > current_date)
+AND sp.CANCELLED = 0
+AND s.STATE in (2,4)
+AND s.CENTER in (:scope)
+    AND NOT EXISTS
+    (
+        /* exclude members with other payer */
+        SELECT
+            *
+        FROM
+            RELATIVES rel
+        WHERE
+            p.CENTER = rel.RELATIVECENTER
+            AND p.ID = rel.RELATIVEID
+            AND rel.RTYPE = 12
+            AND rel.STATUS <> 3
+    )
+GROUP BY
+sp.PRICE,
+(p.CENTER ||'p'|| p.ID),
+s.CENTER,
+s.ID,
+p.PERSONTYPE
+ORDER BY
+(p.CENTER ||'p'|| p.ID)

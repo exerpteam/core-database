@@ -1,0 +1,4 @@
+SELECT
+    biview.*
+FROM
+    BI_BOOKING_RECURRENCE  biview

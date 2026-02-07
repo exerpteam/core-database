@@ -1,0 +1,1 @@
+select * from BI_PRODUCTS where BI_PRODUCTS.PRODUCT_CENTER in ($$Scope$$)

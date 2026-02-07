@@ -1,0 +1,48 @@
+ SELECT
+     p.CENTER,
+     p.id ,
+     pr.REQ_AMOUNT,
+     prs.INCLUDED_OVERDUE_AMOUNT,
+     CASE agr.STATE WHEN 1 THEN 'Created' WHEN 2 THEN 'Sent' WHEN 3 THEN 'Failed' WHEN 4 THEN 'OK' WHEN 5 THEN 'Ended, bank' WHEN 6 THEN 'Ended, clearing house' WHEN 7 THEN 'Ended, debtor' WHEN 8 THEN 'Cancelled, not sent' WHEN 9 THEN 'Cancelled, sent' WHEN 10 THEN 'Ended, creditor' WHEN 11 THEN 'No agreement (deprecated)' WHEN 12 THEN 'Cash payment (deprecated)' WHEN 13 THEN 'Agreement not needed (invoice payment)' WHEN 14 THEN 'Agreement information incomplete' ELSE 'Unknown' END AS PAYMENTAGREEMENTSTATE,
+     CASE pr.STATE WHEN 1 THEN 'created' WHEN 12 THEN 'Failed' END payment_request_state,
+     p.FIRSTNAME,
+     p.LASTNAME,
+     atts.TXTVALUE email,
+     p.BIRTHDATE,
+     CASE  p.STATUS  WHEN 0 THEN 'LEAD'  WHEN 1 THEN 'ACTIVE'  WHEN 2 THEN 'INACTIVE'  WHEN 3 THEN 'TEMPORARYINACTIVE'  WHEN 4 THEN 'TRANSFERED'  WHEN 5 THEN 'DUPLICATE'  WHEN 6 THEN 'PROSPECT'  WHEN 7 THEN 'DELETED' WHEN 8 THEN  'ANONYMIZED'  WHEN 9 THEN  'CONTACT'  ELSE 'UNKNOWN' END AS STATUS,
+     CASE  p.PERSONTYPE  WHEN 0 THEN 'PRIVATE'  WHEN 1 THEN 'STUDENT'  WHEN 2 THEN 'STAFF'  WHEN 3 THEN 'FRIEND'  WHEN 4 THEN 'CORPORATE'  WHEN 5 THEN 'ONEMANCORPORATE'  WHEN 6 THEN 'FAMILY'  WHEN 7 THEN 'SENIOR'  WHEN 8 THEN 'GUEST' ELSE 'UNKNOWN' END                         AS PERSONTYPE,
+     p.SEX
+ FROM
+     PAYMENT_REQUEST_SPECIFICATIONS prs
+  JOIN PAYMENT_REQUESTS pr
+ ON
+     pr.INV_COLL_CENTER = prs.CENTER
+     AND pr.INV_COLL_ID = prs.ID
+     AND pr.INV_COLL_SUBID = prs.SUBID
+ JOIN ACCOUNT_RECEIVABLES ar
+ ON
+     ar.CENTER = prs.CENTER
+     AND ar.ID = prs.ID
+     AND ar.AR_TYPE = 4
+ JOIN PERSONS p
+ ON
+     p.CENTER = ar.CUSTOMERCENTER
+     AND p.ID = ar.CUSTOMERID
+ LEFT JOIN PERSON_EXT_ATTRS atts
+ ON
+     atts.PERSONCENTER = p.CENTER
+     AND atts.PERSONID = p.ID
+     AND atts.NAME = '_eClub_Email'
+ LEFT JOIN PAYMENT_ACCOUNTS pac
+ ON
+     pac.CENTER = ar.CENTER
+     AND pac.id = ar.ID
+ LEFT JOIN PAYMENT_AGREEMENTS agr
+ ON
+     agr.CENTER = pac.ACTIVE_AGR_CENTER
+     AND agr.ID = pac.ACTIVE_AGR_ID
+     AND agr.SUBID = pac.ACTIVE_AGR_SUBID
+ WHERE
+     pr.DUE_DATE = to_date('2014-05-20','yyyy-MM-dd')
+     AND prs.INCLUDED_OVERDUE_AMOUNT > 0
+     AND ar.CENTER IS NOT NULL

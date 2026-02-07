@@ -1,0 +1,61 @@
+-- This is the version from 2026-02-05
+--  
+SELECT
+	--it.INVENTORY,
+	i.CENTER ||' - '|| c.NAME AS Center,
+	longtodate(it.BOOK_TIME) AS Bogføringsdato,
+	TO_CHAR(longtodate(it.ENTRY_TIME), 'dd-MM-YYYY HH24:MI') AS "INDTASTET TID",
+	pr.globalid AS GlobalID,
+	pr.NAME AS Varenavn,
+	it.TYPE,
+	it.QUANTITY AS Antal,
+	it.COMENT AS Produktkommentar,
+	i.NAME AS Lager,
+	suppl.FULLNAME AS Leverandør,
+	d.ORDER_NO AS "ORDRE NR.",
+	d.COMENT AS Ordrekommentar,
+	it.EMPLOYEE_CENTER ||'emp'|| it.EMPLOYEE_ID ||' - '|| staff.FULLNAME AS Ansat
+FROM
+	INVENTORY_TRANS it
+JOIN
+	INVENTORY i
+ON
+	it.INVENTORY = i.ID
+JOIN
+	DELIVERY d
+ON
+	it.REF_CENTER = d.CENTER
+AND	it.REF_ID = d.ID
+/*JOIN
+	DELIVERY_LINE dl
+ON
+	it.REF_CENTER = dl.CENTER
+AND	it.REF_ID = dl.ID
+AND	it.REF_SUBID = dl.SUBID*/
+JOIN
+	PRODUCTS pr
+ON
+	it.PRODUCT_CENTER = pr.CENTER
+AND	it.PRODUCT_ID = pr.ID
+JOIN
+	CENTERS c
+ON
+	i.CENTER = c.ID
+JOIN
+	PERSONS suppl
+ON
+	d.SUPPLIER_CENTER = suppl.CENTER
+AND	d.SUPPLIER_ID = suppl.ID
+JOIN
+	EMPLOYEES emp
+ON it.EMPLOYEE_CENTER = emp.CENTER
+AND it.EMPLOYEE_ID = emp.ID
+JOIN
+	PERSONS staff
+ON
+	emp.PERSONCENTER = staff.CENTER
+AND	emp.PERSONID = staff.ID
+WHERE
+	it.ENTRY_TIME BETWEEN :FROMDATE AND :TODATE
+AND	it.TYPE = 'DELIVERY'
+AND i.CENTER in (:SCOPE)

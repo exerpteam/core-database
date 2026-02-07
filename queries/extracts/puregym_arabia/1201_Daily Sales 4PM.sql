@@ -1,0 +1,62 @@
+-- KPI needs to setup and then KPI field value need to update in this extract. Also check area parent = 61?
+SELECT
+    e1.*,
+    e1."Today's Joiners 4pm"-e1."Today's Leavers 4pm" AS "Today's Net Gain 4pm"
+FROM
+    (
+        SELECT
+            CASE 
+                WHEN c.NAME IS NULL
+                THEN 'Grand Total'
+                ELSE c.name
+            END AS "Center Name",
+            CASE
+                WHEN c.STARTUPDATE>now()
+                THEN 'Pre-Join'
+                WHEN C.STARTUPDATE IS NULL
+                THEN NULL
+                ELSE 'Open'
+            END    AS "Center Status",
+            a.name AS "Region",
+            SUM(
+                CASE kf.key
+                    WHEN 'POSITIVEGAIN'
+                    THEN kd.value
+                    ELSE NULL
+                END) AS "Today's Joiners 4pm",
+            SUM(
+                CASE kf.key
+                    WHEN 'TODAYSLEAVERS'
+                    THEN kd.value
+                    ELSE NULL
+                END) AS "Today's Leavers 4pm"
+        FROM
+            KPI_DATA kd
+        JOIN
+            kpi_fields kf
+        ON
+            kd.FIELD = kf.ID
+        JOIN
+            CENTERS c
+        ON
+            c.id = kd.CENTER
+        JOIN
+            AREA_CENTERS AC
+        ON
+            c.ID = AC.CENTER
+        JOIN
+            AREAS A
+        ON
+            A.ID = AC.AREA
+            -- Area Saudi Arabia
+            AND A.PARENT in (10,2)
+        WHERE
+            kf.KEY IN ('POSITIVEGAIN',
+                       'TODAYSLEAVERS')
+            AND kd.for_date = CAST(now() at time zone c.time_zone AS DATE)
+            AND c.ID != 100
+            and c.id in ($$Scope$$)
+        GROUP BY
+            grouping sets ( (c.name,A.NAME,C.STARTUPDATE), () )
+        ORDER BY
+            c.NAME) e1

@@ -1,0 +1,7 @@
+SELECT
+C.PERSONCENTER || 'p' || C.PERSONID AS PersonId,
+C.CENTER || 'ccol' || C.ID AS CaseId
+FROM
+CASHCOLLECTIONCASES C
+-- WHERE
+-- ( C.CENTER , C.ID) in (cases)

@@ -1,0 +1,1 @@
+select * from bi2_campaign_availability_scope b

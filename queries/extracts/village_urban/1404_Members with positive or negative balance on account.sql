@@ -1,0 +1,24 @@
+ select
+ p.CENTER ||'p'|| p.ID as PERSONID,
+ p.FULLNAME as FULLNAME,
+ CASE WHEN AR_TYPE = 1 THEN 'Cash' WHEN AR_TYPE = 4 THEN 'Payment' WHEN AR_TYPE = 5 THEN 'Debt' WHEN AR_TYPE = 6 THEN 'installment' END AS ACCOUNTTYPE,
+  ar.BALANCE as BALANCE,
+   (CASE p.status
+        WHEN 0 THEN 'LEAD'
+        WHEN 1 THEN 'ACTIVE'
+        WHEN 2 THEN 'INACTIVE'
+        WHEN 3 THEN 'TEMPORARYINACTIVE'
+        WHEN 4 THEN 'TRANSFERRED'
+        WHEN 5 THEN 'DUPLICATE'
+        WHEN 6 THEN 'PROSPECT'
+        WHEN 7 THEN 'DELETED'
+        WHEN 8 THEN 'ANONYMIZED'
+        WHEN 9 THEN 'CONTACT'
+        ELSE 'UNKNOWN'
+    END) AS STATUS
+ from PERSONS p
+ left join ACCOUNT_RECEIVABLES ar
+ on p.CENTER = ar.CUSTOMERCENTER and p.ID = ar.CUSTOMERID
+ where ar.BALANCE != 0
+ and p.SEX != 'C'
+ order by ar.BALANCE

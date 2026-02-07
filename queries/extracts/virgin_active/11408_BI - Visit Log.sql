@@ -1,0 +1,1 @@
+select * from BI_VISIT_LOG where CENTER_ID in ($$Scope$$)

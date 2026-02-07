@@ -1,0 +1,346 @@
+SELECT  --BI_ACCESS_PRIVILEGE
+    'ACCESS_PRIVILEGE' AS TABLE_NAME,
+    COUNT(*)       AS "ROW_COUNT",
+    ''             AS REF_FIELD	
+FROM
+    BOOKING_PRIVILEGES bp
+WHERE
+    bp.VALID_TO IS NULL
+UNION ALL	
+
+SELECT -- BI_ACCESS_PRIVILEGE_USAGE
+    'ACCESS_PRIVILEGE_USAGE' AS "TABLE_NAME",
+    COUNT(*)                 AS "ROW_COUNT",
+	    ''             AS REF_FIELD	
+FROM
+    PRIVILEGE_USAGES pu
+JOIN
+    PRIVILEGE_GRANTS pg
+ON
+    pg.ID = pu.GRANT_ID
+WHERE
+    pu.TARGET_SERVICE IN ('Participation',
+                          'Attend',
+                          'Booking')
+    AND pg.GRANTER_SERVICE IN ('GlobalCard',
+                               'GlobalSubscription',
+                               'Access product',
+                               'Addon')
+UNION ALL
+
+SELECT
+    'AREA_CENTERS' AS TABLE_NAME,
+    COUNT(*)       AS "ROW_COUNT",
+    ''             AS REF_FIELD
+FROM
+    area_centers
+UNION ALL
+
+SELECT -- BI_ACTIVITY
+    'ACTIVITY' AS "TABLE_NAME",
+    COUNT(*)   AS "ROW_COUNT",
+	    ''       AS REF_FIELD
+FROM
+    ACTIVITY a
+WHERE
+    a.STATE != 'DRAFT'
+    AND a.TOP_NODE_ID IS NULL
+UNION ALL
+
+SELECT -- BI_ACTIVITY_GROUP
+    'ACTIVITY_GROUP' AS "TABLE_NAME",
+    COUNT(*)         AS "ROW_COUNT",
+    ''       AS REF_FIELD	
+FROM
+    ACTIVITY_GROUP ag
+WHERE
+    ag.TOP_NODE_ID IS NULL
+    AND ag.STATE != 'DRAFT'
+UNION ALL
+
+SELECT
+    'AREAS'  AS TABLE_NAME,
+    COUNT(*) AS "ROW_COUNT",
+    ''       AS REF_FIELD
+FROM
+    AREAS a
+LEFT JOIN
+    (
+        SELECT
+            parent   AS id,
+            COUNT(*) AS children_count
+        FROM
+            AREAS
+        WHERE
+            blocked=0
+        GROUP BY
+            parent) parents
+ON
+    parents.id = a.parent
+JOIN
+    AREAS tree
+ON
+    tree.id = a.ROOT_AREA
+WHERE
+    a.BLOCKED = 0
+AND (
+        parents.children_count <> 1
+    OR  NOT (
+            a.parent = a.ROOT_AREA))
+UNION ALL
+
+SELECT -- BI_AREA_CENTERS
+    'AREA_CENTERS' AS "TABLE_NAME",
+    COUNT(*)       AS "ROW_COUNT",
+    ''             AS REF_FIELD	
+FROM
+    AREA_CENTERS
+UNION ALL
+
+SELECT -- ATTENDS
+    'ATTENDS' AS "TABLE_NAME",
+    COUNT(*)         AS "ROW_COUNT",
+    ''       AS REF_FIELD	
+FROM
+    ATTENDS 
+UNION ALL
+
+
+SELECT -- BOOKING_RECURRENCE
+    'BOOKING_RECURRENCE' AS "TABLE_NAME",
+    COUNT(*)         AS "ROW_COUNT",
+    ''       AS REF_FIELD	
+FROM
+    BOOKINGS b
+WHERE
+    b.MAIN_BOOKING_ID IS NULL
+UNION ALL
+
+
+SELECT -- BI_BOOKING_RESOURCE_USAGE
+    'BOOKING_RESOURCE_USAGE' AS "TABLE_NAME",
+    COUNT(*)                 AS "ROW_COUNT",
+	    ''       AS REF_FIELD
+FROM
+    BOOKING_RESOURCE_USAGE 
+
+UNION ALL
+SELECT -- BI_BOOKINGS
+    'BOOKINGS' AS "TABLE_NAME",
+    COUNT(*)   AS "ROW_COUNT",
+	  ''       AS REF_FIELD
+FROM
+    BOOKINGS 
+UNION ALL
+
+
+SELECT -- BI_CAMPAIGNS
+    'CAMPAIGNS' AS "TABLE_NAME",
+    SUM(COUNT)  AS "ROW_COUNT",
+	  ''       AS REF_FIELD
+FROM
+    (
+        SELECT
+            COUNT(*) AS COUNT
+        FROM
+            STARTUP_CAMPAIGN st
+        UNION ALL
+        SELECT
+            COUNT(*) AS COUNT
+        FROM
+            PRIVILEGE_RECEIVER_GROUPS prg)
+UNION ALL
+
+SELECT
+    'CENTER_EXT_ATTRS' AS TABLE_NAME,
+    COUNT(*)           AS "ROW_COUNT",
+    ''                 AS REF_FIELD
+FROM
+    CENTER_EXT_ATTRS
+UNION ALL
+
+SELECT
+    'CENTERS' AS TABLE_NAME,
+    COUNT(*)  AS "ROW_COUNT",
+    ''        AS REF_FIELD
+FROM
+    CENTERS
+UNION ALL
+
+SELECT -- BI_CLIPCARD_USAGE
+    'CLIPCARD_USAGE' AS "TABLE_NAME",
+    COUNT(*)         AS "ROW_COUNT",
+    ''        AS REF_FIELD
+FROM
+    CARD_CLIP_USAGES biview
+UNION ALL	
+	
+SELECT -- BI_CLIPCARDS
+    'CLIPCARDS' AS "TABLE_NAME",
+    COUNT(*)    AS "ROW_COUNT",
+    ''        AS REF_FIELD
+FROM
+    CLIPCARDS biview
+UNION ALL
+
+SELECT  -- BI_COMPANIES
+    'COMPANIES' AS TABLE_NAME,
+    COUNT(*)    AS "ROW_COUNT",
+    ''          AS REF_FIELD
+FROM
+  PERSONS
+WHERE
+  SEX = 'C' 
+UNION ALL
+
+SELECT -- BI_COUNTRIES
+    'COUNTRIES' AS "TABLE_NAME",
+    COUNT(*)    AS "ROW_COUNT",
+''          AS REF_FIELD
+FROM
+    COUNTRIES biview
+
+UNION ALL
+SELECT
+    'MASTER_PRODUCTS' AS TABLE_NAME,
+    COUNT(*)          AS "ROW_COUNT",
+    ''                AS REF_FIELD
+FROM
+    MASTERPRODUCTREGISTER mp
+WHERE
+    ID = DEFINITION_KEY
+UNION ALL
+
+SELECT
+'PERSONS' AS TABLE_NAME,
+COUNT(*)  AS "ROW_COUNT",
+''        AS REF_FIELD
+FROM
+persons p
+WHERE
+p.SEX != 'C'
+-- Exclude Transferred
+AND p.center = p.TRANSFERS_CURRENT_PRS_CENTER
+AND p.id = p.TRANSFERS_CURRENT_PRS_ID
+UNION ALL
+
+
+SELECT -- BI_PARTICIPATIONS
+    'PARTICIPATIONS' AS "TABLE_NAME",
+    COUNT(*)         AS "ROW_COUNT",
+    ''                AS REF_FIELD
+FROM
+    PARTICIPATIONS biview
+UNION ALL
+
+SELECT
+    'PRODUCT_GROUPS' AS TABLE_NAME,
+    COUNT(*)         AS "ROW_COUNT",
+    ''               AS REF_FIELD
+FROM
+    PRODUCT_GROUP pg
+WHERE
+    pg.TOP_NODE_ID IS NULL
+UNION ALL
+
+SELECT -- BI_PRODUCT_PRIVILEGE_USAGE
+    'PRODUCT_PRIVILEGE_USAGE' AS "TABLE_NAME",
+    COUNT(*)                  AS "ROW_COUNT",
+    ''               AS REF_FIELD
+FROM
+    PRIVILEGE_USAGES pu
+WHERE
+    pu.TARGET_SERVICE IN ('InvoiceLine',
+                          'SubscriptionPrice')
+UNION ALL
+
+SELECT
+    'PRODUCT_PRODUCT_GROUPS' AS TABLE_NAME,
+    COUNT(*)                 AS "ROW_COUNT",
+    ''                       AS REF_FIELD
+FROM
+    PRODUCT_AND_PRODUCT_GROUP_LINK
+UNION ALL
+
+SELECT
+    'PRODUCTS' AS TABLE_NAME,
+    COUNT(*)   AS "ROW_COUNT",
+    ''         AS REF_FIELD
+FROM
+    PRODUCTS
+UNION ALL
+
+SELECT -- BI_RESOURCE_GROUPS
+    'RESOURCE_GROUPS' AS "TABLE_NAME",
+    COUNT(*)    AS "ROW_COUNT",
+    ''         AS REF_FIELD
+FROM
+    BOOKING_RESOURCE_GROUPS brg
+UNION ALL
+
+SELECT -- BI_RESOURCE_RESOURCE_GROUP
+    'RESOURCE_RESOURCE_GROUP' AS "TABLE_NAME",
+    COUNT(*)    AS "ROW_COUNT",
+    ''         AS REF_FIELD
+FROM
+    BOOKING_RESOURCE_CONFIGS brc
+UNION ALL
+
+SELECT -- BI_RESOURCES
+    'RESOURCES' AS "TABLE_NAME",
+    COUNT(*)    AS "ROW_COUNT",
+    ''         AS REF_FIELD
+FROM
+    BOOKING_RESOURCES
+UNION ALL
+
+SELECT -- BI_SALES_LOG
+    'SALES_LOG' AS "TABLE_NAME",
+    SUM(cnt)    AS "ROW_COUNT",
+	''         AS REF_FIELD
+FROM
+    (
+        SELECT
+            COUNT(*) AS cnt
+        FROM
+            invoice_lines_mt il
+        UNION ALL
+        SELECT
+            COUNT(*) AS cnt
+        FROM
+            credit_note_lines_mt cl )
+UNION ALL
+
+SELECT -- BI_STAFF_USAGE
+    'STAFF_USAGE' AS "TABLE_NAME",
+    COUNT(*)      AS "ROW_COUNT",
+	''         AS REF_FIELD
+FROM
+    STAFF_USAGE s
+UNION ALL
+
+SELECT -- BI_SUBSCRIPTION_ADDONS
+    'SUBSCRIPTION_ADDONS' AS "TABLE_NAME",
+    COUNT(*)              AS "ROW_COUNT",
+	''         AS REF_FIELD
+FROM
+    SUBSCRIPTION_ADDON sa
+UNION ALL
+
+SELECT  --BI_SUBSCRIPTION_
+    'SUBSCRIPTIONS' AS TABLE_NAME,
+    COUNT(*)        AS "ROW_COUNT",
+    'CREATION_DATE' AS REF_FIELD
+FROM
+    SUBSCRIPTIONS
+UNION ALL
+
+SELECT -- BI_SUBSCRIPTION_ADDONS
+    'SUBSCRIPTION_ADDONS' AS "TABLE_NAME",
+    COUNT(*)              AS "ROW_COUNT",
+	''         AS REF_FIELD
+FROM
+    SUBSCRIPTION_ADDON sa
+
+
+	

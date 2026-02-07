@@ -1,0 +1,67 @@
+SELECT
+        t1.*
+FROM
+(
+        WITH params AS MATERIALIZED
+        (
+                SELECT
+                       DATE_TRUNC('month',TO_DATE(getCenterTime(c.id),'YYYY-MM-DD')) AS cutdate,
+                       extract(DAY FROM(TO_DATE(getCenterTime(c.id), 'YYYY-MM-DD'))) AS executionDate,
+                       id AS center_id,
+                       datetolongc(TO_CHAR(TO_DATE('2023-10-01','YYYY-MM-DD'),'YYYY-MM-DD'), c.id) AS fromDateOct,
+                       datetolongc(TO_CHAR(TO_DATE('2023-10-31','YYYY-MM-DD'),'YYYY-MM-DD'), c.id) AS toDateOct
+                FROM vivagym.centers c
+                WHERE
+                        c.country = 'ES'
+        )
+        SELECT
+                pr.center,
+                pr.id,
+                pr.subid,
+                p.center || 'p' || p.id AS "PERSONKEY",
+                pr.req_date,
+                rep_req.center as rep_center,
+                ar.balance
+        FROM vivagym.payment_request_specifications prs
+        JOIN params par
+                ON par.center_id = prs.center
+        JOIN vivagym.account_receivables ar
+                ON ar.center = prs.center 
+                AND ar.id = prs.id
+        JOIN vivagym.persons p
+                ON p.center = ar.customercenter 
+                AND p.id = ar.customerid
+        JOIN vivagym.payment_requests pr
+                ON prs.center = pr.inv_coll_center
+                AND prs.id = pr.inv_coll_id
+                AND prs.subid = pr.inv_coll_subid
+                AND pr.request_type = 1
+                AND pr.state NOT IN (1,2,3,4,8,12,18)
+		-- Se pueden filtrar motivos de devolucion para la representacion
+                --AND pr.REJECTED_REASON_CODE IN ('AM04','MS02','MS03','MD06')
+        JOIN payment_agreements pag
+                ON pag.center = pr.center
+                AND pag.id = pr.id
+                AND pag.subid = pr.agr_subid
+        LEFT JOIN vivagym.payment_requests rep_req
+                ON rep_req.inv_coll_center = prs.center
+                AND rep_req.inv_coll_id = prs.id
+                AND rep_req.inv_coll_subid = prs.subid
+                AND rep_req.request_type = 6
+                AND rep_req.state NOT IN (8)
+        LEFT JOIN vivagym.payment_request_specifications prs_oct
+                ON prs_oct.center = ar.center
+                AND prs_oct.id = ar.id
+                AND prs_oct.issued_date between par.fromDateOct AND par.toDateOct        
+        WHERE
+                pr.req_date > par.cutdate
+		AND pr.clearinghouse_id = 201 -- SEPA
+                AND ar.balance < 0
+                AND ar.ar_type = 4
+                AND (prs_oct.center IS NULL OR prs_oct.open_amount = 0)
+                AND p.sex != 'C'
+                AND prs.open_amount > 0        
+                AND pag.state = 4
+                AND p.blacklisted = 0
+		        AND pr.center IN (:center) 
+) t1

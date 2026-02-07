@@ -1,0 +1,4 @@
+SELECT
+    *
+FROM
+    BI_PRODUCT_GROUPS

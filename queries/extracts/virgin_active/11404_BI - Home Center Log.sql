@@ -1,0 +1,1 @@
+select * from BI_HOME_CENTER_LOG where CENTER_ID in ($$Scope$$)
