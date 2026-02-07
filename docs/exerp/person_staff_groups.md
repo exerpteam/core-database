@@ -4,16 +4,16 @@ People-related master or relationship table for person staff groups data. It is 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - | `1001` |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `staff_group_id` | Foreign key field linking this record to `staff_groups`. | `int4` | No | No | [staff_groups](staff_groups.md) via (`staff_group_id` -> `id`) | - | `1001` |
-| `salary` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
-| `commissionable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `staff_group_id` | Foreign key field linking this record to `staff_groups`. | `int4` | No | No | [staff_groups](staff_groups.md) via (`staff_group_id` -> `id`) | - |
+| `salary` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
+| `commissionable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (68 query files), [staff_groups](staff_groups.md) (59 query files), [centers](centers.md) (47 query files), [activity](activity.md) (46 query files), [bookings](bookings.md) (44 query files), [staff_usage](staff_usage.md) (44 query files).

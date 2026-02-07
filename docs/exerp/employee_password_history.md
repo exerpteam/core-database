@@ -4,17 +4,17 @@ Stores historical/log records for employee password events and changes. It is ty
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `start_date` | Date when the record becomes effective. | `DATE` | No | No | - | - | `2025-01-31` |
-| `end_date` | Date when the record ends or expires. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `log_date` | Date for log. | `int8` | No | No | - | - | `42` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
-| `password` | Text field containing descriptive or reference information. | `VARCHAR(32)` | Yes | No | - | - | `Sample value` |
-| `password_hash` | Text field containing descriptive or reference information. | `VARCHAR(65)` | Yes | No | - | - | `Sample value` |
-| `password_hash_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `start_date` | Date when the record becomes effective. | `DATE` | No | No | - | - |
+| `end_date` | Date when the record ends or expires. | `DATE` | Yes | No | - | - |
+| `log_date` | Date for log. | `int8` | No | No | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `password` | Text field containing descriptive or reference information. | `VARCHAR(32)` | Yes | No | - | - |
+| `password_hash` | Text field containing descriptive or reference information. | `VARCHAR(65)` | Yes | No | - | - |
+| `password_hash_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [employees](employees.md) (3 query files), [persons](persons.md) (3 query files), [employeesroles](employeesroles.md) (2 query files), [roles](roles.md) (2 query files), [bookings](bookings.md) (2 query files), [centers](centers.md) (2 query files).

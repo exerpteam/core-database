@@ -4,10 +4,10 @@ Operational table for area centers records in the Exerp schema. It is typically 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `area` | Foreign key field linking this record to `areas`. | `int4` | No | Yes | [areas](areas.md) via (`area` -> `id`) | - | `42` |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - | `101` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `area` | Foreign key field linking this record to `areas`. | `int4` | No | Yes | [areas](areas.md) via (`area` -> `id`) | - |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
 
 # Relations
 - Commonly used with: [areas](areas.md) (294 query files), [centers](centers.md) (273 query files), [persons](persons.md) (179 query files), [products](products.md) (125 query files), [subscriptions](subscriptions.md) (82 query files), [participations](participations.md) (66 query files).

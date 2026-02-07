@@ -4,17 +4,17 @@ Configuration table for activity staff configurations behavior and defaults. It 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`activity_id` -> `id`) | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `excluzive` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `staff_group_id` | Foreign key field linking this record to `staff_groups`. | `int4` | Yes | No | [staff_groups](staff_groups.md) via (`staff_group_id` -> `id`) | - | `1001` |
-| `minimum_staffs` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `maximum_staffs` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `staff_anonymity` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `parent_activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`parent_activity_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `excluzive` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `staff_group_id` | Foreign key field linking this record to `staff_groups`. | `int4` | Yes | No | [staff_groups](staff_groups.md) via (`staff_group_id` -> `id`) | - |
+| `minimum_staffs` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `maximum_staffs` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `staff_anonymity` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `parent_activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`parent_activity_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [activity](activity.md) (58 query files), [staff_groups](staff_groups.md) (51 query files), [activity_group](activity_group.md) (48 query files), [persons](persons.md) (39 query files), [bookings](bookings.md) (38 query files), [staff_usage](staff_usage.md) (38 query files).

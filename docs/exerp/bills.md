@@ -4,17 +4,17 @@ Operational table for bills records in the Exerp schema. It is typically used wh
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
-| `bill_no` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `trans_time` | Epoch timestamp for trans. | `int8` | No | No | - | - | `1738281600000` |
-| `text` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `text2` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `total_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `bill_no` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `trans_time` | Epoch timestamp for trans. | `int8` | No | No | - | - |
+| `text` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `text2` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `total_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [account_trans](account_trans.md) (2 query files), [accounts](accounts.md) (2 query files), [aggregated_transactions](aggregated_transactions.md) (2 query files).

@@ -4,10 +4,10 @@ Bridge table that links related entities for master prod and prod grp link relat
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `master_product_id` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`master_product_id` -> `id`) | - | `1001` |
-| `product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `master_product_id` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`master_product_id` -> `id`) | - |
+| `product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [masterproductregister](masterproductregister.md) (16 query files), [privilege_grants](privilege_grants.md) (14 query files), [product_group](product_group.md) (14 query files), [privilege_sets](privilege_sets.md) (13 query files), [areas](areas.md) (12 query files), [centers](centers.md) (12 query files).

@@ -4,14 +4,14 @@ Operational table for masterproductgroups records in the Exerp schema.
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `managerrole` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`managerrole` -> `id`) | - | `42` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `showinsale` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `converted_id` | Identifier of the related converted record. | `int4` | Yes | No | - | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `managerrole` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`managerrole` -> `id`) | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `showinsale` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `converted_id` | Identifier of the related converted record. | `int4` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [roles](roles.md); incoming FK from [masterproductregister](masterproductregister.md).

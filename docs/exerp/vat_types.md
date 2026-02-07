@@ -4,17 +4,17 @@ Operational table for vat types records in the Exerp schema. It is typically use
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - | `42` |
-| `accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - | `42` |
-| `rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
-| `orig_rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - |
+| `accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - |
+| `rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
+| `orig_rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
+| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [accounts](accounts.md) (95 query files), [persons](persons.md) (85 query files), [centers](centers.md) (82 query files), [products](products.md) (65 query files), [account_trans](account_trans.md) (59 query files), [invoices](invoices.md) (59 query files).

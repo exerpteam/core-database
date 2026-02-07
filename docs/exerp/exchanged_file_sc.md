@@ -4,28 +4,28 @@ Operational table for exchanged file sc records in the Exerp schema. It is typic
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `scope_grouping` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `SCHEDULE` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `schedule_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `service` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `agency` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `agency_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `store_in_database` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `store_in_filesystem` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `exports` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - | `1` |
-| `next_schedule_day` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `attempts` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `filename_pattern` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Example Name` |
-| `file_format` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `export_as_gzip` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `scope_grouping` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `SCHEDULE` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `schedule_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `service` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `agency` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `agency_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `store_in_database` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `store_in_filesystem` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `exports` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
+| `next_schedule_day` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
+| `attempts` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `filename_pattern` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `file_format` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `export_as_gzip` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [exchanged_file](exchanged_file.md) (5 query files), [exchanged_file_exp](exchanged_file_exp.md) (4 query files), [EXTRACT](EXTRACT.md) (3 query files), [exchanged_file_op](exchanged_file_op.md) (2 query files), [areas](areas.md) (2 query files).

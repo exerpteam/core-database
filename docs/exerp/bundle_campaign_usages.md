@@ -4,13 +4,13 @@ Operational table for bundle campaign usages records in the Exerp schema. It is 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `serial` | No | Yes | - | - | `1001` |
-| `invoice_line_center` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - | `101` |
-| `invoice_line_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - | `1001` |
-| `invoice_line_sub_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - | `1001` |
-| `campaign_id` | Foreign key field linking this record to `bundle_campaign`. | `int4` | No | No | [bundle_campaign](bundle_campaign.md) via (`campaign_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `serial` | No | Yes | - | - |
+| `invoice_line_center` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
+| `invoice_line_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
+| `invoice_line_sub_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
+| `campaign_id` | Foreign key field linking this record to `bundle_campaign`. | `int4` | No | No | [bundle_campaign](bundle_campaign.md) via (`campaign_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [bundle_campaign](bundle_campaign.md) (3 query files), [centers](centers.md) (3 query files), [invoice_lines_mt](invoice_lines_mt.md) (3 query files), [invoices](invoices.md) (3 query files), [persons](persons.md) (3 query files).

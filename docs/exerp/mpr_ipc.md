@@ -4,12 +4,12 @@ Operational table for mpr ipc records in the Exerp schema.
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `selecting_product_id` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`selecting_product_id` -> `id`) | - | `1001` |
-| `selected_ipc_id` | Foreign key field linking this record to `installment_plan_configs`. | `int4` | No | No | [installment_plan_configs](installment_plan_configs.md) via (`selected_ipc_id` -> `id`) | - | `1001` |
-| `created` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `selecting_product_id` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`selecting_product_id` -> `id`) | - |
+| `selected_ipc_id` | Foreign key field linking this record to `installment_plan_configs`. | `int4` | No | No | [installment_plan_configs](installment_plan_configs.md) via (`selected_ipc_id` -> `id`) | - |
+| `created` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [installment_plan_configs](installment_plan_configs.md), [masterproductregister](masterproductregister.md).

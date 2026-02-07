@@ -4,16 +4,16 @@ Operational table for extract usage records in the Exerp schema. It is typically
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `extract_id` | Foreign key field linking this record to `extract`. | `int4` | No | No | [EXTRACT](EXTRACT.md) via (`extract_id` -> `id`) | - | `1001` |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
-| `rows_returned` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `time_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
-| `source` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `extract_id` | Foreign key field linking this record to `extract`. | `int4` | No | No | [EXTRACT](EXTRACT.md) via (`extract_id` -> `id`) | - |
+| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `rows_returned` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `time_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `source` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [EXTRACT](EXTRACT.md) (25 query files), [persons](persons.md) (13 query files), [employees](employees.md) (10 query files), [centers](centers.md) (4 query files), [extract_group](extract_group.md) (4 query files), [extract_group_link](extract_group_link.md) (4 query files).

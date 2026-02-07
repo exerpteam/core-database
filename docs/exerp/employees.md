@@ -4,29 +4,29 @@ People-related master or relationship table for employees data. It is typically 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `use_api` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `personcenter` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - | `42` |
-| `personid` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - | `42` |
-| `last_login` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `passwd` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `passwd_expiration` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `passwd_never_expires` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `passwd_expiration_warned` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `pause_messages` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `employee_set_password_center` | Center part of the reference to related employee set password data. | `int4` | Yes | No | - | - | `101` |
-| `employee_set_password_id` | Identifier of the related employee set password record. | `int4` | Yes | No | - | - | `1001` |
-| `password_hash` | Text field containing descriptive or reference information. | `VARCHAR(65)` | Yes | No | - | - | `Sample value` |
-| `password_hash_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `skip_set_pwd_before_expiring` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `enterprise_subject` | Text field containing descriptive or reference information. | `VARCHAR(1000)` | Yes | No | - | - | `Sample value` |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
-| `block_status_changed_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `use_api` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `personcenter` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
+| `personid` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
+| `last_login` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
+| `passwd` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `passwd_expiration` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
+| `passwd_never_expires` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `passwd_expiration_warned` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
+| `pause_messages` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `employee_set_password_center` | Center part of the reference to related employee set password data. | `int4` | Yes | No | - | - |
+| `employee_set_password_id` | Identifier of the related employee set password record. | `int4` | Yes | No | - | - |
+| `password_hash` | Text field containing descriptive or reference information. | `VARCHAR(65)` | Yes | No | - | - |
+| `password_hash_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `skip_set_pwd_before_expiring` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `enterprise_subject` | Text field containing descriptive or reference information. | `VARCHAR(1000)` | Yes | No | - | - |
+| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `block_status_changed_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (810 query files), [centers](centers.md) (558 query files), [products](products.md) (463 query files), [subscriptions](subscriptions.md) (372 query files), [person_ext_attrs](person_ext_attrs.md) (299 query files), [subscriptiontypes](subscriptiontypes.md) (199 query files).

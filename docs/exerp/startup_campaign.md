@@ -4,37 +4,37 @@ Operational table for startup campaign records in the Exerp schema. It is typica
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - | `1001` |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - | `1` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `plugin_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Example Name` |
-| `plugin_config` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
-| `endtime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
-| `period_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `period_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `period_round` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `period_start` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `period_end` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `web_text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `available_scopes` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `plugin_codes_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Example Name` |
-| `plugin_codes_config` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `free_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `free_period_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `free_period_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `free_period_extends_binding` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `campaign_apply_for` | Text field containing descriptive or reference information. | `VARCHAR(50)` | No | No | - | - | `Sample value` |
-| `privilege_change_binding_type` | Text field containing descriptive or reference information. | `VARCHAR(50)` | No | No | - | - | `Sample value` |
-| `relative_to_start_date_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `relative_to_start_date_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `relative_to_start_date_round` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `fixed_binding_end_date` | Date for fixed binding end. | `DATE` | Yes | No | - | - | `2025-01-31` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
+| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `plugin_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `plugin_config` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `endtime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `period_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `period_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `period_round` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `period_start` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
+| `period_end` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
+| `web_text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `available_scopes` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `plugin_codes_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `plugin_codes_config` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `free_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `free_period_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `free_period_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `free_period_extends_binding` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `campaign_apply_for` | Text field containing descriptive or reference information. | `VARCHAR(50)` | No | No | - | - |
+| `privilege_change_binding_type` | Text field containing descriptive or reference information. | `VARCHAR(50)` | No | No | - | - |
+| `relative_to_start_date_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `relative_to_start_date_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `relative_to_start_date_round` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `fixed_binding_end_date` | Date for fixed binding end. | `DATE` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [products](products.md) (131 query files), [privilege_grants](privilege_grants.md) (124 query files), [privilege_usages](privilege_usages.md) (120 query files), [subscriptions](subscriptions.md) (108 query files), [centers](centers.md) (104 query files), [privilege_receiver_groups](privilege_receiver_groups.md) (103 query files).

@@ -4,15 +4,15 @@ Operational table for booking seats records in the Exerp schema. It is typically
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `REF` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `resource_center` | Center part of the reference to related resource data. | `int4` | No | No | - | - | `101` |
-| `resource_id` | Identifier of the related resource record. | `int4` | No | No | - | - | `1001` |
-| `x` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
-| `y` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - | `1` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `REF` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `resource_center` | Center part of the reference to related resource data. | `int4` | No | No | - | - |
+| `resource_id` | Identifier of the related resource record. | `int4` | No | No | - | - |
+| `x` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
+| `y` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
+| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (7 query files), [centers](centers.md) (6 query files), [participations](participations.md) (6 query files), [bookings](bookings.md) (5 query files), [activity](activity.md) (3 query files), [booking_resource_configs](booking_resource_configs.md) (2 query files).

@@ -4,9 +4,9 @@ Operational table for timeplaceresources records in the Exerp schema. It is typi
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `timeplaceid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - | `42` |
-| `bookingresourceid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `timeplaceid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
+| `bookingresourceid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
 
 # Relations

@@ -4,54 +4,54 @@ Operational table for products records in the Exerp schema. It is typically used
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `ptype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `income_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - | `42` |
-| `income_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - | `42` |
-| `expense_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - | `42` |
-| `expense_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - | `42` |
-| `refund_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - | `42` |
-| `refund_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - | `42` |
-| `price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - | `99.95` |
-| `min_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - | `99.95` |
-| `cost_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - | `99.95` |
-| `requiredrole` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`requiredrole` -> `id`) | - | `42` |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `max_buy_qty` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `max_buy_qty_period` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `max_buy_qty_period_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `needs_privilege` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `show_in_sale` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `returnable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `show_on_web` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `show_on_mobile_api` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `primary_product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | Yes | No | [product_group](product_group.md) via (`primary_product_group_id` -> `id`) | - | `1001` |
-| `product_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - | `1001` |
-| `override_price_and_text_role` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `ipc_available` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - | `42` |
-| `restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `last_recount_date` | Date for last recount. | `int8` | Yes | No | - | - | `42` |
-| `mapi_selling_points` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `mapi_rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `mapi_description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `sales_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `sales_units` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `sold_outside_home_center` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `period_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `print_qr_on_receipt` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `single_use` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `assigned_staff_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `flat_rate_commission` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - | `99.95` |
-| `webname` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - | `Example Name` |
-| `commissionable` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `ptype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
+| `income_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - |
+| `income_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - |
+| `expense_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - |
+| `expense_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - |
+| `refund_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - |
+| `refund_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - |
+| `price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
+| `min_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `cost_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `requiredrole` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`requiredrole` -> `id`) | - |
+| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `max_buy_qty` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `max_buy_qty_period` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `max_buy_qty_period_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `needs_privilege` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `show_in_sale` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `returnable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `show_on_web` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `show_on_mobile_api` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `primary_product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | Yes | No | [product_group](product_group.md) via (`primary_product_group_id` -> `id`) | - |
+| `product_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
+| `override_price_and_text_role` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `ipc_available` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
+| `restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `last_recount_date` | Date for last recount. | `int8` | Yes | No | - | - |
+| `mapi_selling_points` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `mapi_rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `mapi_description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `sales_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `sales_units` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `sold_outside_home_center` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `period_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `print_qr_on_receipt` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `single_use` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `assigned_staff_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `flat_rate_commission` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `webname` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - |
+| `commissionable` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (2203 query files), [centers](centers.md) (1880 query files), [subscriptions](subscriptions.md) (1846 query files), [subscriptiontypes](subscriptiontypes.md) (1105 query files), [person_ext_attrs](person_ext_attrs.md) (924 query files), [product_group](product_group.md) (828 query files).

@@ -4,24 +4,24 @@ Operational table for aggregated transactions records in the Exerp schema. It is
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - | `1738281600000` |
-| `book_date` | Date for book. | `DATE` | No | No | - | - | `2025-01-31` |
-| `amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - | `99.95` |
-| `debit_account_external_id` | Identifier of the related debit account external record. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `credit_account_external_id` | Identifier of the related credit account external record. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `vat_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - | `99.95` |
-| `debit_vat_account_external_id` | Identifier of the related debit vat account external record. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `credit_vat_account_external_id` | Identifier of the related credit vat account external record. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `vat_rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - | `99.95` |
-| `vat_external_id` | Identifier of the related vat external record. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `info_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `info` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `gl_export_batch_id` | Foreign key field linking this record to `gl_export_batches`. | `int4` | Yes | No | [gl_export_batches](gl_export_batches.md) via (`gl_export_batch_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
+| `book_date` | Date for book. | `DATE` | No | No | - | - |
+| `amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `debit_account_external_id` | Identifier of the related debit account external record. | `text(2147483647)` | Yes | No | - | - |
+| `credit_account_external_id` | Identifier of the related credit account external record. | `text(2147483647)` | Yes | No | - | - |
+| `vat_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `debit_vat_account_external_id` | Identifier of the related debit vat account external record. | `text(2147483647)` | Yes | No | - | - |
+| `credit_vat_account_external_id` | Identifier of the related credit vat account external record. | `text(2147483647)` | Yes | No | - | - |
+| `vat_rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `vat_external_id` | Identifier of the related vat external record. | `text(2147483647)` | Yes | No | - | - |
+| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `info_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `info` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `gl_export_batch_id` | Foreign key field linking this record to `gl_export_batches`. | `int4` | Yes | No | [gl_export_batches](gl_export_batches.md) via (`gl_export_batch_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [account_trans](account_trans.md) (39 query files), [centers](centers.md) (36 query files), [persons](persons.md) (29 query files), [EXTRACT](EXTRACT.md) (26 query files), [ar_trans](ar_trans.md) (22 query files), [account_receivables](account_receivables.md) (17 query files).

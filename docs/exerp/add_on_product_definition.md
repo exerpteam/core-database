@@ -4,32 +4,32 @@ Operational table for add on product definition records in the Exerp schema. It 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`id` -> `id`) | - | `1001` |
-| `price_period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `price_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `scope_selection` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `include_home_center` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `required` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `secondary_membership` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `secondary_membership_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `sec_mem_age_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `sec_mem_age_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `sec_mem_sex_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `quantity_min` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `quantity_max` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `quantity_default` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `num_secondary_members_per_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `use_individual_price` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `freeze_fee_product_id` | Identifier of the related freeze fee product record. | `int4` | Yes | No | - | - | `1001` |
-| `include_in_pro_rata_period` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `binding_period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `binding_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `start_date_restriction` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `added_by_default` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `sec_mem_age_rest_min_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `sec_mem_age_rest_max_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`id` -> `id`) | - |
+| `price_period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `price_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `scope_selection` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `include_home_center` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `required` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `secondary_membership` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `secondary_membership_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `sec_mem_age_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `sec_mem_age_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `sec_mem_sex_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `quantity_min` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `quantity_max` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `quantity_default` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `num_secondary_members_per_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `use_individual_price` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `freeze_fee_product_id` | Identifier of the related freeze fee product record. | `int4` | Yes | No | - | - |
+| `include_in_pro_rata_period` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `binding_period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `binding_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `start_date_restriction` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `added_by_default` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `sec_mem_age_rest_min_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `sec_mem_age_rest_max_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [masterproductregister](masterproductregister.md) (18 query files), [products](products.md) (18 query files), [centers](centers.md) (17 query files), [product_group](product_group.md) (17 query files), [add_on_to_product_group_link](add_on_to_product_group_link.md) (12 query files), [subscription_addon_product](subscription_addon_product.md) (12 query files).

@@ -4,20 +4,20 @@ Operational table for questionnaires records in the Exerp schema. It is typicall
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `headline` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `questions` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `employeecenter` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - | `42` |
-| `employeeid` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - | `42` |
-| `creation_time` | Epoch timestamp when the row was created. | `DATE` | No | No | - | - | `2025-01-31` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - | `1001` |
-| `ENCRYPTED` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `externalid` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `headline` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `questions` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `employeecenter` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
+| `employeeid` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
+| `creation_time` | Epoch timestamp when the row was created. | `DATE` | No | No | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
+| `ENCRYPTED` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `externalid` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (112 query files), [questionnaire_campaigns](questionnaire_campaigns.md) (95 query files), [questionnaire_answer](questionnaire_answer.md) (94 query files), [centers](centers.md) (92 query files), [question_answer](question_answer.md) (82 query files), [EXTRACT](EXTRACT.md) (46 query files).

@@ -4,11 +4,11 @@ Bridge table that links related entities for shopping basket invoice link relati
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `shopping_basket_id` | Foreign key field linking this record to `shopping_baskets`. | `int4` | No | Yes | [shopping_baskets](shopping_baskets.md) via (`shopping_basket_id` -> `id`) | - | `1001` |
-| `invoice_center` | Foreign key field linking this record to `invoices`. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - | `101` |
-| `invoice_id` | Foreign key field linking this record to `invoices`. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `shopping_basket_id` | Foreign key field linking this record to `shopping_baskets`. | `int4` | No | Yes | [shopping_baskets](shopping_baskets.md) via (`shopping_basket_id` -> `id`) | - |
+| `invoice_center` | Foreign key field linking this record to `invoices`. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
+| `invoice_id` | Foreign key field linking this record to `invoices`. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [invoices](invoices.md), [shopping_baskets](shopping_baskets.md).

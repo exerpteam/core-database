@@ -4,12 +4,12 @@ Intermediate/cache table used to accelerate privilege cache validity processing.
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `is_valid` | Boolean flag indicating whether valid applies. | `bool` | No | No | - | - | `true` |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `1738281600000` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `is_valid` | Boolean flag indicating whether valid applies. | `bool` | No | No | - | - |
+| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [persons](persons.md); incoming FK from [privilege_cache](privilege_cache.md).

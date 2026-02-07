@@ -4,34 +4,34 @@ Operational table for usage point resources records in the Exerp schema. It is t
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `usage_point_center` | Foreign key field linking this record to `usage_points`. | `int4` | Yes | No | [usage_points](usage_points.md) via (`usage_point_center`, `usage_point_id` -> `center`, `id`) | - | `101` |
-| `usage_point_id` | Foreign key field linking this record to `usage_points`. | `int4` | Yes | No | [usage_points](usage_points.md) via (`usage_point_center`, `usage_point_id` -> `center`, `id`) | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `resource_order` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `resource_usage` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `gate_center` | Foreign key field linking this record to `gates`. | `int4` | Yes | No | [gates](gates.md) via (`gate_center`, `gate_id` -> `center`, `id`) | - | `101` |
-| `gate_id` | Foreign key field linking this record to `gates`. | `int4` | Yes | No | [gates](gates.md) via (`gate_center`, `gate_id` -> `center`, `id`) | - | `1001` |
-| `check_out` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `handback_check` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `only_accessible` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `print_ticket` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `auto_execution_kiosk` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `shortcut_key` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `block_unsigned_documents` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `block_incomplete_agreement` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `no_reentry_before_checkout` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `no_check_in` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `exit_previous_attend` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `exit_resource_center` | Center part of the reference to related exit resource data. | `int4` | Yes | No | - | - | `101` |
-| `exit_resource_id` | Identifier of the related exit resource record. | `int4` | Yes | No | - | - | `1001` |
-| `block_expired_hc` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `notify_on_access_error` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `enter_attend_duration` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `show_attendance_history` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `usage_point_center` | Foreign key field linking this record to `usage_points`. | `int4` | Yes | No | [usage_points](usage_points.md) via (`usage_point_center`, `usage_point_id` -> `center`, `id`) | - |
+| `usage_point_id` | Foreign key field linking this record to `usage_points`. | `int4` | Yes | No | [usage_points](usage_points.md) via (`usage_point_center`, `usage_point_id` -> `center`, `id`) | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `resource_order` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `resource_usage` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `gate_center` | Foreign key field linking this record to `gates`. | `int4` | Yes | No | [gates](gates.md) via (`gate_center`, `gate_id` -> `center`, `id`) | - |
+| `gate_id` | Foreign key field linking this record to `gates`. | `int4` | Yes | No | [gates](gates.md) via (`gate_center`, `gate_id` -> `center`, `id`) | - |
+| `check_out` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `handback_check` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `only_accessible` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `print_ticket` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `auto_execution_kiosk` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `shortcut_key` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `block_unsigned_documents` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `block_incomplete_agreement` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `no_reentry_before_checkout` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `no_check_in` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `exit_previous_attend` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `exit_resource_center` | Center part of the reference to related exit resource data. | `int4` | Yes | No | - | - |
+| `exit_resource_id` | Identifier of the related exit resource record. | `int4` | Yes | No | - | - |
+| `block_expired_hc` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `notify_on_access_error` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `enter_attend_duration` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `show_attendance_history` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [usage_points](usage_points.md) (6 query files), [centers](centers.md) (5 query files), [devices](devices.md) (5 query files), [clients](clients.md) (4 query files), [booking_resources](booking_resources.md) (4 query files), [usage_point_action_res_link](usage_point_action_res_link.md) (4 query files).

@@ -4,19 +4,19 @@ People-related master or relationship table for booking program person skills da
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `booking_program_skill_id` | Foreign key field linking this record to `booking_program_skills`. | `int4` | No | No | [booking_program_skills](booking_program_skills.md) via (`booking_program_skill_id` -> `id`) | - | `1001` |
-| `create_time` | Epoch timestamp for create. | `int8` | No | No | - | - | `1738281600000` |
-| `update_time` | Epoch timestamp for update. | `int8` | Yes | No | - | - | `1738281600000` |
-| `update_employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`update_employee_center`, `update_employee_id` -> `center`, `id`) | - | `1001` |
-| `update_employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`update_employee_center`, `update_employee_id` -> `center`, `id`) | - | `101` |
-| `comments` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `create_employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`create_employee_center`, `create_employee_id` -> `center`, `id`) | - | `101` |
-| `create_employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`create_employee_center`, `create_employee_id` -> `center`, `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `booking_program_skill_id` | Foreign key field linking this record to `booking_program_skills`. | `int4` | No | No | [booking_program_skills](booking_program_skills.md) via (`booking_program_skill_id` -> `id`) | - |
+| `create_time` | Epoch timestamp for create. | `int8` | No | No | - | - |
+| `update_time` | Epoch timestamp for update. | `int8` | Yes | No | - | - |
+| `update_employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`update_employee_center`, `update_employee_id` -> `center`, `id`) | - |
+| `update_employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`update_employee_center`, `update_employee_id` -> `center`, `id`) | - |
+| `comments` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `create_employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`create_employee_center`, `create_employee_id` -> `center`, `id`) | - |
+| `create_employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`create_employee_center`, `create_employee_id` -> `center`, `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [booking_program_skills](booking_program_skills.md), [employees](employees.md), [persons](persons.md).

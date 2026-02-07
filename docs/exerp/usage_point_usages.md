@@ -4,13 +4,13 @@ Operational table for usage point usages records in the Exerp schema. It is typi
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `action_center` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - | `101` |
-| `action_id` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - | `1001` |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `action_center` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - |
+| `action_id` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [persons](persons.md), [usage_point_resources](usage_point_resources.md).

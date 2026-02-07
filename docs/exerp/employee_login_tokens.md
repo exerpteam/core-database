@@ -4,15 +4,15 @@ Stores historical/log records for employeein tokens events and changes. It is ty
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
-| `token` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
-| `last_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `token` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `last_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md).

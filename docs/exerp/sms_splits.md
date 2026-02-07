@@ -4,12 +4,12 @@ Operational table for sms splits records in the Exerp schema. It is typically us
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `sms_center` | Foreign key field linking this record to `sms`. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - | `101` |
-| `sms_id` | Foreign key field linking this record to `sms`. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - | `1001` |
-| `ref_no` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | Yes | - | - | `Sample value` |
-| `ok` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `sms_center` | Foreign key field linking this record to `sms`. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - |
+| `sms_id` | Foreign key field linking this record to `sms`. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - |
+| `ref_no` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | Yes | - | - |
+| `ok` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [messages](messages.md) (7 query files), [sms](sms.md) (7 query files), [centers](centers.md) (5 query files).

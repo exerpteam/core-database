@@ -4,18 +4,18 @@ Operational table for roles records in the Exerp schema. It is typically used wh
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `rolename` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `masterroleid` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`masterroleid` -> `id`) | - | `42` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - | `1001` |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `config_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `system_id` | Identifier of the related system record. | `int4` | Yes | No | - | - | `1001` |
-| `is_action` | Boolean flag indicating whether action applies. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `rolename` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `masterroleid` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`masterroleid` -> `id`) | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
+| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `config_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `system_id` | Identifier of the related system record. | `int4` | Yes | No | - | - |
+| `is_action` | Boolean flag indicating whether action applies. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (113 query files), [employees](employees.md) (100 query files), [employeesroles](employeesroles.md) (100 query files), [centers](centers.md) (88 query files), [person_ext_attrs](person_ext_attrs.md) (64 query files), [products](products.md) (55 query files).

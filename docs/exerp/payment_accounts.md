@@ -4,14 +4,14 @@ Financial/transactional table for payment accounts records. It is typically used
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [account_receivables](account_receivables.md) via (`center`, `id` -> `center`, `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [account_receivables](account_receivables.md) via (`center`, `id` -> `center`, `id`) | - | `1001` |
-| `active_agr_center` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`active_agr_center`, `active_agr_id`, `active_agr_subid` -> `center`, `id`, `subid`) | - | `101` |
-| `active_agr_id` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`active_agr_center`, `active_agr_id`, `active_agr_subid` -> `center`, `id`, `subid`) | - | `1001` |
-| `active_agr_subid` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`active_agr_center`, `active_agr_id`, `active_agr_subid` -> `center`, `id`, `subid`) | - | `1` |
-| `day_in_interval` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [account_receivables](account_receivables.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [account_receivables](account_receivables.md) via (`center`, `id` -> `center`, `id`) | - |
+| `active_agr_center` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`active_agr_center`, `active_agr_id`, `active_agr_subid` -> `center`, `id`, `subid`) | - |
+| `active_agr_id` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`active_agr_center`, `active_agr_id`, `active_agr_subid` -> `center`, `id`, `subid`) | - |
+| `active_agr_subid` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`active_agr_center`, `active_agr_id`, `active_agr_subid` -> `center`, `id`, `subid`) | - |
+| `day_in_interval` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [account_receivables](account_receivables.md) (614 query files), [persons](persons.md) (584 query files), [payment_agreements](payment_agreements.md) (569 query files), [centers](centers.md) (376 query files), [subscriptions](subscriptions.md) (277 query files), [person_ext_attrs](person_ext_attrs.md) (243 query files).

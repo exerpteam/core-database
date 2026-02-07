@@ -4,20 +4,20 @@ Operational table for booking restrictions records in the Exerp schema. It is ty
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - | `1001` |
-| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - | `1` |
-| `start_time` | Epoch timestamp for start. | `int8` | No | No | - | - | `1738281600000` |
-| `stop_time` | Epoch timestamp for stop. | `int8` | Yes | No | - | - | `1738281600000` |
-| `user_interface_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `in_advance_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `in_advance_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `reason` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `access_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `has_expiry_been_notified` | Boolean flag indicating presence of expiry been notified. | `bool` | Yes | No | - | - | `true` |
-| `prevent_all_bookings` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
+| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - |
+| `start_time` | Epoch timestamp for start. | `int8` | No | No | - | - |
+| `stop_time` | Epoch timestamp for stop. | `int8` | Yes | No | - | - |
+| `user_interface_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `in_advance_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `in_advance_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `reason` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `access_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `has_expiry_been_notified` | Boolean flag indicating presence of expiry been notified. | `bool` | Yes | No | - | - |
+| `prevent_all_bookings` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [persons](persons.md).

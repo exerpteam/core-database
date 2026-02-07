@@ -4,11 +4,11 @@ Bridge table that links related entities for product and product group link rela
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `product_center` | Foreign key field linking this record to `products`. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - | `101` |
-| `product_id` | Foreign key field linking this record to `products`. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - | `1001` |
-| `product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `product_center` | Foreign key field linking this record to `products`. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_id` | Foreign key field linking this record to `products`. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [products](products.md) (706 query files), [persons](persons.md) (623 query files), [centers](centers.md) (608 query files), [subscriptions](subscriptions.md) (585 query files), [product_group](product_group.md) (436 query files), [subscriptiontypes](subscriptiontypes.md) (421 query files).

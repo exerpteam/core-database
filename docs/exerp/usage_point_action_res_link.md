@@ -4,12 +4,12 @@ Bridge table that links related entities for usage point action res link relatio
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `action_center` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - | `101` |
-| `action_id` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - | `1001` |
-| `resource_center` | Foreign key field linking this record to `booking_resources`. | `int4` | No | Yes | [booking_resources](booking_resources.md) via (`resource_center`, `resource_id` -> `center`, `id`) | - | `101` |
-| `resource_id` | Foreign key field linking this record to `booking_resources`. | `int4` | No | Yes | [booking_resources](booking_resources.md) via (`resource_center`, `resource_id` -> `center`, `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `action_center` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - |
+| `action_id` | Foreign key field linking this record to `usage_point_resources`. | `int4` | No | Yes | [usage_point_resources](usage_point_resources.md) via (`action_center`, `action_id` -> `center`, `id`) | - |
+| `resource_center` | Foreign key field linking this record to `booking_resources`. | `int4` | No | Yes | [booking_resources](booking_resources.md) via (`resource_center`, `resource_id` -> `center`, `id`) | - |
+| `resource_id` | Foreign key field linking this record to `booking_resources`. | `int4` | No | Yes | [booking_resources](booking_resources.md) via (`resource_center`, `resource_id` -> `center`, `id`) | - |
 
 # Relations
 - Commonly used with: [booking_resources](booking_resources.md) (4 query files), [centers](centers.md) (4 query files), [devices](devices.md) (4 query files), [usage_point_resources](usage_point_resources.md) (4 query files), [usage_point_sources](usage_point_sources.md) (4 query files), [usage_points](usage_points.md) (4 query files).

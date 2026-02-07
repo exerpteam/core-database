@@ -4,14 +4,14 @@ Operational table for usage points records in the Exerp schema. It is typically 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - | `1` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `all_clients` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `all_kiosks` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `all_clients` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `all_kiosks` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (10 query files), [clients](clients.md) (8 query files), [booking_resources](booking_resources.md) (8 query files), [usage_point_resources](usage_point_resources.md) (6 query files), [devices](devices.md) (5 query files), [usage_point_sources](usage_point_sources.md) (5 query files).

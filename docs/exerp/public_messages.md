@@ -4,25 +4,25 @@ Operational table for public messages records in the Exerp schema. It is typical
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - | `1001` |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - | `1` |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
-| `created_by_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - | `101` |
-| `created_by_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - | `1001` |
-| `valid_from` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
-| `valid_to` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
-| `subject` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `body` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `important` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `deleted` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `deleted_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
-| `deleted_by_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - | `101` |
-| `deleted_by_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
+| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
+| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `created_by_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - |
+| `created_by_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - |
+| `valid_from` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `valid_to` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `subject` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `body` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `important` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `deleted` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `deleted_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `deleted_by_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - |
+| `deleted_by_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md); incoming FK from [public_messages_person](public_messages_person.md).

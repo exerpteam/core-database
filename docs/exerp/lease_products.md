@@ -4,12 +4,12 @@ Operational table for lease products records in the Exerp schema. It is typicall
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - | `1001` |
-| `max_minutes` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `instructor_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
+| `max_minutes` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `instructor_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [products](products.md).

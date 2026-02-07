@@ -4,18 +4,18 @@ Operational table for vending machine records in the Exerp schema. It is typical
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `center` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center` -> `id`) | - | `101` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `cash_register_center` | Foreign key field linking this record to `cashregisters`. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - | `101` |
-| `cash_register_id` | Foreign key field linking this record to `cashregisters`. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - | `1001` |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - | `1` |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - | `EXT-1001` |
-| `reverse_id_rfcard` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `dec_to_hex_id_rfcard` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `operator_id` | Identifier of the related operator record. | `text(2147483647)` | Yes | No | - | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `center` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center` -> `id`) | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `cash_register_center` | Foreign key field linking this record to `cashregisters`. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - |
+| `cash_register_id` | Foreign key field linking this record to `cashregisters`. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - |
+| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
+| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
+| `reverse_id_rfcard` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `dec_to_hex_id_rfcard` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `operator_id` | Identifier of the related operator record. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [cashregisters](cashregisters.md), [centers](centers.md); incoming FK from [vending_machine_slide](vending_machine_slide.md).

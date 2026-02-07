@@ -4,10 +4,10 @@ Bridge table that links related entities for journalentry and role link relation
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `journalentry_id` | Foreign key field linking this record to `journalentries`. | `int4` | No | Yes | [journalentries](journalentries.md) via (`journalentry_id` -> `id`) | - | `1001` |
-| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `journalentry_id` | Foreign key field linking this record to `journalentries`. | `int4` | No | Yes | [journalentries](journalentries.md) via (`journalentry_id` -> `id`) | - |
+| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [journalentries](journalentries.md), [roles](roles.md).

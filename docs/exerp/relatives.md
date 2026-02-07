@@ -4,18 +4,18 @@ Operational table for relatives records in the Exerp schema. It is typically use
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - | `1001` |
-| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - | `1` |
-| `rtype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `1` |
-| `relativecenter` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `relativeid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `relativesubid` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `status` | Lifecycle status code for the record. | `int4` | No | No | - | - | `1` |
-| `expiredate` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `family_allow_card_on_file` | Text field containing descriptive or reference information. | `VARCHAR(20)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
+| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - |
+| `rtype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `relativecenter` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `relativeid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `relativesubid` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `status` | Lifecycle status code for the record. | `int4` | No | No | - | - |
+| `expiredate` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
+| `family_allow_card_on_file` | Text field containing descriptive or reference information. | `VARCHAR(20)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (888 query files), [subscriptions](subscriptions.md) (667 query files), [products](products.md) (551 query files), [centers](centers.md) (550 query files), [person_ext_attrs](person_ext_attrs.md) (463 query files), [subscriptiontypes](subscriptiontypes.md) (423 query files).

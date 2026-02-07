@@ -4,15 +4,15 @@ Operational table for center ext attrs records in the Exerp schema. It is typica
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `center_id` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center_id` -> `id`) | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `txt_value` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `mime_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `mime_value` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `last_edit_time` | Epoch timestamp of the most recent user/system edit. | `int8` | Yes | No | - | - | `1738281600000` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `center_id` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center_id` -> `id`) | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `txt_value` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `mime_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `mime_value` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `last_edit_time` | Epoch timestamp of the most recent user/system edit. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (69 query files), [persons](persons.md) (54 query files), [products](products.md) (38 query files), [product_group](product_group.md) (32 query files), [invoice_lines_mt](invoice_lines_mt.md) (29 query files), [invoices](invoices.md) (28 query files).

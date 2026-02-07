@@ -4,20 +4,20 @@ Operational table for clients records in the Exerp schema. It is typically used 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `clientid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `1` |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - | `1` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Example Name` |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `center` | Center identifier associated with the record. | `int4` | Yes | No | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `expiration_date` | Date for expiration. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `last_contact` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
-| `alert_sent_for_last_contact_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
-| `is_registered` | Boolean flag indicating whether registered applies. | `bool` | No | No | - | - | `true` |
-| `available_as_template` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `clientid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `center` | Center identifier associated with the record. | `int4` | Yes | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `expiration_date` | Date for expiration. | `DATE` | Yes | No | - | - |
+| `last_contact` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `alert_sent_for_last_contact_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `is_registered` | Boolean flag indicating whether registered applies. | `bool` | No | No | - | - |
+| `available_as_template` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (28 query files), [client_instances](client_instances.md) (22 query files), [devices](devices.md) (18 query files), [usage_points](usage_points.md) (8 query files), [systemproperties](systemproperties.md) (6 query files), [booking_resources](booking_resources.md) (6 query files).

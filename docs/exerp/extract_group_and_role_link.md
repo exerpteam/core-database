@@ -4,10 +4,10 @@ Bridge table that links related entities for extract group and role link relatio
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `extract_group_id` | Foreign key field linking this record to `extract_group`. | `int4` | No | Yes | [extract_group](extract_group.md) via (`extract_group_id` -> `id`) | - | `1001` |
-| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `extract_group_id` | Foreign key field linking this record to `extract_group`. | `int4` | No | Yes | [extract_group](extract_group.md) via (`extract_group_id` -> `id`) | - |
+| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [extract_group](extract_group.md), [roles](roles.md).

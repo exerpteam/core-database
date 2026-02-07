@@ -4,13 +4,13 @@ Operational table for zipcodes records in the Exerp schema. It is typically used
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `country` | Foreign key field linking this record to `countries`. | `VARCHAR(2)` | No | Yes | [countries](countries.md) via (`country` -> `id`) | - | `SE` |
-| `zipcode` | Postal/ZIP code for location-specific records. | `VARCHAR(8)` | No | Yes | - | - | `12345` |
-| `city` | City name linked to the record. | `VARCHAR(60)` | No | Yes | - | - | `Sample value` |
-| `county` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `province` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `country` | Foreign key field linking this record to `countries`. | `VARCHAR(2)` | No | Yes | [countries](countries.md) via (`country` -> `id`) | - |
+| `zipcode` | Postal/ZIP code for location-specific records. | `VARCHAR(8)` | No | Yes | - | - |
+| `city` | City name linked to the record. | `VARCHAR(60)` | No | Yes | - | - |
+| `county` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `province` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (133 query files), [person_ext_attrs](person_ext_attrs.md) (101 query files), [centers](centers.md) (86 query files), [relatives](relatives.md) (84 query files), [subscriptions](subscriptions.md) (74 query files), [products](products.md) (68 query files).

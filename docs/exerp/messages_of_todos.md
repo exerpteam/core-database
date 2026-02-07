@@ -4,13 +4,13 @@ Operational table for messages of todos records in the Exerp schema. It is typic
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - | `1001` |
-| `message_center` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - | `101` |
-| `message_id` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - | `1001` |
-| `message_subid` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - | `1` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - |
+| `message_center` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
+| `message_id` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
+| `message_subid` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [messages](messages.md), [todos](todos.md).

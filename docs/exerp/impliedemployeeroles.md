@@ -4,11 +4,11 @@ People-related master or relationship table for impliedemployeeroles data. It is
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `roleid` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`roleid` -> `id`) | - | `42` |
-| `implied` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`implied` -> `id`) | - | `42` |
-| `scope_override` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `roleid` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`roleid` -> `id`) | - |
+| `implied` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`implied` -> `id`) | - |
+| `scope_override` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [roles](roles.md) (16 query files), [employees](employees.md) (12 query files), [employeesroles](employeesroles.md) (12 query files), [persons](persons.md) (12 query files), [centers](centers.md) (11 query files), [areas](areas.md) (8 query files).

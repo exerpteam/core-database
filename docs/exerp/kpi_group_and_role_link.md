@@ -4,10 +4,10 @@ Bridge table that links related entities for kpi group and role link relationshi
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `kpi_group_id` | Foreign key field linking this record to `kpi_group`. | `int4` | No | Yes | [kpi_group](kpi_group.md) via (`kpi_group_id` -> `id`) | - | `1001` |
-| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `kpi_group_id` | Foreign key field linking this record to `kpi_group`. | `int4` | No | Yes | [kpi_group](kpi_group.md) via (`kpi_group_id` -> `id`) | - |
+| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [kpi_group](kpi_group.md), [roles](roles.md).

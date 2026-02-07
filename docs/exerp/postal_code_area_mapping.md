@@ -4,10 +4,10 @@ Bridge table that links related entities for postal code area mapping relationsh
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `postal_code_id` | Foreign key field linking this record to `postal_code`. | `int4` | No | Yes | [postal_code](postal_code.md) via (`postal_code_id` -> `id`) | - | `12345` |
-| `postal_area_id` | Foreign key field linking this record to `postal_area`. | `int4` | No | Yes | [postal_area](postal_area.md) via (`postal_area_id` -> `id`) | - | `12345` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `postal_code_id` | Foreign key field linking this record to `postal_code`. | `int4` | No | Yes | [postal_code](postal_code.md) via (`postal_code_id` -> `id`) | - |
+| `postal_area_id` | Foreign key field linking this record to `postal_area`. | `int4` | No | Yes | [postal_area](postal_area.md) via (`postal_area_id` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [postal_area](postal_area.md), [postal_code](postal_code.md).

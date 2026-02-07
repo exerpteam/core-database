@@ -4,14 +4,14 @@ Operational table for countries records in the Exerp schema. It is typically use
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(2)` | No | Yes | - | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Example Name` |
-| `area` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `defaultlanguage` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `defaulttimezone` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(2)` | No | Yes | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `area` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `defaultlanguage` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `defaulttimezone` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (150 query files), [persons](persons.md) (122 query files), [subscriptions](subscriptions.md) (69 query files), [products](products.md) (64 query files), [bookings](bookings.md) (44 query files), [product_group](product_group.md) (39 query files).

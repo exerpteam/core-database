@@ -4,13 +4,13 @@ Financial/transactional table for enterprise account invites records.
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(256)` | No | Yes | - | - | `1001` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
-| `created` | Table field used by operational and reporting workloads. | `TIMESTAMP` | No | No | - | - | `Sample` |
-| `claimed_by` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(256)` | No | Yes | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `created` | Table field used by operational and reporting workloads. | `TIMESTAMP` | No | No | - | - |
+| `claimed_by` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md).

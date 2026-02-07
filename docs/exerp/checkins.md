@@ -4,23 +4,23 @@ Operational table for checkins records in the Exerp schema. It is typically used
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `checkin_center` | Center part of the reference to related checkin data. | `int4` | No | No | - | - | `101` |
-| `checkin_time` | Epoch timestamp for checkin. | `int8` | No | No | - | - | `1738281600000` |
-| `checkout_time` | Epoch timestamp for checkout. | `int8` | Yes | No | - | - | `1738281600000` |
-| `checked_out` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `card_checked_in` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - | `true` |
-| `checkin_result` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `identity_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - | `42` |
-| `origin` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `checkout_reminder_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `person_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `checkin_failed_reason` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `checkin_center` | Center part of the reference to related checkin data. | `int4` | No | No | - | - |
+| `checkin_time` | Epoch timestamp for checkin. | `int8` | No | No | - | - |
+| `checkout_time` | Epoch timestamp for checkout. | `int8` | Yes | No | - | - |
+| `checked_out` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `card_checked_in` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `checkin_result` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `identity_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
+| `origin` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `checkout_reminder_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `person_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `checkin_failed_reason` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (486 query files), [centers](centers.md) (392 query files), [subscriptions](subscriptions.md) (237 query files), [person_ext_attrs](person_ext_attrs.md) (236 query files), [products](products.md) (206 query files), [subscriptiontypes](subscriptiontypes.md) (119 query files).

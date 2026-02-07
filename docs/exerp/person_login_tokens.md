@@ -4,15 +4,15 @@ Stores historical/log records for personin tokens events and changes. It is typi
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `42` |
-| `token` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - | `42` |
-| `usage_type` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `token` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `usage_type` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (2 query files), [persons](persons.md) (2 query files).

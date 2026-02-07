@@ -4,16 +4,16 @@ Operational table for training programs records in the Exerp schema. It is typic
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `101` |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - | `1001` |
-| `creator_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - | `101` |
-| `creator_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - | `1001` |
-| `creation_date` | Date for creation. | `DATE` | No | No | - | - | `2025-01-31` |
-| `active` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `creator_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - |
+| `creator_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - |
+| `creation_date` | Date for creation. | `DATE` | No | No | - | - |
+| `active` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md), [persons](persons.md); incoming FK from [training_program_exercises](training_program_exercises.md).

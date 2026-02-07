@@ -4,10 +4,10 @@ Bridge table that links related entities for extract group link relationships. I
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `extract_id` | Foreign key field linking this record to `extract`. | `int4` | No | Yes | [EXTRACT](EXTRACT.md) via (`extract_id` -> `id`) | - | `1001` |
-| `group_id` | Foreign key field linking this record to `extract_group`. | `int4` | No | Yes | [extract_group](extract_group.md) via (`group_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `extract_id` | Foreign key field linking this record to `extract`. | `int4` | No | Yes | [EXTRACT](EXTRACT.md) via (`extract_id` -> `id`) | - |
+| `group_id` | Foreign key field linking this record to `extract_group`. | `int4` | No | Yes | [extract_group](extract_group.md) via (`group_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [EXTRACT](EXTRACT.md) (5 query files), [extract_group](extract_group.md) (5 query files), [extract_usage](extract_usage.md) (4 query files).

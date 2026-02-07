@@ -4,16 +4,16 @@ Operational table for report periods records in the Exerp schema. It is typicall
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - | `1001` |
-| `period_name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `start_date` | Date when the record becomes effective. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `end_date` | Date when the record ends or expires. | `DATE` | Yes | No | - | - | `2025-01-31` |
-| `close_time` | Epoch timestamp for close. | `int8` | No | No | - | - | `1738281600000` |
-| `hard_close_time` | Epoch timestamp for hard close. | `int8` | Yes | No | - | - | `1738281600000` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
+| `period_name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `start_date` | Date when the record becomes effective. | `DATE` | Yes | No | - | - |
+| `end_date` | Date when the record ends or expires. | `DATE` | Yes | No | - | - |
+| `close_time` | Epoch timestamp for close. | `int8` | No | No | - | - |
+| `hard_close_time` | Epoch timestamp for hard close. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [account_receivables](account_receivables.md) (46 query files), [ar_trans](ar_trans.md) (46 query files), [centers](centers.md) (43 query files), [persons](persons.md) (35 query files), [account_trans](account_trans.md) (30 query files), [art_match](art_match.md) (27 query files).

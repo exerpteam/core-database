@@ -4,16 +4,16 @@ Operational table for exercise types records in the Exerp schema. It is typicall
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `image` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `descr` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `available` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `image` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `descr` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `available` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
 
 # Relations
 - FK-linked tables: incoming FK from [training_program_exercises](training_program_exercises.md).

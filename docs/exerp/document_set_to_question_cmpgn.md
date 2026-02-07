@@ -4,10 +4,10 @@ Operational table for document set to question cmpgn records in the Exerp schema
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `documentation_setting_id` | Foreign key field linking this record to `documentation_settings`. | `int4` | No | Yes | [documentation_settings](documentation_settings.md) via (`documentation_setting_id` -> `id`) | - | `1001` |
-| `questionnaire_campaign_id` | Foreign key field linking this record to `questionnaire_campaigns`. | `int4` | No | Yes | [questionnaire_campaigns](questionnaire_campaigns.md) via (`questionnaire_campaign_id` -> `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `documentation_setting_id` | Foreign key field linking this record to `documentation_settings`. | `int4` | No | Yes | [documentation_settings](documentation_settings.md) via (`documentation_setting_id` -> `id`) | - |
+| `questionnaire_campaign_id` | Foreign key field linking this record to `questionnaire_campaigns`. | `int4` | No | Yes | [questionnaire_campaigns](questionnaire_campaigns.md) via (`questionnaire_campaign_id` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [documentation_settings](documentation_settings.md), [questionnaire_campaigns](questionnaire_campaigns.md).

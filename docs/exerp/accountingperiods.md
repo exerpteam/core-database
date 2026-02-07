@@ -4,13 +4,13 @@ Financial/transactional table for accountingperiods records. It is typically use
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `opened` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
-| `endtime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `opened` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `endtime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [centers](centers.md); incoming FK from [account_trans](account_trans.md).

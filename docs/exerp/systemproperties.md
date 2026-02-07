@@ -4,18 +4,18 @@ Configuration table for systemproperties behavior and defaults. It is typically 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - | `1001` |
-| `client` | Foreign key field linking this record to `clients`. | `int4` | Yes | No | [clients](clients.md) via (`client` -> `id`) | - | `42` |
-| `txtvalue` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `mimetype` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `mimevalue` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - | `N/A` |
-| `link_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `link_id` | Identifier of the related link record. | `int4` | Yes | No | - | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
+| `client` | Foreign key field linking this record to `clients`. | `int4` | Yes | No | [clients](clients.md) via (`client` -> `id`) | - |
+| `txtvalue` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `mimetype` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `mimevalue` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `link_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `link_id` | Identifier of the related link record. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (78 query files), [persons](persons.md) (59 query files), [area_centers](area_centers.md) (46 query files), [areas](areas.md) (46 query files), [checkins](checkins.md) (39 query files), [participations](participations.md) (32 query files).

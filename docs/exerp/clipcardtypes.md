@@ -4,30 +4,30 @@ Operational table for clipcardtypes records in the Exerp schema. It is typically
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - | `101` |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - | `1001` |
-| `add_on_to_center` | Center part of the reference to related add on to data. | `int4` | Yes | No | - | - | `101` |
-| `add_on_to_id` | Identifier of the related add on to record. | `int4` | Yes | No | - | - | `1001` |
-| `clip_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `period_round` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `age_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `age_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `sex_restriction` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `info_text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `buyoutfeeproduct_center` | Center part of the reference to related buyoutfeeproduct data. | `int4` | Yes | No | - | - | `101` |
-| `buyoutfeeproduct_id` | Identifier of the related buyoutfeeproduct record. | `int4` | Yes | No | - | - | `1001` |
-| `contract_template_id` | Identifier of the related contract template record. | `int4` | Yes | No | - | - | `1001` |
-| `clipcard_usage_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `assigned_staff_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `buyout_fee_percentage` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `clips_pack_size` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
-| `age_restriction_min_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `age_restriction_max_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `ct_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
+| `add_on_to_center` | Center part of the reference to related add on to data. | `int4` | Yes | No | - | - |
+| `add_on_to_id` | Identifier of the related add on to record. | `int4` | Yes | No | - | - |
+| `clip_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `period_round` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `age_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `age_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `sex_restriction` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `info_text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `buyoutfeeproduct_center` | Center part of the reference to related buyoutfeeproduct data. | `int4` | Yes | No | - | - |
+| `buyoutfeeproduct_id` | Identifier of the related buyoutfeeproduct record. | `int4` | Yes | No | - | - |
+| `contract_template_id` | Identifier of the related contract template record. | `int4` | Yes | No | - | - |
+| `clipcard_usage_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `assigned_staff_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `buyout_fee_percentage` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `clips_pack_size` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `age_restriction_min_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `age_restriction_max_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `ct_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
 
 # Relations
 - Commonly used with: [products](products.md) (59 query files), [persons](persons.md) (57 query files), [clipcards](clipcards.md) (54 query files), [centers](centers.md) (52 query files), [invoices](invoices.md) (28 query files), [product_group](product_group.md) (24 query files).

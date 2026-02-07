@@ -4,15 +4,15 @@ Operational table for report usage records in the Exerp schema. It is typically 
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `report_key` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Sample value` |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
-| `rows_returned` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `time_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - | `1738281600000` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `report_key` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `rows_returned` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `time_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md).

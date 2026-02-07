@@ -4,11 +4,11 @@ Operational table for contracts records in the Exerp schema. It is typically use
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - | `Sample value` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [journalentries](journalentries.md) (6 query files), [centers](centers.md) (4 query files), [journalentry_signatures](journalentry_signatures.md) (4 query files), [persons](persons.md) (4 query files), [signatures](signatures.md) (4 query files), [subscriptions](subscriptions.md) (4 query files).

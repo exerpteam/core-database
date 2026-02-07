@@ -4,13 +4,13 @@ Operational table for inventory records in the Exerp schema. It is typically use
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `center` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center` -> `id`) | - | `101` |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - | `1` |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - | `Example Name` |
-| `def` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `center` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center` -> `id`) | - |
+| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
+| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `def` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (32 query files), [products](products.md) (27 query files), [persons](persons.md) (22 query files), [account_trans](account_trans.md) (20 query files), [accounts](accounts.md) (20 query files), [ar_trans](ar_trans.md) (20 query files).

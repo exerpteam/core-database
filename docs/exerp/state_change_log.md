@@ -4,22 +4,22 @@ Stores historical/log records for state change events and changes. It is typical
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `KEY` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - | `42` |
-| `center` | Center identifier associated with the record. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) | `101` |
-| `id` | Identifier of the record, typically unique within `center`. | `int4` | No | No | - | - | `1001` |
-| `subid` | Sub-identifier used for child rows within a parent key. | `int4` | Yes | No | - | - | `1` |
-| `entry_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `stateid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - | `42` |
-| `sub_state` | Detailed sub-state code refining the main state. | `int4` | Yes | No | - | - | `1` |
-| `entry_start_time` | Epoch timestamp for entry start. | `int8` | No | No | - | - | `1738281600000` |
-| `entry_end_time` | Epoch timestamp for entry end. | `int8` | Yes | No | - | - | `1738281600000` |
-| `book_start_time` | Epoch timestamp for book start. | `int8` | No | No | - | - | `1738281600000` |
-| `book_end_time` | Epoch timestamp for book end. | `int8` | Yes | No | - | - | `1738281600000` |
-| `had_report_role` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - | `true` |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `101` |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - | `1001` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `KEY` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
+| `center` | Center identifier associated with the record. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Identifier of the record, typically unique within `center`. | `int4` | No | No | - | - |
+| `subid` | Sub-identifier used for child rows within a parent key. | `int4` | Yes | No | - | - |
+| `entry_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `stateid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `sub_state` | Detailed sub-state code refining the main state. | `int4` | Yes | No | - | - |
+| `entry_start_time` | Epoch timestamp for entry start. | `int8` | No | No | - | - |
+| `entry_end_time` | Epoch timestamp for entry end. | `int8` | Yes | No | - | - |
+| `book_start_time` | Epoch timestamp for book start. | `int8` | No | No | - | - |
+| `book_end_time` | Epoch timestamp for book end. | `int8` | Yes | No | - | - |
+| `had_report_role` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (508 query files), [subscriptions](subscriptions.md) (498 query files), [centers](centers.md) (425 query files), [products](products.md) (389 query files), [subscriptiontypes](subscriptiontypes.md) (382 query files), [relatives](relatives.md) (226 query files).

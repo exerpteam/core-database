@@ -4,22 +4,22 @@ Operational table for documentation requirements records in the Exerp schema. It
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `documentation_setting_key` | Foreign key field linking this record to `documentation_settings`. | `int4` | No | No | [documentation_settings](documentation_settings.md) via (`documentation_setting_key` -> `id`) | - | `42` |
-| `source_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - | `42` |
-| `source_center` | Center part of the reference to related source data. | `int4` | Yes | No | - | - | `101` |
-| `source_id` | Identifier of the related source record. | `int4` | Yes | No | - | - | `1001` |
-| `source_sub_id` | Identifier of the related source sub record. | `int4` | Yes | No | - | - | `1001` |
-| `source_owner_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - | `101` |
-| `source_owner_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - | `1001` |
-| `STATE` | State code representing the current processing state. | `VARCHAR(20)` | No | No | - | - | `1` |
-| `creation_time` | Epoch timestamp when the row was created. | `int8` | No | No | - | - | `1738281600000` |
-| `completion_time` | Epoch timestamp for completion. | `int8` | Yes | No | - | - | `1738281600000` |
-| `documentation_setting_type` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - | `Sample value` |
-| `is_needed` | Boolean flag indicating whether needed applies. | `bool` | Yes | No | - | - | `true` |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - | `42` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `documentation_setting_key` | Foreign key field linking this record to `documentation_settings`. | `int4` | No | No | [documentation_settings](documentation_settings.md) via (`documentation_setting_key` -> `id`) | - |
+| `source_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `source_center` | Center part of the reference to related source data. | `int4` | Yes | No | - | - |
+| `source_id` | Identifier of the related source record. | `int4` | Yes | No | - | - |
+| `source_sub_id` | Identifier of the related source sub record. | `int4` | Yes | No | - | - |
+| `source_owner_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - |
+| `source_owner_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - |
+| `STATE` | State code representing the current processing state. | `VARCHAR(20)` | No | No | - | - |
+| `creation_time` | Epoch timestamp when the row was created. | `int8` | No | No | - | - |
+| `completion_time` | Epoch timestamp for completion. | `int8` | Yes | No | - | - |
+| `documentation_setting_type` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - |
+| `is_needed` | Boolean flag indicating whether needed applies. | `bool` | Yes | No | - | - |
+| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [area_centers](area_centers.md) (2 query files), [areas](areas.md) (2 query files), [centers](centers.md) (2 query files).

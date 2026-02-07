@@ -4,15 +4,15 @@ Bridge table that links related entities for billlines vat at link relationships
 # Structure
 A table with the following structure:
 
-| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK | Example value |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - | `1001` |
-| `billline_center` | Foreign key field linking this record to `bill_lines_mt`. | `int4` | No | No | [bill_lines_mt](bill_lines_mt.md) via (`billline_center`, `billline_id`, `billline_subid` -> `center`, `id`, `subid`) | - | `101` |
-| `billline_id` | Foreign key field linking this record to `bill_lines_mt`. | `int4` | No | No | [bill_lines_mt](bill_lines_mt.md) via (`billline_center`, `billline_id`, `billline_subid` -> `center`, `id`, `subid`) | - | `1001` |
-| `billline_subid` | Foreign key field linking this record to `bill_lines_mt`. | `int4` | No | No | [bill_lines_mt](bill_lines_mt.md) via (`billline_center`, `billline_id`, `billline_subid` -> `center`, `id`, `subid`) | - | `1` |
-| `account_trans_center` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - | `101` |
-| `account_trans_id` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - | `1001` |
-| `account_trans_subid` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - | `1` |
+| Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
+| --- | --- | --- | --- | --- | --- | --- |
+| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
+| `billline_center` | Foreign key field linking this record to `bill_lines_mt`. | `int4` | No | No | [bill_lines_mt](bill_lines_mt.md) via (`billline_center`, `billline_id`, `billline_subid` -> `center`, `id`, `subid`) | - |
+| `billline_id` | Foreign key field linking this record to `bill_lines_mt`. | `int4` | No | No | [bill_lines_mt](bill_lines_mt.md) via (`billline_center`, `billline_id`, `billline_subid` -> `center`, `id`, `subid`) | - |
+| `billline_subid` | Foreign key field linking this record to `bill_lines_mt`. | `int4` | No | No | [bill_lines_mt](bill_lines_mt.md) via (`billline_center`, `billline_id`, `billline_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_center` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_id` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_subid` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [account_trans](account_trans.md), [bill_lines_mt](bill_lines_mt.md).
