@@ -19,7 +19,7 @@ A table with the following structure:
 | `configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
 
 # Relations
-- Commonly used with: [privilege_grants](privilege_grants.md) (16 query files), [masterproductregister](masterproductregister.md) (13 query files), [privilege_sets](privilege_sets.md) (11 query files), [centers](centers.md) (11 query files), [EXTRACT](EXTRACT.md) (7 query files), [product_account_configurations](product_account_configurations.md) (7 query files).
+- Commonly used with: [privilege_grants](privilege_grants.md) (16 query files), [masterproductregister](masterproductregister.md) (13 query files), [privilege_sets](privilege_sets.md) (11 query files), [centers](centers.md) (11 query files), [extract](extract.md) (7 query files), [product_account_configurations](product_account_configurations.md) (7 query files).
 - FK-linked tables: incoming FK from [privilege_grants](privilege_grants.md).
 - Second-level FK neighborhood includes: [privilege_cache](privilege_cache.md), [privilege_sets](privilege_sets.md), [privilege_usages](privilege_usages.md).
 - Interesting data points: `status`/`state` fields are typically used for active/inactive lifecycle filtering.

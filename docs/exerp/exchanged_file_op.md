@@ -21,6 +21,6 @@ A table with the following structure:
 | `error_log` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
 
 # Relations
-- Commonly used with: [exchanged_file](exchanged_file.md) (9 query files), [exchanged_file_exp](exchanged_file_exp.md) (7 query files), [EXTRACT](EXTRACT.md) (4 query files), [centers](centers.md) (2 query files), [checkins](checkins.md) (2 query files), [companyagreements](companyagreements.md) (2 query files).
+- Commonly used with: [exchanged_file](exchanged_file.md) (9 query files), [exchanged_file_exp](exchanged_file_exp.md) (7 query files), [extract](extract.md) (4 query files), [centers](centers.md) (2 query files), [checkins](checkins.md) (2 query files), [companyagreements](companyagreements.md) (2 query files).
 - FK-linked tables: outgoing FK to [employees](employees.md), [exchanged_file](exchanged_file.md).
 - Second-level FK neighborhood includes: [account_receivables](account_receivables.md), [advance_notices](advance_notices.md), [ar_trans](ar_trans.md), [bank_account_blocks](bank_account_blocks.md), [bills](bills.md), [booking_change](booking_change.md), [booking_program_person_skills](booking_program_person_skills.md), [booking_program_skills](booking_program_skills.md), [card_clip_usages](card_clip_usages.md), [cashcollection_requests](cashcollection_requests.md).

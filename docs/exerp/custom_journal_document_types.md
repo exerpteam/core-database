@@ -28,5 +28,5 @@ A table with the following structure:
 
 # Relations
 - FK-linked tables: outgoing FK to [roles](roles.md); incoming FK from [dc_st_to_cust_jrnl_dc_tp_links](dc_st_to_cust_jrnl_dc_tp_links.md).
-- Second-level FK neighborhood includes: [companyagreements](companyagreements.md), [documentation_settings](documentation_settings.md), [employeesroles](employeesroles.md), [EXTRACT](EXTRACT.md), [extract_group_and_role_link](extract_group_and_role_link.md), [impliedemployeeroles](impliedemployeeroles.md), [journalentry_and_role_link](journalentry_and_role_link.md), [kpi_group_and_role_link](kpi_group_and_role_link.md), [masterproductgroups](masterproductgroups.md), [products](products.md).
+- Second-level FK neighborhood includes: [companyagreements](companyagreements.md), [documentation_settings](documentation_settings.md), [employeesroles](employeesroles.md), [extract](extract.md), [extract_group_and_role_link](extract_group_and_role_link.md), [impliedemployeeroles](impliedemployeeroles.md), [journalentry_and_role_link](journalentry_and_role_link.md), [kpi_group_and_role_link](kpi_group_and_role_link.md), [masterproductgroups](masterproductgroups.md), [products](products.md).
 - Interesting data points: `external_id` is commonly used as an integration-facing identifier; `status`/`state` fields are typically used for active/inactive lifecycle filtering.

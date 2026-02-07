@@ -1,5 +1,5 @@
 # extract_group
-Operational table for extract group records in the Exerp schema. It is typically used where lifecycle state codes are present; it appears in approximately 5 query files; common companions include [EXTRACT](EXTRACT.md), [extract_group_link](extract_group_link.md).
+Operational table for extract group records in the Exerp schema. It is typically used where lifecycle state codes are present; it appears in approximately 5 query files; common companions include [extract](extract.md), [extract_group_link](extract_group_link.md).
 
 # Structure
 A table with the following structure:
@@ -15,7 +15,7 @@ A table with the following structure:
 | `override_roles` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
 
 # Relations
-- Commonly used with: [EXTRACT](EXTRACT.md) (5 query files), [extract_group_link](extract_group_link.md) (5 query files), [extract_usage](extract_usage.md) (4 query files).
+- Commonly used with: [extract](extract.md) (5 query files), [extract_group_link](extract_group_link.md) (5 query files), [extract_usage](extract_usage.md) (4 query files).
 - FK-linked tables: incoming FK from [extract_group_and_role_link](extract_group_and_role_link.md), [extract_group_link](extract_group_link.md).
-- Second-level FK neighborhood includes: [EXTRACT](EXTRACT.md), [roles](roles.md).
+- Second-level FK neighborhood includes: [extract](extract.md), [roles](roles.md).
 - Interesting data points: `status`/`state` fields are typically used for active/inactive lifecycle filtering.

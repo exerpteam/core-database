@@ -20,6 +20,6 @@ A table with the following structure:
 | `externalid` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
 
 # Relations
-- Commonly used with: [persons](persons.md) (112 query files), [questionnaire_campaigns](questionnaire_campaigns.md) (95 query files), [questionnaire_answer](questionnaire_answer.md) (94 query files), [centers](centers.md) (92 query files), [question_answer](question_answer.md) (82 query files), [EXTRACT](EXTRACT.md) (46 query files).
+- Commonly used with: [persons](persons.md) (112 query files), [questionnaire_campaigns](questionnaire_campaigns.md) (95 query files), [questionnaire_answer](questionnaire_answer.md) (94 query files), [centers](centers.md) (92 query files), [question_answer](question_answer.md) (82 query files), [extract](extract.md) (46 query files).
 - FK-linked tables: outgoing FK to [employees](employees.md); incoming FK from [questionnaire_campaigns](questionnaire_campaigns.md).
 - Second-level FK neighborhood includes: [account_receivables](account_receivables.md), [advance_notices](advance_notices.md), [ar_trans](ar_trans.md), [bank_account_blocks](bank_account_blocks.md), [bills](bills.md), [booking_change](booking_change.md), [booking_program_person_skills](booking_program_person_skills.md), [booking_program_skills](booking_program_skills.md), [card_clip_usages](card_clip_usages.md), [cashcollectionjournalentries](cashcollectionjournalentries.md).

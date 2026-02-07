@@ -1,5 +1,5 @@
 # availability_periods
-Operational table for availability periods records in the Exerp schema. It is typically used where it appears in approximately 3 query files; common companions include [EXTRACT](EXTRACT.md), [availability_overrides](availability_overrides.md).
+Operational table for availability periods records in the Exerp schema. It is typically used where it appears in approximately 3 query files; common companions include [extract](extract.md), [availability_overrides](availability_overrides.md).
 
 # Structure
 A table with the following structure:
@@ -17,4 +17,4 @@ A table with the following structure:
 | `availability_period_id` | Identifier of the related availability period record. | `int4` | Yes | No | - | - |
 
 # Relations
-- Commonly used with: [EXTRACT](EXTRACT.md) (3 query files), [availability_overrides](availability_overrides.md) (2 query files), [centers](centers.md) (2 query files).
+- Commonly used with: [extract](extract.md) (3 query files), [availability_overrides](availability_overrides.md) (2 query files), [centers](centers.md) (2 query files).

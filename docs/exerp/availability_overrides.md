@@ -17,4 +17,4 @@ A table with the following structure:
 | `override_scope_type` | Text field containing descriptive or reference information. | `VARCHAR(10)` | Yes | No | - | - |
 
 # Relations
-- Commonly used with: [availability_periods](availability_periods.md) (2 query files), [centers](centers.md) (2 query files), [EXTRACT](EXTRACT.md) (2 query files).
+- Commonly used with: [availability_periods](availability_periods.md) (2 query files), [centers](centers.md) (2 query files), [extract](extract.md) (2 query files).

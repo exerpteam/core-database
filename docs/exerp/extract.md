@@ -1,4 +1,4 @@
-# EXTRACT
+# extract
 Operational table for extract records in the Exerp schema. It is typically used where it appears in approximately 616 query files; common companions include [persons](persons.md), [centers](centers.md).
 
 # Structure

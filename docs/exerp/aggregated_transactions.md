@@ -24,7 +24,7 @@ A table with the following structure:
 | `gl_export_batch_id` | Foreign key field linking this record to `gl_export_batches`. | `int4` | Yes | No | [gl_export_batches](gl_export_batches.md) via (`gl_export_batch_id` -> `id`) | - |
 
 # Relations
-- Commonly used with: [account_trans](account_trans.md) (39 query files), [centers](centers.md) (36 query files), [persons](persons.md) (29 query files), [EXTRACT](EXTRACT.md) (26 query files), [ar_trans](ar_trans.md) (22 query files), [account_receivables](account_receivables.md) (17 query files).
+- Commonly used with: [account_trans](account_trans.md) (39 query files), [centers](centers.md) (36 query files), [persons](persons.md) (29 query files), [extract](extract.md) (26 query files), [ar_trans](ar_trans.md) (22 query files), [account_receivables](account_receivables.md) (17 query files).
 - FK-linked tables: outgoing FK to [centers](centers.md), [gl_export_batches](gl_export_batches.md); incoming FK from [account_trans](account_trans.md).
 - Second-level FK neighborhood includes: [accountingperiods](accountingperiods.md), [accounts](accounts.md), [area_centers](area_centers.md), [bill_lines_mt](bill_lines_mt.md), [billlines_vat_at_link](billlines_vat_at_link.md), [bookings](bookings.md), [cashregisters](cashregisters.md), [cashregistertransactions](cashregistertransactions.md), [center_change_logs](center_change_logs.md), [center_ext_attrs](center_ext_attrs.md).
 - Interesting data points: `center` + `id` is the stable composite key pattern used across many extracts.

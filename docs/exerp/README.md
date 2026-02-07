@@ -154,7 +154,7 @@ Documentation generated from `db/exerp/tables` SQL definitions with query-usage 
 - [exchanged_file_op](exchanged_file_op.md)
 - [exchanged_file_sc](exchanged_file_sc.md)
 - [exercise_types](exercise_types.md)
-- [EXTRACT](EXTRACT.md)
+- [extract](extract.md)
 - [extract_and_apply_automations](extract_and_apply_automations.md)
 - [extract_group](extract_group.md)
 - [extract_group_and_role_link](extract_group_and_role_link.md)

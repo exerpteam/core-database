@@ -11,7 +11,7 @@ A table with the following structure:
 | `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
 | `name` | Text field containing descriptive or reference information. | `VARCHAR(60)` | No | No | - | - |
 | `description` | Text field containing descriptive or reference information. | `VARCHAR(200)` | Yes | No | - | - |
-| `extract_id` | Identifier of the related extract record. | `int4` | No | No | - | [EXTRACT](EXTRACT.md) via (`extract_id` -> `id`) |
+| `extract_id` | Identifier of the related extract record. | `int4` | No | No | - | [extract](extract.md) via (`extract_id` -> `id`) |
 | `apply_step_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
 | `apply_step_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
 
