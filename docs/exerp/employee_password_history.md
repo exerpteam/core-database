@@ -6,15 +6,15 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `start_date` | Date when the record becomes effective. | `DATE` | No | No | - | - |
-| `end_date` | Date when the record ends or expires. | `DATE` | Yes | No | - | - |
-| `log_date` | Date for log. | `int8` | No | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `password` | Text field containing descriptive or reference information. | `VARCHAR(32)` | Yes | No | - | - |
-| `password_hash` | Text field containing descriptive or reference information. | `VARCHAR(65)` | Yes | No | - | - |
-| `password_hash_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `start_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `end_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `log_date` | Business date used for scheduling, validity, or reporting cutoffs. | `int8` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `password` | Business attribute `password` used by employee password history workflows and reporting. | `VARCHAR(32)` | Yes | No | - | - |
+| `password_hash` | Business attribute `password_hash` used by employee password history workflows and reporting. | `VARCHAR(65)` | Yes | No | - | - |
+| `password_hash_method` | Business attribute `password_hash_method` used by employee password history workflows and reporting. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [employees](employees.md) (3 query files), [persons](persons.md) (3 query files), [employeesroles](employeesroles.md) (2 query files), [roles](roles.md) (2 query files), [bookings](bookings.md) (2 query files), [centers](centers.md) (2 query files).

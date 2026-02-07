@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `token` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `last_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `created_at` | Business attribute `created_at` used by employee login tokens workflows and reporting. | `int8` | No | No | - | - |
+| `token` | Business attribute `token` used by employee login tokens workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `version` | Operational field `version` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `last_used` | Business attribute `last_used` used by employee login tokens workflows and reporting. | `int8` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md).

@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `field_id` | Foreign key field linking this record to `kpi_fields`. | `int4` | No | Yes | [kpi_fields](kpi_fields.md) via (`field_id` -> `id`) | - |
-| `group_id` | Foreign key field linking this record to `kpi_group`. | `int4` | No | Yes | [kpi_group](kpi_group.md) via (`group_id` -> `id`) | - |
+| `field_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [kpi_fields](kpi_fields.md) via (`field_id` -> `id`) | - |
+| `group_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [kpi_group](kpi_group.md) via (`group_id` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [kpi_fields](kpi_fields.md), [kpi_group](kpi_group.md).

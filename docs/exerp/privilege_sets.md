@@ -6,27 +6,27 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `blocked_on` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `privilege_set_groups_id` | Identifier of the related privilege set groups record. | `int4` | Yes | No | - | [privilege_set_groups](privilege_set_groups.md) via (`privilege_set_groups_id` -> `id`) |
-| `time_restriction` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `booking_window_restriction` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `frequency_restriction_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restr_include_noshow` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `reusable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `availability_period_id` | Identifier of the related availability period record. | `int4` | Yes | No | - | [availability_periods](availability_periods.md) via (`availability_period_id` -> `id`) |
-| `multiaccess_window_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `multiaccess_window_time_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `multiaccess_window_time_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `multiaccess_window_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `blocked_on` | Business attribute `blocked_on` used by privilege sets workflows and reporting. | `int8` | Yes | No | - | - |
+| `privilege_set_groups_id` | Identifier for the related privilege set groups entity used by this record. | `int4` | Yes | No | - | [privilege_set_groups](privilege_set_groups.md) via (`privilege_set_groups_id` -> `id`) |
+| `time_restriction` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `booking_window_restriction` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `frequency_restriction_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `frequency_restriction_value` | Business attribute `frequency_restriction_value` used by privilege sets workflows and reporting. | `int4` | Yes | No | - | - |
+| `frequency_restriction_unit` | Business attribute `frequency_restriction_unit` used by privilege sets workflows and reporting. | `int4` | Yes | No | - | - |
+| `frequency_restriction_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `frequency_restr_include_noshow` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `reusable` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `availability_period_id` | Identifier for the related availability period entity used by this record. | `int4` | Yes | No | - | [availability_periods](availability_periods.md) via (`availability_period_id` -> `id`) |
+| `multiaccess_window_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `multiaccess_window_time_value` | Business attribute `multiaccess_window_time_value` used by privilege sets workflows and reporting. | `int4` | Yes | No | - | - |
+| `multiaccess_window_time_unit` | Business attribute `multiaccess_window_time_unit` used by privilege sets workflows and reporting. | `int4` | Yes | No | - | - |
+| `multiaccess_window_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [privilege_grants](privilege_grants.md) (227 query files), [products](products.md) (180 query files), [centers](centers.md) (141 query files), [persons](persons.md) (141 query files), [masterproductregister](masterproductregister.md) (121 query files), [product_group](product_group.md) (104 query files).

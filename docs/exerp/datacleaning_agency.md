@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `plugin_id` | Identifier of the related plugin record. | `text(2147483647)` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `plugin_id` | Identifier for the related plugin entity used by this record. | `text(2147483647)` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: incoming FK from [data_cleaning_in](data_cleaning_in.md), [data_cleaning_out](data_cleaning_out.md).

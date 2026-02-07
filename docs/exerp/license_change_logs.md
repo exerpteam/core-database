@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `date_time` | Epoch timestamp for date. | `int8` | No | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `date_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md); incoming FK from [license_change_logs_content](license_change_logs_content.md).

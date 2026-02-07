@@ -6,16 +6,16 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `center` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `cash_register_center` | Foreign key field linking this record to `cashregisters`. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - |
-| `cash_register_id` | Foreign key field linking this record to `cashregisters`. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `reverse_id_rfcard` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `dec_to_hex_id_rfcard` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `operator_id` | Identifier of the related operator record. | `text(2147483647)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `center` | Identifier of the related centers record used by this row. | `int4` | No | No | [centers](centers.md) via (`center` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `cash_register_center` | Center component of the composite reference to the related cash register record. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - |
+| `cash_register_id` | Identifier component of the composite reference to the related cash register record. | `int4` | No | No | [cashregisters](cashregisters.md) via (`cash_register_center`, `cash_register_id` -> `center`, `id`) | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `reverse_id_rfcard` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `dec_to_hex_id_rfcard` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `operator_id` | Identifier for the related operator entity used by this record. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [cashregisters](cashregisters.md), [centers](centers.md); incoming FK from [vending_machine_slide](vending_machine_slide.md).

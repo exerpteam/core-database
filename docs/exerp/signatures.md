@@ -6,25 +6,25 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `signature_document` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `signed_document` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `signed_document_mimetype` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `signature_image_mimetype` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `signature_image_data` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `signature_receipt` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `signature_hash` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `signature_hash_b` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `document_receipt` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `document_hash` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `document_hash_b` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `device_key` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `creation_time` | Epoch timestamp when the row was created. | `int8` | Yes | No | - | - |
-| `s3bucket_signature_image_data` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `s3bucket_signed_document` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `s3key_signature_image_data` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `s3key_signed_document` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `signature_document` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `signed_document` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `signed_document_mimetype` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `signature_image_mimetype` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `signature_image_data` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `signature_receipt` | Business attribute `signature_receipt` used by signatures workflows and reporting. | `int4` | No | No | - | - |
+| `signature_hash` | Business attribute `signature_hash` used by signatures workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `signature_hash_b` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `document_receipt` | Business attribute `document_receipt` used by signatures workflows and reporting. | `int4` | No | No | - | - |
+| `document_hash` | Business attribute `document_hash` used by signatures workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `document_hash_b` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `device_key` | Business attribute `device_key` used by signatures workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `creation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `s3bucket_signature_image_data` | Business attribute `s3bucket_signature_image_data` used by signatures workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `s3bucket_signed_document` | Business attribute `s3bucket_signed_document` used by signatures workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `s3key_signature_image_data` | Business attribute `s3key_signature_image_data` used by signatures workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `s3key_signed_document` | Business attribute `s3key_signed_document` used by signatures workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [journalentries](journalentries.md) (11 query files), [journalentry_signatures](journalentry_signatures.md) (10 query files), [persons](persons.md) (9 query files), [subscription_sales](subscription_sales.md) (7 query files), [centers](centers.md) (6 query files), [subscriptions](subscriptions.md) (6 query files).

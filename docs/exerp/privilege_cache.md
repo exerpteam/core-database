@@ -6,18 +6,18 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`)<br>[privilege_cache_validity](privilege_cache_validity.md) via (`person_center`, `person_id` -> `person_center`, `person_id`) | - |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`)<br>[privilege_cache_validity](privilege_cache_validity.md) via (`person_center`, `person_id` -> `person_center`, `person_id`) | - |
-| `privilege_id` | Identifier of the related privilege record. | `int4` | No | No | - | - |
-| `privilege_type` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - |
-| `valid_from` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `valid_to` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `grant_id` | Foreign key field linking this record to `privilege_grants`. | `int4` | No | No | [privilege_grants](privilege_grants.md) via (`grant_id` -> `id`) | - |
-| `source_globalid` | Text field containing descriptive or reference information. | `VARCHAR(30)` | Yes | No | - | - |
-| `source_center` | Center part of the reference to related source data. | `int4` | Yes | No | - | - |
-| `source_id` | Identifier of the related source record. | `int4` | Yes | No | - | - |
-| `source_subid` | Sub-identifier for related source detail rows. | `int4` | Yes | No | - | - |
-| `extension` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `person_center` | Center component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`)<br>[privilege_cache_validity](privilege_cache_validity.md) via (`person_center`, `person_id` -> `person_center`, `person_id`) | - |
+| `person_id` | Identifier component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`)<br>[privilege_cache_validity](privilege_cache_validity.md) via (`person_center`, `person_id` -> `person_center`, `person_id`) | - |
+| `privilege_id` | Identifier for the related privilege entity used by this record. | `int4` | No | No | - | - |
+| `privilege_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(20)` | No | No | - | - |
+| `valid_from` | Operational field `valid_from` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `valid_to` | Operational field `valid_to` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `grant_id` | Identifier of the related privilege grants record used by this row. | `int4` | No | No | [privilege_grants](privilege_grants.md) via (`grant_id` -> `id`) | - |
+| `source_globalid` | Business attribute `source_globalid` used by privilege cache workflows and reporting. | `VARCHAR(30)` | Yes | No | - | - |
+| `source_center` | Center component of the composite reference to the related source record. | `int4` | Yes | No | - | - |
+| `source_id` | Identifier component of the composite reference to the related source record. | `int4` | Yes | No | - | - |
+| `source_subid` | Operational field `source_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `extension` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (6 query files), [privilege_grants](privilege_grants.md) (6 query files), [booking_privileges](booking_privileges.md) (4 query files), [centers](centers.md) (4 query files), [privilege_sets](privilege_sets.md) (4 query files), [products](products.md) (4 query files).

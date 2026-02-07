@@ -6,20 +6,20 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `documentation_setting_key` | Foreign key field linking this record to `documentation_settings`. | `int4` | No | No | [documentation_settings](documentation_settings.md) via (`documentation_setting_key` -> `id`) | - |
-| `source_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `source_center` | Center part of the reference to related source data. | `int4` | Yes | No | - | - |
-| `source_id` | Identifier of the related source record. | `int4` | Yes | No | - | - |
-| `source_sub_id` | Identifier of the related source sub record. | `int4` | Yes | No | - | - |
-| `source_owner_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - |
-| `source_owner_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - |
-| `STATE` | State code representing the current processing state. | `VARCHAR(20)` | No | No | - | - |
-| `creation_time` | Epoch timestamp when the row was created. | `int8` | No | No | - | - |
-| `completion_time` | Epoch timestamp for completion. | `int8` | Yes | No | - | - |
-| `documentation_setting_type` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - |
-| `is_needed` | Boolean flag indicating whether needed applies. | `bool` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `documentation_setting_key` | Identifier of the related documentation settings record used by this row. | `int4` | No | No | [documentation_settings](documentation_settings.md) via (`documentation_setting_key` -> `id`) | - |
+| `source_key` | Business attribute `source_key` used by documentation requirements workflows and reporting. | `int4` | Yes | No | - | - |
+| `source_center` | Center component of the composite reference to the related source record. | `int4` | Yes | No | - | - |
+| `source_id` | Identifier component of the composite reference to the related source record. | `int4` | Yes | No | - | - |
+| `source_sub_id` | Identifier for the related source sub entity used by this record. | `int4` | Yes | No | - | - |
+| `source_owner_center` | Center component of the composite reference to the related source owner record. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - |
+| `source_owner_id` | Identifier component of the composite reference to the related source owner record. | `int4` | No | No | [persons](persons.md) via (`source_owner_center`, `source_owner_id` -> `center`, `id`) | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `VARCHAR(20)` | No | No | - | - |
+| `creation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `completion_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `documentation_setting_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(20)` | No | No | - | - |
+| `is_needed` | Boolean flag indicating whether `needed` applies to this record. | `bool` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [area_centers](area_centers.md) (2 query files), [areas](areas.md) (2 query files), [centers](centers.md) (2 query files).

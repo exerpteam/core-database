@@ -6,14 +6,14 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | No | No | - | - |
-| `initial_step_id` | Identifier of the related initial step record. | `int4` | Yes | No | - | - |
-| `default_category_id` | Identifier of the related default category record. | `int4` | Yes | No | - | - |
-| `extended_attributes` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `task_title_subjects` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `text(2147483647)` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | No | No | - | - |
+| `initial_step_id` | Identifier for the related initial step entity used by this record. | `int4` | Yes | No | - | - |
+| `default_category_id` | Identifier for the related default category entity used by this record. | `int4` | Yes | No | - | - |
+| `extended_attributes` | Business attribute `extended_attributes` used by workflows workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `task_title_subjects` | Business attribute `task_title_subjects` used by workflows workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (12 query files), [task_steps](task_steps.md) (12 query files), [tasks](tasks.md) (12 query files), [person_ext_attrs](person_ext_attrs.md) (9 query files), [task_types](task_types.md) (9 query files), [task_actions](task_actions.md) (6 query files).

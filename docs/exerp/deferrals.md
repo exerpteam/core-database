@@ -6,17 +6,17 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `center` | Center identifier associated with the record. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `defer_acc_trans_center` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`defer_acc_trans_center`, `defer_acc_trans_id`, `defer_acc_trans_subid` -> `center`, `id`, `subid`) | - |
-| `defer_acc_trans_id` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`defer_acc_trans_center`, `defer_acc_trans_id`, `defer_acc_trans_subid` -> `center`, `id`, `subid`) | - |
-| `defer_acc_trans_subid` | Foreign key field linking this record to `account_trans`. | `int4` | No | No | [account_trans](account_trans.md) via (`defer_acc_trans_center`, `defer_acc_trans_id`, `defer_acc_trans_subid` -> `center`, `id`, `subid`) | - |
-| `revenue_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `reversal_entry_time` | Epoch timestamp for reversal entry. | `int8` | Yes | No | - | - |
-| `reversal_acc_trans_center` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`reversal_acc_trans_center`, `reversal_acc_trans_id`, `reversal_acc_trans_subid` -> `center`, `id`, `subid`) | - |
-| `reversal_acc_trans_id` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`reversal_acc_trans_center`, `reversal_acc_trans_id`, `reversal_acc_trans_subid` -> `center`, `id`, `subid`) | - |
-| `reversal_acc_trans_subid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`reversal_acc_trans_center`, `reversal_acc_trans_id`, `reversal_acc_trans_subid` -> `center`, `id`, `subid`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `defer_acc_trans_center` | Center component of the composite reference to the related defer acc trans record. | `int4` | No | No | [account_trans](account_trans.md) via (`defer_acc_trans_center`, `defer_acc_trans_id`, `defer_acc_trans_subid` -> `center`, `id`, `subid`) | - |
+| `defer_acc_trans_id` | Identifier component of the composite reference to the related defer acc trans record. | `int4` | No | No | [account_trans](account_trans.md) via (`defer_acc_trans_center`, `defer_acc_trans_id`, `defer_acc_trans_subid` -> `center`, `id`, `subid`) | - |
+| `defer_acc_trans_subid` | Identifier of the related account trans record used by this row. | `int4` | No | No | [account_trans](account_trans.md) via (`defer_acc_trans_center`, `defer_acc_trans_id`, `defer_acc_trans_subid` -> `center`, `id`, `subid`) | - |
+| `revenue_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
+| `reversal_entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `reversal_acc_trans_center` | Center component of the composite reference to the related reversal acc trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`reversal_acc_trans_center`, `reversal_acc_trans_id`, `reversal_acc_trans_subid` -> `center`, `id`, `subid`) | - |
+| `reversal_acc_trans_id` | Identifier component of the composite reference to the related reversal acc trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`reversal_acc_trans_center`, `reversal_acc_trans_id`, `reversal_acc_trans_subid` -> `center`, `id`, `subid`) | - |
+| `reversal_acc_trans_subid` | Identifier of the related account trans record used by this row. | `int4` | Yes | No | [account_trans](account_trans.md) via (`reversal_acc_trans_center`, `reversal_acc_trans_id`, `reversal_acc_trans_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [account_trans](account_trans.md).

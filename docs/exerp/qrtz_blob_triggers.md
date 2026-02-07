@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `trigger_name` | Foreign key field linking this record to `qrtz_triggers`. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
-| `trigger_group` | Foreign key field linking this record to `qrtz_triggers`. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
-| `blob_data` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `trigger_name` | Primary key component used to uniquely identify this record. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
+| `trigger_group` | Primary key component used to uniquely identify this record. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
+| `blob_data` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [qrtz_triggers](qrtz_triggers.md).

@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `code` | Text field containing descriptive or reference information. | `VARCHAR(100)` | No | No | - | - |
-| `country_id` | Foreign key field linking this record to `countries`. | `VARCHAR(2)` | No | No | [countries](countries.md) via (`country_id` -> `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `code` | Operational field `code` used in query filtering and reporting transformations. | `VARCHAR(100)` | No | No | - | - |
+| `country_id` | Identifier of the related countries record used by this row. | `VARCHAR(2)` | No | No | [countries](countries.md) via (`country_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (33 query files), [zipcodes](zipcodes.md) (24 query files), [relatives](relatives.md) (21 query files), [centers](centers.md) (21 query files), [person_ext_attrs](person_ext_attrs.md) (16 query files), [converter_entity_state](converter_entity_state.md) (7 query files).

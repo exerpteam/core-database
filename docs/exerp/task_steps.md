@@ -6,14 +6,14 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
-| `workflow_id` | Foreign key field linking this record to `workflows`. | `int4` | Yes | No | [workflows](workflows.md) via (`workflow_id` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | No | No | - | - |
-| `task_activity_id` | Identifier of the related task activity record. | `int4` | Yes | No | - | [task_activity](task_activity.md) via (`task_activity_id` -> `id`) |
-| `progress_id` | Foreign key field linking this record to `progress`. | `int4` | Yes | No | [progress](progress.md) via (`progress_id` -> `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `text(2147483647)` | No | No | - | - |
+| `workflow_id` | Identifier of the related workflows record used by this row. | `int4` | Yes | No | [workflows](workflows.md) via (`workflow_id` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | No | No | - | - |
+| `task_activity_id` | Identifier for the related task activity entity used by this record. | `int4` | Yes | No | - | [task_activity](task_activity.md) via (`task_activity_id` -> `id`) |
+| `progress_id` | Identifier of the related progress record used by this row. | `int4` | Yes | No | [progress](progress.md) via (`progress_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [tasks](tasks.md) (42 query files), [persons](persons.md) (41 query files), [person_ext_attrs](person_ext_attrs.md) (28 query files), [centers](centers.md) (28 query files), [task_log](task_log.md) (14 query files), [task_types](task_types.md) (13 query files).

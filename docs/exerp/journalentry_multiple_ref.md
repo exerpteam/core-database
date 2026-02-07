@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `journalentry_id` | Identifier of the related journalentry record. | `int4` | No | Yes | - | - |
-| `ref_center` | Center part of the reference to related ref data. | `int4` | No | Yes | - | - |
-| `ref_id` | Identifier of the related ref record. | `int4` | No | Yes | - | - |
+| `journalentry_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `ref_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `ref_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
 
 # Relations

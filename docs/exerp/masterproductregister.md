@@ -6,54 +6,54 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `definition_key` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`definition_key` -> `id`) | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
-| `product` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `masterproductregistertype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `masterproductgroup` | Foreign key field linking this record to `masterproductgroups`. | `int4` | Yes | No | [masterproductgroups](masterproductgroups.md) via (`masterproductgroup` -> `id`) | - |
-| `cached_productname` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `cached_productprice` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `cached_productcostprice` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `cached_producttype` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `cached_external_id` | Identifier of the related cached external record. | `text(2147483647)` | Yes | No | - | - |
-| `info_text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `clearing_house_restriction` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `globally_blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | Yes | No | - | - |
-| `primary_product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | Yes | No | [product_group](product_group.md) via (`primary_product_group_id` -> `id`) | - |
-| `product_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
-| `creation_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`creation_account_config_id` -> `id`) | - |
-| `prorata_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`prorata_account_config_id` -> `id`) | - |
-| `admin_fee_config_id` | Identifier of the related admin fee config record. | `int4` | Yes | No | - | - |
-| `use_contract_template` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `contract_template_id` | Identifier of the related contract template record. | `int4` | Yes | No | - | - |
-| `last_state_change` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `has_future_price_change` | Boolean flag indicating presence of future price change. | `bool` | No | No | - | - |
-| `mapi_selling_points` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `mapi_rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `mapi_description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `buyout_fee_config_id` | Identifier of the related buyout fee config record. | `int4` | Yes | No | - | - |
-| `recurring_clipcard_id` | Identifier of the related recurring clipcard record. | `int4` | Yes | No | - | - |
-| `recurring_clipcard_clips` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sale_startup_clipcard` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `sales_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sales_units` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `period_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `print_qr_on_receipt` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `single_use` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `buyout_fee_percentage` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `change_requiredrole` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `clipcard_pack_size` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `flat_rate_commission` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `webname` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - |
-| `use_documentation_settings` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `documentation_settings_id` | Identifier of the related documentation settings record. | `int4` | Yes | No | - | [documentation_settings](documentation_settings.md) via (`documentation_settings_id` -> `id`) |
-| `family_membership_type` | Text field containing descriptive or reference information. | `VARCHAR(20)` | Yes | No | - | - |
-| `commissionable` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `definition_key` | Identifier referencing another record in the same table hierarchy. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`definition_key` -> `id`) | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
+| `product` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `globalid` | Operational field `globalid` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `masterproductregistertype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `masterproductgroup` | Identifier of the related masterproductgroups record used by this row. | `int4` | Yes | No | [masterproductgroups](masterproductgroups.md) via (`masterproductgroup` -> `id`) | - |
+| `cached_productname` | Operational field `cached_productname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `cached_productprice` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `cached_productcostprice` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `cached_producttype` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `cached_external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `info_text` | Business attribute `info_text` used by masterproductregister workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `clearing_house_restriction` | Business attribute `clearing_house_restriction` used by masterproductregister workflows and reporting. | `int4` | No | No | - | - |
+| `globally_blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | Yes | No | - | - |
+| `primary_product_group_id` | Identifier of the related product group record used by this row. | `int4` | Yes | No | [product_group](product_group.md) via (`primary_product_group_id` -> `id`) | - |
+| `product_account_config_id` | Identifier of the related product account configurations record used by this row. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
+| `creation_account_config_id` | Identifier of the related product account configurations record used by this row. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`creation_account_config_id` -> `id`) | - |
+| `prorata_account_config_id` | Identifier of the related product account configurations record used by this row. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`prorata_account_config_id` -> `id`) | - |
+| `admin_fee_config_id` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `use_contract_template` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `contract_template_id` | Identifier for the related contract template entity used by this record. | `int4` | Yes | No | - | - |
+| `last_state_change` | State indicator used to control lifecycle transitions and filtering. | `int8` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `has_future_price_change` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `mapi_selling_points` | Business attribute `mapi_selling_points` used by masterproductregister workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `mapi_rank` | Business attribute `mapi_rank` used by masterproductregister workflows and reporting. | `int4` | Yes | No | - | - |
+| `mapi_description` | Business attribute `mapi_description` used by masterproductregister workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `buyout_fee_config_id` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `recurring_clipcard_id` | Identifier for the related recurring clipcard entity used by this record. | `int4` | Yes | No | - | - |
+| `recurring_clipcard_clips` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `sale_startup_clipcard` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `sales_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `sales_units` | Operational field `sales_units` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `period_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `print_qr_on_receipt` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `single_use` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `buyout_fee_percentage` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `change_requiredrole` | Business attribute `change_requiredrole` used by masterproductregister workflows and reporting. | `int4` | Yes | No | - | - |
+| `clipcard_pack_size` | Business attribute `clipcard_pack_size` used by masterproductregister workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `flat_rate_commission` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `webname` | Business attribute `webname` used by masterproductregister workflows and reporting. | `VARCHAR(1024)` | Yes | No | - | - |
+| `use_documentation_settings` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `documentation_settings_id` | Identifier for the related documentation settings entity used by this record. | `int4` | Yes | No | - | [documentation_settings](documentation_settings.md) via (`documentation_settings_id` -> `id`) |
+| `family_membership_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(20)` | Yes | No | - | - |
+| `commissionable` | Monetary value used in financial calculation, settlement, or reporting. | `VARCHAR(20)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [products](products.md) (473 query files), [persons](persons.md) (370 query files), [centers](centers.md) (354 query files), [subscriptions](subscriptions.md) (354 query files), [subscription_addon](subscription_addon.md) (338 query files), [subscriptiontypes](subscriptiontypes.md) (242 query files).

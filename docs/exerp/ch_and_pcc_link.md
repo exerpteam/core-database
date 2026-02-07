@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `clearing_house_id` | Foreign key field linking this record to `clearinghouses`. | `int4` | No | Yes | [clearinghouses](clearinghouses.md) via (`clearing_house_id` -> `id`) | - |
-| `payment_cycle_id` | Foreign key field linking this record to `payment_cycle_config`. | `int4` | No | Yes | [payment_cycle_config](payment_cycle_config.md) via (`payment_cycle_id` -> `id`) | - |
+| `clearing_house_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [clearinghouses](clearinghouses.md) via (`clearing_house_id` -> `id`) | - |
+| `payment_cycle_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [payment_cycle_config](payment_cycle_config.md) via (`payment_cycle_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [account_receivables](account_receivables.md) (18 query files), [persons](persons.md) (18 query files), [payment_accounts](payment_accounts.md) (17 query files), [payment_cycle_config](payment_cycle_config.md) (17 query files), [areas](areas.md) (16 query files), [clearinghouses](clearinghouses.md) (16 query files).

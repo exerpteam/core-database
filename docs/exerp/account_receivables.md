@@ -6,23 +6,23 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `ar_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `employeecenter` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
-| `employeeid` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
-| `customercenter` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`customercenter`, `customerid` -> `center`, `id`) | - |
-| `customerid` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`customercenter`, `customerid` -> `center`, `id`) | - |
-| `debit_max` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `asset_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`asset_accountcenter`, `asset_accountid` -> `center`, `id`) | - |
-| `asset_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`asset_accountcenter`, `asset_accountid` -> `center`, `id`) | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `balance` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `last_entry_time` | Epoch timestamp for last entry. | `int8` | Yes | No | - | - |
-| `last_trans_time` | Epoch timestamp for last trans. | `int8` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `int4` | No | No | - | - |
-| `collected_until` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `ar_type` | Classification code describing the ar type category (for example: 515005, 515030, CASH, CASH ACCOUNT). | `int4` | No | No | - | - |
+| `employeecenter` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
+| `employeeid` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
+| `customercenter` | Center component of the composite reference to the related customer record. | `int4` | No | No | [persons](persons.md) via (`customercenter`, `customerid` -> `center`, `id`) | - |
+| `customerid` | Identifier component of the composite reference to the related customer record. | `int4` | No | No | [persons](persons.md) via (`customercenter`, `customerid` -> `center`, `id`) | - |
+| `debit_max` | Operational field `debit_max` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `asset_accountcenter` | Center component of the composite reference to the related asset account record. | `int4` | Yes | No | [accounts](accounts.md) via (`asset_accountcenter`, `asset_accountid` -> `center`, `id`) | - |
+| `asset_accountid` | Identifier component of the composite reference to the related asset account record. | `int4` | Yes | No | [accounts](accounts.md) via (`asset_accountcenter`, `asset_accountid` -> `center`, `id`) | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `balance` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `last_entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `last_trans_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `collected_until` | Business attribute `collected_until` used by account receivables workflows and reporting. | `int8` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (1593 query files), [centers](centers.md) (1024 query files), [ar_trans](ar_trans.md) (869 query files), [payment_agreements](payment_agreements.md) (780 query files), [payment_accounts](payment_accounts.md) (614 query files), [subscriptions](subscriptions.md) (600 query files).

@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `campaign_code_id` | Foreign key field linking this record to `campaign_codes`. | `int4` | No | No | [campaign_codes](campaign_codes.md) via (`campaign_code_id` -> `id`) | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `usage_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `campaign_code_id` | Identifier of the related campaign codes record used by this row. | `int4` | No | No | [campaign_codes](campaign_codes.md) via (`campaign_code_id` -> `id`) | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `usage_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
 
 # Relations
 - Commonly used with: [campaign_codes](campaign_codes.md) (4 query files), [privilege_usages](privilege_usages.md) (3 query files).

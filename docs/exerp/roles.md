@@ -6,16 +6,16 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `rolename` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `masterroleid` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`masterroleid` -> `id`) | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `config_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `system_id` | Identifier of the related system record. | `int4` | Yes | No | - | - |
-| `is_action` | Boolean flag indicating whether action applies. | `bool` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `rolename` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `masterroleid` | Identifier referencing another record in the same table hierarchy. | `int4` | Yes | No | [roles](roles.md) via (`masterroleid` -> `id`) | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
+| `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | Yes | No | - | - |
+| `config_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `system_id` | Identifier for the related system entity used by this record. | `int4` | Yes | No | - | - |
+| `is_action` | Boolean flag indicating whether `action` applies to this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (113 query files), [employees](employees.md) (100 query files), [employeesroles](employeesroles.md) (100 query files), [centers](centers.md) (88 query files), [person_ext_attrs](person_ext_attrs.md) (64 query files), [products](products.md) (55 query files).

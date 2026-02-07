@@ -6,6 +6,6 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(2)` | No | Yes | - | - |
+| `id` | Primary key identifier for this record. | `VARCHAR(2)` | No | Yes | - | - |
 
 # Relations

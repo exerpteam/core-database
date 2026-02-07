@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `role_id` | Foreign key field linking this record to `roles`. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - |
-| `group_purpose_id` | Identifier of the related group purpose record. | `int4` | No | Yes | - | - |
+| `role_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [roles](roles.md) via (`role_id` -> `id`) | - |
+| `group_purpose_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [roles](roles.md).

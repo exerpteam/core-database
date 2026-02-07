@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Center identifier associated with the record. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
-| `family_name` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
-| `status` | Lifecycle status code for the record. | `VARCHAR(20)` | No | No | - | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `serial` | No | Yes | - | - |
+| `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `family_name` | Business attribute `family_name` used by families workflows and reporting. | `VARCHAR(50)` | Yes | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `VARCHAR(20)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `serial` | No | Yes | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (6 query files), [persons](persons.md) (6 query files), [relatives](relatives.md) (6 query files), [extract](extract.md) (5 query files), [booking_resources](booking_resources.md) (4 query files), [person_ext_attrs](person_ext_attrs.md) (3 query files).

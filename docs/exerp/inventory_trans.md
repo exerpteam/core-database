@@ -6,32 +6,32 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `inventory` | Foreign key field linking this record to `inventory`. | `int4` | No | No | [inventory](inventory.md) via (`inventory` -> `id`) | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `product_center` | Foreign key field linking this record to `products`. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
-| `product_id` | Foreign key field linking this record to `products`. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `book_time` | Epoch timestamp for book. | `int8` | No | No | - | - |
-| `had_report_role` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `quantity` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `unit_value` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `remaining` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `ref_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `ref_center` | Center part of the reference to related ref data. | `int4` | Yes | No | - | - |
-| `ref_id` | Identifier of the related ref record. | `int4` | Yes | No | - | - |
-| `ref_subid` | Sub-identifier for related ref detail rows. | `int4` | Yes | No | - | - |
-| `source_id` | Foreign key field linking this record to `inventory_trans`. | `int4` | Yes | No | [inventory_trans](inventory_trans.md) via (`source_id` -> `id`) | - |
-| `first_source_id` | Foreign key field linking this record to `inventory_trans`. | `int4` | Yes | No | [inventory_trans](inventory_trans.md) via (`first_source_id` -> `id`) | - |
-| `last_write_off_id` | Foreign key field linking this record to `inventory_trans`. | `int4` | Yes | No | [inventory_trans](inventory_trans.md) via (`last_write_off_id` -> `id`) | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `balance_quantity` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `balance_value` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `account_trans_center` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
-| `account_trans_id` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
-| `account_trans_subid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `inventory` | Identifier of the related inventory record used by this row. | `int4` | No | No | [inventory](inventory.md) via (`inventory` -> `id`) | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `product_center` | Center component of the composite reference to the related product record. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_id` | Identifier component of the composite reference to the related product record. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `book_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `had_report_role` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `quantity` | Operational field `quantity` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `unit_value` | Business attribute `unit_value` used by inventory trans workflows and reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `remaining` | Operational field `remaining` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `ref_type` | Classification code describing the ref type category (for example: PERSON). | `text(2147483647)` | Yes | No | - | - |
+| `ref_center` | Center component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
+| `ref_id` | Identifier component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
+| `ref_subid` | Operational field `ref_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `source_id` | Identifier referencing another record in the same table hierarchy. | `int4` | Yes | No | [inventory_trans](inventory_trans.md) via (`source_id` -> `id`) | - |
+| `first_source_id` | Identifier referencing another record in the same table hierarchy. | `int4` | Yes | No | [inventory_trans](inventory_trans.md) via (`first_source_id` -> `id`) | - |
+| `last_write_off_id` | Identifier referencing another record in the same table hierarchy. | `int4` | Yes | No | [inventory_trans](inventory_trans.md) via (`last_write_off_id` -> `id`) | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `balance_quantity` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | No | No | - | - |
+| `balance_value` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `account_trans_center` | Center component of the composite reference to the related account trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_id` | Identifier component of the composite reference to the related account trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_subid` | Identifier of the related account trans record used by this row. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - Commonly used with: [products](products.md) (18 query files), [centers](centers.md) (16 query files), [inventory](inventory.md) (12 query files), [persons](persons.md) (6 query files), [product_group](product_group.md) (6 query files), [delivery](delivery.md) (6 query files).

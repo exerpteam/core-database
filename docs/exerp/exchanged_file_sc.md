@@ -6,26 +6,26 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_grouping` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `SCHEDULE` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `schedule_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `service` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `agency` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `agency_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `store_in_database` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `store_in_filesystem` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `exports` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
-| `next_schedule_day` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `attempts` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `filename_pattern` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `file_format` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `export_as_gzip` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `scope_grouping` | Business attribute `scope_grouping` used by exchanged file sc workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `SCHEDULE` | Business attribute `SCHEDULE` used by exchanged file sc workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `schedule_configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `service` | Operational field `service` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `agency` | Business attribute `agency` used by exchanged file sc workflows and reporting. | `int4` | Yes | No | - | - |
+| `agency_configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `store_in_database` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `store_in_filesystem` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `exports` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `text(2147483647)` | No | No | - | - |
+| `next_schedule_day` | Business attribute `next_schedule_day` used by exchanged file sc workflows and reporting. | `DATE` | Yes | No | - | - |
+| `attempts` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `filename_pattern` | Business attribute `filename_pattern` used by exchanged file sc workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `file_format` | Business attribute `file_format` used by exchanged file sc workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `export_as_gzip` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [exchanged_file](exchanged_file.md) (5 query files), [exchanged_file_exp](exchanged_file_exp.md) (4 query files), [extract](extract.md) (3 query files), [exchanged_file_op](exchanged_file_op.md) (2 query files), [areas](areas.md) (2 query files).

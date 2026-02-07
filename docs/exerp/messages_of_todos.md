@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - |
-| `message_center` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
-| `message_id` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
-| `message_subid` | Foreign key field linking this record to `messages`. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [todos](todos.md) via (`center`, `id` -> `center`, `id`) | - |
+| `message_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
+| `message_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
+| `message_subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [messages](messages.md) via (`message_center`, `message_id`, `message_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [messages](messages.md), [todos](todos.md).

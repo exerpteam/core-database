@@ -6,20 +6,20 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `clearinghouse` | Foreign key field linking this record to `clearinghouses`. | `int4` | Yes | No | [clearinghouses](clearinghouses.md) via (`clearinghouse` -> `id`) | - |
-| `STATE` | State code representing the current processing state. | `int4` | No | No | - | - |
-| `REF` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `payment_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `total_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `received_date` | Date for received. | `DATE` | No | No | - | - |
-| `generated_date` | Date for generated. | `DATE` | Yes | No | - | - |
-| `delivery` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `errors` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `substate` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `filename` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `checksum` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `exchanged_file_id` | Foreign key field linking this record to `exchanged_file`. | `int4` | Yes | No | [exchanged_file](exchanged_file.md) via (`exchanged_file_id` -> `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `clearinghouse` | Identifier of the related clearinghouses record used by this row. | `int4` | Yes | No | [clearinghouses](clearinghouses.md) via (`clearinghouse` -> `id`) | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `payment_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `total_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `received_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `generated_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `delivery` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `errors` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `substate` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
+| `filename` | Business attribute `filename` used by clearing in workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `checksum` | Business attribute `checksum` used by clearing in workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `exchanged_file_id` | Identifier of the related exchanged file record used by this row. | `int4` | Yes | No | [exchanged_file](exchanged_file.md) via (`exchanged_file_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [account_receivables](account_receivables.md) (49 query files), [payment_requests](payment_requests.md) (42 query files), [persons](persons.md) (37 query files), [payment_agreements](payment_agreements.md) (33 query files), [payment_request_specifications](payment_request_specifications.md) (27 query files), [centers](centers.md) (26 query files).

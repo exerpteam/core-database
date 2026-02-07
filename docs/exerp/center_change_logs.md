@@ -6,16 +6,16 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `center_id` | Foreign key field linking this record to `centers`. | `int4` | No | No | [centers](centers.md) via (`center_id` -> `id`) | - |
-| `previous_entry_id` | Identifier of the related previous entry record. | `int4` | Yes | No | - | - |
-| `change_source` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `change_attribute` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `new_value` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `employee_center` | Center part of the reference to related employee data. | `int4` | Yes | No | - | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) |
-| `employee_id` | Identifier of the related employee record. | `int4` | Yes | No | - | - |
-| `login_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `center_id` | Identifier of the related centers record used by this row. | `int4` | No | No | [centers](centers.md) via (`center_id` -> `id`) | - |
+| `previous_entry_id` | Identifier for the related previous entry entity used by this record. | `int4` | Yes | No | - | - |
+| `change_source` | Business attribute `change_source` used by center change logs workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `change_attribute` | Operational field `change_attribute` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `new_value` | Operational field `new_value` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | - | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | - | - |
+| `login_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [centers](centers.md).

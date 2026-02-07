@@ -6,15 +6,15 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `booking_center` | Foreign key field linking this record to `bookings`. | `int4` | No | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
-| `booking_id` | Foreign key field linking this record to `bookings`. | `int4` | No | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `value_before` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `value_after` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `booking_center` | Center component of the composite reference to the related booking record. | `int4` | No | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
+| `booking_id` | Identifier component of the composite reference to the related booking record. | `int4` | No | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `TIME` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `value_before` | Business attribute `value_before` used by booking change workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `value_after` | Business attribute `value_after` used by booking change workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [bookings](bookings.md) (3 query files), [persons](persons.md) (3 query files), [activity](activity.md) (2 query files), [staff_usage](staff_usage.md) (2 query files).

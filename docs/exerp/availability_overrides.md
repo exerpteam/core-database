@@ -6,15 +6,15 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `override_date` | Date for override. | `DATE` | No | No | - | - |
-| `start_time` | Epoch timestamp for start. | `text(2147483647)` | Yes | No | - | - |
-| `stop_time` | Epoch timestamp for stop. | `text(2147483647)` | Yes | No | - | - |
-| `open_all_day` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `closed_all_day` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `availability_period_id` | Identifier of the related availability period record. | `int4` | No | No | - | [availability_periods](availability_periods.md) via (`availability_period_id` -> `id`) |
-| `override_scope_id` | Identifier of the related override scope record. | `int4` | No | No | - | - |
-| `override_scope_type` | Text field containing descriptive or reference information. | `VARCHAR(10)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `override_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `start_time` | Timestamp used for event ordering and operational tracking. | `text(2147483647)` | Yes | No | - | - |
+| `stop_time` | Timestamp used for event ordering and operational tracking. | `text(2147483647)` | Yes | No | - | - |
+| `open_all_day` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `closed_all_day` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `availability_period_id` | Identifier for the related availability period entity used by this record. | `int4` | No | No | - | [availability_periods](availability_periods.md) via (`availability_period_id` -> `id`) |
+| `override_scope_id` | Identifier for the related override scope entity used by this record. | `int4` | No | No | - | - |
+| `override_scope_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(10)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [availability_periods](availability_periods.md) (2 query files), [centers](centers.md) (2 query files), [extract](extract.md) (2 query files).

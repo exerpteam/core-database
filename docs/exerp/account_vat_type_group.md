@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `account_center` | Foreign key field linking this record to `accounts`. | `int4` | No | No | [accounts](accounts.md) via (`account_center`, `account_id` -> `center`, `id`) | - |
-| `account_id` | Foreign key field linking this record to `accounts`. | `int4` | No | No | [accounts](accounts.md) via (`account_center`, `account_id` -> `center`, `id`) | - |
-| `global_id` | Identifier of the related global record. | `text(2147483647)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `account_center` | Center component of the composite reference to the related account record. | `int4` | No | No | [accounts](accounts.md) via (`account_center`, `account_id` -> `center`, `id`) | - |
+| `account_id` | Identifier component of the composite reference to the related account record. | `int4` | No | No | [accounts](accounts.md) via (`account_center`, `account_id` -> `center`, `id`) | - |
+| `global_id` | Identifier for the related global entity used by this record. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [accounts](accounts.md) (55 query files), [products](products.md) (55 query files), [product_account_configurations](product_account_configurations.md) (47 query files), [persons](persons.md) (45 query files), [vat_types](vat_types.md) (45 query files), [centers](centers.md) (42 query files).

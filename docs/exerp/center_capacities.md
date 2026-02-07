@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `checked_in_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `reserved_spots` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `checked_in_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
+| `reserved_spots` | Business attribute `reserved_spots` used by center capacities workflows and reporting. | `int4` | No | No | - | - |
 
 # Relations

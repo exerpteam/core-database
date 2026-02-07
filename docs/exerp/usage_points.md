@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `all_clients` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `all_kiosks` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `all_clients` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `all_kiosks` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (10 query files), [clients](clients.md) (8 query files), [booking_resources](booking_resources.md) (8 query files), [usage_point_resources](usage_point_resources.md) (6 query files), [devices](devices.md) (5 query files), [usage_point_sources](usage_point_sources.md) (5 query files).

@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `original_text` | Text field containing descriptive or reference information. | `VARCHAR(100)` | No | Yes | - | - |
-| `country` | Country code linked to the record. | `VARCHAR(2)` | No | Yes | - | - |
-| `translat` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `field` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `original_text` | Primary key component used to uniquely identify this record. | `VARCHAR(100)` | No | Yes | - | - |
+| `country` | Primary key component used to uniquely identify this record. | `VARCHAR(2)` | No | Yes | - | - |
+| `translat` | Business attribute `translat` used by national translations workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `field` | Operational field `field` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
 
 # Relations

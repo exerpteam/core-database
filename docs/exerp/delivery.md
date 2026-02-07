@@ -6,25 +6,25 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `supplier_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`supplier_center`, `supplier_id` -> `center`, `id`)<br>[supplier](supplier.md) via (`supplier_center`, `supplier_id` -> `center`, `id`) | - |
-| `supplier_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`supplier_center`, `supplier_id` -> `center`, `id`)<br>[supplier](supplier.md) via (`supplier_center`, `supplier_id` -> `center`, `id`) | - |
-| `invoice_no` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `order_no` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `delivery_date` | Date for delivery. | `DATE` | No | No | - | - |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `shipping_cost` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `inventory` | Foreign key field linking this record to `inventory`. | `int4` | No | No | [inventory](inventory.md) via (`inventory` -> `id`) | - |
-| `payment_trans_center` | Center part of the reference to related payment trans data. | `int4` | Yes | No | - | - |
-| `payment_trans_id` | Identifier of the related payment trans record. | `int4` | Yes | No | - | - |
-| `payment_trans_subid` | Sub-identifier for related payment trans detail rows. | `int4` | Yes | No | - | - |
-| `paid_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `paid_date` | Date for paid. | `DATE` | Yes | No | - | - |
-| `delivery_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `supplier_center` | Center component of the composite reference to the related supplier record. | `int4` | No | No | [persons](persons.md) via (`supplier_center`, `supplier_id` -> `center`, `id`)<br>[supplier](supplier.md) via (`supplier_center`, `supplier_id` -> `center`, `id`) | - |
+| `supplier_id` | Identifier component of the composite reference to the related supplier record. | `int4` | No | No | [persons](persons.md) via (`supplier_center`, `supplier_id` -> `center`, `id`)<br>[supplier](supplier.md) via (`supplier_center`, `supplier_id` -> `center`, `id`) | - |
+| `invoice_no` | Business attribute `invoice_no` used by delivery workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `order_no` | Business attribute `order_no` used by delivery workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `delivery_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `shipping_cost` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `inventory` | Identifier of the related inventory record used by this row. | `int4` | No | No | [inventory](inventory.md) via (`inventory` -> `id`) | - |
+| `payment_trans_center` | Center component of the composite reference to the related payment trans record. | `int4` | Yes | No | - | - |
+| `payment_trans_id` | Identifier component of the composite reference to the related payment trans record. | `int4` | Yes | No | - | - |
+| `payment_trans_subid` | Business attribute `payment_trans_subid` used by delivery workflows and reporting. | `int4` | Yes | No | - | - |
+| `paid_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `paid_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `delivery_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (22 query files), [persons](persons.md) (13 query files), [products](products.md) (10 query files), [inventory](inventory.md) (10 query files), [messages](messages.md) (9 query files), [invoice_lines_mt](invoice_lines_mt.md) (9 query files).

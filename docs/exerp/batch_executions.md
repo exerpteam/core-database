@@ -6,17 +6,17 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `job_class` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
-| `entity_key` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `earliest_exec_time` | Epoch timestamp for earliest exec. | `int8` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `int4` | Yes | No | - | - |
-| `start_time` | Epoch timestamp for start. | `int8` | Yes | No | - | - |
-| `execution_date` | Date for execution. | `DATE` | No | No | - | - |
-| `node_id` | Identifier of the related node record. | `text(2147483647)` | Yes | No | - | - |
-| `rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `job_class` | Business attribute `job_class` used by batch executions workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
+| `entity_key` | Business attribute `entity_key` used by batch executions workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `earliest_exec_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | Yes | No | - | - |
+| `start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `execution_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `node_id` | Identifier for the related node entity used by this record. | `text(2147483647)` | Yes | No | - | - |
+| `rank` | Operational field `rank` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
 
 # Relations
 - FK-linked tables: incoming FK from [batch_executions_dependencies](batch_executions_dependencies.md).

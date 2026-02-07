@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(256)` | No | Yes | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `created` | Table field used by operational and reporting workloads. | `TIMESTAMP` | No | No | - | - |
-| `claimed_by` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `VARCHAR(256)` | No | Yes | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `created` | Operational field `created` used in query filtering and reporting transformations. | `TIMESTAMP` | No | No | - | - |
+| `claimed_by` | Business attribute `claimed_by` used by enterprise account invites workflows and reporting. | `VARCHAR(1024)` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md).

@@ -6,14 +6,14 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
-| `active` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | No | No | - | - |
-| `supply_scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `supply_scope_id` | Identifier of the related supply scope record. | `int4` | No | No | - | - |
-| `delivery_time` | Epoch timestamp for delivery. | `text(2147483647)` | No | No | - | - |
-| `finance_account_globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
+| `active` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | No | No | - | - |
+| `supply_scope_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
+| `supply_scope_id` | Identifier for the related supply scope entity used by this record. | `int4` | No | No | - | - |
+| `delivery_time` | Timestamp used for event ordering and operational tracking. | `text(2147483647)` | No | No | - | - |
+| `finance_account_globalid` | Operational counter/limit used for processing control and performance monitoring. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [persons](persons.md); incoming FK from [delivery](delivery.md).

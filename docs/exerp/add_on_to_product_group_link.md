@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `add_on_product_definition_id` | Foreign key field linking this record to `add_on_product_definition`. | `int4` | No | Yes | [add_on_product_definition](add_on_product_definition.md) via (`add_on_product_definition_id` -> `id`) | - |
-| `product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - |
+| `add_on_product_definition_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [add_on_product_definition](add_on_product_definition.md) via (`add_on_product_definition_id` -> `id`) | - |
+| `product_group_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [add_on_product_definition](add_on_product_definition.md) (12 query files), [centers](centers.md) (12 query files), [masterproductregister](masterproductregister.md) (12 query files), [product_group](product_group.md) (12 query files), [products](products.md) (12 query files), [subscription_addon_product](subscription_addon_product.md) (12 query files).

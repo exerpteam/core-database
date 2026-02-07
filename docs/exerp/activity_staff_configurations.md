@@ -6,15 +6,15 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `excluzive` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `staff_group_id` | Foreign key field linking this record to `staff_groups`. | `int4` | Yes | No | [staff_groups](staff_groups.md) via (`staff_group_id` -> `id`) | - |
-| `minimum_staffs` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `maximum_staffs` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `staff_anonymity` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `parent_activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`parent_activity_id` -> `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `activity_id` | Identifier of the related activity record used by this row. | `int4` | Yes | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `excluzive` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `staff_group_id` | Identifier of the related staff groups record used by this row. | `int4` | Yes | No | [staff_groups](staff_groups.md) via (`staff_group_id` -> `id`) | - |
+| `minimum_staffs` | Business attribute `minimum_staffs` used by activity staff configurations workflows and reporting. | `int4` | No | No | - | - |
+| `maximum_staffs` | Business attribute `maximum_staffs` used by activity staff configurations workflows and reporting. | `int4` | No | No | - | - |
+| `staff_anonymity` | Business attribute `staff_anonymity` used by activity staff configurations workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `parent_activity_id` | Identifier of the related activity record used by this row. | `int4` | Yes | No | [activity](activity.md) via (`parent_activity_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [activity](activity.md) (58 query files), [staff_groups](staff_groups.md) (51 query files), [activity_group](activity_group.md) (48 query files), [persons](persons.md) (39 query files), [bookings](bookings.md) (38 query files), [staff_usage](staff_usage.md) (38 query files).

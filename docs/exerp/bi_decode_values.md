@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Identifier of the record, typically unique within `center`. | `int4` | Yes | No | - | - |
-| `table_name` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
-| `field_name` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
-| `num_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `text_value` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
+| `id` | Identifier for this record. | `int4` | Yes | No | - | - |
+| `table_name` | Business attribute `table_name` used by bi decode values workflows and reporting. | `VARCHAR(50)` | Yes | No | - | - |
+| `field_name` | Business attribute `field_name` used by bi decode values workflows and reporting. | `VARCHAR(50)` | Yes | No | - | - |
+| `num_value` | Business attribute `num_value` used by bi decode values workflows and reporting. | `int4` | Yes | No | - | - |
+| `text_value` | Business attribute `text_value` used by bi decode values workflows and reporting. | `VARCHAR(50)` | Yes | No | - | - |
 
 # Relations

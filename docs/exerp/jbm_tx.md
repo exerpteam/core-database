@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `node_id` | Identifier of the related node record. | `int4` | Yes | No | - | - |
-| `transaction_id` | Identifier of the related transaction record. | `int8` | No | Yes | - | - |
-| `branch_qual` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `format_id` | Identifier of the related format record. | `int4` | Yes | No | - | - |
-| `global_txid` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `node_id` | Identifier for the related node entity used by this record. | `int4` | Yes | No | - | - |
+| `transaction_id` | Primary key identifier for this record. | `int8` | No | Yes | - | - |
+| `branch_qual` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `format_id` | Identifier for the related format entity used by this record. | `int4` | Yes | No | - | - |
+| `global_txid` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 
 # Relations

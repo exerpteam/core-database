@@ -6,20 +6,20 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `KEY` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
-| `center` | Center identifier associated with the record. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Identifier of the record, typically unique within `center`. | `int4` | No | No | - | - |
-| `subid` | Sub-identifier used for child rows within a parent key. | `int4` | Yes | No | - | - |
-| `entry_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `stateid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `sub_state` | Detailed sub-state code refining the main state. | `int4` | Yes | No | - | - |
-| `entry_start_time` | Epoch timestamp for entry start. | `int8` | No | No | - | - |
-| `entry_end_time` | Epoch timestamp for entry end. | `int8` | Yes | No | - | - |
-| `book_start_time` | Epoch timestamp for book start. | `int8` | No | No | - | - |
-| `book_end_time` | Epoch timestamp for book end. | `int8` | Yes | No | - | - |
-| `had_report_role` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `KEY` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Identifier for this record. | `int4` | No | No | - | - |
+| `subid` | Operational field `subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `entry_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `stateid` | State indicator used to control lifecycle transitions and filtering. | `int4` | No | No | - | - |
+| `sub_state` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AWAITING ACTIVATION, AWAITING_ACTIVATION, AwaitingActivation). | `int4` | Yes | No | - | - |
+| `entry_start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `entry_end_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `book_start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `book_end_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `had_report_role` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (508 query files), [subscriptions](subscriptions.md) (498 query files), [centers](centers.md) (425 query files), [products](products.md) (389 query files), [subscriptiontypes](subscriptiontypes.md) (382 query files), [relatives](relatives.md) (226 query files).

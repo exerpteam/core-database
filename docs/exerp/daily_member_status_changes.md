@@ -6,16 +6,16 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `change_date` | Date for change. | `DATE` | No | No | - | - |
-| `change` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `member_number_delta` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `extra_number_delta` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `secondary_member_number_delta` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `entry_start_time` | Epoch timestamp for entry start. | `int8` | No | No | - | - |
-| `entry_stop_time` | Epoch timestamp for entry stop. | `int8` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `person_center` | Center component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Identifier component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `change_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `change` | Operational field `change` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `member_number_delta` | Operational field `member_number_delta` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `extra_number_delta` | Business attribute `extra_number_delta` used by daily member status changes workflows and reporting. | `int4` | No | No | - | - |
+| `secondary_member_number_delta` | Business attribute `secondary_member_number_delta` used by daily member status changes workflows and reporting. | `int4` | No | No | - | - |
+| `entry_start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `entry_stop_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (36 query files), [state_change_log](state_change_log.md) (27 query files), [person_ext_attrs](person_ext_attrs.md) (24 query files), [journalentries](journalentries.md) (22 query files), [entityidentifiers](entityidentifiers.md) (20 query files), [account_receivables](account_receivables.md) (16 query files).

@@ -6,22 +6,22 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `activity_id` | Foreign key field linking this record to `activity`. | `int4` | Yes | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `excluzive` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `ordinal` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `min_participants_at_creation` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `max_participants_at_creation` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `minimum_showups` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `max_participants_absolute` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `max_participants_percentage` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `access_group_id` | Foreign key field linking this record to `booking_privilege_groups`. | `int4` | Yes | No | [booking_privilege_groups](booking_privilege_groups.md) via (`access_group_id` -> `id`) | - |
-| `owner_participation` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `participate_in_all_recurring` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `privilege_at_showup_client` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `privilege_at_showup_kiosk` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `privilege_at_showup_web` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `activity_id` | Identifier of the related activity record used by this row. | `int4` | Yes | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `excluzive` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `ordinal` | Business attribute `ordinal` used by participation configurations workflows and reporting. | `int4` | No | No | - | - |
+| `min_participants_at_creation` | Business attribute `min_participants_at_creation` used by participation configurations workflows and reporting. | `int4` | No | No | - | - |
+| `max_participants_at_creation` | Business attribute `max_participants_at_creation` used by participation configurations workflows and reporting. | `int4` | Yes | No | - | - |
+| `minimum_showups` | Business attribute `minimum_showups` used by participation configurations workflows and reporting. | `int4` | No | No | - | - |
+| `max_participants_absolute` | Business attribute `max_participants_absolute` used by participation configurations workflows and reporting. | `int4` | Yes | No | - | - |
+| `max_participants_percentage` | Business attribute `max_participants_percentage` used by participation configurations workflows and reporting. | `int4` | Yes | No | - | - |
+| `access_group_id` | Identifier of the related booking privilege groups record used by this row. | `int4` | Yes | No | [booking_privilege_groups](booking_privilege_groups.md) via (`access_group_id` -> `id`) | - |
+| `owner_participation` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `participate_in_all_recurring` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `privilege_at_showup_client` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `privilege_at_showup_kiosk` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `privilege_at_showup_web` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [activity](activity.md) (25 query files), [activity_group](activity_group.md) (18 query files), [colour_groups](colour_groups.md) (15 query files), [booking_privilege_groups](booking_privilege_groups.md) (14 query files), [activity_staff_configurations](activity_staff_configurations.md) (11 query files), [activity_resource_configs](activity_resource_configs.md) (9 query files).

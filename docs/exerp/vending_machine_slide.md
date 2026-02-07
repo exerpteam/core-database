@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `vending_machine` | Foreign key field linking this record to `vending_machine`. | `int4` | No | No | [vending_machine](vending_machine.md) via (`vending_machine` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `product_center` | Foreign key field linking this record to `products`. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
-| `product_id` | Foreign key field linking this record to `products`. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
-| `product_capacity` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `vending_machine` | Identifier of the related vending machine record used by this row. | `int4` | No | No | [vending_machine](vending_machine.md) via (`vending_machine` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `product_center` | Center component of the composite reference to the related product record. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_id` | Identifier component of the composite reference to the related product record. | `int4` | No | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_capacity` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [products](products.md), [vending_machine](vending_machine.md).

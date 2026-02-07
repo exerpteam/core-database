@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `trigger_name` | Foreign key field linking this record to `qrtz_triggers`. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
-| `trigger_group` | Foreign key field linking this record to `qrtz_triggers`. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
-| `cron_expression` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `time_zone_id` | Identifier of the related time zone record. | `text(2147483647)` | Yes | No | - | - |
+| `trigger_name` | Primary key component used to uniquely identify this record. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
+| `trigger_group` | Primary key component used to uniquely identify this record. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
+| `cron_expression` | Business attribute `cron_expression` used by qrtz cron triggers workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `time_zone_id` | Identifier for the related time zone entity used by this record. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [qrtz_triggers](qrtz_triggers.md).

@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `center` | Center identifier associated with the record. | `int4` | Yes | No | - | [centers](centers.md) via (`center` -> `id`) |
-| `created` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `modified` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `shopping_basket_id` | Identifier of the related shopping basket record. | `int4` | Yes | No | - | [shopping_baskets](shopping_baskets.md) via (`shopping_basket_id` -> `id`) |
-| `serialized_session` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | Yes | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `created` | Operational field `created` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `modified` | Business attribute `modified` used by payment sessions workflows and reporting. | `int8` | No | No | - | - |
+| `shopping_basket_id` | Identifier for the related shopping basket entity used by this record. | `int4` | Yes | No | - | [shopping_baskets](shopping_baskets.md) via (`shopping_basket_id` -> `id`) |
+| `serialized_session` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [cashregisters](cashregisters.md) (2 query files), [cashregistertransactions](cashregistertransactions.md) (2 query files), [centers](centers.md) (2 query files), [creditcardtransactions](creditcardtransactions.md) (2 query files), [invoices](invoices.md) (2 query files), [shopping_baskets](shopping_baskets.md) (2 query files).

@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `trigger_name` | Foreign key field linking this record to `qrtz_triggers`. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
-| `trigger_group` | Foreign key field linking this record to `qrtz_triggers`. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
-| `repeat_count` | Table field used by operational and reporting workloads. | `float8(17,17)` | No | No | - | - |
-| `repeat_interval` | Table field used by operational and reporting workloads. | `float8(17,17)` | No | No | - | - |
-| `times_triggered` | Table field used by operational and reporting workloads. | `float8(17,17)` | No | No | - | - |
+| `trigger_name` | Primary key component used to uniquely identify this record. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
+| `trigger_group` | Primary key component used to uniquely identify this record. | `VARCHAR(200)` | No | Yes | [qrtz_triggers](qrtz_triggers.md) via (`trigger_name`, `trigger_group` -> `trigger_name`, `trigger_group`) | - |
+| `repeat_count` | Operational counter/limit used for processing control and performance monitoring. | `float8(17,17)` | No | No | - | - |
+| `repeat_interval` | Business attribute `repeat_interval` used by qrtz simple triggers workflows and reporting. | `float8(17,17)` | No | No | - | - |
+| `times_triggered` | Business attribute `times_triggered` used by qrtz simple triggers workflows and reporting. | `float8(17,17)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [qrtz_triggers](qrtz_triggers.md).

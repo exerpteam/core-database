@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `opened` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `endtime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `opened` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `starttime` | Operational field `starttime` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `endtime` | Operational field `endtime` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [centers](centers.md); incoming FK from [account_trans](account_trans.md).

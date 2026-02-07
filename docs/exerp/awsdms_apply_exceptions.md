@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `TASK_NAME` | Text field containing descriptive or reference information. | `VARCHAR(128)` | No | No | - | - |
-| `TABLE_OWNER` | Text field containing descriptive or reference information. | `VARCHAR(128)` | No | No | - | - |
-| `TABLE_NAME` | Text field containing descriptive or reference information. | `VARCHAR(128)` | No | No | - | - |
-| `ERROR_TIME` | Epoch timestamp for error. | `TIMESTAMP` | No | No | - | - |
-| `STATEMENT` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `ERROR` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `TASK_NAME` | Business attribute `TASK_NAME` used by awsdms apply exceptions workflows and reporting. | `VARCHAR(128)` | No | No | - | - |
+| `TABLE_OWNER` | Business attribute `TABLE_OWNER` used by awsdms apply exceptions workflows and reporting. | `VARCHAR(128)` | No | No | - | - |
+| `TABLE_NAME` | Business attribute `TABLE_NAME` used by awsdms apply exceptions workflows and reporting. | `VARCHAR(128)` | No | No | - | - |
+| `ERROR_TIME` | Timestamp used for event ordering and operational tracking. | `TIMESTAMP` | No | No | - | - |
+| `STATEMENT` | State indicator used to control lifecycle transitions and filtering. | `text(2147483647)` | No | No | - | - |
+| `ERROR` | Operational field `ERROR` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
 
 # Relations

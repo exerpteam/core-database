@@ -6,34 +6,34 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `quantity` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `rounding` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `first_inst_paid_in_pos` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `contract_template_id` | Identifier of the related contract template record. | `int4` | Yes | No | - | - |
-| `admin_fee_product` | Foreign key field linking this record to `masterproductregister`. | `int4` | Yes | No | [masterproductregister](masterproductregister.md) via (`admin_fee_product` -> `id`) | - |
-| `roles` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `created` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `modified` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `deleted` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `installment_plan_type` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | No | - | - |
-| `threshold` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `property_type` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
-| `property_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `initial_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `ref_type` | Text field containing descriptive or reference information. | `VARCHAR(20)` | Yes | No | - | - |
-| `ref_globalid` | Text field containing descriptive or reference information. | `VARCHAR(40)` | Yes | No | - | - |
-| `ref_center` | Center part of the reference to related ref data. | `int4` | Yes | No | - | - |
-| `ref_id` | Identifier of the related ref record. | `int4` | Yes | No | - | - |
-| `ref_program_type_id` | Identifier of the related ref program type record. | `int4` | Yes | No | - | - |
-| `available_on_web` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `quantity` | Operational field `quantity` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | No | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `rounding` | Business attribute `rounding` used by installment plan configs workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `first_inst_paid_in_pos` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `contract_template_id` | Identifier for the related contract template entity used by this record. | `int4` | Yes | No | - | - |
+| `admin_fee_product` | Identifier of the related masterproductregister record used by this row. | `int4` | Yes | No | [masterproductregister](masterproductregister.md) via (`admin_fee_product` -> `id`) | - |
+| `roles` | Operational field `roles` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `created` | Operational field `created` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `modified` | Business attribute `modified` used by installment plan configs workflows and reporting. | `int8` | No | No | - | - |
+| `deleted` | Operational field `deleted` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `version` | Operational field `version` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `installment_plan_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(30)` | No | No | - | - |
+| `threshold` | Business attribute `threshold` used by installment plan configs workflows and reporting. | `int4` | No | No | - | - |
+| `property_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(50)` | Yes | No | - | - |
+| `property_configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `initial_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `ref_type` | Classification code describing the ref type category (for example: PERSON). | `VARCHAR(20)` | Yes | No | - | - |
+| `ref_globalid` | Operational field `ref_globalid` used in query filtering and reporting transformations. | `VARCHAR(40)` | Yes | No | - | - |
+| `ref_center` | Center component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
+| `ref_id` | Identifier component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
+| `ref_program_type_id` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `available_on_web` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [installment_plans](installment_plans.md) (5 query files), [account_receivables](account_receivables.md) (4 query files), [person_ext_attrs](person_ext_attrs.md) (4 query files), [persons](persons.md) (4 query files), [products](products.md) (4 query files), [ar_trans](ar_trans.md) (3 query files).

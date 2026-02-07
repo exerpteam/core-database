@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `selecting_product_id` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`selecting_product_id` -> `id`) | - |
-| `selected_ipc_id` | Foreign key field linking this record to `installment_plan_configs`. | `int4` | No | No | [installment_plan_configs](installment_plan_configs.md) via (`selected_ipc_id` -> `id`) | - |
-| `created` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `selecting_product_id` | Identifier of the related masterproductregister record used by this row. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`selecting_product_id` -> `id`) | - |
+| `selected_ipc_id` | Identifier of the related installment plan configs record used by this row. | `int4` | No | No | [installment_plan_configs](installment_plan_configs.md) via (`selected_ipc_id` -> `id`) | - |
+| `created` | Operational field `created` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [installment_plan_configs](installment_plan_configs.md), [masterproductregister](masterproductregister.md).

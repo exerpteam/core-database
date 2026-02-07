@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `shopping_basket_id` | Foreign key field linking this record to `shopping_baskets`. | `int4` | No | Yes | [shopping_baskets](shopping_baskets.md) via (`shopping_basket_id` -> `id`) | - |
-| `invoice_center` | Foreign key field linking this record to `invoices`. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
-| `invoice_id` | Foreign key field linking this record to `invoices`. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
+| `shopping_basket_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [shopping_baskets](shopping_baskets.md) via (`shopping_basket_id` -> `id`) | - |
+| `invoice_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
+| `invoice_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [invoices](invoices.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [invoices](invoices.md), [shopping_baskets](shopping_baskets.md).

@@ -6,18 +6,18 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `clientid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `center` | Center identifier associated with the record. | `int4` | Yes | No | - | [centers](centers.md) via (`center` -> `id`) |
-| `expiration_date` | Date for expiration. | `DATE` | Yes | No | - | - |
-| `last_contact` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `alert_sent_for_last_contact_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `is_registered` | Boolean flag indicating whether registered applies. | `bool` | No | No | - | - |
-| `available_as_template` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `clientid` | Business attribute `clientid` used by clients workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | Yes | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `expiration_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `last_contact` | Business attribute `last_contact` used by clients workflows and reporting. | `int8` | Yes | No | - | - |
+| `alert_sent_for_last_contact_at` | Business attribute `alert_sent_for_last_contact_at` used by clients workflows and reporting. | `int8` | Yes | No | - | - |
+| `is_registered` | Boolean flag indicating whether `registered` applies to this record. | `bool` | No | No | - | - |
+| `available_as_template` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (28 query files), [client_instances](client_instances.md) (22 query files), [devices](devices.md) (18 query files), [usage_points](usage_points.md) (8 query files), [systemproperties](systemproperties.md) (6 query files), [booking_resources](booking_resources.md) (6 query files).

@@ -6,18 +6,18 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `log_date` | Date for log. | `DATE` | No | No | - | - |
-| `agreement_center` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
-| `agreement_id` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
-| `agreement_subid` | Foreign key field linking this record to `payment_agreements`. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
-| `STATE` | State code representing the current processing state. | `int4` | No | No | - | - |
-| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `code` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `clearing_in` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `employee_center` | Center part of the reference to related employee data. | `int4` | Yes | No | - | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) |
-| `employee_id` | Identifier of the related employee record. | `int4` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `log_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `agreement_center` | Center component of the composite reference to the related agreement record. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
+| `agreement_id` | Identifier component of the composite reference to the related agreement record. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
+| `agreement_subid` | Identifier of the related payment agreements record used by this row. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `text` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `code` | Operational field `code` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `clearing_in` | Operational field `clearing_in` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | - | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [account_receivables](account_receivables.md) (70 query files), [payment_agreements](payment_agreements.md) (68 query files), [persons](persons.md) (68 query files), [subscriptions](subscriptions.md) (49 query files), [payment_accounts](payment_accounts.md) (42 query files), [products](products.md) (40 query files).

@@ -6,20 +6,20 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `target_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `roleid` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`roleid` -> `id`) | - |
-| `sql_query_blob` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `report_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `report` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `api_enabled` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `timeout` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequent_export` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `target_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `roleid` | Identifier of the related roles record used by this row. | `int4` | Yes | No | [roles](roles.md) via (`roleid` -> `id`) | - |
+| `sql_query_blob` | Serialized SQL definition executed by the extract/report runtime. | `bytea` | Yes | No | - | - |
+| `report_name` | Business attribute `report_name` used by extract workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `report` | Serialized report artifact associated with this record. | `bytea` | Yes | No | - | - |
+| `api_enabled` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `timeout` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `frequent_export` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (485 query files), [centers](centers.md) (477 query files), [subscriptions](subscriptions.md) (252 query files), [products](products.md) (246 query files), [person_ext_attrs](person_ext_attrs.md) (199 query files), [account_receivables](account_receivables.md) (181 query files).

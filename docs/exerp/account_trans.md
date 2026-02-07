@@ -6,35 +6,35 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [accountingperiods](accountingperiods.md) via (`center`, `id` -> `center`, `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [accountingperiods](accountingperiods.md) via (`center`, `id` -> `center`, `id`) | - |
-| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - |
-| `trans_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `trans_time` | Epoch timestamp for trans. | `int8` | No | No | - | - |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `debit_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | No | No | [accounts](accounts.md) via (`debit_accountcenter`, `debit_accountid` -> `center`, `id`) | - |
-| `debit_accountid` | Foreign key field linking this record to `accounts`. | `int4` | No | No | [accounts](accounts.md) via (`debit_accountcenter`, `debit_accountid` -> `center`, `id`) | - |
-| `credit_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | No | No | [accounts](accounts.md) via (`credit_accountcenter`, `credit_accountid` -> `center`, `id`) | - |
-| `credit_accountid` | Foreign key field linking this record to `accounts`. | `int4` | No | No | [accounts](accounts.md) via (`credit_accountcenter`, `credit_accountid` -> `center`, `id`) | - |
-| `main_transcenter` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`main_transcenter`, `main_transid`, `main_transsubid` -> `center`, `id`, `subid`) | - |
-| `main_transid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`main_transcenter`, `main_transid`, `main_transsubid` -> `center`, `id`, `subid`) | - |
-| `main_transsubid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`main_transcenter`, `main_transid`, `main_transsubid` -> `center`, `id`, `subid`) | - |
-| `origin_transcenter` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`origin_transcenter`, `origin_transid`, `origin_transsubid` -> `center`, `id`, `subid`) | - |
-| `origin_transid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`origin_transcenter`, `origin_transid`, `origin_transsubid` -> `center`, `id`, `subid`) | - |
-| `origin_transsubid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`origin_transcenter`, `origin_transid`, `origin_transsubid` -> `center`, `id`, `subid`) | - |
-| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `transferred` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `export_file` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `aggregated_transaction_center` | Foreign key field linking this record to `aggregated_transactions`. | `int4` | Yes | No | [aggregated_transactions](aggregated_transactions.md) via (`aggregated_transaction_center`, `aggregated_transaction_id` -> `center`, `id`) | - |
-| `aggregated_transaction_id` | Foreign key field linking this record to `aggregated_transactions`. | `int4` | Yes | No | [aggregated_transactions](aggregated_transactions.md) via (`aggregated_transaction_center`, `aggregated_transaction_id` -> `center`, `id`) | - |
-| `vat_type_center` | Foreign key field linking this record to `vat_types`. | `int4` | Yes | No | [vat_types](vat_types.md) via (`vat_type_center`, `vat_type_id` -> `center`, `id`) | - |
-| `vat_type_id` | Foreign key field linking this record to `vat_types`. | `int4` | Yes | No | [vat_types](vat_types.md) via (`vat_type_center`, `vat_type_id` -> `center`, `id`) | - |
-| `info_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `info` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `debit_transaction_center` | Center part of the reference to related debit transaction data. | `int4` | Yes | No | - | - |
-| `debit_transaction_id` | Identifier of the related debit transaction record. | `int4` | Yes | No | - | - |
-| `debit_transaction_subid` | Sub-identifier for related debit transaction detail rows. | `int4` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [accountingperiods](accountingperiods.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [accountingperiods](accountingperiods.md) via (`center`, `id` -> `center`, `id`) | - |
+| `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `trans_type` | Classification code describing the trans type category (for example: 0, AR, Account Payable, Account Receivable). | `int4` | No | No | - | - |
+| `trans_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `debit_accountcenter` | Center component of the composite reference to the related debit account record. | `int4` | No | No | [accounts](accounts.md) via (`debit_accountcenter`, `debit_accountid` -> `center`, `id`) | - |
+| `debit_accountid` | Identifier component of the composite reference to the related debit account record. | `int4` | No | No | [accounts](accounts.md) via (`debit_accountcenter`, `debit_accountid` -> `center`, `id`) | - |
+| `credit_accountcenter` | Center component of the composite reference to the related credit account record. | `int4` | No | No | [accounts](accounts.md) via (`credit_accountcenter`, `credit_accountid` -> `center`, `id`) | - |
+| `credit_accountid` | Identifier component of the composite reference to the related credit account record. | `int4` | No | No | [accounts](accounts.md) via (`credit_accountcenter`, `credit_accountid` -> `center`, `id`) | - |
+| `main_transcenter` | Center component of the composite reference to the related main trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`main_transcenter`, `main_transid`, `main_transsubid` -> `center`, `id`, `subid`) | - |
+| `main_transid` | Identifier component of the composite reference to the related main trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`main_transcenter`, `main_transid`, `main_transsubid` -> `center`, `id`, `subid`) | - |
+| `main_transsubid` | Identifier referencing another record in the same table hierarchy. | `int4` | Yes | No | [account_trans](account_trans.md) via (`main_transcenter`, `main_transid`, `main_transsubid` -> `center`, `id`, `subid`) | - |
+| `origin_transcenter` | Center component of the composite reference to the related origin trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`origin_transcenter`, `origin_transid`, `origin_transsubid` -> `center`, `id`, `subid`) | - |
+| `origin_transid` | Identifier component of the composite reference to the related origin trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`origin_transcenter`, `origin_transid`, `origin_transsubid` -> `center`, `id`, `subid`) | - |
+| `origin_transsubid` | Identifier referencing another record in the same table hierarchy. | `int4` | Yes | No | [account_trans](account_trans.md) via (`origin_transcenter`, `origin_transid`, `origin_transsubid` -> `center`, `id`, `subid`) | - |
+| `text` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | No | No | - | - |
+| `transferred` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `export_file` | Business attribute `export_file` used by account trans workflows and reporting. | `int4` | Yes | No | - | - |
+| `aggregated_transaction_center` | Center component of the composite reference to the related aggregated transaction record. | `int4` | Yes | No | [aggregated_transactions](aggregated_transactions.md) via (`aggregated_transaction_center`, `aggregated_transaction_id` -> `center`, `id`) | - |
+| `aggregated_transaction_id` | Identifier component of the composite reference to the related aggregated transaction record. | `int4` | Yes | No | [aggregated_transactions](aggregated_transactions.md) via (`aggregated_transaction_center`, `aggregated_transaction_id` -> `center`, `id`) | - |
+| `vat_type_center` | Center component of the composite reference to the related vat type record. | `int4` | Yes | No | [vat_types](vat_types.md) via (`vat_type_center`, `vat_type_id` -> `center`, `id`) | - |
+| `vat_type_id` | Identifier component of the composite reference to the related vat type record. | `int4` | Yes | No | [vat_types](vat_types.md) via (`vat_type_center`, `vat_type_id` -> `center`, `id`) | - |
+| `info_type` | Classification code describing the info type category (for example: API, AR, ARReason, CashRegister). | `int4` | No | No | - | - |
+| `info` | Operational field `info` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `debit_transaction_center` | Center component of the composite reference to the related debit transaction record. | `int4` | Yes | No | - | - |
+| `debit_transaction_id` | Identifier component of the composite reference to the related debit transaction record. | `int4` | Yes | No | - | - |
+| `debit_transaction_subid` | Business attribute `debit_transaction_subid` used by account trans workflows and reporting. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (381 query files), [centers](centers.md) (378 query files), [ar_trans](ar_trans.md) (353 query files), [account_receivables](account_receivables.md) (312 query files), [accounts](accounts.md) (274 query files), [products](products.md) (196 query files).

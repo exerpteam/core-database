@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `crt_center` | Foreign key field linking this record to `cashregistertransactions`. | `int4` | No | Yes | [cashregistertransactions](cashregistertransactions.md) via (`crt_center`, `crt_id`, `crt_subid` -> `center`, `id`, `subid`) | - |
-| `crt_id` | Foreign key field linking this record to `cashregistertransactions`. | `int4` | No | Yes | [cashregistertransactions](cashregistertransactions.md) via (`crt_center`, `crt_id`, `crt_subid` -> `center`, `id`, `subid`) | - |
-| `crt_subid` | Foreign key field linking this record to `cashregistertransactions`. | `int4` | No | Yes | [cashregistertransactions](cashregistertransactions.md) via (`crt_center`, `crt_id`, `crt_subid` -> `center`, `id`, `subid`) | - |
-| `art_center` | Foreign key field linking this record to `ar_trans`. | `int4` | No | Yes | [ar_trans](ar_trans.md) via (`art_center`, `art_id`, `art_subid` -> `center`, `id`, `subid`) | - |
-| `art_id` | Foreign key field linking this record to `ar_trans`. | `int4` | No | Yes | [ar_trans](ar_trans.md) via (`art_center`, `art_id`, `art_subid` -> `center`, `id`, `subid`) | - |
-| `art_subid` | Foreign key field linking this record to `ar_trans`. | `int4` | No | Yes | [ar_trans](ar_trans.md) via (`art_center`, `art_id`, `art_subid` -> `center`, `id`, `subid`) | - |
+| `crt_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [cashregistertransactions](cashregistertransactions.md) via (`crt_center`, `crt_id`, `crt_subid` -> `center`, `id`, `subid`) | - |
+| `crt_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [cashregistertransactions](cashregistertransactions.md) via (`crt_center`, `crt_id`, `crt_subid` -> `center`, `id`, `subid`) | - |
+| `crt_subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [cashregistertransactions](cashregistertransactions.md) via (`crt_center`, `crt_id`, `crt_subid` -> `center`, `id`, `subid`) | - |
+| `art_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [ar_trans](ar_trans.md) via (`art_center`, `art_id`, `art_subid` -> `center`, `id`, `subid`) | - |
+| `art_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [ar_trans](ar_trans.md) via (`art_center`, `art_id`, `art_subid` -> `center`, `id`, `subid`) | - |
+| `art_subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [ar_trans](ar_trans.md) via (`art_center`, `art_id`, `art_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - Commonly used with: [account_trans](account_trans.md) (3 query files), [ar_trans](ar_trans.md) (3 query files), [art_match](art_match.md) (3 query files), [cashregistertransactions](cashregistertransactions.md) (3 query files), [invoices](invoices.md) (3 query files), [persons](persons.md) (3 query files).

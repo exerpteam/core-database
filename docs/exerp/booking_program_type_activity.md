@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `booking_program_type_id` | Foreign key field linking this record to `booking_program_types`. | `int4` | No | No | [booking_program_types](booking_program_types.md) via (`booking_program_type_id` -> `id`) | - |
-| `activity_id` | Foreign key field linking this record to `activity`. | `int4` | No | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
-| `product_global_id` | Identifier of the related product global record. | `VARCHAR(30)` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `VARCHAR(10)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `booking_program_type_id` | Identifier of the related booking program types record used by this row. | `int4` | No | No | [booking_program_types](booking_program_types.md) via (`booking_program_type_id` -> `id`) | - |
+| `activity_id` | Identifier of the related activity record used by this row. | `int4` | No | No | [activity](activity.md) via (`activity_id` -> `id`) | - |
+| `product_global_id` | Identifier for the related product global entity used by this record. | `VARCHAR(30)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `VARCHAR(10)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [activity](activity.md), [booking_program_types](booking_program_types.md).

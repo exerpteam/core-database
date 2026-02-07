@@ -6,15 +6,15 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `top_node_id` | Identifier of the related top node record. | `int4` | Yes | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `VARCHAR(1)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `VARCHAR(50)` | Yes | No | - | - |
-| `start_date` | Date when the record becomes effective. | `DATE` | Yes | No | - | - |
-| `end_date` | Date when the record ends or expires. | `DATE` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `VARCHAR(10)` | No | No | - | - |
-| `available_on_web` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `top_node_id` | Identifier of the top hierarchy node used to organize scoped records. | `int4` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `VARCHAR(1)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `VARCHAR(50)` | Yes | No | - | - |
+| `start_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `end_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `VARCHAR(10)` | No | No | - | - |
+| `available_on_web` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: incoming FK from [booking_programs](booking_programs.md).

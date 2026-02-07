@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `sales_tax_configuration_id` | Foreign key field linking this record to `sales_tax_configuration`. | `int4` | No | No | [sales_tax_configuration](sales_tax_configuration.md) via (`sales_tax_configuration_id` -> `id`) | - |
-| `master_vat_type_global_id` | Identifier of the related master vat type global record. | `text(2147483647)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `sales_tax_configuration_id` | Identifier of the related sales tax configuration record used by this row. | `int4` | No | No | [sales_tax_configuration](sales_tax_configuration.md) via (`sales_tax_configuration_id` -> `id`) | - |
+| `master_vat_type_global_id` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [sales_tax_configuration](sales_tax_configuration.md).

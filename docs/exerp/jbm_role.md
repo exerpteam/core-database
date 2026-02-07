@@ -6,7 +6,7 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `role_id` | Identifier of the related role record. | `VARCHAR(32)` | No | Yes | - | [roles](roles.md) via (`role_id` -> `id`) |
-| `user_id` | Identifier of the related user record. | `VARCHAR(32)` | No | Yes | - | - |
+| `role_id` | Primary key component used to uniquely identify this record. | `VARCHAR(32)` | No | Yes | - | [roles](roles.md) via (`role_id` -> `id`) |
+| `user_id` | Primary key component used to uniquely identify this record. | `VARCHAR(32)` | No | Yes | - | - |
 
 # Relations

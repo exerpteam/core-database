@@ -6,35 +6,35 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `shortname` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `startupdate` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `phone_number` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `fax_number` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `email` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `org_code` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `address1` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `address2` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `address3` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `country` | Foreign key field linking this record to `countries`. | `text(2147483647)` | Yes | No | [countries](countries.md) via (`country` -> `id`)<br>[zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
-| `zipcode` | Foreign key field linking this record to `zipcodes`. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
-| `latitude` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `longitude` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `center_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `city` | Foreign key field linking this record to `zipcodes`. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
-| `org_code2` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `web_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `website_url` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `manager_center` | Center part of the reference to related manager data. | `int4` | Yes | No | - | - |
-| `manager_id` | Identifier of the related manager record. | `int4` | Yes | No | - | - |
-| `asst_manager_center` | Center part of the reference to related asst manager data. | `int4` | Yes | No | - | - |
-| `asst_manager_id` | Identifier of the related asst manager record. | `int4` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `time_zone` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `facility_url` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `VARCHAR(60)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `shortname` | Operational field `shortname` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `startupdate` | Operational field `startupdate` used in query filtering and reporting transformations. | `DATE` | Yes | No | - | - |
+| `phone_number` | Operational field `phone_number` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `fax_number` | Business attribute `fax_number` used by centers workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `email` | Operational field `email` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `org_code` | Business attribute `org_code` used by centers workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `address1` | Operational field `address1` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `address2` | Operational field `address2` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `address3` | Operational field `address3` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `country` | Identifier of the related countries record used by this row. | `text(2147483647)` | Yes | No | [countries](countries.md) via (`country` -> `id`)<br>[zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
+| `zipcode` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
+| `latitude` | Operational field `latitude` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `longitude` | Operational field `longitude` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `center_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `city` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
+| `org_code2` | Operational field `org_code2` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `web_name` | Operational field `web_name` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `website_url` | Business attribute `website_url` used by centers workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `manager_center` | Center component of the composite reference to the related manager record. | `int4` | Yes | No | - | - |
+| `manager_id` | Identifier component of the composite reference to the related manager record. | `int4` | Yes | No | - | - |
+| `asst_manager_center` | Center component of the composite reference to the related asst manager record. | `int4` | Yes | No | - | - |
+| `asst_manager_id` | Identifier component of the composite reference to the related asst manager record. | `int4` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `time_zone` | Operational field `time_zone` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `facility_url` | Business attribute `facility_url` used by centers workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `VARCHAR(60)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (3073 query files), [products](products.md) (1880 query files), [subscriptions](subscriptions.md) (1599 query files), [person_ext_attrs](person_ext_attrs.md) (1210 query files), [account_receivables](account_receivables.md) (1024 query files), [subscriptiontypes](subscriptiontypes.md) (927 query files).

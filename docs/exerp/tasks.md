@@ -6,30 +6,30 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
-| `step_id` | Foreign key field linking this record to `task_steps`. | `int4` | Yes | No | [task_steps](task_steps.md) via (`step_id` -> `id`) | - |
-| `title` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `source_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `creator_center` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - |
-| `creator_id` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - |
-| `owner_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |
-| `owner_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |
-| `asignee_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`asignee_center`, `asignee_id` -> `center`, `id`) | - |
-| `asignee_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`asignee_center`, `asignee_id` -> `center`, `id`) | - |
-| `type_id` | Foreign key field linking this record to `task_types`. | `int4` | No | No | [task_types](task_types.md) via (`type_id` -> `id`) | - |
-| `invoice_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
-| `invoice_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
-| `follow_up` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `creation_time` | Epoch timestamp when the row was created. | `int8` | Yes | No | - | - |
-| `last_update_time` | Epoch timestamp for last update. | `int8` | Yes | No | - | - |
-| `permanent_note` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `last_choice_id` | Foreign key field linking this record to `task_user_choices`. | `int4` | Yes | No | [task_user_choices](task_user_choices.md) via (`last_choice_id` -> `id`) | - |
-| `task_category_id` | Foreign key field linking this record to `task_categories`. | `int4` | Yes | No | [task_categories](task_categories.md) via (`task_category_id` -> `id`) | - |
-| `center` | Center identifier associated with the record. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
-| `follow_up_time` | Epoch timestamp for follow up. | `int8` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `text(2147483647)` | No | No | - | - |
+| `step_id` | Identifier of the related task steps record used by this row. | `int4` | Yes | No | [task_steps](task_steps.md) via (`step_id` -> `id`) | - |
+| `title` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
+| `source_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
+| `person_center` | Center component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Identifier component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `creator_center` | Center component of the composite reference to the creator staff member. | `int4` | No | No | [persons](persons.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - |
+| `creator_id` | Identifier component of the composite reference to the creator staff member. | `int4` | No | No | [persons](persons.md) via (`creator_center`, `creator_id` -> `center`, `id`) | - |
+| `owner_center` | Center component of the composite reference to the owner person. | `int4` | Yes | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |
+| `owner_id` | Identifier component of the composite reference to the owner person. | `int4` | Yes | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |
+| `asignee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [persons](persons.md) via (`asignee_center`, `asignee_id` -> `center`, `id`) | - |
+| `asignee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [persons](persons.md) via (`asignee_center`, `asignee_id` -> `center`, `id`) | - |
+| `type_id` | Identifier of the related task types record used by this row. | `int4` | No | No | [task_types](task_types.md) via (`type_id` -> `id`) | - |
+| `invoice_center` | Center component of the composite reference to the related invoice record. | `int4` | Yes | No | [persons](persons.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
+| `invoice_id` | Identifier component of the composite reference to the related invoice record. | `int4` | Yes | No | [persons](persons.md) via (`invoice_center`, `invoice_id` -> `center`, `id`) | - |
+| `follow_up` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `creation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `last_update_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `permanent_note` | Business attribute `permanent_note` used by tasks workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `last_choice_id` | Identifier of the related task user choices record used by this row. | `int4` | Yes | No | [task_user_choices](task_user_choices.md) via (`last_choice_id` -> `id`) | - |
+| `task_category_id` | Identifier of the related task categories record used by this row. | `int4` | Yes | No | [task_categories](task_categories.md) via (`task_category_id` -> `id`) | - |
+| `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
+| `follow_up_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (82 query files), [centers](centers.md) (60 query files), [task_steps](task_steps.md) (42 query files), [person_ext_attrs](person_ext_attrs.md) (41 query files), [task_log](task_log.md) (32 query files), [task_log_details](task_log_details.md) (23 query files).

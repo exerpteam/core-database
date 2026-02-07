@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `REF` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `resource_center` | Center part of the reference to related resource data. | `int4` | No | No | - | - |
-| `resource_id` | Identifier of the related resource record. | `int4` | No | No | - | - |
-| `x` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `y` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `resource_center` | Center component of the composite reference to the related resource record. | `int4` | No | No | - | - |
+| `resource_id` | Identifier component of the composite reference to the related resource record. | `int4` | No | No | - | - |
+| `x` | Operational field `x` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | No | No | - | - |
+| `y` | Operational field `y` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | No | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (7 query files), [centers](centers.md) (6 query files), [participations](participations.md) (6 query files), [bookings](bookings.md) (5 query files), [activity](activity.md) (3 query files), [booking_resource_configs](booking_resource_configs.md) (2 query files).

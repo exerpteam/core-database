@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `workflow_id` | Foreign key field linking this record to `workflows`. | `int4` | Yes | No | [workflows](workflows.md) via (`workflow_id` -> `id`) | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | No | No | - | - |
-| `rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `workflow_id` | Identifier of the related workflows record used by this row. | `int4` | Yes | No | [workflows](workflows.md) via (`workflow_id` -> `id`) | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | No | No | - | - |
+| `rank` | Operational field `rank` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (8 query files), [task_steps](task_steps.md) (7 query files), [tasks](tasks.md) (7 query files), [workflows](workflows.md) (5 query files), [person_ext_attrs](person_ext_attrs.md) (4 query files), [centers](centers.md) (2 query files).

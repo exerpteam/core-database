@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `clearinghouse` | Foreign key field linking this record to `clearinghouse_creditors`. | `int4` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`clearinghouse`, `creditor_id` -> `clearinghouse`, `creditor_id`) | - |
-| `creditor_id` | Foreign key field linking this record to `clearinghouse_creditors`. | `VARCHAR(16)` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`clearinghouse`, `creditor_id` -> `clearinghouse`, `creditor_id`) | - |
-| `receiver_clearinghouse` | Foreign key field linking this record to `clearinghouse_creditors`. | `int4` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`receiver_clearinghouse`, `receiver_creditor_id` -> `clearinghouse`, `creditor_id`) | - |
-| `receiver_creditor_id` | Foreign key field linking this record to `clearinghouse_creditors`. | `VARCHAR(16)` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`receiver_clearinghouse`, `receiver_creditor_id` -> `clearinghouse`, `creditor_id`) | - |
+| `clearinghouse` | Identifier of the related clearinghouse creditors record used by this row. | `int4` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`clearinghouse`, `creditor_id` -> `clearinghouse`, `creditor_id`) | - |
+| `creditor_id` | Identifier of the related clearinghouse creditors record used by this row. | `VARCHAR(16)` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`clearinghouse`, `creditor_id` -> `clearinghouse`, `creditor_id`) | - |
+| `receiver_clearinghouse` | Identifier of the related clearinghouse creditors record used by this row. | `int4` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`receiver_clearinghouse`, `receiver_creditor_id` -> `clearinghouse`, `creditor_id`) | - |
+| `receiver_creditor_id` | Identifier of the related clearinghouse creditors record used by this row. | `VARCHAR(16)` | No | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`receiver_clearinghouse`, `receiver_creditor_id` -> `clearinghouse`, `creditor_id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [clearinghouse_creditors](clearinghouse_creditors.md).

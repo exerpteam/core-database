@@ -6,14 +6,14 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `message_id` | Identifier of the related message record. | `int8` | No | Yes | - | [messages](messages.md) via (`message_id` -> `id`) |
-| `channel_id` | Identifier of the related channel record. | `int8` | No | Yes | - | - |
-| `transaction_id` | Identifier of the related transaction record. | `int8` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `bpchar(1)` | Yes | No | - | - |
-| `ord` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `page_ord` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `delivery_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sched_delivery` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `message_id` | Primary key component used to uniquely identify this record. | `int8` | No | Yes | - | [messages](messages.md) via (`message_id` -> `id`) |
+| `channel_id` | Primary key component used to uniquely identify this record. | `int8` | No | Yes | - | - |
+| `transaction_id` | Identifier for the related transaction entity used by this record. | `int8` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `bpchar(1)` | Yes | No | - | - |
+| `ord` | Business attribute `ord` used by jbm msg ref workflows and reporting. | `int8` | Yes | No | - | - |
+| `page_ord` | Business attribute `page_ord` used by jbm msg ref workflows and reporting. | `int8` | Yes | No | - | - |
+| `delivery_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `sched_delivery` | Business attribute `sched_delivery` used by jbm msg ref workflows and reporting. | `int8` | Yes | No | - | - |
 
 # Relations
 - Interesting data points: `status`/`state` fields are typically used for active/inactive lifecycle filtering.

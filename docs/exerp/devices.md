@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `client` | Foreign key field linking this record to `clients`. | `int4` | Yes | No | [clients](clients.md) via (`client` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `driver` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `enabled` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `uninstall_driver` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `client` | Identifier of the related clients record used by this row. | `int4` | Yes | No | [clients](clients.md) via (`client` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `driver` | Business attribute `driver` used by devices workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `enabled` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `uninstall_driver` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [clients](clients.md) (18 query files), [centers](centers.md) (16 query files), [usage_point_resources](usage_point_resources.md) (5 query files), [usage_points](usage_points.md) (5 query files), [client_instances](client_instances.md) (5 query files), [gates](gates.md) (4 query files).

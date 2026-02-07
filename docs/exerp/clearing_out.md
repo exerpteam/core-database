@@ -6,23 +6,23 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `clearinghouse` | Foreign key field linking this record to `clearinghouses`. | `int4` | Yes | No | [clearinghouses](clearinghouses.md) via (`clearinghouse` -> `id`) | - |
-| `STATE` | State code representing the current processing state. | `int4` | No | No | - | - |
-| `REF` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `generated_date` | Date for generated. | `DATE` | No | No | - | - |
-| `sent_date` | Date for sent. | `DATE` | Yes | No | - | - |
-| `confirmed_date` | Date for confirmed. | `DATE` | Yes | No | - | - |
-| `total_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `invoice_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `total_reversal_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `reversal_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `delivery` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `errors` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `requested_date` | Date for requested. | `DATE` | Yes | No | - | - |
-| `handler_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `file_name_provided_by_handler` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `exchanged_file` | Foreign key field linking this record to `exchanged_file`. | `int4` | Yes | No | [exchanged_file](exchanged_file.md) via (`exchanged_file` -> `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `clearinghouse` | Identifier of the related clearinghouses record used by this row. | `int4` | Yes | No | [clearinghouses](clearinghouses.md) via (`clearinghouse` -> `id`) | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `generated_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `sent_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `confirmed_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `total_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `invoice_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `total_reversal_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `reversal_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `delivery` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `errors` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `requested_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `handler_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
+| `file_name_provided_by_handler` | Business attribute `file_name_provided_by_handler` used by clearing out workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `exchanged_file` | Identifier of the related exchanged file record used by this row. | `int4` | Yes | No | [exchanged_file](exchanged_file.md) via (`exchanged_file` -> `id`) | - |
 
 # Relations
 - Commonly used with: [payment_requests](payment_requests.md) (25 query files), [account_receivables](account_receivables.md) (17 query files), [payment_request_specifications](payment_request_specifications.md) (16 query files), [persons](persons.md) (15 query files), [payment_agreements](payment_agreements.md) (13 query files), [centers](centers.md) (11 query files).

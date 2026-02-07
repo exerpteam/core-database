@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `VARCHAR(2)` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `area` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `defaultlanguage` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `defaulttimezone` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `VARCHAR(2)` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
+| `area` | Operational field `area` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `defaultlanguage` | Business attribute `defaultlanguage` used by countries workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `defaulttimezone` | Operational field `defaulttimezone` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (150 query files), [persons](persons.md) (122 query files), [subscriptions](subscriptions.md) (69 query files), [products](products.md) (64 query files), [bookings](bookings.md) (44 query files), [product_group](product_group.md) (39 query files).

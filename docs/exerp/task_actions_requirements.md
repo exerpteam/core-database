@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `task_action_id` | Foreign key field linking this record to `task_actions`. | `int4` | No | Yes | [task_actions](task_actions.md) via (`task_action_id` -> `id`) | - |
-| `requirement_type` | Text field containing descriptive or reference information. | `VARCHAR(100)` | No | Yes | - | - |
-| `mime_value` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `task_action_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [task_actions](task_actions.md) via (`task_action_id` -> `id`) | - |
+| `requirement_type` | Primary key component used to uniquely identify this record. | `VARCHAR(100)` | No | Yes | - | - |
+| `mime_value` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [task_actions](task_actions.md).

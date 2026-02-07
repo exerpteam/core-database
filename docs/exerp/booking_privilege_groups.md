@@ -6,18 +6,18 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `top_node_id` | Identifier of the related top node record. | `int4` | Yes | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `converted_rr_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `frequency_restr_include_noshow` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `top_node_id` | Identifier of the top hierarchy node used to organize scoped records. | `int4` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `converted_rr_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `frequency_restriction_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `frequency_restriction_value` | Business attribute `frequency_restriction_value` used by booking privilege groups workflows and reporting. | `int4` | Yes | No | - | - |
+| `frequency_restriction_unit` | Business attribute `frequency_restriction_unit` used by booking privilege groups workflows and reporting. | `int4` | Yes | No | - | - |
+| `frequency_restriction_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `frequency_restr_include_noshow` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (18 query files), [booking_resources](booking_resources.md) (15 query files), [participation_configurations](participation_configurations.md) (14 query files), [activity](activity.md) (13 query files), [booking_resource_groups](booking_resource_groups.md) (13 query files), [booking_privileges](booking_privileges.md) (13 query files).

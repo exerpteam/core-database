@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `campaign_id` | Identifier of the related campaign record. | `int4` | Yes | No | - | - |
-| `campaign_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `code` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `creation_time` | Epoch timestamp when the row was created. | `int8` | No | No | - | - |
-| `usage_time` | Epoch timestamp for usage. | `int8` | Yes | No | - | - |
-| `usage_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `campaign_id` | Identifier for the related campaign entity used by this record. | `int4` | Yes | No | - | - |
+| `campaign_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
+| `code` | Operational field `code` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `creation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `usage_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `usage_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
 
 # Relations
 - Commonly used with: [privilege_usages](privilege_usages.md) (120 query files), [products](products.md) (111 query files), [subscriptions](subscriptions.md) (104 query files), [persons](persons.md) (92 query files), [centers](centers.md) (85 query files), [startup_campaign](startup_campaign.md) (82 query files).

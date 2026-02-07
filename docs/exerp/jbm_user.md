@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `user_id` | Identifier of the related user record. | `VARCHAR(32)` | No | Yes | - | - |
-| `passwd` | Text field containing descriptive or reference information. | `VARCHAR(32)` | No | No | - | - |
-| `clientid` | Text field containing descriptive or reference information. | `VARCHAR(128)` | Yes | No | - | - |
+| `user_id` | Primary key identifier for this record. | `VARCHAR(32)` | No | Yes | - | - |
+| `passwd` | Business attribute `passwd` used by jbm user workflows and reporting. | `VARCHAR(32)` | No | No | - | - |
+| `clientid` | Business attribute `clientid` used by jbm user workflows and reporting. | `VARCHAR(128)` | Yes | No | - | - |
 
 # Relations

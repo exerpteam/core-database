@@ -6,20 +6,20 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
-| `jobname` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `completiontime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `errors` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `fatalerrors` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `mimetype` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `mimevalue` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `status` | Lifecycle status code for the record. | `int4` | Yes | No | - | - |
-| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `startdate` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `node` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `entity` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
+| `jobname` | Business attribute `jobname` used by batchlogs workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `completiontime` | Business attribute `completiontime` used by batchlogs workflows and reporting. | `int8` | No | No | - | - |
+| `errors` | Business attribute `errors` used by batchlogs workflows and reporting. | `int4` | No | No | - | - |
+| `fatalerrors` | Business attribute `fatalerrors` used by batchlogs workflows and reporting. | `int4` | No | No | - | - |
+| `mimetype` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `mimevalue` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `int4` | Yes | No | - | - |
+| `starttime` | Operational field `starttime` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `startdate` | Operational field `startdate` used in query filtering and reporting transformations. | `DATE` | Yes | No | - | - |
+| `node` | Business attribute `node` used by batchlogs workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `entity` | Business attribute `entity` used by batchlogs workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Interesting data points: `status`/`state` fields are typically used for active/inactive lifecycle filtering.

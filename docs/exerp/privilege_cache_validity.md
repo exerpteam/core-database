@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `is_valid` | Boolean flag indicating whether valid applies. | `bool` | No | No | - | - |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `person_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `is_valid` | Boolean flag indicating whether `valid` applies to this record. | `bool` | No | No | - | - |
+| `TIME` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [persons](persons.md); incoming FK from [privilege_cache](privilege_cache.md).

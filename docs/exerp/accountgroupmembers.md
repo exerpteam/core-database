@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `accountgroupcenter` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
-| `accountgroupid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
-| `accountcenter` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
-| `accountid` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | Yes | - | - |
+| `accountgroupcenter` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `accountgroupid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `accountcenter` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `accountid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
 
 # Relations

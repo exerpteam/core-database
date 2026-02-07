@@ -6,6 +6,6 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `lock_name` | Text field containing descriptive or reference information. | `VARCHAR(40)` | No | Yes | - | - |
+| `lock_name` | Primary key identifier for this record. | `VARCHAR(40)` | No | Yes | - | - |
 
 # Relations

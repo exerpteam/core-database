@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `documentation_setting_key` | Foreign key field linking this record to `documentation_settings`. | `int4` | No | Yes | [documentation_settings](documentation_settings.md) via (`documentation_setting_key` -> `id`) | - |
-| `custom_journal_doc_type_key` | Foreign key field linking this record to `custom_journal_document_types`. | `int4` | No | Yes | [custom_journal_document_types](custom_journal_document_types.md) via (`custom_journal_doc_type_key` -> `id`) | - |
+| `documentation_setting_key` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [documentation_settings](documentation_settings.md) via (`documentation_setting_key` -> `id`) | - |
+| `custom_journal_doc_type_key` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [custom_journal_document_types](custom_journal_document_types.md) via (`custom_journal_doc_type_key` -> `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [custom_journal_document_types](custom_journal_document_types.md), [documentation_settings](documentation_settings.md).

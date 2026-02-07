@@ -6,16 +6,16 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `documentation_requirement_key` | Foreign key field linking this record to `documentation_requirements`. | `int4` | No | No | [documentation_requirements](documentation_requirements.md) via (`documentation_requirement_key` -> `id`) | - |
-| `type` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `VARCHAR(50)` | No | No | - | - |
-| `item_type_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `itm_instance_journal_entry_key` | Foreign key field linking this record to `journalentries`. | `int4` | Yes | No | [journalentries](journalentries.md) via (`itm_instance_journal_entry_key` -> `id`) | - |
-| `item_instance_center` | Center part of the reference to related item instance data. | `int4` | Yes | No | - | - |
-| `item_instance_id` | Identifier of the related item instance record. | `int4` | Yes | No | - | - |
-| `item_instance_sub_id` | Identifier of the related item instance sub record. | `int4` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `VARCHAR(20)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `documentation_requirement_key` | Identifier of the related documentation requirements record used by this row. | `int4` | No | No | [documentation_requirements](documentation_requirements.md) via (`documentation_requirement_key` -> `id`) | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `VARCHAR(30)` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `VARCHAR(50)` | No | No | - | - |
+| `item_type_key` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `itm_instance_journal_entry_key` | Identifier of the related journalentries record used by this row. | `int4` | Yes | No | [journalentries](journalentries.md) via (`itm_instance_journal_entry_key` -> `id`) | - |
+| `item_instance_center` | Center component of the composite reference to the related item instance record. | `int4` | Yes | No | - | - |
+| `item_instance_id` | Identifier component of the composite reference to the related item instance record. | `int4` | Yes | No | - | - |
+| `item_instance_sub_id` | Identifier for the related item instance sub entity used by this record. | `int4` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `VARCHAR(20)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [documentation_requirements](documentation_requirements.md), [journalentries](journalentries.md).

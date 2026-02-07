@@ -6,30 +6,30 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`id` -> `id`) | - |
-| `price_period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `price_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `scope_selection` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `include_home_center` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `required` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `secondary_membership` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `secondary_membership_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sec_mem_age_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sec_mem_age_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sec_mem_sex_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `quantity_min` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `quantity_max` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `quantity_default` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `num_secondary_members_per_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `use_individual_price` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `freeze_fee_product_id` | Identifier of the related freeze fee product record. | `int4` | Yes | No | - | - |
-| `include_in_pro_rata_period` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `binding_period_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `binding_period_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `start_date_restriction` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `added_by_default` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `sec_mem_age_rest_min_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sec_mem_age_rest_max_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`id` -> `id`) | - |
+| `price_period_count` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `price_period_unit` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `scope_selection` | Business attribute `scope_selection` used by add on product definition workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `include_home_center` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `required` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `secondary_membership` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `secondary_membership_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `sec_mem_age_restriction_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `sec_mem_age_restriction_value` | Business attribute `sec_mem_age_restriction_value` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `sec_mem_sex_restriction_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `quantity_min` | Business attribute `quantity_min` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `quantity_max` | Business attribute `quantity_max` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `quantity_default` | Business attribute `quantity_default` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `num_secondary_members_per_unit` | Business attribute `num_secondary_members_per_unit` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `use_individual_price` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `freeze_fee_product_id` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `include_in_pro_rata_period` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `binding_period_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `binding_period_unit` | Business attribute `binding_period_unit` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `start_date_restriction` | Business attribute `start_date_restriction` used by add on product definition workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `added_by_default` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `sec_mem_age_rest_min_value` | Business attribute `sec_mem_age_rest_min_value` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
+| `sec_mem_age_rest_max_value` | Business attribute `sec_mem_age_rest_max_value` used by add on product definition workflows and reporting. | `int4` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [masterproductregister](masterproductregister.md) (18 query files), [products](products.md) (18 query files), [centers](centers.md) (17 query files), [product_group](product_group.md) (17 query files), [add_on_to_product_group_link](add_on_to_product_group_link.md) (12 query files), [subscription_addon_product](subscription_addon_product.md) (12 query files).

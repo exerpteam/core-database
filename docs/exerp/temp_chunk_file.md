@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `file_ref_id` | Identifier of the related file ref record. | `int4` | No | No | - | - |
-| `mime_value` | Table field used by operational and reporting workloads. | `bytea` | No | No | - | - |
-| `created_time` | Epoch timestamp when the row was created. | `TIMESTAMP` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `file_ref_id` | Identifier for the related file ref entity used by this record. | `int4` | No | No | - | - |
+| `mime_value` | Binary payload storing structured runtime data for this record. | `bytea` | No | No | - | - |
+| `created_time` | Timestamp used for event ordering and operational tracking. | `TIMESTAMP` | No | No | - | - |
 
 # Relations

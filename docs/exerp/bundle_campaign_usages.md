@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `serial` | No | Yes | - | - |
-| `invoice_line_center` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
-| `invoice_line_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
-| `invoice_line_sub_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
-| `campaign_id` | Foreign key field linking this record to `bundle_campaign`. | `int4` | No | No | [bundle_campaign](bundle_campaign.md) via (`campaign_id` -> `id`) | - |
+| `id` | Primary key identifier for this record. | `serial` | No | Yes | - | - |
+| `invoice_line_center` | Center component of the composite reference to the related invoice line record. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
+| `invoice_line_id` | Identifier component of the composite reference to the related invoice line record. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
+| `invoice_line_sub_id` | Identifier of the related invoice lines mt record used by this row. | `int4` | No | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_sub_id` -> `center`, `id`, `subid`) | - |
+| `campaign_id` | Identifier of the related bundle campaign record used by this row. | `int4` | No | No | [bundle_campaign](bundle_campaign.md) via (`campaign_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [bundle_campaign](bundle_campaign.md) (3 query files), [centers](centers.md) (3 query files), [invoice_lines_mt](invoice_lines_mt.md) (3 query files), [invoices](invoices.md) (3 query files), [persons](persons.md) (3 query files).

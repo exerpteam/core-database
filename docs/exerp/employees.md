@@ -6,27 +6,27 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `use_api` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `personcenter` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
-| `personid` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
-| `last_login` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `passwd` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `passwd_expiration` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `passwd_never_expires` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `passwd_expiration_warned` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `pause_messages` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `employee_set_password_center` | Center part of the reference to related employee set password data. | `int4` | Yes | No | - | - |
-| `employee_set_password_id` | Identifier of the related employee set password record. | `int4` | Yes | No | - | - |
-| `password_hash` | Text field containing descriptive or reference information. | `VARCHAR(65)` | Yes | No | - | - |
-| `password_hash_method` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `skip_set_pwd_before_expiring` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `enterprise_subject` | Text field containing descriptive or reference information. | `VARCHAR(1000)` | Yes | No | - | - |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `block_status_changed_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
+| `use_api` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `personcenter` | Center component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
+| `personid` | Identifier component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
+| `last_login` | Operational field `last_login` used in query filtering and reporting transformations. | `DATE` | Yes | No | - | - |
+| `passwd` | Business attribute `passwd` used by employees workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `passwd_expiration` | Business attribute `passwd_expiration` used by employees workflows and reporting. | `DATE` | Yes | No | - | - |
+| `passwd_never_expires` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `passwd_expiration_warned` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `pause_messages` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `employee_set_password_center` | Center component of the composite reference to the related employee set password record. | `int4` | Yes | No | - | - |
+| `employee_set_password_id` | Identifier component of the composite reference to the related employee set password record. | `int4` | Yes | No | - | - |
+| `password_hash` | Business attribute `password_hash` used by employees workflows and reporting. | `VARCHAR(65)` | Yes | No | - | - |
+| `password_hash_method` | Business attribute `password_hash_method` used by employees workflows and reporting. | `int4` | Yes | No | - | - |
+| `skip_set_pwd_before_expiring` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `enterprise_subject` | Business attribute `enterprise_subject` used by employees workflows and reporting. | `VARCHAR(1000)` | Yes | No | - | - |
+| `created_at` | Business attribute `created_at` used by employees workflows and reporting. | `int8` | Yes | No | - | - |
+| `block_status_changed_at` | State indicator used to control lifecycle transitions and filtering. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (810 query files), [centers](centers.md) (558 query files), [products](products.md) (463 query files), [subscriptions](subscriptions.md) (372 query files), [person_ext_attrs](person_ext_attrs.md) (299 query files), [subscriptiontypes](subscriptiontypes.md) (199 query files).

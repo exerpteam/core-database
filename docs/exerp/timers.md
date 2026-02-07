@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `timerid` | Text field containing descriptive or reference information. | `VARCHAR(80)` | No | Yes | - | - |
-| `targetid` | Text field containing descriptive or reference information. | `VARCHAR(250)` | No | Yes | - | - |
-| `initialdate` | Table field used by operational and reporting workloads. | `timestamptz` | No | No | - | - |
-| `nextdate` | Table field used by operational and reporting workloads. | `timestamptz` | Yes | No | - | - |
-| `timerinterval` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `instancepk` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `info` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `timerid` | Primary key component used to uniquely identify this record. | `VARCHAR(80)` | No | Yes | - | - |
+| `targetid` | Primary key component used to uniquely identify this record. | `VARCHAR(250)` | No | Yes | - | - |
+| `initialdate` | Business attribute `initialdate` used by timers workflows and reporting. | `timestamptz` | No | No | - | - |
+| `nextdate` | Business attribute `nextdate` used by timers workflows and reporting. | `timestamptz` | Yes | No | - | - |
+| `timerinterval` | Business attribute `timerinterval` used by timers workflows and reporting. | `int8` | Yes | No | - | - |
+| `instancepk` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `info` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 
 # Relations

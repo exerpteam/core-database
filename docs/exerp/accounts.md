@@ -6,20 +6,20 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `periodcenter` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `periodid` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `atype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `account_vat_type_group_id` | Identifier of the related account vat type group record. | `int4` | Yes | No | - | [account_vat_type_group](account_vat_type_group.md) via (`account_vat_type_group_id` -> `id`) |
-| `report_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `SYSTEM` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `trans_rebook_rule_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `trans_rebook_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `periodcenter` | Center component of the composite reference to the related period record. | `int4` | Yes | No | - | - |
+| `periodid` | Identifier component of the composite reference to the related period record. | `int4` | Yes | No | - | - |
+| `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
+| `atype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `account_vat_type_group_id` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [account_vat_type_group](account_vat_type_group.md) via (`account_vat_type_group_id` -> `id`) |
+| `report_key` | Business attribute `report_key` used by accounts workflows and reporting. | `int4` | Yes | No | - | - |
+| `globalid` | Operational field `globalid` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `SYSTEM` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `trans_rebook_rule_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `trans_rebook_configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (294 query files), [persons](persons.md) (290 query files), [account_trans](account_trans.md) (274 query files), [products](products.md) (226 query files), [ar_trans](ar_trans.md) (215 query files), [account_receivables](account_receivables.md) (197 query files).

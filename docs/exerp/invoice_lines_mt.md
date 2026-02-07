@@ -6,36 +6,36 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`)<br>[invoices](invoices.md) via (`center`, `id` -> `center`, `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [invoices](invoices.md) via (`center`, `id` -> `center`, `id`) | - |
-| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - |
-| `productcenter` | Foreign key field linking this record to `products`. | `int4` | No | No | [products](products.md) via (`productcenter`, `productid` -> `center`, `id`) | - |
-| `productid` | Foreign key field linking this record to `products`. | `int4` | No | No | [products](products.md) via (`productcenter`, `productid` -> `center`, `id`) | - |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `account_trans_center` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
-| `account_trans_id` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
-| `account_trans_subid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
-| `quantity` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `text` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `product_cost` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `product_normal_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `total_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `sales_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `remove_from_inventory` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `reason` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `sponsor_invoice_subid` | Sub-identifier for related sponsor invoice detail rows. | `int4` | Yes | No | - | - |
-| `installment_plan_id` | Foreign key field linking this record to `installment_plans`. | `int4` | Yes | No | [installment_plans](installment_plans.md) via (`installment_plan_id` -> `id`) | - |
-| `net_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `rebooking_acc_trans_center` | Center part of the reference to related rebooking acc trans data. | `int4` | Yes | No | - | - |
-| `rebooking_acc_trans_id` | Identifier of the related rebooking acc trans record. | `int4` | Yes | No | - | - |
-| `rebooking_acc_trans_subid` | Sub-identifier for related rebooking acc trans detail rows. | `int4` | Yes | No | - | - |
-| `rebooking_to_center` | Center part of the reference to related rebooking to data. | `int4` | Yes | No | - | - |
-| `sales_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sales_units` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `period_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `flat_rate_commission` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `VARCHAR(100)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`)<br>[invoices](invoices.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [invoices](invoices.md) via (`center`, `id` -> `center`, `id`) | - |
+| `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `productcenter` | Center component of the composite reference to the related product record. | `int4` | No | No | [products](products.md) via (`productcenter`, `productid` -> `center`, `id`) | - |
+| `productid` | Identifier component of the composite reference to the related product record. | `int4` | No | No | [products](products.md) via (`productcenter`, `productid` -> `center`, `id`) | - |
+| `person_center` | Center component of the composite reference to the related person. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Identifier component of the composite reference to the related person. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `account_trans_center` | Center component of the composite reference to the related account trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_id` | Identifier component of the composite reference to the related account trans record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `account_trans_subid` | Identifier of the related account trans record used by this row. | `int4` | Yes | No | [account_trans](account_trans.md) via (`account_trans_center`, `account_trans_id`, `account_trans_subid` -> `center`, `id`, `subid`) | - |
+| `quantity` | Operational field `quantity` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `text` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `product_cost` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `product_normal_price` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `total_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `sales_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `remove_from_inventory` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `reason` | Operational field `reason` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `sponsor_invoice_subid` | Operational field `sponsor_invoice_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `installment_plan_id` | Identifier of the related installment plans record used by this row. | `int4` | Yes | No | [installment_plans](installment_plans.md) via (`installment_plan_id` -> `id`) | - |
+| `net_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `rebooking_acc_trans_center` | Center component of the composite reference to the related rebooking acc trans record. | `int4` | Yes | No | - | - |
+| `rebooking_acc_trans_id` | Identifier component of the composite reference to the related rebooking acc trans record. | `int4` | Yes | No | - | - |
+| `rebooking_acc_trans_subid` | Business attribute `rebooking_acc_trans_subid` used by invoice lines mt workflows and reporting. | `int4` | Yes | No | - | - |
+| `rebooking_to_center` | Business attribute `rebooking_to_center` used by invoice lines mt workflows and reporting. | `int4` | Yes | No | - | - |
+| `sales_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `sales_units` | Operational field `sales_units` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `period_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `flat_rate_commission` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `VARCHAR(100)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (471 query files), [centers](centers.md) (457 query files), [products](products.md) (433 query files), [invoices](invoices.md) (412 query files), [ar_trans](ar_trans.md) (222 query files), [credit_note_lines_mt](credit_note_lines_mt.md) (195 query files).

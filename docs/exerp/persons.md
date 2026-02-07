@@ -6,55 +6,55 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `blacklisted` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `persontype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `status` | Lifecycle status code for the record. | `int4` | No | No | - | - |
-| `firstname` | First name value. | `text(2147483647)` | Yes | No | - | - |
-| `middlename` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `lastname` | Last name value. | `text(2147483647)` | Yes | No | - | - |
-| `fullname` | Combined full name representation. | `text(2147483647)` | Yes | No | - | - |
-| `nickname` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `address1` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `address2` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `address3` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `country` | Foreign key field linking this record to `zipcodes`. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
-| `zipcode` | Foreign key field linking this record to `zipcodes`. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
-| `city` | Foreign key field linking this record to `zipcodes`. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
-| `birthdate` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `sex` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `pincode` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `password_hash` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `co_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `ssn` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `friends_allowance` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `passwd_expiration` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `first_active_start_date` | Date for first active start. | `DATE` | Yes | No | - | - |
-| `last_active_start_date` | Date for last active start. | `DATE` | Yes | No | - | - |
-| `last_active_end_date` | Date for last active end. | `DATE` | Yes | No | - | - |
-| `memberdays` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `accumulated_memberdays` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `current_person_center` | Center part of the reference to related current person data. | `int4` | Yes | No | - | - |
-| `current_person_id` | Identifier of the related current person record. | `int4` | Yes | No | - | - |
-| `suspension_internal_note` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `suspension_external_note` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `prefer_invoice_by_email` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `member_status` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `member_status_context` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `password_reset_token` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `password_reset_token_exp` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `password_reset_token_used` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `fullname_search` | Table field used by operational and reporting workloads. | `tsvector` | Yes | No | - | - |
-| `transfers_current_prs_center` | Center part of the reference to related transfers current prs data. | `int4` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `VARCHAR(60)` | Yes | No | - | - |
-| `transfers_current_prs_id` | Identifier of the related transfers current prs record. | `int4` | Yes | No | - | - |
-| `encrypted_ssn` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `encryption_time` | Epoch timestamp for encryption. | `int8` | Yes | No | - | - |
-| `national_id` | Identifier of the related national record. | `VARCHAR(100)` | Yes | No | - | - |
-| `resident_id` | Identifier of the related resident record. | `VARCHAR(100)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `blacklisted` | Operational field `blacklisted` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `persontype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `int4` | No | No | - | - |
+| `firstname` | Operational field `firstname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `middlename` | Operational field `middlename` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `lastname` | Operational field `lastname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `fullname` | Operational field `fullname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `nickname` | Business attribute `nickname` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `address1` | Operational field `address1` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `address2` | Operational field `address2` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `address3` | Operational field `address3` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `country` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
+| `zipcode` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
+| `city` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
+| `birthdate` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `sex` | Operational field `sex` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `pincode` | Operational field `pincode` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `password_hash` | Business attribute `password_hash` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `co_name` | Business attribute `co_name` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `ssn` | Operational field `ssn` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `friends_allowance` | Operational field `friends_allowance` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `passwd_expiration` | Business attribute `passwd_expiration` used by persons workflows and reporting. | `DATE` | Yes | No | - | - |
+| `first_active_start_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `last_active_start_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `last_active_end_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `memberdays` | Operational field `memberdays` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `accumulated_memberdays` | Operational field `accumulated_memberdays` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `current_person_center` | Center component of the composite reference to the related current person record. | `int4` | Yes | No | - | - |
+| `current_person_id` | Identifier component of the composite reference to the related current person record. | `int4` | Yes | No | - | - |
+| `suspension_internal_note` | Business attribute `suspension_internal_note` used by persons workflows and reporting. | `int4` | Yes | No | - | - |
+| `suspension_external_note` | Business attribute `suspension_external_note` used by persons workflows and reporting. | `int4` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `prefer_invoice_by_email` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `member_status` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
+| `member_status_context` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
+| `password_reset_token` | Business attribute `password_reset_token` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `password_reset_token_exp` | Business attribute `password_reset_token_exp` used by persons workflows and reporting. | `int8` | Yes | No | - | - |
+| `password_reset_token_used` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `fullname_search` | Business attribute `fullname_search` used by persons workflows and reporting. | `tsvector` | Yes | No | - | - |
+| `transfers_current_prs_center` | Center component of the composite reference to the related transfers current prs record. | `int4` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `VARCHAR(60)` | Yes | No | - | - |
+| `transfers_current_prs_id` | Identifier component of the composite reference to the related transfers current prs record. | `int4` | Yes | No | - | - |
+| `encrypted_ssn` | Business attribute `encrypted_ssn` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `encryption_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `national_id` | Identifier for the related national entity used by this record. | `VARCHAR(100)` | Yes | No | - | - |
+| `resident_id` | Identifier for the related resident entity used by this record. | `VARCHAR(100)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (3073 query files), [subscriptions](subscriptions.md) (2204 query files), [products](products.md) (2203 query files), [person_ext_attrs](person_ext_attrs.md) (1802 query files), [account_receivables](account_receivables.md) (1593 query files), [subscriptiontypes](subscriptiontypes.md) (1156 query files).

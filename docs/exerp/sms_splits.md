@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `sms_center` | Foreign key field linking this record to `sms`. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - |
-| `sms_id` | Foreign key field linking this record to `sms`. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - |
-| `ref_no` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | Yes | - | - |
-| `ok` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
+| `sms_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - |
+| `sms_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [sms](sms.md) via (`sms_center`, `sms_id` -> `center`, `id`) | - |
+| `ref_no` | Primary key component used to uniquely identify this record. | `VARCHAR(30)` | No | Yes | - | - |
+| `ok` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 
 # Relations
 - Commonly used with: [messages](messages.md) (7 query files), [sms](sms.md) (7 query files), [centers](centers.md) (5 query files).

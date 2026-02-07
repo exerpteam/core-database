@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `report_key` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `rows_returned` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `time_used` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `report_key` | Business attribute `report_key` used by report usage workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `TIME` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `rows_returned` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
+| `time_used` | Operational counter/limit used for processing control and performance monitoring. | `int8` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md).

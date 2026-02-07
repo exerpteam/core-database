@@ -6,14 +6,14 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `entry_time` | Epoch timestamp for entry. | `TIMESTAMP` | No | No | - | - |
-| `schedule_type` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | No | - | - |
-| `schedule_configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `status` | Lifecycle status code for the record. | `VARCHAR(25)` | No | No | - | - |
-| `automation_type` | Text field containing descriptive or reference information. | `VARCHAR(30)` | No | No | - | - |
-| `automation_key` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `next_time_to_run` | Table field used by operational and reporting workloads. | `TIMESTAMP` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `entry_time` | Timestamp used for event ordering and operational tracking. | `TIMESTAMP` | No | No | - | - |
+| `schedule_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(30)` | No | No | - | - |
+| `schedule_configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `VARCHAR(25)` | No | No | - | - |
+| `automation_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(30)` | No | No | - | - |
+| `automation_key` | Business attribute `automation_key` used by automation schedules workflows and reporting. | `int4` | No | No | - | - |
+| `next_time_to_run` | Business attribute `next_time_to_run` used by automation schedules workflows and reporting. | `TIMESTAMP` | Yes | No | - | - |
 
 # Relations
 - Interesting data points: `status`/`state` fields are typically used for active/inactive lifecycle filtering.

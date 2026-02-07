@@ -6,18 +6,18 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `REF` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `transaction_center` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`transaction_center`, `transaction_id`, `transaction_subid` -> `center`, `id`, `subid`) | - |
-| `transaction_id` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`transaction_center`, `transaction_id`, `transaction_subid` -> `center`, `id`, `subid`) | - |
-| `transaction_subid` | Foreign key field linking this record to `account_trans`. | `int4` | Yes | No | [account_trans](account_trans.md) via (`transaction_center`, `transaction_id`, `transaction_subid` -> `center`, `id`, `subid`) | - |
-| `gift_card_center` | Foreign key field linking this record to `gift_cards`. | `int4` | No | No | [gift_cards](gift_cards.md) via (`gift_card_center`, `gift_card_id` -> `center`, `id`) | - |
-| `gift_card_id` | Foreign key field linking this record to `gift_cards`. | `int4` | No | No | [gift_cards](gift_cards.md) via (`gift_card_center`, `gift_card_id` -> `center`, `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `TIME` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `transaction_center` | Center component of the composite reference to the related transaction record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`transaction_center`, `transaction_id`, `transaction_subid` -> `center`, `id`, `subid`) | - |
+| `transaction_id` | Identifier component of the composite reference to the related transaction record. | `int4` | Yes | No | [account_trans](account_trans.md) via (`transaction_center`, `transaction_id`, `transaction_subid` -> `center`, `id`, `subid`) | - |
+| `transaction_subid` | Identifier of the related account trans record used by this row. | `int4` | Yes | No | [account_trans](account_trans.md) via (`transaction_center`, `transaction_id`, `transaction_subid` -> `center`, `id`, `subid`) | - |
+| `gift_card_center` | Center component of the composite reference to the related gift card record. | `int4` | No | No | [gift_cards](gift_cards.md) via (`gift_card_center`, `gift_card_id` -> `center`, `id`) | - |
+| `gift_card_id` | Identifier component of the composite reference to the related gift card record. | `int4` | No | No | [gift_cards](gift_cards.md) via (`gift_card_center`, `gift_card_id` -> `center`, `id`) | - |
 
 # Relations
 - Commonly used with: [gift_cards](gift_cards.md) (12 query files), [account_trans](account_trans.md) (11 query files), [centers](centers.md) (11 query files), [cashregistertransactions](cashregistertransactions.md) (10 query files), [invoices](invoices.md) (10 query files), [ar_trans](ar_trans.md) (9 query files).

@@ -6,33 +6,33 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `personcenter` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
-| `personid` | Foreign key field linking this record to `persons`. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
-| `ar_center` | Foreign key field linking this record to `account_receivables`. | `int4` | Yes | No | [account_receivables](account_receivables.md) via (`ar_center`, `ar_id` -> `center`, `id`) | - |
-| `ar_id` | Foreign key field linking this record to `account_receivables`. | `int4` | Yes | No | [account_receivables](account_receivables.md) via (`ar_center`, `ar_id` -> `center`, `id`) | - |
-| `closed` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `successfull` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `HOLD` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `cc_agency_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `cc_agency_update_source` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `cc_agency_update_time` | Epoch timestamp for cc agency update. | `int8` | Yes | No | - | - |
-| `cashcollectionservice` | Foreign key field linking this record to `cashcollectionservices`. | `int4` | Yes | No | [cashcollectionservices](cashcollectionservices.md) via (`cashcollectionservice` -> `id`) | - |
-| `ext_ref` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `startdate` | Calendar date used for lifecycle and reporting filters. | `DATE` | No | No | - | - |
-| `currentstep` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `currentstep_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `currentstep_date` | Date for currentstep. | `DATE` | No | No | - | - |
-| `nextstep_date` | Date for nextstep. | `DATE` | Yes | No | - | - |
-| `nextstep_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `settings` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `missingpayment` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `below_minimum_age` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `start_datetime` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `closed_datetime` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `personcenter` | Center component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
+| `personid` | Identifier component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`personcenter`, `personid` -> `center`, `id`) | - |
+| `ar_center` | Center component of the composite reference to the related ar record. | `int4` | Yes | No | [account_receivables](account_receivables.md) via (`ar_center`, `ar_id` -> `center`, `id`) | - |
+| `ar_id` | Identifier component of the composite reference to the related ar record. | `int4` | Yes | No | [account_receivables](account_receivables.md) via (`ar_center`, `ar_id` -> `center`, `id`) | - |
+| `closed` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `successfull` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `HOLD` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `cc_agency_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `cc_agency_update_source` | Business attribute `cc_agency_update_source` used by cashcollectioncases workflows and reporting. | `int4` | Yes | No | - | - |
+| `cc_agency_update_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `cashcollectionservice` | Identifier of the related cashcollectionservices record used by this row. | `int4` | Yes | No | [cashcollectionservices](cashcollectionservices.md) via (`cashcollectionservice` -> `id`) | - |
+| `ext_ref` | Business attribute `ext_ref` used by cashcollectioncases workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `startdate` | Operational field `startdate` used in query filtering and reporting transformations. | `DATE` | No | No | - | - |
+| `currentstep` | Operational field `currentstep` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `currentstep_type` | Classification code describing the currentstep type category (for example: BLOCK, Blocked, CASHCOLLECTION, CLOSE). | `int4` | No | No | - | - |
+| `currentstep_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
+| `nextstep_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
+| `nextstep_type` | Classification code describing the nextstep type category (for example: BLOCK, CASHCOLLECTION, CLOSE, MESSAGE). | `int4` | Yes | No | - | - |
+| `settings` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `missingpayment` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `below_minimum_age` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `start_datetime` | Operational field `start_datetime` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `closed_datetime` | Operational field `closed_datetime` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (386 query files), [centers](centers.md) (289 query files), [subscriptions](subscriptions.md) (272 query files), [account_receivables](account_receivables.md) (271 query files), [products](products.md) (197 query files), [person_ext_attrs](person_ext_attrs.md) (188 query files).

@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `major` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `minor` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `revision` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `starttime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `customer` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `major` | Business attribute `major` used by db version workflows and reporting. | `int4` | No | No | - | - |
+| `minor` | Business attribute `minor` used by db version workflows and reporting. | `int4` | No | No | - | - |
+| `revision` | Business attribute `revision` used by db version workflows and reporting. | `int4` | No | No | - | - |
+| `starttime` | Operational field `starttime` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `customer` | Operational field `customer` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [account_trans](account_trans.md) (3 query files), [account_vat_type_group](account_vat_type_group.md) (3 query files), [account_vat_type_link](account_vat_type_link.md) (3 query files), [accounts](accounts.md) (3 query files), [cashregisters](cashregisters.md) (3 query files), [center_ext_attrs](center_ext_attrs.md) (3 query files).

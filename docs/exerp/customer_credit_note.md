@@ -6,16 +6,16 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `reference_center` | Center part of the reference to related reference data. | `int4` | No | No | - | - |
-| `reference_id` | Identifier of the related reference record. | `int4` | No | No | - | - |
-| `issued_date` | Date for issued. | `int8` | No | No | - | - |
-| `created_by_emp_center` | Center part of the reference to related created by emp data. | `int4` | No | No | - | - |
-| `created_by_emp_id` | Identifier of the related created by emp record. | `int4` | No | No | - | - |
-| `formatted_doc_mimetype` | Text field containing descriptive or reference information. | `VARCHAR(200)` | Yes | No | - | - |
-| `formatted_doc_mimevalue` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `person_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
-| `person_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `reference_center` | Center component of the composite reference to the related reference record. | `int4` | No | No | - | - |
+| `reference_id` | Identifier component of the composite reference to the related reference record. | `int4` | No | No | - | - |
+| `issued_date` | Business date used for scheduling, validity, or reporting cutoffs. | `int8` | No | No | - | - |
+| `created_by_emp_center` | Center component of the composite reference to the related created by emp record. | `int4` | No | No | - | - |
+| `created_by_emp_id` | Identifier component of the composite reference to the related created by emp record. | `int4` | No | No | - | - |
+| `formatted_doc_mimetype` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(200)` | Yes | No | - | - |
+| `formatted_doc_mimevalue` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `person_center` | Center component of the composite reference to the related person. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
+| `person_id` | Identifier component of the composite reference to the related person. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [persons](persons.md).

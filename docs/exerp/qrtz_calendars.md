@@ -6,7 +6,7 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `calendar_name` | Text field containing descriptive or reference information. | `VARCHAR(200)` | No | Yes | - | - |
-| `calendar` | Table field used by operational and reporting workloads. | `bytea` | No | No | - | - |
+| `calendar_name` | Primary key identifier for this record. | `VARCHAR(200)` | No | Yes | - | - |
+| `calendar` | Binary payload storing structured runtime data for this record. | `bytea` | No | No | - | - |
 
 # Relations

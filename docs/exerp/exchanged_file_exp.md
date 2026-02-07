@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `exchanged_file_id` | Foreign key field linking this record to `exchanged_file`. | `int4` | Yes | No | [exchanged_file](exchanged_file.md) via (`exchanged_file_id` -> `id`) | - |
-| `service` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `status` | Lifecycle status code for the record. | `text(2147483647)` | No | No | - | - |
-| `attempt` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `export_time` | Epoch timestamp for export. | `int8` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `exchanged_file_id` | Identifier of the related exchanged file record used by this row. | `int4` | Yes | No | [exchanged_file](exchanged_file.md) via (`exchanged_file_id` -> `id`) | - |
+| `service` | Operational field `service` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `text(2147483647)` | No | No | - | - |
+| `attempt` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
+| `export_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [exchanged_file](exchanged_file.md) (12 query files), [exchanged_file_op](exchanged_file_op.md) (7 query files), [extract](extract.md) (5 query files), [exchanged_file_sc](exchanged_file_sc.md) (4 query files), [aggregated_transactions](aggregated_transactions.md) (3 query files), [gl_export_batches](gl_export_batches.md) (3 query files).

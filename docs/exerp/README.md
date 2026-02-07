@@ -3,369 +3,369 @@ Documentation generated from `db/exerp/tables` SQL definitions with query-usage 
 
 - Total documented tables: 366
 
-- [access_code](access_code.md)
-- [account_payables](account_payables.md)
-- [account_receivables](account_receivables.md)
-- [account_trans](account_trans.md)
-- [account_vat_type_group](account_vat_type_group.md)
-- [account_vat_type_link](account_vat_type_link.md)
-- [accountgroupmembers](accountgroupmembers.md)
-- [accountgroups](accountgroups.md)
-- [accountingperiods](accountingperiods.md)
-- [accounts](accounts.md)
-- [activity](activity.md)
-- [activity_group](activity_group.md)
-- [activity_resource_configs](activity_resource_configs.md)
-- [activity_staff_configurations](activity_staff_configurations.md)
-- [add_on_product_definition](add_on_product_definition.md)
-- [add_on_to_product_group_link](add_on_to_product_group_link.md)
-- [advance_notices](advance_notices.md)
-- [age_groups](age_groups.md)
-- [aggregated_transactions](aggregated_transactions.md)
-- [agreement_change_log](agreement_change_log.md)
-- [apple_passes](apple_passes.md)
-- [ar_trans](ar_trans.md)
-- [area_centers](area_centers.md)
-- [areas](areas.md)
-- [art_match](art_match.md)
-- [attends](attends.md)
-- [automation_schedules](automation_schedules.md)
-- [availability_overrides](availability_overrides.md)
-- [availability_periods](availability_periods.md)
-- [awsdms_apply_exceptions](awsdms_apply_exceptions.md)
-- [awsdms_history](awsdms_history.md)
-- [awsdms_status](awsdms_status.md)
-- [awsdms_suspended_tables](awsdms_suspended_tables.md)
-- [bank_account_blocks](bank_account_blocks.md)
-- [batch_executions](batch_executions.md)
-- [batch_executions_dependencies](batch_executions_dependencies.md)
-- [batchlogs](batchlogs.md)
-- [bi_decode_values](bi_decode_values.md)
-- [bill_lines_mt](bill_lines_mt.md)
-- [billlines_vat_at_link](billlines_vat_at_link.md)
-- [bills](bills.md)
-- [booking_attend](booking_attend.md)
-- [booking_change](booking_change.md)
-- [booking_partic_counts_cache](booking_partic_counts_cache.md)
-- [booking_privilege_groups](booking_privilege_groups.md)
-- [booking_privileges](booking_privileges.md)
-- [booking_program_levels](booking_program_levels.md)
-- [booking_program_person_skills](booking_program_person_skills.md)
-- [booking_program_skills](booking_program_skills.md)
-- [booking_program_standby](booking_program_standby.md)
-- [booking_program_type_activity](booking_program_type_activity.md)
-- [booking_program_types](booking_program_types.md)
-- [booking_programs](booking_programs.md)
-- [booking_resource_configs](booking_resource_configs.md)
-- [booking_resource_groups](booking_resource_groups.md)
-- [booking_resource_perspective](booking_resource_perspective.md)
-- [booking_resource_usage](booking_resource_usage.md)
-- [booking_resources](booking_resources.md)
-- [booking_restrictions](booking_restrictions.md)
-- [booking_seats](booking_seats.md)
-- [booking_time_configs](booking_time_configs.md)
-- [bookings](bookings.md)
-- [bundle_campaign](bundle_campaign.md)
-- [bundle_campaign_product](bundle_campaign_product.md)
-- [bundle_campaign_usages](bundle_campaign_usages.md)
-- [campaign_code_usages](campaign_code_usages.md)
-- [campaign_codes](campaign_codes.md)
-- [card_clip_usages](card_clip_usages.md)
-- [cash_register_log](cash_register_log.md)
-- [cashcollection_in](cashcollection_in.md)
-- [cashcollection_out](cashcollection_out.md)
-- [cashcollection_requests](cashcollection_requests.md)
-- [cashcollectioncases](cashcollectioncases.md)
-- [cashcollectionjournalentries](cashcollectionjournalentries.md)
-- [cashcollectionservices](cashcollectionservices.md)
-- [cashregisterreports](cashregisterreports.md)
-- [cashregisters](cashregisters.md)
-- [cashregistertransactions](cashregistertransactions.md)
-- [center_capacities](center_capacities.md)
-- [center_change_logs](center_change_logs.md)
-- [center_ext_attrs](center_ext_attrs.md)
-- [centers](centers.md)
-- [ch_and_pcc_link](ch_and_pcc_link.md)
-- [change_logs](change_logs.md)
-- [checkins](checkins.md)
-- [clearing_in](clearing_in.md)
-- [clearing_out](clearing_out.md)
-- [clearinghouse_cred_receivers](clearinghouse_cred_receivers.md)
-- [clearinghouse_creditors](clearinghouse_creditors.md)
-- [clearinghouses](clearinghouses.md)
-- [client_instances](client_instances.md)
-- [client_performance_statistics](client_performance_statistics.md)
-- [client_profiles](client_profiles.md)
-- [clients](clients.md)
-- [clipcards](clipcards.md)
-- [clipcardtypes](clipcardtypes.md)
-- [colour_groups](colour_groups.md)
-- [companyagreements](companyagreements.md)
-- [contracts](contracts.md)
-- [converter_entity_state](converter_entity_state.md)
-- [converter_temp_state](converter_temp_state.md)
-- [countries](countries.md)
-- [credit_card_transaction_reference](credit_card_transaction_reference.md)
-- [credit_note_line_vat_at_link](credit_note_line_vat_at_link.md)
-- [credit_note_lines_mt](credit_note_lines_mt.md)
-- [credit_notes](credit_notes.md)
-- [creditcardtransactions](creditcardtransactions.md)
-- [crt_art_link](crt_art_link.md)
-- [custom_attribute_config_values](custom_attribute_config_values.md)
-- [custom_attribute_configs](custom_attribute_configs.md)
-- [custom_attributes](custom_attributes.md)
-- [custom_journal_document_types](custom_journal_document_types.md)
-- [customer_credit_note](customer_credit_note.md)
-- [customer_invoice](customer_invoice.md)
-- [daily_member_status_changes](daily_member_status_changes.md)
-- [data_cleaning_in](data_cleaning_in.md)
-- [data_cleaning_in_line](data_cleaning_in_line.md)
-- [data_cleaning_monitor_period](data_cleaning_monitor_period.md)
-- [data_cleaning_out](data_cleaning_out.md)
-- [data_cleaning_out_line](data_cleaning_out_line.md)
-- [datacleaning_agency](datacleaning_agency.md)
-- [db_updates](db_updates.md)
-- [db_version](db_version.md)
-- [dc_st_to_cust_jrnl_dc_tp_links](dc_st_to_cust_jrnl_dc_tp_links.md)
-- [deduction_day_validations](deduction_day_validations.md)
-- [deferrals](deferrals.md)
-- [delivery](delivery.md)
-- [delivery_lines_mt](delivery_lines_mt.md)
-- [deliverylines_vat_at_link](deliverylines_vat_at_link.md)
-- [devices](devices.md)
-- [do_not_contact](do_not_contact.md)
-- [doc_requirement_items](doc_requirement_items.md)
-- [document_set_to_question_cmpgn](document_set_to_question_cmpgn.md)
-- [documentation_requirements](documentation_requirements.md)
-- [documentation_settings](documentation_settings.md)
-- [employee_login_attempts](employee_login_attempts.md)
-- [employee_login_tokens](employee_login_tokens.md)
-- [employee_password_history](employee_password_history.md)
-- [employees](employees.md)
-- [employeesroles](employeesroles.md)
-- [enterprise_account_invites](enterprise_account_invites.md)
-- [entityidentifiers](entityidentifiers.md)
-- [error_reports](error_reports.md)
-- [event_conditions](event_conditions.md)
-- [event_log](event_log.md)
-- [event_type_config](event_type_config.md)
-- [exchanged_file](exchanged_file.md)
-- [exchanged_file_exp](exchanged_file_exp.md)
-- [exchanged_file_op](exchanged_file_op.md)
-- [exchanged_file_sc](exchanged_file_sc.md)
-- [exercise_types](exercise_types.md)
-- [extract](extract.md)
-- [extract_and_apply_automations](extract_and_apply_automations.md)
-- [extract_group](extract_group.md)
-- [extract_group_and_role_link](extract_group_and_role_link.md)
-- [extract_group_link](extract_group_link.md)
-- [extract_parameter](extract_parameter.md)
-- [extract_usage](extract_usage.md)
-- [families](families.md)
-- [favorite_searches](favorite_searches.md)
-- [federatedintegersequences](federatedintegersequences.md)
-- [federatedintegersubsequences](federatedintegersubsequences.md)
-- [file_import_configs](file_import_configs.md)
-- [frequent_products_item](frequent_products_item.md)
-- [frequent_products_list](frequent_products_list.md)
-- [gates](gates.md)
-- [gift_card_usages](gift_card_usages.md)
-- [gift_cards](gift_cards.md)
-- [gl_export_batches](gl_export_batches.md)
-- [hilosequences](hilosequences.md)
-- [impliedemployeeroles](impliedemployeeroles.md)
-- [installment_plan_configs](installment_plan_configs.md)
-- [installment_plans](installment_plans.md)
-- [integersequences](integersequences.md)
-- [integration_hook](integration_hook.md)
-- [inventory](inventory.md)
-- [inventory_trans](inventory_trans.md)
-- [invoice_lines_mt](invoice_lines_mt.md)
-- [invoice_sales_employee](invoice_sales_employee.md)
-- [invoicelines_vat_at_link](invoicelines_vat_at_link.md)
-- [invoices](invoices.md)
-- [jbm_cluster](jbm_cluster.md)
-- [jbm_counter](jbm_counter.md)
-- [jbm_dual](jbm_dual.md)
-- [jbm_id_cache](jbm_id_cache.md)
-- [jbm_msg](jbm_msg.md)
-- [jbm_msg_ref](jbm_msg_ref.md)
-- [jbm_postoffice](jbm_postoffice.md)
-- [jbm_role](jbm_role.md)
-- [jbm_tx](jbm_tx.md)
-- [jbm_tx_ex](jbm_tx_ex.md)
-- [jbm_user](jbm_user.md)
-- [jboss_ejb_timer](jboss_ejb_timer.md)
-- [journalentries](journalentries.md)
-- [journalentry_and_role_link](journalentry_and_role_link.md)
-- [journalentry_multiple_ref](journalentry_multiple_ref.md)
-- [journalentry_signatures](journalentry_signatures.md)
-- [kpi_data](kpi_data.md)
-- [kpi_field_group](kpi_field_group.md)
-- [kpi_fields](kpi_fields.md)
-- [kpi_group](kpi_group.md)
-- [kpi_group_and_role_link](kpi_group_and_role_link.md)
-- [lease_products](lease_products.md)
-- [license_change_logs](license_change_logs.md)
-- [license_change_logs_content](license_change_logs_content.md)
-- [licenses](licenses.md)
-- [log_in_log](log_in_log.md)
-- [master_prod_and_prod_grp_link](master_prod_and_prod_grp_link.md)
-- [master_vat_types](master_vat_types.md)
-- [masteraccountregister](masteraccountregister.md)
-- [masterproductgroups](masterproductgroups.md)
-- [masterproductregister](masterproductregister.md)
-- [message_attachments](message_attachments.md)
-- [message_type_config_relations](message_type_config_relations.md)
-- [messages](messages.md)
-- [messages_of_todos](messages_of_todos.md)
-- [missing_role_event_conditions](missing_role_event_conditions.md)
-- [mpr_ipc](mpr_ipc.md)
-- [national_translations](national_translations.md)
-- [nayax_transaction_ids](nayax_transaction_ids.md)
-- [offline_massive_attends](offline_massive_attends.md)
-- [offline_usage_packets](offline_usage_packets.md)
-- [offline_usages](offline_usages.md)
-- [participation_configurations](participation_configurations.md)
-- [participations](participations.md)
-- [participations_cancellations](participations_cancellations.md)
-- [passport_countries](passport_countries.md)
-- [payment_accounts](payment_accounts.md)
-- [payment_agreements](payment_agreements.md)
-- [payment_cycle_config](payment_cycle_config.md)
-- [payment_request_specifications](payment_request_specifications.md)
-- [payment_requests](payment_requests.md)
-- [payment_sessions](payment_sessions.md)
-- [pe_ext_attr_event_conditions](pe_ext_attr_event_conditions.md)
-- [person_change_logs](person_change_logs.md)
-- [person_ext_attrs](person_ext_attrs.md)
-- [person_login_tokens](person_login_tokens.md)
-- [person_staff_groups](person_staff_groups.md)
-- [persons](persons.md)
-- [postal_address](postal_address.md)
-- [postal_area](postal_area.md)
-- [postal_code](postal_code.md)
-- [postal_code_area_mapping](postal_code_area_mapping.md)
-- [preferred_centers](preferred_centers.md)
-- [privilege_cache](privilege_cache.md)
-- [privilege_cache_validity](privilege_cache_validity.md)
-- [privilege_grants](privilege_grants.md)
-- [privilege_punishments](privilege_punishments.md)
-- [privilege_receiver_groups](privilege_receiver_groups.md)
-- [privilege_set_groups](privilege_set_groups.md)
-- [privilege_set_includes](privilege_set_includes.md)
-- [privilege_sets](privilege_sets.md)
-- [privilege_usages](privilege_usages.md)
-- [product_account_configurations](product_account_configurations.md)
-- [product_and_product_group_link](product_and_product_group_link.md)
-- [product_availability](product_availability.md)
-- [product_group](product_group.md)
-- [product_privileges](product_privileges.md)
-- [products](products.md)
-- [progress](progress.md)
-- [public_messages](public_messages.md)
-- [public_messages_person](public_messages_person.md)
-- [push_device_tokens](push_device_tokens.md)
-- [push_message_targets](push_message_targets.md)
-- [push_messages](push_messages.md)
-- [qrtz_blob_triggers](qrtz_blob_triggers.md)
-- [qrtz_calendars](qrtz_calendars.md)
-- [qrtz_cron_triggers](qrtz_cron_triggers.md)
-- [qrtz_fired_triggers](qrtz_fired_triggers.md)
-- [qrtz_job_details](qrtz_job_details.md)
-- [qrtz_job_listeners](qrtz_job_listeners.md)
-- [qrtz_locks](qrtz_locks.md)
-- [qrtz_paused_trigger_grps](qrtz_paused_trigger_grps.md)
-- [qrtz_scheduler_state](qrtz_scheduler_state.md)
-- [qrtz_simple_triggers](qrtz_simple_triggers.md)
-- [qrtz_trigger_listeners](qrtz_trigger_listeners.md)
-- [qrtz_triggers](qrtz_triggers.md)
-- [question_answer](question_answer.md)
-- [questionnaire_answer](questionnaire_answer.md)
-- [questionnaire_campaigns](questionnaire_campaigns.md)
-- [questionnaires](questionnaires.md)
-- [receiver_group_caches](receiver_group_caches.md)
-- [recurring_participations](recurring_participations.md)
-- [relatives](relatives.md)
-- [report_periods](report_periods.md)
-- [report_usage](report_usage.md)
-- [roles](roles.md)
-- [s3_blob_migration](s3_blob_migration.md)
-- [s3_references_to_purge](s3_references_to_purge.md)
-- [s3dathead](s3dathead.md)
-- [s3datpos](s3datpos.md)
-- [sales_tax_conf_vat_type_link](sales_tax_conf_vat_type_link.md)
-- [sales_tax_configuration](sales_tax_configuration.md)
-- [secondary_memberships](secondary_memberships.md)
-- [selectable_role_groups](selectable_role_groups.md)
-- [semesters](semesters.md)
-- [sftp_targets](sftp_targets.md)
-- [shopping_basket_invoice_link](shopping_basket_invoice_link.md)
-- [shopping_baskets](shopping_baskets.md)
-- [signatures](signatures.md)
-- [sms](sms.md)
-- [sms_splits](sms_splits.md)
-- [spp_invoicelines_link](spp_invoicelines_link.md)
-- [staff_bio](staff_bio.md)
-- [staff_groups](staff_groups.md)
-- [staff_subscribed_centers](staff_subscribed_centers.md)
-- [staff_usage](staff_usage.md)
-- [startup_campaign](startup_campaign.md)
-- [startup_campaign_subscription](startup_campaign_subscription.md)
-- [state_change_log](state_change_log.md)
-- [subscription_addon](subscription_addon.md)
-- [subscription_addon_product](subscription_addon_product.md)
-- [subscription_blocked_period](subscription_blocked_period.md)
-- [subscription_change](subscription_change.md)
-- [subscription_change_fees](subscription_change_fees.md)
-- [subscription_freeze_period](subscription_freeze_period.md)
-- [subscription_price](subscription_price.md)
-- [subscription_reduced_period](subscription_reduced_period.md)
-- [subscription_retention_campaigns](subscription_retention_campaigns.md)
-- [subscription_sales](subscription_sales.md)
-- [subscriptionperiodparts](subscriptionperiodparts.md)
-- [subscriptions](subscriptions.md)
-- [subscriptiontypes](subscriptiontypes.md)
-- [substitut_preferences_centers](substitut_preferences_centers.md)
-- [substitution_cases](substitution_cases.md)
-- [substitution_person_cases](substitution_person_cases.md)
-- [supplier](supplier.md)
-- [systemproperties](systemproperties.md)
-- [table_sequences](table_sequences.md)
-- [task_actions](task_actions.md)
-- [task_actions_requirements](task_actions_requirements.md)
-- [task_activity](task_activity.md)
-- [task_categories](task_categories.md)
-- [task_log](task_log.md)
-- [task_log_details](task_log_details.md)
-- [task_step_transitions](task_step_transitions.md)
-- [task_steps](task_steps.md)
-- [task_types](task_types.md)
-- [task_user_choices](task_user_choices.md)
-- [tasks](tasks.md)
-- [temp_chunk_file](temp_chunk_file.md)
-- [template_signatures](template_signatures.md)
-- [templates](templates.md)
-- [time_setting_configs](time_setting_configs.md)
-- [timeplace](timeplace.md)
-- [timeplaceresources](timeplaceresources.md)
-- [timers](timers.md)
-- [todo_groups](todo_groups.md)
-- [todocomments](todocomments.md)
-- [todos](todos.md)
-- [training_program_exercises](training_program_exercises.md)
-- [training_programs](training_programs.md)
-- [transfer_log](transfer_log.md)
-- [translations](translations.md)
-- [unplaced_payments](unplaced_payments.md)
-- [usage_point_action_res_link](usage_point_action_res_link.md)
-- [usage_point_resources](usage_point_resources.md)
-- [usage_point_sources](usage_point_sources.md)
-- [usage_point_usages](usage_point_usages.md)
-- [usage_points](usage_points.md)
-- [vat_types](vat_types.md)
-- [vending_machine](vending_machine.md)
-- [vending_machine_slide](vending_machine_slide.md)
-- [web_request_payload](web_request_payload.md)
-- [workflows](workflows.md)
-- [zipcodes](zipcodes.md)
+- [access_code](access_code.md): Operational table for access code records in the Exerp schema.
+- [account_payables](account_payables.md): Financial/transactional table for account payables records.
+- [account_receivables](account_receivables.md): Financial/transactional table for account receivables records.
+- [account_trans](account_trans.md): Financial/transactional table for account trans records.
+- [account_vat_type_group](account_vat_type_group.md): Financial/transactional table for account vat type group records.
+- [account_vat_type_link](account_vat_type_link.md): Bridge table that links related entities for account vat type link relationships.
+- [accountgroupmembers](accountgroupmembers.md): Financial/transactional table for accountgroupmembers records.
+- [accountgroups](accountgroups.md): Financial/transactional table for accountgroups records.
+- [accountingperiods](accountingperiods.md): Financial/transactional table for accountingperiods records.
+- [accounts](accounts.md): Financial/transactional table for accounts records.
+- [activity](activity.md): Operational table for activity records in the Exerp schema.
+- [activity_group](activity_group.md): Operational table for activity group records in the Exerp schema.
+- [activity_resource_configs](activity_resource_configs.md): Configuration table for activity resource configs behavior and defaults.
+- [activity_staff_configurations](activity_staff_configurations.md): Configuration table for activity staff configurations behavior and defaults.
+- [add_on_product_definition](add_on_product_definition.md): Operational table for add on product definition records in the Exerp schema.
+- [add_on_to_product_group_link](add_on_to_product_group_link.md): Bridge table that links related entities for add on to product group link relationships.
+- [advance_notices](advance_notices.md): Operational table for advance notices records in the Exerp schema.
+- [age_groups](age_groups.md): Operational table for age groups records in the Exerp schema.
+- [aggregated_transactions](aggregated_transactions.md): Operational table for aggregated transactions records in the Exerp schema.
+- [agreement_change_log](agreement_change_log.md): Stores historical/log records for agreement change events and changes.
+- [apple_passes](apple_passes.md): Operational table for apple passes records in the Exerp schema.
+- [ar_trans](ar_trans.md): Operational table for ar trans records in the Exerp schema.
+- [area_centers](area_centers.md): Operational table for area centers records in the Exerp schema.
+- [areas](areas.md): Operational table for areas records in the Exerp schema.
+- [art_match](art_match.md): Bridge table that links related entities for art match relationships.
+- [attends](attends.md): Operational table for attends records in the Exerp schema.
+- [automation_schedules](automation_schedules.md): Operational table for automation schedules records in the Exerp schema.
+- [availability_overrides](availability_overrides.md): Operational table for availability overrides records in the Exerp schema.
+- [availability_periods](availability_periods.md): Operational table for availability periods records in the Exerp schema.
+- [awsdms_apply_exceptions](awsdms_apply_exceptions.md): Operational table for awsdms apply exceptions records in the Exerp schema.
+- [awsdms_history](awsdms_history.md): Stores historical/log records for awsdms events and changes.
+- [awsdms_status](awsdms_status.md): Operational table for awsdms status records in the Exerp schema.
+- [awsdms_suspended_tables](awsdms_suspended_tables.md): Operational table for awsdms suspended tables records in the Exerp schema.
+- [bank_account_blocks](bank_account_blocks.md): Financial/transactional table for bank account blocks records.
+- [batch_executions](batch_executions.md): Operational table for batch executions records in the Exerp schema.
+- [batch_executions_dependencies](batch_executions_dependencies.md): Operational table for batch executions dependencies records in the Exerp schema.
+- [batchlogs](batchlogs.md): Stores historical/log records for batchlogs events and changes.
+- [bi_decode_values](bi_decode_values.md): Operational table for bi decode values records in the Exerp schema.
+- [bill_lines_mt](bill_lines_mt.md): Operational table for bill lines mt records in the Exerp schema.
+- [billlines_vat_at_link](billlines_vat_at_link.md): Bridge table that links related entities for billlines vat at link relationships.
+- [bills](bills.md): Operational table for bills records in the Exerp schema.
+- [booking_attend](booking_attend.md): Operational table for booking attend records in the Exerp schema.
+- [booking_change](booking_change.md): Operational table for booking change records in the Exerp schema.
+- [booking_partic_counts_cache](booking_partic_counts_cache.md): Intermediate/cache table used to accelerate booking partic counts cache processing.
+- [booking_privilege_groups](booking_privilege_groups.md): Operational table for booking privilege groups records in the Exerp schema.
+- [booking_privileges](booking_privileges.md): Operational table for booking privileges records in the Exerp schema.
+- [booking_program_levels](booking_program_levels.md): Operational table for booking program levels records in the Exerp schema.
+- [booking_program_person_skills](booking_program_person_skills.md): People-related master or relationship table for booking program person skills data.
+- [booking_program_skills](booking_program_skills.md): Operational table for booking program skills records in the Exerp schema.
+- [booking_program_standby](booking_program_standby.md): Operational table for booking program standby records in the Exerp schema.
+- [booking_program_type_activity](booking_program_type_activity.md): Operational table for booking program type activity records in the Exerp schema.
+- [booking_program_types](booking_program_types.md): Operational table for booking program types records in the Exerp schema.
+- [booking_programs](booking_programs.md): Operational table for booking programs records in the Exerp schema.
+- [booking_resource_configs](booking_resource_configs.md): Configuration table for booking resource configs behavior and defaults.
+- [booking_resource_groups](booking_resource_groups.md): Operational table for booking resource groups records in the Exerp schema.
+- [booking_resource_perspective](booking_resource_perspective.md): Operational table for booking resource perspective records in the Exerp schema.
+- [booking_resource_usage](booking_resource_usage.md): Operational table for booking resource usage records in the Exerp schema.
+- [booking_resources](booking_resources.md): Operational table for booking resources records in the Exerp schema.
+- [booking_restrictions](booking_restrictions.md): Operational table for booking restrictions records in the Exerp schema.
+- [booking_seats](booking_seats.md): Operational table for booking seats records in the Exerp schema.
+- [booking_time_configs](booking_time_configs.md): Configuration table for booking time configs behavior and defaults.
+- [bookings](bookings.md): Operational table for bookings records in the Exerp schema.
+- [bundle_campaign](bundle_campaign.md): Operational table for bundle campaign records in the Exerp schema.
+- [bundle_campaign_product](bundle_campaign_product.md): Operational table for bundle campaign product records in the Exerp schema.
+- [bundle_campaign_usages](bundle_campaign_usages.md): Operational table for bundle campaign usages records in the Exerp schema.
+- [campaign_code_usages](campaign_code_usages.md): Operational table for campaign code usages records in the Exerp schema.
+- [campaign_codes](campaign_codes.md): Operational table for campaign codes records in the Exerp schema.
+- [card_clip_usages](card_clip_usages.md): Operational table for card clip usages records in the Exerp schema.
+- [cash_register_log](cash_register_log.md): Stores historical/log records for cash register events and changes.
+- [cashcollection_in](cashcollection_in.md): Financial/transactional table for cashcollection in records.
+- [cashcollection_out](cashcollection_out.md): Financial/transactional table for cashcollection out records.
+- [cashcollection_requests](cashcollection_requests.md): Financial/transactional table for cashcollection requests records.
+- [cashcollectioncases](cashcollectioncases.md): Financial/transactional table for cashcollectioncases records.
+- [cashcollectionjournalentries](cashcollectionjournalentries.md): Financial/transactional table for cashcollectionjournalentries records.
+- [cashcollectionservices](cashcollectionservices.md): Financial/transactional table for cashcollectionservices records.
+- [cashregisterreports](cashregisterreports.md): Financial/transactional table for cashregisterreports records.
+- [cashregisters](cashregisters.md): Financial/transactional table for cashregisters records.
+- [cashregistertransactions](cashregistertransactions.md): Financial/transactional table for cashregistertransactions records.
+- [center_capacities](center_capacities.md): Operational table for center capacities records in the Exerp schema.
+- [center_change_logs](center_change_logs.md): Stores historical/log records for center changes events and changes.
+- [center_ext_attrs](center_ext_attrs.md): Operational table for center ext attrs records in the Exerp schema.
+- [centers](centers.md): Operational table for centers records in the Exerp schema.
+- [ch_and_pcc_link](ch_and_pcc_link.md): Bridge table that links related entities for ch and pcc link relationships.
+- [change_logs](change_logs.md): Stores historical/log records for changes events and changes.
+- [checkins](checkins.md): Operational table for checkins records in the Exerp schema.
+- [clearing_in](clearing_in.md): Operational table for clearing in records in the Exerp schema.
+- [clearing_out](clearing_out.md): Operational table for clearing out records in the Exerp schema.
+- [clearinghouse_cred_receivers](clearinghouse_cred_receivers.md): Operational table for clearinghouse cred receivers records in the Exerp schema.
+- [clearinghouse_creditors](clearinghouse_creditors.md): Operational table for clearinghouse creditors records in the Exerp schema.
+- [clearinghouses](clearinghouses.md): Operational table for clearinghouses records in the Exerp schema.
+- [client_instances](client_instances.md): Operational table for client instances records in the Exerp schema.
+- [client_performance_statistics](client_performance_statistics.md): Operational table for client performance statistics records in the Exerp schema.
+- [client_profiles](client_profiles.md): Operational table for client profiles records in the Exerp schema.
+- [clients](clients.md): Operational table for clients records in the Exerp schema.
+- [clipcards](clipcards.md): Operational table for clipcards records in the Exerp schema.
+- [clipcardtypes](clipcardtypes.md): Operational table for clipcardtypes records in the Exerp schema.
+- [colour_groups](colour_groups.md): Operational table for colour groups records in the Exerp schema.
+- [companyagreements](companyagreements.md): Operational table for companyagreements records in the Exerp schema.
+- [contracts](contracts.md): Operational table for contracts records in the Exerp schema.
+- [converter_entity_state](converter_entity_state.md): Operational table for converter entity state records in the Exerp schema.
+- [converter_temp_state](converter_temp_state.md): Intermediate/cache table used to accelerate converter temp state processing.
+- [countries](countries.md): Operational table for countries records in the Exerp schema.
+- [credit_card_transaction_reference](credit_card_transaction_reference.md): Operational table for credit card transaction reference records in the Exerp schema.
+- [credit_note_line_vat_at_link](credit_note_line_vat_at_link.md): Bridge table that links related entities for credit note line vat at link relationships.
+- [credit_note_lines_mt](credit_note_lines_mt.md): Operational table for credit note lines mt records in the Exerp schema.
+- [credit_notes](credit_notes.md): Operational table for credit notes records in the Exerp schema.
+- [creditcardtransactions](creditcardtransactions.md): Operational table for creditcardtransactions records in the Exerp schema.
+- [crt_art_link](crt_art_link.md): Bridge table that links related entities for crt art link relationships.
+- [custom_attribute_config_values](custom_attribute_config_values.md): Configuration table for custom attribute config values behavior and defaults.
+- [custom_attribute_configs](custom_attribute_configs.md): Configuration table for custom attribute configs behavior and defaults.
+- [custom_attributes](custom_attributes.md): Operational table for custom attributes records in the Exerp schema.
+- [custom_journal_document_types](custom_journal_document_types.md): Operational table for custom journal document types records in the Exerp schema.
+- [customer_credit_note](customer_credit_note.md): Operational table for customer credit note records in the Exerp schema.
+- [customer_invoice](customer_invoice.md): Financial/transactional table for customer invoice records.
+- [daily_member_status_changes](daily_member_status_changes.md): Operational table for daily member status changes records in the Exerp schema.
+- [data_cleaning_in](data_cleaning_in.md): Operational table for data cleaning in records in the Exerp schema.
+- [data_cleaning_in_line](data_cleaning_in_line.md): Operational table for data cleaning in line records in the Exerp schema.
+- [data_cleaning_monitor_period](data_cleaning_monitor_period.md): Operational table for data cleaning monitor period records in the Exerp schema.
+- [data_cleaning_out](data_cleaning_out.md): Operational table for data cleaning out records in the Exerp schema.
+- [data_cleaning_out_line](data_cleaning_out_line.md): Operational table for data cleaning out line records in the Exerp schema.
+- [datacleaning_agency](datacleaning_agency.md): Operational table for datacleaning agency records in the Exerp schema.
+- [db_updates](db_updates.md): Operational table for db updates records in the Exerp schema.
+- [db_version](db_version.md): Operational table for db version records in the Exerp schema.
+- [dc_st_to_cust_jrnl_dc_tp_links](dc_st_to_cust_jrnl_dc_tp_links.md): Bridge table that links related entities for dc st to cust jrnl dc tp links relationships.
+- [deduction_day_validations](deduction_day_validations.md): Operational table for deduction day validations records in the Exerp schema.
+- [deferrals](deferrals.md): Operational table for deferrals records in the Exerp schema.
+- [delivery](delivery.md): Operational table for delivery records in the Exerp schema.
+- [delivery_lines_mt](delivery_lines_mt.md): Operational table for delivery lines mt records in the Exerp schema.
+- [deliverylines_vat_at_link](deliverylines_vat_at_link.md): Bridge table that links related entities for deliverylines vat at link relationships.
+- [devices](devices.md): Operational table for devices records in the Exerp schema.
+- [do_not_contact](do_not_contact.md): Operational table for do not contact records in the Exerp schema.
+- [doc_requirement_items](doc_requirement_items.md): Operational table for doc requirement items records in the Exerp schema.
+- [document_set_to_question_cmpgn](document_set_to_question_cmpgn.md): Operational table for document set to question cmpgn records in the Exerp schema.
+- [documentation_requirements](documentation_requirements.md): Operational table for documentation requirements records in the Exerp schema.
+- [documentation_settings](documentation_settings.md): Configuration table for documentation settings behavior and defaults.
+- [employee_login_attempts](employee_login_attempts.md): Stores historical/log records for employeein attempts events and changes.
+- [employee_login_tokens](employee_login_tokens.md): Stores historical/log records for employeein tokens events and changes.
+- [employee_password_history](employee_password_history.md): Stores historical/log records for employee password events and changes.
+- [employees](employees.md): People-related master or relationship table for employees data.
+- [employeesroles](employeesroles.md): People-related master or relationship table for employeesroles data.
+- [enterprise_account_invites](enterprise_account_invites.md): Financial/transactional table for enterprise account invites records.
+- [entityidentifiers](entityidentifiers.md): Operational table for entityidentifiers records in the Exerp schema.
+- [error_reports](error_reports.md): Operational table for error reports records in the Exerp schema.
+- [event_conditions](event_conditions.md): Operational table for event conditions records in the Exerp schema.
+- [event_log](event_log.md): Stores historical/log records for event events and changes.
+- [event_type_config](event_type_config.md): Configuration table for event type config behavior and defaults.
+- [exchanged_file](exchanged_file.md): Operational table for exchanged file records in the Exerp schema.
+- [exchanged_file_exp](exchanged_file_exp.md): Operational table for exchanged file exp records in the Exerp schema.
+- [exchanged_file_op](exchanged_file_op.md): Operational table for exchanged file op records in the Exerp schema.
+- [exchanged_file_sc](exchanged_file_sc.md): Operational table for exchanged file sc records in the Exerp schema.
+- [exercise_types](exercise_types.md): Operational table for exercise types records in the Exerp schema.
+- [extract](extract.md): Operational table for extract records in the Exerp schema.
+- [extract_and_apply_automations](extract_and_apply_automations.md): Operational table for extract and apply automations records in the Exerp schema.
+- [extract_group](extract_group.md): Operational table for extract group records in the Exerp schema.
+- [extract_group_and_role_link](extract_group_and_role_link.md): Bridge table that links related entities for extract group and role link relationships.
+- [extract_group_link](extract_group_link.md): Bridge table that links related entities for extract group link relationships.
+- [extract_parameter](extract_parameter.md): Operational table for extract parameter records in the Exerp schema.
+- [extract_usage](extract_usage.md): Operational table for extract usage records in the Exerp schema.
+- [families](families.md): Operational table for families records in the Exerp schema.
+- [favorite_searches](favorite_searches.md): Operational table for favorite searches records in the Exerp schema.
+- [federatedintegersequences](federatedintegersequences.md): Operational table for federatedintegersequences records in the Exerp schema.
+- [federatedintegersubsequences](federatedintegersubsequences.md): Operational table for federatedintegersubsequences records in the Exerp schema.
+- [file_import_configs](file_import_configs.md): Configuration table for file import configs behavior and defaults.
+- [frequent_products_item](frequent_products_item.md): Operational table for frequent products item records in the Exerp schema.
+- [frequent_products_list](frequent_products_list.md): Operational table for frequent products list records in the Exerp schema.
+- [gates](gates.md): Operational table for gates records in the Exerp schema.
+- [gift_card_usages](gift_card_usages.md): Operational table for gift card usages records in the Exerp schema.
+- [gift_cards](gift_cards.md): Operational table for gift cards records in the Exerp schema.
+- [gl_export_batches](gl_export_batches.md): Operational table for gl export batches records in the Exerp schema.
+- [hilosequences](hilosequences.md): Operational table for hilosequences records in the Exerp schema.
+- [impliedemployeeroles](impliedemployeeroles.md): People-related master or relationship table for impliedemployeeroles data.
+- [installment_plan_configs](installment_plan_configs.md): Configuration table for installment plan configs behavior and defaults.
+- [installment_plans](installment_plans.md): Operational table for installment plans records in the Exerp schema.
+- [integersequences](integersequences.md): Operational table for integersequences records in the Exerp schema.
+- [integration_hook](integration_hook.md): Operational table for integration hook records in the Exerp schema.
+- [inventory](inventory.md): Operational table for inventory records in the Exerp schema.
+- [inventory_trans](inventory_trans.md): Operational table for inventory trans records in the Exerp schema.
+- [invoice_lines_mt](invoice_lines_mt.md): Financial/transactional table for invoice lines mt records.
+- [invoice_sales_employee](invoice_sales_employee.md): Financial/transactional table for invoice sales employee records.
+- [invoicelines_vat_at_link](invoicelines_vat_at_link.md): Bridge table that links related entities for invoicelines vat at link relationships.
+- [invoices](invoices.md): Financial/transactional table for invoices records.
+- [jbm_cluster](jbm_cluster.md): Operational table for jbm cluster records in the Exerp schema.
+- [jbm_counter](jbm_counter.md): Operational table for jbm counter records in the Exerp schema.
+- [jbm_dual](jbm_dual.md): Operational table for jbm dual records in the Exerp schema.
+- [jbm_id_cache](jbm_id_cache.md): Intermediate/cache table used to accelerate jbm id cache processing.
+- [jbm_msg](jbm_msg.md): Operational table for jbm msg records in the Exerp schema.
+- [jbm_msg_ref](jbm_msg_ref.md): Operational table for jbm msg ref records in the Exerp schema.
+- [jbm_postoffice](jbm_postoffice.md): Operational table for jbm postoffice records in the Exerp schema.
+- [jbm_role](jbm_role.md): Operational table for jbm role records in the Exerp schema.
+- [jbm_tx](jbm_tx.md): Operational table for jbm tx records in the Exerp schema.
+- [jbm_tx_ex](jbm_tx_ex.md): Operational table for jbm tx ex records in the Exerp schema.
+- [jbm_user](jbm_user.md): Operational table for jbm user records in the Exerp schema.
+- [jboss_ejb_timer](jboss_ejb_timer.md): Operational table for jboss ejb timer records in the Exerp schema.
+- [journalentries](journalentries.md): Operational table for journalentries records in the Exerp schema.
+- [journalentry_and_role_link](journalentry_and_role_link.md): Bridge table that links related entities for journalentry and role link relationships.
+- [journalentry_multiple_ref](journalentry_multiple_ref.md): Operational table for journalentry multiple ref records in the Exerp schema.
+- [journalentry_signatures](journalentry_signatures.md): Operational table for journalentry signatures records in the Exerp schema.
+- [kpi_data](kpi_data.md): Operational table for kpi data records in the Exerp schema.
+- [kpi_field_group](kpi_field_group.md): Operational table for kpi field group records in the Exerp schema.
+- [kpi_fields](kpi_fields.md): Operational table for kpi fields records in the Exerp schema.
+- [kpi_group](kpi_group.md): Operational table for kpi group records in the Exerp schema.
+- [kpi_group_and_role_link](kpi_group_and_role_link.md): Bridge table that links related entities for kpi group and role link relationships.
+- [lease_products](lease_products.md): Operational table for lease products records in the Exerp schema.
+- [license_change_logs](license_change_logs.md): Stores historical/log records for license changes events and changes.
+- [license_change_logs_content](license_change_logs_content.md): Stores historical/log records for license changes content events and changes.
+- [licenses](licenses.md): Operational table for licenses records in the Exerp schema.
+- [log_in_log](log_in_log.md): Stores historical/log records for log in events and changes.
+- [master_prod_and_prod_grp_link](master_prod_and_prod_grp_link.md): Bridge table that links related entities for master prod and prod grp link relationships.
+- [master_vat_types](master_vat_types.md): Operational table for master vat types records in the Exerp schema.
+- [masteraccountregister](masteraccountregister.md): Financial/transactional table for masteraccountregister records.
+- [masterproductgroups](masterproductgroups.md): Operational table for masterproductgroups records in the Exerp schema.
+- [masterproductregister](masterproductregister.md): Operational table for masterproductregister records in the Exerp schema.
+- [message_attachments](message_attachments.md): Operational table for message attachments records in the Exerp schema.
+- [message_type_config_relations](message_type_config_relations.md): Configuration table for message type config relations behavior and defaults.
+- [messages](messages.md): Operational table for messages records in the Exerp schema.
+- [messages_of_todos](messages_of_todos.md): Operational table for messages of todos records in the Exerp schema.
+- [missing_role_event_conditions](missing_role_event_conditions.md): Operational table for missing role event conditions records in the Exerp schema.
+- [mpr_ipc](mpr_ipc.md): Operational table for mpr ipc records in the Exerp schema.
+- [national_translations](national_translations.md): Operational table for national translations records in the Exerp schema.
+- [nayax_transaction_ids](nayax_transaction_ids.md): Operational table for nayax transaction ids records in the Exerp schema.
+- [offline_massive_attends](offline_massive_attends.md): Operational table for offline massive attends records in the Exerp schema.
+- [offline_usage_packets](offline_usage_packets.md): Operational table for offline usage packets records in the Exerp schema.
+- [offline_usages](offline_usages.md): Operational table for offline usages records in the Exerp schema.
+- [participation_configurations](participation_configurations.md): Configuration table for participation configurations behavior and defaults.
+- [participations](participations.md): Operational table for participations records in the Exerp schema.
+- [participations_cancellations](participations_cancellations.md): Operational table for participations cancellations records in the Exerp schema.
+- [passport_countries](passport_countries.md): Operational table for passport countries records in the Exerp schema.
+- [payment_accounts](payment_accounts.md): Financial/transactional table for payment accounts records.
+- [payment_agreements](payment_agreements.md): Financial/transactional table for payment agreements records.
+- [payment_cycle_config](payment_cycle_config.md): Configuration table for payment cycle config behavior and defaults.
+- [payment_request_specifications](payment_request_specifications.md): Financial/transactional table for payment request specifications records.
+- [payment_requests](payment_requests.md): Financial/transactional table for payment requests records.
+- [payment_sessions](payment_sessions.md): Financial/transactional table for payment sessions records.
+- [pe_ext_attr_event_conditions](pe_ext_attr_event_conditions.md): Operational table for pe ext attr event conditions records in the Exerp schema.
+- [person_change_logs](person_change_logs.md): Stores historical/log records for person changes events and changes.
+- [person_ext_attrs](person_ext_attrs.md): People-related master or relationship table for person ext attrs data.
+- [person_login_tokens](person_login_tokens.md): Stores historical/log records for personin tokens events and changes.
+- [person_staff_groups](person_staff_groups.md): People-related master or relationship table for person staff groups data.
+- [persons](persons.md): People-related master or relationship table for persons data.
+- [postal_address](postal_address.md): Operational table for postal address records in the Exerp schema.
+- [postal_area](postal_area.md): Operational table for postal area records in the Exerp schema.
+- [postal_code](postal_code.md): Operational table for postal code records in the Exerp schema.
+- [postal_code_area_mapping](postal_code_area_mapping.md): Bridge table that links related entities for postal code area mapping relationships.
+- [preferred_centers](preferred_centers.md): Operational table for preferred centers records in the Exerp schema.
+- [privilege_cache](privilege_cache.md): Intermediate/cache table used to accelerate privilege cache processing.
+- [privilege_cache_validity](privilege_cache_validity.md): Intermediate/cache table used to accelerate privilege cache validity processing.
+- [privilege_grants](privilege_grants.md): Operational table for privilege grants records in the Exerp schema.
+- [privilege_punishments](privilege_punishments.md): Operational table for privilege punishments records in the Exerp schema.
+- [privilege_receiver_groups](privilege_receiver_groups.md): Operational table for privilege receiver groups records in the Exerp schema.
+- [privilege_set_groups](privilege_set_groups.md): Operational table for privilege set groups records in the Exerp schema.
+- [privilege_set_includes](privilege_set_includes.md): Operational table for privilege set includes records in the Exerp schema.
+- [privilege_sets](privilege_sets.md): Operational table for privilege sets records in the Exerp schema.
+- [privilege_usages](privilege_usages.md): Operational table for privilege usages records in the Exerp schema.
+- [product_account_configurations](product_account_configurations.md): Configuration table for product account configurations behavior and defaults.
+- [product_and_product_group_link](product_and_product_group_link.md): Bridge table that links related entities for product and product group link relationships.
+- [product_availability](product_availability.md): Operational table for product availability records in the Exerp schema.
+- [product_group](product_group.md): Operational table for product group records in the Exerp schema.
+- [product_privileges](product_privileges.md): Operational table for product privileges records in the Exerp schema.
+- [products](products.md): Operational table for products records in the Exerp schema.
+- [progress](progress.md): Operational table for progress records in the Exerp schema.
+- [public_messages](public_messages.md): Operational table for public messages records in the Exerp schema.
+- [public_messages_person](public_messages_person.md): People-related master or relationship table for public messages person data.
+- [push_device_tokens](push_device_tokens.md): Operational table for push device tokens records in the Exerp schema.
+- [push_message_targets](push_message_targets.md): Operational table for push message targets records in the Exerp schema.
+- [push_messages](push_messages.md): Operational table for push messages records in the Exerp schema.
+- [qrtz_blob_triggers](qrtz_blob_triggers.md): Operational table for qrtz blob triggers records in the Exerp schema.
+- [qrtz_calendars](qrtz_calendars.md): Operational table for qrtz calendars records in the Exerp schema.
+- [qrtz_cron_triggers](qrtz_cron_triggers.md): Operational table for qrtz cron triggers records in the Exerp schema.
+- [qrtz_fired_triggers](qrtz_fired_triggers.md): Operational table for qrtz fired triggers records in the Exerp schema.
+- [qrtz_job_details](qrtz_job_details.md): Operational table for qrtz job details records in the Exerp schema.
+- [qrtz_job_listeners](qrtz_job_listeners.md): Operational table for qrtz job listeners records in the Exerp schema.
+- [qrtz_locks](qrtz_locks.md): Operational table for qrtz locks records in the Exerp schema.
+- [qrtz_paused_trigger_grps](qrtz_paused_trigger_grps.md): Operational table for qrtz paused trigger grps records in the Exerp schema.
+- [qrtz_scheduler_state](qrtz_scheduler_state.md): Operational table for qrtz scheduler state records in the Exerp schema.
+- [qrtz_simple_triggers](qrtz_simple_triggers.md): Operational table for qrtz simple triggers records in the Exerp schema.
+- [qrtz_trigger_listeners](qrtz_trigger_listeners.md): Operational table for qrtz trigger listeners records in the Exerp schema.
+- [qrtz_triggers](qrtz_triggers.md): Operational table for qrtz triggers records in the Exerp schema.
+- [question_answer](question_answer.md): Operational table for question answer records in the Exerp schema.
+- [questionnaire_answer](questionnaire_answer.md): Operational table for questionnaire answer records in the Exerp schema.
+- [questionnaire_campaigns](questionnaire_campaigns.md): Operational table for questionnaire campaigns records in the Exerp schema.
+- [questionnaires](questionnaires.md): Operational table for questionnaires records in the Exerp schema.
+- [receiver_group_caches](receiver_group_caches.md): Intermediate/cache table used to accelerate receiver group caches processing.
+- [recurring_participations](recurring_participations.md): Operational table for recurring participations records in the Exerp schema.
+- [relatives](relatives.md): Operational table for relatives records in the Exerp schema.
+- [report_periods](report_periods.md): Operational table for report periods records in the Exerp schema.
+- [report_usage](report_usage.md): Operational table for report usage records in the Exerp schema.
+- [roles](roles.md): Operational table for roles records in the Exerp schema.
+- [s3_blob_migration](s3_blob_migration.md): Operational table for s3 blob migration records in the Exerp schema.
+- [s3_references_to_purge](s3_references_to_purge.md): Operational table for s3 references to purge records in the Exerp schema.
+- [s3dathead](s3dathead.md): Operational table for s3dathead records in the Exerp schema.
+- [s3datpos](s3datpos.md): Operational table for s3datpos records in the Exerp schema.
+- [sales_tax_conf_vat_type_link](sales_tax_conf_vat_type_link.md): Bridge table that links related entities for sales tax conf vat type link relationships.
+- [sales_tax_configuration](sales_tax_configuration.md): Configuration table for sales tax configuration behavior and defaults.
+- [secondary_memberships](secondary_memberships.md): Operational table for secondary memberships records in the Exerp schema.
+- [selectable_role_groups](selectable_role_groups.md): Operational table for selectable role groups records in the Exerp schema.
+- [semesters](semesters.md): Operational table for semesters records in the Exerp schema.
+- [sftp_targets](sftp_targets.md): Operational table for sftp targets records in the Exerp schema.
+- [shopping_basket_invoice_link](shopping_basket_invoice_link.md): Bridge table that links related entities for shopping basket invoice link relationships.
+- [shopping_baskets](shopping_baskets.md): Operational table for shopping baskets records in the Exerp schema.
+- [signatures](signatures.md): Operational table for signatures records in the Exerp schema.
+- [sms](sms.md): Operational table for sms records in the Exerp schema.
+- [sms_splits](sms_splits.md): Operational table for sms splits records in the Exerp schema.
+- [spp_invoicelines_link](spp_invoicelines_link.md): Bridge table that links related entities for spp invoicelines link relationships.
+- [staff_bio](staff_bio.md): People-related master or relationship table for staff bio data.
+- [staff_groups](staff_groups.md): People-related master or relationship table for staff groups data.
+- [staff_subscribed_centers](staff_subscribed_centers.md): People-related master or relationship table for staff subscribed centers data.
+- [staff_usage](staff_usage.md): People-related master or relationship table for staff usage data.
+- [startup_campaign](startup_campaign.md): Operational table for startup campaign records in the Exerp schema.
+- [startup_campaign_subscription](startup_campaign_subscription.md): Stores subscription-related data, including lifecycle and financial context.
+- [state_change_log](state_change_log.md): Stores historical/log records for state change events and changes.
+- [subscription_addon](subscription_addon.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_addon_product](subscription_addon_product.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_blocked_period](subscription_blocked_period.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_change](subscription_change.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_change_fees](subscription_change_fees.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_freeze_period](subscription_freeze_period.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_price](subscription_price.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_reduced_period](subscription_reduced_period.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_retention_campaigns](subscription_retention_campaigns.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscription_sales](subscription_sales.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscriptionperiodparts](subscriptionperiodparts.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscriptions](subscriptions.md): Stores subscription-related data, including lifecycle and financial context.
+- [subscriptiontypes](subscriptiontypes.md): Stores subscription-related data, including lifecycle and financial context.
+- [substitut_preferences_centers](substitut_preferences_centers.md): Operational table for substitut preferences centers records in the Exerp schema.
+- [substitution_cases](substitution_cases.md): Operational table for substitution cases records in the Exerp schema.
+- [substitution_person_cases](substitution_person_cases.md): People-related master or relationship table for substitution person cases data.
+- [supplier](supplier.md): Operational table for supplier records in the Exerp schema.
+- [systemproperties](systemproperties.md): Configuration table for systemproperties behavior and defaults.
+- [table_sequences](table_sequences.md): Operational table for table sequences records in the Exerp schema.
+- [task_actions](task_actions.md): Task-oriented table supporting workflow execution for task actions.
+- [task_actions_requirements](task_actions_requirements.md): Task-oriented table supporting workflow execution for task actions requirements.
+- [task_activity](task_activity.md): Task-oriented table supporting workflow execution for task activity.
+- [task_categories](task_categories.md): Task-oriented table supporting workflow execution for task categories.
+- [task_log](task_log.md): Stores historical/log records for task events and changes.
+- [task_log_details](task_log_details.md): Stores historical/log records for task details events and changes.
+- [task_step_transitions](task_step_transitions.md): Task-oriented table supporting workflow execution for task step transitions.
+- [task_steps](task_steps.md): Task-oriented table supporting workflow execution for task steps.
+- [task_types](task_types.md): Task-oriented table supporting workflow execution for task types.
+- [task_user_choices](task_user_choices.md): Task-oriented table supporting workflow execution for task user choices.
+- [tasks](tasks.md): Task-oriented table supporting workflow execution for tasks.
+- [temp_chunk_file](temp_chunk_file.md): Intermediate/cache table used to accelerate temp chunk file processing.
+- [template_signatures](template_signatures.md): Intermediate/cache table used to accelerate template signatures processing.
+- [templates](templates.md): Intermediate/cache table used to accelerate templates processing.
+- [time_setting_configs](time_setting_configs.md): Configuration table for time setting configs behavior and defaults.
+- [timeplace](timeplace.md): Operational table for timeplace records in the Exerp schema.
+- [timeplaceresources](timeplaceresources.md): Operational table for timeplaceresources records in the Exerp schema.
+- [timers](timers.md): Operational table for timers records in the Exerp schema.
+- [todo_groups](todo_groups.md): Operational table for todo groups records in the Exerp schema.
+- [todocomments](todocomments.md): Operational table for todocomments records in the Exerp schema.
+- [todos](todos.md): Operational table for todos records in the Exerp schema.
+- [training_program_exercises](training_program_exercises.md): Operational table for training program exercises records in the Exerp schema.
+- [training_programs](training_programs.md): Operational table for training programs records in the Exerp schema.
+- [transfer_log](transfer_log.md): Stores historical/log records for transfer events and changes.
+- [translations](translations.md): Operational table for translations records in the Exerp schema.
+- [unplaced_payments](unplaced_payments.md): Financial/transactional table for unplaced payments records.
+- [usage_point_action_res_link](usage_point_action_res_link.md): Bridge table that links related entities for usage point action res link relationships.
+- [usage_point_resources](usage_point_resources.md): Operational table for usage point resources records in the Exerp schema.
+- [usage_point_sources](usage_point_sources.md): Operational table for usage point sources records in the Exerp schema.
+- [usage_point_usages](usage_point_usages.md): Operational table for usage point usages records in the Exerp schema.
+- [usage_points](usage_points.md): Operational table for usage points records in the Exerp schema.
+- [vat_types](vat_types.md): Operational table for vat types records in the Exerp schema.
+- [vending_machine](vending_machine.md): Operational table for vending machine records in the Exerp schema.
+- [vending_machine_slide](vending_machine_slide.md): Operational table for vending machine slide records in the Exerp schema.
+- [web_request_payload](web_request_payload.md): Operational table for web request payload records in the Exerp schema.
+- [workflows](workflows.md): Operational table for workflows records in the Exerp schema.
+- [zipcodes](zipcodes.md): Operational table for zipcodes records in the Exerp schema.

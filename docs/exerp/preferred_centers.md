@@ -6,8 +6,8 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `person_center` | Center part of the reference to related person data. | `int4` | No | Yes | - | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) |
-| `person_id` | Identifier of the related person record. | `int4` | No | Yes | - | - |
-| `preferred_center` | Center part of the reference to related preferred data. | `int4` | No | Yes | - | - |
+| `person_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) |
+| `person_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `preferred_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
 
 # Relations

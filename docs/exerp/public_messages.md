@@ -6,23 +6,23 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `created_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `created_by_center` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - |
-| `created_by_id` | Foreign key field linking this record to `employees`. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - |
-| `valid_from` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `valid_to` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `subject` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `body` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `important` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `deleted` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `deleted_at` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `deleted_by_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - |
-| `deleted_by_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `version` | Operational field `version` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `created_at` | Business attribute `created_at` used by public messages workflows and reporting. | `int8` | No | No | - | - |
+| `created_by_center` | Center component of the composite reference to the related created by record. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - |
+| `created_by_id` | Identifier component of the composite reference to the related created by record. | `int4` | No | No | [employees](employees.md) via (`created_by_center`, `created_by_id` -> `center`, `id`) | - |
+| `valid_from` | Operational field `valid_from` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `valid_to` | Operational field `valid_to` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `subject` | Operational field `subject` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `body` | Business attribute `body` used by public messages workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `important` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `deleted` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `deleted_at` | Business attribute `deleted_at` used by public messages workflows and reporting. | `int8` | Yes | No | - | - |
+| `deleted_by_center` | Center component of the composite reference to the related deleted by record. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - |
+| `deleted_by_id` | Identifier component of the composite reference to the related deleted by record. | `int4` | Yes | No | [employees](employees.md) via (`deleted_by_center`, `deleted_by_id` -> `center`, `id`) | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [employees](employees.md); incoming FK from [public_messages_person](public_messages_person.md).

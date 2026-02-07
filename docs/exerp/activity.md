@@ -6,56 +6,56 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `top_node_id` | Identifier of the related top node record. | `int4` | Yes | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `availability` | Text field containing descriptive or reference information. | `VARCHAR(2000)` | Yes | No | - | - |
-| `activity_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `activity_group_id` | Identifier of the related activity group record. | `int4` | Yes | No | - | [activity_group](activity_group.md) via (`activity_group_id` -> `id`) |
-| `colour_group_id` | Identifier of the related colour group record. | `int4` | Yes | No | - | [colour_groups](colour_groups.md) via (`colour_group_id` -> `id`) |
-| `creation_privilege_group_id` | Identifier of the related creation privilege group record. | `int4` | Yes | No | - | - |
-| `duration_list` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `description_mime_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `description_mime_document` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `max_participants` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `max_waiting_list_participants` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `requires_planning` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `allow_name_override` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `allow_recurring_bookings` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `maximum_sub_staff_usages` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `override_resource_configs` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `override_staff_configs` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `override_participation_configs` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `override_time_config` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `time_config_id` | Foreign key field linking this record to `booking_time_configs`. | `int4` | Yes | No | [booking_time_configs](booking_time_configs.md) via (`time_config_id` -> `id`) | - |
-| `sub_staff_usage_interval` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `energy_consumption_kcal_hour` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `lessons` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `age_group_id` | Identifier of the related age group record. | `int4` | Yes | No | - | [age_groups](age_groups.md) via (`age_group_id` -> `id`) |
-| `course_type_id` | Identifier of the related course type record. | `int4` | Yes | No | - | - |
-| `course_level_id` | Identifier of the related course level record. | `int4` | Yes | No | - | - |
-| `seat_booking_support_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `headcount_manual_adjustment` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `available_from` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `available_to` | Calendar date used for lifecycle and reporting filters. | `DATE` | Yes | No | - | - |
-| `course_schedule_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `print_showup_receipt` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `allow_overlapping_bookings` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `age_restriction_on_bookings` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `allow_multiple_camps` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `enable_streaming_id` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `documentation_setting_id` | Identifier of the related documentation setting record. | `int4` | Yes | No | - | [documentation_settings](documentation_settings.md) via (`documentation_setting_id` -> `id`) |
-| `additional_info` | Text field containing descriptive or reference information. | `VARCHAR(200)` | Yes | No | - | - |
-| `set_up_activity_id` | Identifier of the related set up activity record. | `int4` | Yes | No | - | - |
-| `set_up_mandatory` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `dismantling_activity_id` | Identifier of the related dismantling activity record. | `int4` | Yes | No | - | - |
-| `dismantling_mandatory` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `top_node_id` | Identifier of the top hierarchy node used to organize scoped records. | `int4` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `availability` | Operational field `availability` used in query filtering and reporting transformations. | `VARCHAR(2000)` | Yes | No | - | - |
+| `activity_type` | Classification code describing the activity type category (for example: CAMP_PROGRAM, ChildCare, Class, General). | `int4` | No | No | - | - |
+| `activity_group_id` | Identifier for the related activity group entity used by this record. | `int4` | Yes | No | - | [activity_group](activity_group.md) via (`activity_group_id` -> `id`) |
+| `colour_group_id` | Identifier for the related colour group entity used by this record. | `int4` | Yes | No | - | [colour_groups](colour_groups.md) via (`colour_group_id` -> `id`) |
+| `creation_privilege_group_id` | Identifier for the related creation privilege group entity used by this record. | `int4` | Yes | No | - | - |
+| `duration_list` | Business attribute `duration_list` used by activity workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `description_mime_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `description_mime_document` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `max_participants` | Operational field `max_participants` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `max_waiting_list_participants` | Business attribute `max_waiting_list_participants` used by activity workflows and reporting. | `int4` | Yes | No | - | - |
+| `requires_planning` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `allow_name_override` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `allow_recurring_bookings` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `maximum_sub_staff_usages` | Business attribute `maximum_sub_staff_usages` used by activity workflows and reporting. | `int4` | Yes | No | - | - |
+| `override_resource_configs` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `override_staff_configs` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `override_participation_configs` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `override_time_config` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `time_config_id` | Identifier of the related booking time configs record used by this row. | `int4` | Yes | No | [booking_time_configs](booking_time_configs.md) via (`time_config_id` -> `id`) | - |
+| `sub_staff_usage_interval` | Business attribute `sub_staff_usage_interval` used by activity workflows and reporting. | `int4` | Yes | No | - | - |
+| `energy_consumption_kcal_hour` | Business attribute `energy_consumption_kcal_hour` used by activity workflows and reporting. | `int4` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `lessons` | Business attribute `lessons` used by activity workflows and reporting. | `int4` | Yes | No | - | - |
+| `age_group_id` | Identifier for the related age group entity used by this record. | `int4` | Yes | No | - | [age_groups](age_groups.md) via (`age_group_id` -> `id`) |
+| `course_type_id` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `course_level_id` | Identifier for the related course level entity used by this record. | `int4` | Yes | No | - | - |
+| `seat_booking_support_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `headcount_manual_adjustment` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `available_from` | Business attribute `available_from` used by activity workflows and reporting. | `DATE` | Yes | No | - | - |
+| `available_to` | Business attribute `available_to` used by activity workflows and reporting. | `DATE` | Yes | No | - | - |
+| `course_schedule_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `print_showup_receipt` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `allow_overlapping_bookings` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `age_restriction_on_bookings` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `allow_multiple_camps` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `enable_streaming_id` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `documentation_setting_id` | Identifier for the related documentation setting entity used by this record. | `int4` | Yes | No | - | [documentation_settings](documentation_settings.md) via (`documentation_setting_id` -> `id`) |
+| `additional_info` | Business attribute `additional_info` used by activity workflows and reporting. | `VARCHAR(200)` | Yes | No | - | - |
+| `set_up_activity_id` | Identifier for the related set up activity entity used by this record. | `int4` | Yes | No | - | - |
+| `set_up_mandatory` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `dismantling_activity_id` | Identifier for the related dismantling activity entity used by this record. | `int4` | Yes | No | - | - |
+| `dismantling_mandatory` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [bookings](bookings.md) (476 query files), [persons](persons.md) (415 query files), [centers](centers.md) (401 query files), [participations](participations.md) (396 query files), [staff_usage](staff_usage.md) (232 query files), [activity_group](activity_group.md) (231 query files).

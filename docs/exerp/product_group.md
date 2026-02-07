@@ -6,29 +6,29 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `top_node_id` | Identifier of the related top node record. | `int4` | Yes | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `parent_product_group_id` | Identifier of the related parent product group record. | `int4` | Yes | No | - | - |
-| `dimension_product_group_id` | Identifier of the related dimension product group record. | `int4` | Yes | No | - | - |
-| `show_in_shop` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `product_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
-| `colour_group_id` | Foreign key field linking this record to `colour_groups`. | `int4` | Yes | No | [colour_groups](colour_groups.md) via (`colour_group_id` -> `id`) | - |
-| `ranking` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `in_subscription_sales` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `hide_in_report_parameters` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `exclude_from_member_count` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `exclude_from_product_cleaning` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `client_profile_id` | Foreign key field linking this record to `client_profiles`. | `int4` | Yes | No | [client_profiles](client_profiles.md) via (`client_profile_id` -> `id`) | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `single_product_in_basket` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `show_on_web` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `installment_plans_enabled` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `top_node_id` | Identifier of the top hierarchy node used to organize scoped records. | `int4` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `parent_product_group_id` | Identifier for the related parent product group entity used by this record. | `int4` | Yes | No | - | - |
+| `dimension_product_group_id` | Identifier for the related dimension product group entity used by this record. | `int4` | Yes | No | - | - |
+| `show_in_shop` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `product_account_config_id` | Identifier of the related product account configurations record used by this row. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
+| `colour_group_id` | Identifier of the related colour groups record used by this row. | `int4` | Yes | No | [colour_groups](colour_groups.md) via (`colour_group_id` -> `id`) | - |
+| `ranking` | Operational field `ranking` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
+| `in_subscription_sales` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `hide_in_report_parameters` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `exclude_from_member_count` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `exclude_from_product_cleaning` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `client_profile_id` | Identifier of the related client profiles record used by this row. | `int4` | Yes | No | [client_profiles](client_profiles.md) via (`client_profile_id` -> `id`) | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `single_product_in_basket` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `show_on_web` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `installment_plans_enabled` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [products](products.md) (828 query files), [centers](centers.md) (671 query files), [persons](persons.md) (661 query files), [subscriptions](subscriptions.md) (524 query files), [product_and_product_group_link](product_and_product_group_link.md) (436 query files), [subscriptiontypes](subscriptiontypes.md) (358 query files).

@@ -6,27 +6,27 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `privilege_set` | Foreign key field linking this record to `privilege_sets`. | `int4` | Yes | No | [privilege_sets](privilege_sets.md) via (`privilege_set` -> `id`) | - |
-| `punishment` | Foreign key field linking this record to `privilege_punishments`. | `int4` | Yes | No | [privilege_punishments](privilege_punishments.md) via (`punishment` -> `id`) | - |
-| `granter_service` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `granter_globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `granter_center` | Center part of the reference to related granter data. | `int4` | Yes | No | - | - |
-| `granter_id` | Identifier of the related granter record. | `int4` | Yes | No | - | - |
-| `granter_subid` | Sub-identifier for related granter detail rows. | `int4` | Yes | No | - | - |
-| `valid_from` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `valid_to` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `sponsorship_name` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `sponsorship_amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `sponsorship_rounding` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `usage_product` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `usage_quantity` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `usage_duration_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `usage_duration_unit` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `usage_duration_round` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `usage_use_at_planning` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `extension` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `frequency_restriction_target` | Text field containing descriptive or reference information. | `VARCHAR(10)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `privilege_set` | Identifier of the related privilege sets record used by this row. | `int4` | Yes | No | [privilege_sets](privilege_sets.md) via (`privilege_set` -> `id`) | - |
+| `punishment` | Identifier of the related privilege punishments record used by this row. | `int4` | Yes | No | [privilege_punishments](privilege_punishments.md) via (`punishment` -> `id`) | - |
+| `granter_service` | Operational field `granter_service` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `granter_globalid` | Business attribute `granter_globalid` used by privilege grants workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `granter_center` | Center component of the composite reference to the related granter record. | `int4` | Yes | No | - | - |
+| `granter_id` | Identifier component of the composite reference to the related granter record. | `int4` | Yes | No | - | - |
+| `granter_subid` | Operational field `granter_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `valid_from` | Operational field `valid_from` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `valid_to` | Operational field `valid_to` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
+| `sponsorship_name` | Operational field `sponsorship_name` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `sponsorship_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `sponsorship_rounding` | Business attribute `sponsorship_rounding` used by privilege grants workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `usage_product` | Business attribute `usage_product` used by privilege grants workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `usage_quantity` | Business attribute `usage_quantity` used by privilege grants workflows and reporting. | `int4` | Yes | No | - | - |
+| `usage_duration_value` | Business attribute `usage_duration_value` used by privilege grants workflows and reporting. | `int4` | Yes | No | - | - |
+| `usage_duration_unit` | Business attribute `usage_duration_unit` used by privilege grants workflows and reporting. | `int4` | Yes | No | - | - |
+| `usage_duration_round` | Business attribute `usage_duration_round` used by privilege grants workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `usage_use_at_planning` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `extension` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `frequency_restriction_target` | Business attribute `frequency_restriction_target` used by privilege grants workflows and reporting. | `VARCHAR(10)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [products](products.md) (377 query files), [persons](persons.md) (351 query files), [centers](centers.md) (299 query files), [subscriptions](subscriptions.md) (278 query files), [privilege_sets](privilege_sets.md) (227 query files), [subscriptiontypes](subscriptiontypes.md) (213 query files).

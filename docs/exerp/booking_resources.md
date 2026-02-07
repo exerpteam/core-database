@@ -6,34 +6,34 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `attendable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `show_calendar` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `attend_privilege_id` | Foreign key field linking this record to `booking_privilege_groups`. | `int4` | Yes | No | [booking_privilege_groups](booking_privilege_groups.md) via (`attend_privilege_id` -> `id`) | - |
-| `attend_availability` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `vertices` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `override_center_opening_hours` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `sex_restriction` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `age_restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `age_restriction_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `ext_attr_config` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `availability_staff` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `instructor_x` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `instructor_y` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `attend_availability_period_id` | Identifier of the related attend availability period record. | `int4` | Yes | No | - | - |
-| `staff_availability_period_id` | Identifier of the related staff availability period record. | `int4` | Yes | No | - | - |
-| `api_ignore__check_in` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `api_check_out` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `age_restriction_min_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `age_restriction_max_value` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `webname` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `attendable` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `show_calendar` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `attend_privilege_id` | Identifier of the related booking privilege groups record used by this row. | `int4` | Yes | No | [booking_privilege_groups](booking_privilege_groups.md) via (`attend_privilege_id` -> `id`) | - |
+| `attend_availability` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `vertices` | Business attribute `vertices` used by booking resources workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `override_center_opening_hours` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `sex_restriction` | Business attribute `sex_restriction` used by booking resources workflows and reporting. | `int4` | No | No | - | - |
+| `age_restriction_type` | Classification code describing the age restriction type category (for example: BETWEEN, LESS THAN, LESS THEN, MORE THAN). | `int4` | No | No | - | - |
+| `age_restriction_value` | Business attribute `age_restriction_value` used by booking resources workflows and reporting. | `int4` | No | No | - | - |
+| `ext_attr_config` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `availability_staff` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
+| `instructor_x` | Business attribute `instructor_x` used by booking resources workflows and reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `instructor_y` | Business attribute `instructor_y` used by booking resources workflows and reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `attend_availability_period_id` | Identifier for the related attend availability period entity used by this record. | `int4` | Yes | No | - | - |
+| `staff_availability_period_id` | Identifier for the related staff availability period entity used by this record. | `int4` | Yes | No | - | - |
+| `api_ignore__check_in` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `api_check_out` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `age_restriction_min_value` | Business attribute `age_restriction_min_value` used by booking resources workflows and reporting. | `int4` | Yes | No | - | - |
+| `age_restriction_max_value` | Business attribute `age_restriction_max_value` used by booking resources workflows and reporting. | `int4` | Yes | No | - | - |
+| `webname` | Business attribute `webname` used by booking resources workflows and reporting. | `VARCHAR(1024)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (168 query files), [persons](persons.md) (124 query files), [attends](attends.md) (115 query files), [activity](activity.md) (81 query files), [bookings](bookings.md) (79 query files), [booking_resource_usage](booking_resource_usage.md) (62 query files).

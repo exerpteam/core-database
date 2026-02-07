@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `profile_name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `scope_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `scope_id` | Identifier of the related scope record. | `int4` | Yes | No | - | - |
-| `configuration` | Table field used by operational and reporting workloads. | `bytea` | Yes | No | - | - |
-| `client_type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `profile_name` | Business attribute `profile_name` used by client profiles workflows and reporting. | `text(2147483647)` | No | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
+| `configuration` | Serialized configuration payload used by runtime processing steps. | `bytea` | Yes | No | - | - |
+| `client_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
 
 # Relations
 - FK-linked tables: incoming FK from [frequent_products_list](frequent_products_list.md), [product_group](product_group.md).

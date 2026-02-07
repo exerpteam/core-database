@@ -6,17 +6,17 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `art_paying_center` | Foreign key field linking this record to `ar_trans`. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paying_center`, `art_paying_id`, `art_paying_subid` -> `center`, `id`, `subid`) | - |
-| `art_paying_id` | Foreign key field linking this record to `ar_trans`. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paying_center`, `art_paying_id`, `art_paying_subid` -> `center`, `id`, `subid`) | - |
-| `art_paying_subid` | Foreign key field linking this record to `ar_trans`. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paying_center`, `art_paying_id`, `art_paying_subid` -> `center`, `id`, `subid`) | - |
-| `art_paid_center` | Foreign key field linking this record to `ar_trans`. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paid_center`, `art_paid_id`, `art_paid_subid` -> `center`, `id`, `subid`) | - |
-| `art_paid_id` | Foreign key field linking this record to `ar_trans`. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paid_center`, `art_paid_id`, `art_paid_subid` -> `center`, `id`, `subid`) | - |
-| `art_paid_subid` | Foreign key field linking this record to `ar_trans`. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paid_center`, `art_paid_id`, `art_paid_subid` -> `center`, `id`, `subid`) | - |
-| `amount` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `entry_time` | Epoch timestamp for entry. | `int8` | No | No | - | - |
-| `cancelled_time` | Epoch timestamp for cancelled. | `int8` | Yes | No | - | - |
-| `used_rule` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `art_paying_center` | Center component of the composite reference to the related art paying record. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paying_center`, `art_paying_id`, `art_paying_subid` -> `center`, `id`, `subid`) | - |
+| `art_paying_id` | Identifier component of the composite reference to the related art paying record. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paying_center`, `art_paying_id`, `art_paying_subid` -> `center`, `id`, `subid`) | - |
+| `art_paying_subid` | Identifier of the related ar trans record used by this row. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paying_center`, `art_paying_id`, `art_paying_subid` -> `center`, `id`, `subid`) | - |
+| `art_paid_center` | Center component of the composite reference to the related art paid record. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paid_center`, `art_paid_id`, `art_paid_subid` -> `center`, `id`, `subid`) | - |
+| `art_paid_id` | Identifier component of the composite reference to the related art paid record. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paid_center`, `art_paid_id`, `art_paid_subid` -> `center`, `id`, `subid`) | - |
+| `art_paid_subid` | Identifier of the related ar trans record used by this row. | `int4` | No | No | [ar_trans](ar_trans.md) via (`art_paid_center`, `art_paid_id`, `art_paid_subid` -> `center`, `id`, `subid`) | - |
+| `amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `cancelled_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `used_rule` | Business attribute `used_rule` used by art match workflows and reporting. | `int4` | No | No | - | - |
 
 # Relations
 - Commonly used with: [ar_trans](ar_trans.md) (171 query files), [centers](centers.md) (137 query files), [persons](persons.md) (129 query files), [account_receivables](account_receivables.md) (125 query files), [invoices](invoices.md) (80 query files), [account_trans](account_trans.md) (79 query files).

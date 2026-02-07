@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `frequent_products_list_id` | Foreign key field linking this record to `frequent_products_list`. | `int4` | No | Yes | [frequent_products_list](frequent_products_list.md) via (`frequent_products_list_id` -> `id`) | - |
-| `product_id` | Foreign key field linking this record to `masterproductregister`. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`product_id` -> `id`) | - |
-| `version` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `rank` | Operational field `rank` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `frequent_products_list_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [frequent_products_list](frequent_products_list.md) via (`frequent_products_list_id` -> `id`) | - |
+| `product_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [masterproductregister](masterproductregister.md) via (`product_id` -> `id`) | - |
+| `version` | Operational field `version` used in query filtering and reporting transformations. | `int8` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [frequent_products_list](frequent_products_list.md), [masterproductregister](masterproductregister.md).

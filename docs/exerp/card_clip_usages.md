@@ -6,25 +6,25 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `TIME` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `description` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `type` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | No | No | - | - |
-| `clips` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `REF` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `card_center` | Foreign key field linking this record to `clipcards`. | `int4` | Yes | No | [clipcards](clipcards.md) via (`card_center`, `card_id`, `card_subid` -> `center`, `id`, `subid`) | - |
-| `card_id` | Foreign key field linking this record to `clipcards`. | `int4` | Yes | No | [clipcards](clipcards.md) via (`card_center`, `card_id`, `card_subid` -> `center`, `id`, `subid`) | - |
-| `card_subid` | Foreign key field linking this record to `clipcards`. | `int4` | Yes | No | [clipcards](clipcards.md) via (`card_center`, `card_id`, `card_subid` -> `center`, `id`, `subid`) | - |
-| `clipcard_usage_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `cancellation_timestamp` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `activation_timestamp` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `creditline_center` | Foreign key field linking this record to `credit_note_lines_mt`. | `int4` | Yes | No | [credit_note_lines_mt](credit_note_lines_mt.md) via (`creditline_center`, `creditline_id`, `creditline_subid` -> `center`, `id`, `subid`) | - |
-| `creditline_id` | Foreign key field linking this record to `credit_note_lines_mt`. | `int4` | Yes | No | [credit_note_lines_mt](credit_note_lines_mt.md) via (`creditline_center`, `creditline_id`, `creditline_subid` -> `center`, `id`, `subid`) | - |
-| `creditline_subid` | Foreign key field linking this record to `credit_note_lines_mt`. | `int4` | Yes | No | [credit_note_lines_mt](credit_note_lines_mt.md) via (`creditline_center`, `creditline_id`, `creditline_subid` -> `center`, `id`, `subid`) | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `TIME` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | No | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
+| `clips` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
+| `REF` | Operational field `REF` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `card_center` | Center component of the composite reference to the related card record. | `int4` | Yes | No | [clipcards](clipcards.md) via (`card_center`, `card_id`, `card_subid` -> `center`, `id`, `subid`) | - |
+| `card_id` | Identifier component of the composite reference to the related card record. | `int4` | Yes | No | [clipcards](clipcards.md) via (`card_center`, `card_id`, `card_subid` -> `center`, `id`, `subid`) | - |
+| `card_subid` | Identifier of the related clipcards record used by this row. | `int4` | Yes | No | [clipcards](clipcards.md) via (`card_center`, `card_id`, `card_subid` -> `center`, `id`, `subid`) | - |
+| `clipcard_usage_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `cancellation_timestamp` | Business attribute `cancellation_timestamp` used by card clip usages workflows and reporting. | `int8` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `activation_timestamp` | Monetary value used in financial calculation, settlement, or reporting. | `int8` | Yes | No | - | - |
+| `creditline_center` | Center component of the composite reference to the related creditline record. | `int4` | Yes | No | [credit_note_lines_mt](credit_note_lines_mt.md) via (`creditline_center`, `creditline_id`, `creditline_subid` -> `center`, `id`, `subid`) | - |
+| `creditline_id` | Identifier component of the composite reference to the related creditline record. | `int4` | Yes | No | [credit_note_lines_mt](credit_note_lines_mt.md) via (`creditline_center`, `creditline_id`, `creditline_subid` -> `center`, `id`, `subid`) | - |
+| `creditline_subid` | Identifier of the related credit note lines mt record used by this row. | `int4` | Yes | No | [credit_note_lines_mt](credit_note_lines_mt.md) via (`creditline_center`, `creditline_id`, `creditline_subid` -> `center`, `id`, `subid`) | - |
 
 # Relations
 - Commonly used with: [clipcards](clipcards.md) (83 query files), [products](products.md) (70 query files), [centers](centers.md) (62 query files), [persons](persons.md) (59 query files), [invoices](invoices.md) (44 query files), [invoice_lines_mt](invoice_lines_mt.md) (43 query files).

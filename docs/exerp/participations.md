@@ -6,63 +6,63 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `configuration` | Foreign key field linking this record to `participation_configurations`. | `int4` | Yes | No | [participation_configurations](participation_configurations.md) via (`configuration` -> `id`) | - |
-| `creation_time` | Epoch timestamp when the row was created. | `int8` | Yes | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `creation_by_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`creation_by_center`, `creation_by_id` -> `center`, `id`) | - |
-| `creation_by_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`creation_by_center`, `creation_by_id` -> `center`, `id`) | - |
-| `participation_number` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `start_time` | Epoch timestamp for start. | `int8` | Yes | No | - | - |
-| `stop_time` | Epoch timestamp for stop. | `int8` | Yes | No | - | - |
-| `booking_center` | Foreign key field linking this record to `bookings`. | `int4` | Yes | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
-| `booking_id` | Foreign key field linking this record to `bookings`. | `int4` | Yes | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
-| `participant_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`participant_center`, `participant_id` -> `center`, `id`) | - |
-| `participant_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`participant_center`, `participant_id` -> `center`, `id`) | - |
-| `showup_time` | Epoch timestamp for showup. | `int8` | Yes | No | - | - |
-| `showup_interface_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `showup_using_card` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `showup_by_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`showup_by_center`, `showup_by_id` -> `center`, `id`) | - |
-| `showup_by_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`showup_by_center`, `showup_by_id` -> `center`, `id`) | - |
-| `on_waiting_list` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `STATE` | State code representing the current processing state. | `text(2147483647)` | Yes | No | - | - |
-| `cancelation_reason` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `cancelation_time` | Epoch timestamp for cancelation. | `int8` | Yes | No | - | - |
-| `cancelation_interface_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `cancelation_by_center` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`cancelation_by_center`, `cancelation_by_id` -> `center`, `id`) | - |
-| `cancelation_by_id` | Foreign key field linking this record to `persons`. | `int4` | Yes | No | [persons](persons.md) via (`cancelation_by_center`, `cancelation_by_id` -> `center`, `id`) | - |
-| `user_interface_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `reminder_message_attempted` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `no_show_up_punish_state` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `moved_up_time` | Epoch timestamp for moved up. | `int8` | Yes | No | - | - |
-| `cancelation_notified` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `print_time` | Epoch timestamp for print. | `int8` | Yes | No | - | - |
-| `finish_time` | Epoch timestamp for finish. | `int8` | Yes | No | - | - |
-| `invoice_line_center` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | Yes | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_subid` -> `center`, `id`, `subid`) | - |
-| `invoice_line_id` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | Yes | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_subid` -> `center`, `id`, `subid`) | - |
-| `invoice_line_subid` | Foreign key field linking this record to `invoice_lines_mt`. | `int4` | Yes | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_subid` -> `center`, `id`, `subid`) | - |
-| `energy_consumption_kcal` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `seat_id` | Identifier of the related seat record. | `int4` | Yes | No | - | - |
-| `owner_center` | Center part of the reference to related owner data. | `int4` | Yes | No | - | - |
-| `owner_id` | Identifier of the related owner record. | `int4` | Yes | No | - | - |
-| `seat_state` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `used_owner_privilege` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `booking_participation_type` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `reviewed_by_center` | Center part of the reference to related reviewed by data. | `int4` | Yes | No | - | - |
-| `reviewed_by_id` | Identifier of the related reviewed by record. | `int4` | Yes | No | - | - |
-| `reviewed_time` | Epoch timestamp for reviewed. | `int8` | Yes | No | - | - |
-| `last_checkin_autoshowup` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `tentative_cutoff_time` | Epoch timestamp for tentative cutoff. | `int8` | Yes | No | - | - |
-| `showup_entry_time` | Epoch timestamp for showup entry. | `int8` | Yes | No | - | - |
-| `pickup_by_center` | Center part of the reference to related pickup by data. | `int4` | Yes | No | - | - |
-| `pickup_by_id` | Identifier of the related pickup by record. | `int4` | Yes | No | - | - |
-| `dropoff_by_center` | Center part of the reference to related dropoff by data. | `int4` | Yes | No | - | - |
-| `dropoff_by_id` | Identifier of the related dropoff by record. | `int4` | Yes | No | - | - |
-| `recurring_participation_key` | Foreign key field linking this record to `recurring_participations`. | `int4` | Yes | No | [recurring_participations](recurring_participations.md) via (`recurring_participation_key` -> `id`) | - |
-| `after_sale_process` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `confirmation_process` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `configuration` | Identifier of the related participation configurations record used by this row. | `int4` | Yes | No | [participation_configurations](participation_configurations.md) via (`configuration` -> `id`) | - |
+| `creation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `creation_by_center` | Center component of the composite reference to the related creation by record. | `int4` | Yes | No | [persons](persons.md) via (`creation_by_center`, `creation_by_id` -> `center`, `id`) | - |
+| `creation_by_id` | Identifier component of the composite reference to the related creation by record. | `int4` | Yes | No | [persons](persons.md) via (`creation_by_center`, `creation_by_id` -> `center`, `id`) | - |
+| `participation_number` | Business attribute `participation_number` used by participations workflows and reporting. | `int4` | Yes | No | - | - |
+| `start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `stop_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `booking_center` | Center component of the composite reference to the related booking record. | `int4` | Yes | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
+| `booking_id` | Identifier component of the composite reference to the related booking record. | `int4` | Yes | No | [bookings](bookings.md) via (`booking_center`, `booking_id` -> `center`, `id`) | - |
+| `participant_center` | Center component of the composite reference to the related participant record. | `int4` | Yes | No | [persons](persons.md) via (`participant_center`, `participant_id` -> `center`, `id`) | - |
+| `participant_id` | Identifier component of the composite reference to the related participant record. | `int4` | Yes | No | [persons](persons.md) via (`participant_center`, `participant_id` -> `center`, `id`) | - |
+| `showup_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `showup_interface_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `showup_using_card` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `showup_by_center` | Center component of the composite reference to the related showup by record. | `int4` | Yes | No | [persons](persons.md) via (`showup_by_center`, `showup_by_id` -> `center`, `id`) | - |
+| `showup_by_id` | Identifier component of the composite reference to the related showup by record. | `int4` | Yes | No | [persons](persons.md) via (`showup_by_center`, `showup_by_id` -> `center`, `id`) | - |
+| `on_waiting_list` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | Yes | No | - | - |
+| `cancelation_reason` | Operational field `cancelation_reason` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `cancelation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `cancelation_interface_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `cancelation_by_center` | Center component of the composite reference to the related cancelation by record. | `int4` | Yes | No | [persons](persons.md) via (`cancelation_by_center`, `cancelation_by_id` -> `center`, `id`) | - |
+| `cancelation_by_id` | Identifier component of the composite reference to the related cancelation by record. | `int4` | Yes | No | [persons](persons.md) via (`cancelation_by_center`, `cancelation_by_id` -> `center`, `id`) | - |
+| `user_interface_type` | Classification code describing the user interface type category (for example: API, App, CLIENT, KIOSK). | `int4` | Yes | No | - | - |
+| `reminder_message_attempted` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `no_show_up_punish_state` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
+| `moved_up_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `cancelation_notified` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `print_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `finish_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `invoice_line_center` | Center component of the composite reference to the related invoice line record. | `int4` | Yes | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_subid` -> `center`, `id`, `subid`) | - |
+| `invoice_line_id` | Identifier component of the composite reference to the related invoice line record. | `int4` | Yes | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_subid` -> `center`, `id`, `subid`) | - |
+| `invoice_line_subid` | Identifier of the related invoice lines mt record used by this row. | `int4` | Yes | No | [invoice_lines_mt](invoice_lines_mt.md) via (`invoice_line_center`, `invoice_line_id`, `invoice_line_subid` -> `center`, `id`, `subid`) | - |
+| `energy_consumption_kcal` | Business attribute `energy_consumption_kcal` used by participations workflows and reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `seat_id` | Identifier for the related seat entity used by this record. | `int4` | Yes | No | - | - |
+| `owner_center` | Center component of the composite reference to the owner person. | `int4` | Yes | No | - | - |
+| `owner_id` | Identifier component of the composite reference to the owner person. | `int4` | Yes | No | - | - |
+| `seat_state` | State indicator used to control lifecycle transitions and filtering. | `text(2147483647)` | Yes | No | - | - |
+| `used_owner_privilege` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `booking_participation_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
+| `reviewed_by_center` | Center component of the composite reference to the related reviewed by record. | `int4` | Yes | No | - | - |
+| `reviewed_by_id` | Identifier component of the composite reference to the related reviewed by record. | `int4` | Yes | No | - | - |
+| `reviewed_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `last_checkin_autoshowup` | Business attribute `last_checkin_autoshowup` used by participations workflows and reporting. | `int4` | Yes | No | - | - |
+| `tentative_cutoff_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `showup_entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `pickup_by_center` | Center component of the composite reference to the related pickup by record. | `int4` | Yes | No | - | - |
+| `pickup_by_id` | Identifier component of the composite reference to the related pickup by record. | `int4` | Yes | No | - | - |
+| `dropoff_by_center` | Center component of the composite reference to the related dropoff by record. | `int4` | Yes | No | - | - |
+| `dropoff_by_id` | Identifier component of the composite reference to the related dropoff by record. | `int4` | Yes | No | - | - |
+| `recurring_participation_key` | Identifier of the related recurring participations record used by this row. | `int4` | Yes | No | [recurring_participations](recurring_participations.md) via (`recurring_participation_key` -> `id`) | - |
+| `after_sale_process` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `confirmation_process` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [bookings](bookings.md) (481 query files), [persons](persons.md) (480 query files), [centers](centers.md) (444 query files), [activity](activity.md) (396 query files), [staff_usage](staff_usage.md) (188 query files), [products](products.md) (187 query files).

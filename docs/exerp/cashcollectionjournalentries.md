@@ -6,14 +6,14 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [cashcollectioncases](cashcollectioncases.md) via (`center`, `id` -> `center`, `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [cashcollectioncases](cashcollectioncases.md) via (`center`, `id` -> `center`, `id`) | - |
-| `subid` | Primary key component used as a child/sub-record identifier. | `int4` | No | Yes | - | - |
-| `creationtime` | Numeric field used for identifiers, counters, or coded values. | `int8` | No | No | - | - |
-| `step` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `journalentry_id` | Foreign key field linking this record to `journalentries`. | `int4` | Yes | No | [journalentries](journalentries.md) via (`journalentry_id` -> `id`) | - |
-| `employee_center` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
-| `employee_id` | Foreign key field linking this record to `employees`. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [cashcollectioncases](cashcollectioncases.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [cashcollectioncases](cashcollectioncases.md) via (`center`, `id` -> `center`, `id`) | - |
+| `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
+| `creationtime` | Operational field `creationtime` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
+| `step` | Operational field `step` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `journalentry_id` | Identifier of the related journalentries record used by this row. | `int4` | Yes | No | [journalentries](journalentries.md) via (`journalentry_id` -> `id`) | - |
+| `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
+| `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
 
 # Relations
 - Commonly used with: [cashcollectioncases](cashcollectioncases.md) (9 query files), [persons](persons.md) (9 query files), [centers](centers.md) (8 query files), [account_receivables](account_receivables.md) (7 query files), [account_trans](account_trans.md) (2 query files), [ar_trans](ar_trans.md) (2 query files).

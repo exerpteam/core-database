@@ -6,11 +6,11 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `device_id` | Foreign key field linking this record to `devices`. | `int4` | Yes | No | [devices](devices.md) via (`device_id` -> `id`) | - |
-| `device_sub_id` | Identifier of the related device sub record. | `text(2147483647)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `device_id` | Identifier of the related devices record used by this row. | `int4` | Yes | No | [devices](devices.md) via (`device_id` -> `id`) | - |
+| `device_sub_id` | Identifier for the related device sub entity used by this record. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [centers](centers.md) (4 query files), [devices](devices.md) (4 query files), [clients](clients.md) (3 query files), [usage_point_resources](usage_point_resources.md) (3 query files), [usage_points](usage_points.md) (3 query files), [booking_resources](booking_resources.md) (2 query files).

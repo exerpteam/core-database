@@ -6,13 +6,13 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `server_name` | Text field containing descriptive or reference information. | `VARCHAR(128)` | No | No | - | - |
-| `task_name` | Text field containing descriptive or reference information. | `VARCHAR(128)` | No | No | - | - |
-| `timeslot_type` | Text field containing descriptive or reference information. | `VARCHAR(32)` | No | No | - | - |
-| `timeslot` | Table field used by operational and reporting workloads. | `TIMESTAMP` | No | No | - | - |
-| `timeslot_duration` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `timeslot_latency` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `timeslot_records` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
-| `timeslot_volume` | Numeric field used for identifiers, counters, or coded values. | `int8` | Yes | No | - | - |
+| `server_name` | Business attribute `server_name` used by awsdms history workflows and reporting. | `VARCHAR(128)` | No | No | - | - |
+| `task_name` | Business attribute `task_name` used by awsdms history workflows and reporting. | `VARCHAR(128)` | No | No | - | - |
+| `timeslot_type` | Type code defining the business category used for workflow and reporting logic. | `VARCHAR(32)` | No | No | - | - |
+| `timeslot` | Business attribute `timeslot` used by awsdms history workflows and reporting. | `TIMESTAMP` | No | No | - | - |
+| `timeslot_duration` | Business attribute `timeslot_duration` used by awsdms history workflows and reporting. | `int8` | Yes | No | - | - |
+| `timeslot_latency` | Business attribute `timeslot_latency` used by awsdms history workflows and reporting. | `int8` | Yes | No | - | - |
+| `timeslot_records` | Business attribute `timeslot_records` used by awsdms history workflows and reporting. | `int8` | Yes | No | - | - |
+| `timeslot_volume` | Business attribute `timeslot_volume` used by awsdms history workflows and reporting. | `int8` | Yes | No | - | - |
 
 # Relations

@@ -6,10 +6,10 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
-| `max_minutes` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `instructor_count` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
+| `max_minutes` | Business attribute `max_minutes` used by lease products workflows and reporting. | `int4` | No | No | - | - |
+| `instructor_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [products](products.md).

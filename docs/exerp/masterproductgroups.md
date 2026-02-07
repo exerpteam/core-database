@@ -6,12 +6,12 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `managerrole` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`managerrole` -> `id`) | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `showinsale` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `converted_id` | Identifier of the related converted record. | `int4` | Yes | No | - | - |
+| `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
+| `globalid` | Operational field `globalid` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `managerrole` | Identifier of the related roles record used by this row. | `int4` | Yes | No | [roles](roles.md) via (`managerrole` -> `id`) | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `showinsale` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `converted_id` | Identifier for the related converted entity used by this record. | `int4` | Yes | No | - | - |
 
 # Relations
 - FK-linked tables: outgoing FK to [roles](roles.md); incoming FK from [masterproductregister](masterproductregister.md).

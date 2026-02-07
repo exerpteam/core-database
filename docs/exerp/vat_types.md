@@ -6,15 +6,15 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - |
-| `accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - |
-| `rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `orig_rate` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `globalid` | Operational field `globalid` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `accountcenter` | Center component of the composite reference to the related account record. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - |
+| `accountid` | Identifier component of the composite reference to the related account record. | `int4` | Yes | No | [accounts](accounts.md) via (`accountcenter`, `accountid` -> `center`, `id`) | - |
+| `rate` | Operational field `rate` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | No | No | - | - |
+| `orig_rate` | Business attribute `orig_rate` used by vat types workflows and reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 
 # Relations
 - Commonly used with: [accounts](accounts.md) (95 query files), [persons](persons.md) (85 query files), [centers](centers.md) (82 query files), [products](products.md) (65 query files), [account_trans](account_trans.md) (59 query files), [invoices](invoices.md) (59 query files).

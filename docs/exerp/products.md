@@ -6,52 +6,52 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `center` | Primary key component that scopes the record to a center. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
-| `id` | Primary key component that uniquely identifies the record within the center scope. | `int4` | No | Yes | - | - |
-| `blocked` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `ptype` | Numeric field used for identifiers, counters, or coded values. | `int4` | No | No | - | - |
-| `name` | Text field containing descriptive or reference information. | `text(2147483647)` | No | No | - | - |
-| `coment` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `external_id` | External/business identifier used in integrations and exports. | `text(2147483647)` | Yes | No | - | - |
-| `income_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - |
-| `income_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - |
-| `expense_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - |
-| `expense_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - |
-| `refund_accountcenter` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - |
-| `refund_accountid` | Foreign key field linking this record to `accounts`. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - |
-| `price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | No | No | - | - |
-| `min_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `cost_price` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `requiredrole` | Foreign key field linking this record to `roles`. | `int4` | Yes | No | [roles](roles.md) via (`requiredrole` -> `id`) | - |
-| `globalid` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `max_buy_qty` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `max_buy_qty_period` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `max_buy_qty_period_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `needs_privilege` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `show_in_sale` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `returnable` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `show_on_web` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `show_on_mobile_api` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `primary_product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | Yes | No | [product_group](product_group.md) via (`primary_product_group_id` -> `id`) | - |
-| `product_account_config_id` | Foreign key field linking this record to `product_account_configurations`. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
-| `override_price_and_text_role` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `ipc_available` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `last_modified` | Epoch timestamp for the latest update on the row. | `int8` | Yes | No | - | - |
-| `restriction_type` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `last_recount_date` | Date for last recount. | `int8` | Yes | No | - | - |
-| `mapi_selling_points` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `mapi_rank` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `mapi_description` | Text field containing descriptive or reference information. | `text(2147483647)` | Yes | No | - | - |
-| `sales_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sales_units` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `sold_outside_home_center` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `period_commission` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `print_qr_on_receipt` | Boolean flag used in business rules and filtering logic. | `bool` | No | No | - | - |
-| `single_use` | Boolean flag used in business rules and filtering logic. | `bool` | Yes | No | - | - |
-| `assigned_staff_group` | Numeric field used for identifiers, counters, or coded values. | `int4` | Yes | No | - | - |
-| `flat_rate_commission` | Numeric field used for identifiers, counters, or coded values. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `webname` | Text field containing descriptive or reference information. | `VARCHAR(1024)` | Yes | No | - | - |
-| `commissionable` | Text field containing descriptive or reference information. | `VARCHAR(20)` | No | No | - | - |
+| `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
+| `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
+| `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
+| `ptype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
+| `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
+| `income_accountcenter` | Center component of the composite reference to the related income account record. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - |
+| `income_accountid` | Identifier component of the composite reference to the related income account record. | `int4` | Yes | No | [accounts](accounts.md) via (`income_accountcenter`, `income_accountid` -> `center`, `id`) | - |
+| `expense_accountcenter` | Center component of the composite reference to the related expense account record. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - |
+| `expense_accountid` | Identifier component of the composite reference to the related expense account record. | `int4` | Yes | No | [accounts](accounts.md) via (`expense_accountcenter`, `expense_accountid` -> `center`, `id`) | - |
+| `refund_accountcenter` | Center component of the composite reference to the related refund account record. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - |
+| `refund_accountid` | Identifier component of the composite reference to the related refund account record. | `int4` | Yes | No | [accounts](accounts.md) via (`refund_accountcenter`, `refund_accountid` -> `center`, `id`) | - |
+| `price` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
+| `min_price` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `cost_price` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `requiredrole` | Identifier of the related roles record used by this row. | `int4` | Yes | No | [roles](roles.md) via (`requiredrole` -> `id`) | - |
+| `globalid` | Operational field `globalid` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `max_buy_qty` | Business attribute `max_buy_qty` used by products workflows and reporting. | `int4` | Yes | No | - | - |
+| `max_buy_qty_period` | Business attribute `max_buy_qty_period` used by products workflows and reporting. | `int4` | Yes | No | - | - |
+| `max_buy_qty_period_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `needs_privilege` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `show_in_sale` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `returnable` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `show_on_web` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `show_on_mobile_api` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `primary_product_group_id` | Identifier of the related product group record used by this row. | `int4` | Yes | No | [product_group](product_group.md) via (`primary_product_group_id` -> `id`) | - |
+| `product_account_config_id` | Identifier of the related product account configurations record used by this row. | `int4` | Yes | No | [product_account_configurations](product_account_configurations.md) via (`product_account_config_id` -> `id`) | - |
+| `override_price_and_text_role` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `ipc_available` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
+| `restriction_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `last_recount_date` | Business date used for scheduling, validity, or reporting cutoffs. | `int8` | Yes | No | - | - |
+| `mapi_selling_points` | Business attribute `mapi_selling_points` used by products workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `mapi_rank` | Business attribute `mapi_rank` used by products workflows and reporting. | `int4` | Yes | No | - | - |
+| `mapi_description` | Business attribute `mapi_description` used by products workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `sales_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `sales_units` | Operational field `sales_units` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
+| `sold_outside_home_center` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `period_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
+| `print_qr_on_receipt` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
+| `single_use` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
+| `assigned_staff_group` | Reference component identifying the staff member assigned to handle the record. | `int4` | Yes | No | - | - |
+| `flat_rate_commission` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
+| `webname` | Business attribute `webname` used by products workflows and reporting. | `VARCHAR(1024)` | Yes | No | - | - |
+| `commissionable` | Monetary value used in financial calculation, settlement, or reporting. | `VARCHAR(20)` | No | No | - | - |
 
 # Relations
 - Commonly used with: [persons](persons.md) (2203 query files), [centers](centers.md) (1880 query files), [subscriptions](subscriptions.md) (1846 query files), [subscriptiontypes](subscriptiontypes.md) (1105 query files), [person_ext_attrs](person_ext_attrs.md) (924 query files), [product_group](product_group.md) (828 query files).

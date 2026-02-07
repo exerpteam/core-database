@@ -6,9 +6,9 @@ A table with the following structure:
 
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
-| `product_center` | Foreign key field linking this record to `products`. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
-| `product_id` | Foreign key field linking this record to `products`. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
-| `product_group_id` | Foreign key field linking this record to `product_group`. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - |
+| `product_center` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
+| `product_group_id` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | [product_group](product_group.md) via (`product_group_id` -> `id`) | - |
 
 # Relations
 - Commonly used with: [products](products.md) (706 query files), [persons](persons.md) (623 query files), [centers](centers.md) (608 query files), [subscriptions](subscriptions.md) (585 query files), [product_group](product_group.md) (436 query files), [subscriptiontypes](subscriptiontypes.md) (421 query files).
