@@ -9,7 +9,7 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [payment_accounts](payment_accounts.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [payment_accounts](payment_accounts.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [payment_agreements_state](../master%20tables/payment_agreements_state.md) |
 | `active` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
 | `clearinghouse` | Identifier of the related clearinghouse creditors record used by this row. | `int4` | Yes | No | [clearinghouse_creditors](clearinghouse_creditors.md) via (`clearinghouse`, `creditor_id` -> `clearinghouse`, `creditor_id`) | - |
@@ -58,9 +58,9 @@ A table with the following structure:
 | `bank_account_number_hash` | Operational counter/limit used for processing control and performance monitoring. | `text(2147483647)` | Yes | No | - | - |
 | `bank_reg_accno_search_hash` | Business attribute `bank_reg_accno_search_hash` used by payment agreements workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `bank_accno_search_hash` | Business attribute `bank_accno_search_hash` used by payment agreements workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
-| `agreement_completion_method` | Business attribute `agreement_completion_method` used by payment agreements workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
+| `agreement_completion_method` | Business attribute `agreement_completion_method` used by payment agreements workflows and reporting. | `text(2147483647)` | Yes | No | - | [payment_agreements_agreement_completion_method](../master%20tables/payment_agreements_agreement_completion_method.md) |
 | `use_electronic_invoicing` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
-| `credit_card_type` | Classification code describing the credit card type category (for example: AmericanExpress, Dankort, DinersClub, JcB). | `int4` | Yes | No | - | - |
+| `credit_card_type` | Classification code describing the credit card type category (for example: AmericanExpress, Dankort, DinersClub, JcB). | `int4` | Yes | No | - | [payment_agreements_credit_card_type](../master%20tables/payment_agreements_credit_card_type.md) |
 | `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 | `enable_card_on_file` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `VARCHAR(100)` | Yes | No | - | - |

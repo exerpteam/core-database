@@ -11,7 +11,7 @@ A table with the following structure:
 | `periodcenter` | Center component of the composite reference to the related period record. | `int4` | Yes | No | - | - |
 | `periodid` | Identifier component of the composite reference to the related period record. | `int4` | Yes | No | - | - |
 | `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
-| `atype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `atype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [accounts_atype](../master%20tables/accounts_atype.md) |
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
 | `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 | `account_vat_type_group_id` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [account_vat_type_group](account_vat_type_group.md) via (`account_vat_type_group_id` -> `id`) |

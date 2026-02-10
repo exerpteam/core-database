@@ -8,7 +8,7 @@ A table with the following structure:
 | --- | --- | --- | --- | --- | --- | --- |
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [gift_cards_state](../master%20tables/gift_cards_state.md) |
 | `amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
 | `product_center` | Center component of the composite reference to the related product record. | `int4` | Yes | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |
 | `product_id` | Identifier component of the composite reference to the related product record. | `int4` | Yes | No | [products](products.md) via (`product_center`, `product_id` -> `center`, `id`) | - |

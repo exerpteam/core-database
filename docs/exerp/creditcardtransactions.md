@@ -10,7 +10,7 @@ A table with the following structure:
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
 | `transtime` | Operational field `transtime` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
 | `account_number` | Operational counter/limit used for processing control and performance monitoring. | `text(2147483647)` | Yes | No | - | - |
-| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `int4` | Yes | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `int4` | Yes | No | - | [creditcardtransactions_type](../master%20tables/creditcardtransactions_type.md) |
 | `gl_trans_center` | Center component of the composite reference to the related gl trans record. | `int4` | Yes | No | - | - |
 | `gl_trans_id` | Identifier component of the composite reference to the related gl trans record. | `int4` | Yes | No | - | - |
 | `gl_trans_subid` | Operational field `gl_trans_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
@@ -19,7 +19,7 @@ A table with the following structure:
 | `expiration_date` | Business date used for scheduling, validity, or reporting cutoffs. | `text(2147483647)` | Yes | No | - | - |
 | `authorisation_code` | Business attribute `authorisation_code` used by creditcardtransactions workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `card_swiped` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
-| `transaction_state` | Business classification code used in reporting transformations (for example: AUTHORIZED, CAPTURED, ERROR, FAILED). | `int4` | Yes | No | - | - |
+| `transaction_state` | Business classification code used in reporting transformations (for example: AUTHORIZED, CAPTURED, ERROR, FAILED). | `int4` | Yes | No | - | [creditcardtransactions_transaction_state](../master%20tables/creditcardtransactions_transaction_state.md) |
 | `METHOD` | Operational field `METHOD` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
 | `return_code` | Business attribute `return_code` used by creditcardtransactions workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `return_code_details` | Business attribute `return_code_details` used by creditcardtransactions workflows and reporting. | `text(2147483647)` | Yes | No | - | - |

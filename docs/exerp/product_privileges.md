@@ -14,7 +14,7 @@ A table with the following structure:
 | `price_modification_name` | Monetary value used in financial calculation, settlement, or reporting. | `text(2147483647)` | Yes | No | - | - |
 | `price_modification_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `price_modification_rounding` | Monetary value used in financial calculation, settlement, or reporting. | `text(2147483647)` | Yes | No | - | - |
-| `ref_type` | Classification code describing the ref type category (for example: PERSON). | `text(2147483647)` | No | No | - | - |
+| `ref_type` | Classification code describing the ref type category (for example: PERSON). | `text(2147483647)` | No | No | - | [product_privileges_ref_type](../master%20tables/product_privileges_ref_type.md) |
 | `ref_globalid` | Operational field `ref_globalid` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `ref_center` | Center component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
 | `ref_id` | Identifier component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |

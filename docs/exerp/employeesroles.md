@@ -10,7 +10,7 @@ A table with the following structure:
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [employees](employees.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
 | `roleid` | Identifier of the related roles record used by this row. | `int4` | No | No | [roles](roles.md) via (`roleid` -> `id`) | - |
-| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | [employeesroles_scope_type](../master%20tables/employeesroles_scope_type.md) |
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
 
 # Relations

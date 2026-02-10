@@ -21,7 +21,7 @@ A table with the following structure:
 | `zipcode` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
 | `latitude` | Operational field `latitude` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `longitude` | Operational field `longitude` used in query filtering and reporting transformations. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `center_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `center_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [centers_center_type](../master%20tables/centers_center_type.md) |
 | `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 | `city` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
 | `org_code2` | Operational field `org_code2` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |

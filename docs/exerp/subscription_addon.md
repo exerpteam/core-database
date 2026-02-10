@@ -23,7 +23,7 @@ A table with the following structure:
 | `individual_price_per_unit` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `binding_end_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
 | `sales_center_id` | Identifier for the related sales center entity used by this record. | `int4` | Yes | No | - | - |
-| `sales_interface` | Business attribute `sales_interface` used by subscription addon workflows and reporting. | `int4` | Yes | No | - | - |
+| `sales_interface` | Business attribute `sales_interface` used by subscription addon workflows and reporting. | `int4` | Yes | No | - | [subscription_addon_sales_interface](../master%20tables/subscription_addon_sales_interface.md) |
 | `period_commission` | Monetary value used in financial calculation, settlement, or reporting. | `int4` | Yes | No | - | - |
 | `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 

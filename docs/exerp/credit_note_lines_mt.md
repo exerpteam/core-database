@@ -22,10 +22,10 @@ A table with the following structure:
 | `quantity` | Operational field `quantity` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
 | `text` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
 | `credit_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
-| `canceltype` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `canceltype` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [credit_note_lines_mt_canceltype](../master%20tables/credit_note_lines_mt_canceltype.md) |
 | `total_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `product_cost` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `reason` | Operational field `reason` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `reason` | Operational field `reason` used in query filtering and reporting transformations. | `int4` | No | No | - | [credit_note_lines_mt_reason](../master%20tables/credit_note_lines_mt_reason.md) |
 | `installment_plan_id` | Identifier of the related installment plans record used by this row. | `int4` | Yes | No | [installment_plans](installment_plans.md) via (`installment_plan_id` -> `id`) | - |
 | `cancel_reason` | Business attribute `cancel_reason` used by credit note lines mt workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `rebooking_acc_trans_center` | Center component of the composite reference to the related rebooking acc trans record. | `int4` | Yes | No | - | - |

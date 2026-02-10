@@ -9,8 +9,8 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
 | `blacklisted` | Operational field `blacklisted` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
-| `persontype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
-| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `int4` | No | No | - | - |
+| `persontype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [persons_persontype](../master%20tables/persons_persontype.md) |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `int4` | No | No | - | [persons_status](../master%20tables/persons_status.md) |
 | `firstname` | Operational field `firstname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `middlename` | Operational field `middlename` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `lastname` | Operational field `lastname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
@@ -23,7 +23,7 @@ A table with the following structure:
 | `zipcode` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
 | `city` | Identifier of the related zipcodes record used by this row. | `text(2147483647)` | Yes | No | [zipcodes](zipcodes.md) via (`country`, `zipcode`, `city` -> `country`, `zipcode`, `city`) | - |
 | `birthdate` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
-| `sex` | Operational field `sex` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
+| `sex` | Operational field `sex` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | [persons_sex](../master%20tables/persons_sex.md) |
 | `pincode` | Operational field `pincode` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `password_hash` | Business attribute `password_hash` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `co_name` | Business attribute `co_name` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
@@ -41,7 +41,7 @@ A table with the following structure:
 | `suspension_external_note` | Business attribute `suspension_external_note` used by persons workflows and reporting. | `int4` | Yes | No | - | - |
 | `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 | `prefer_invoice_by_email` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
-| `member_status` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
+| `member_status` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | [persons_member_status](../master%20tables/persons_member_status.md) |
 | `member_status_context` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
 | `password_reset_token` | Business attribute `password_reset_token` used by persons workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `password_reset_token_exp` | Business attribute `password_reset_token_exp` used by persons workflows and reporting. | `int8` | Yes | No | - | - |

@@ -8,7 +8,7 @@ A table with the following structure:
 | --- | --- | --- | --- | --- | --- | --- |
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | - | [centers](centers.md) via (`center` -> `id`) |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
-| `ar_type` | Classification code describing the ar type category (for example: 515005, 515030, CASH, CASH ACCOUNT). | `int4` | No | No | - | - |
+| `ar_type` | Classification code describing the ar type category (for example: 515005, 515030, CASH, CASH ACCOUNT). | `int4` | No | No | - | [account_receivables_ar_type](../master%20tables/account_receivables_ar_type.md) |
 | `employeecenter` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
 | `employeeid` | Identifier component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
 | `customercenter` | Center component of the composite reference to the related customer record. | `int4` | No | No | [persons](persons.md) via (`customercenter`, `customerid` -> `center`, `id`) | - |

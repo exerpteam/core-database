@@ -22,7 +22,7 @@ A table with the following structure:
 | `payreq_spec_id` | Identifier component of the composite reference to the related payreq spec record. | `int4` | Yes | No | [payment_request_specifications](payment_request_specifications.md) via (`payreq_spec_center`, `payreq_spec_id`, `payreq_spec_subid` -> `center`, `id`, `subid`) | - |
 | `payreq_spec_subid` | Identifier of the related payment request specifications record used by this row. | `int4` | Yes | No | [payment_request_specifications](payment_request_specifications.md) via (`payreq_spec_center`, `payreq_spec_id`, `payreq_spec_subid` -> `center`, `id`, `subid`) | - |
 | `collected` | Operational field `collected` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
-| `ref_type` | Classification code describing the ref type category (for example: PERSON). | `text(2147483647)` | Yes | No | - | - |
+| `ref_type` | Classification code describing the ref type category (for example: PERSON). | `text(2147483647)` | Yes | No | - | [ar_trans_ref_type](../master%20tables/ar_trans_ref_type.md) |
 | `ref_center` | Center component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
 | `ref_id` | Identifier component of the composite reference to the related ref record. | `int4` | Yes | No | - | - |
 | `ref_subid` | Operational field `ref_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |

@@ -23,7 +23,7 @@ A table with the following structure:
 | `total_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `sales_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
 | `remove_from_inventory` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
-| `reason` | Operational field `reason` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
+| `reason` | Operational field `reason` used in query filtering and reporting transformations. | `int4` | No | No | - | [invoice_lines_mt_reason](../master%20tables/invoice_lines_mt_reason.md) |
 | `sponsor_invoice_subid` | Operational field `sponsor_invoice_subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
 | `installment_plan_id` | Identifier of the related installment plans record used by this row. | `int4` | Yes | No | [installment_plans](installment_plans.md) via (`installment_plan_id` -> `id`) | - |
 | `net_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |

@@ -23,10 +23,10 @@ A table with the following structure:
 | `ext_ref` | Business attribute `ext_ref` used by cashcollectioncases workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `startdate` | Operational field `startdate` used in query filtering and reporting transformations. | `DATE` | No | No | - | - |
 | `currentstep` | Operational field `currentstep` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
-| `currentstep_type` | Classification code describing the currentstep type category (for example: BLOCK, Blocked, CASHCOLLECTION, CLOSE). | `int4` | No | No | - | - |
+| `currentstep_type` | Classification code describing the currentstep type category (for example: BLOCK, Blocked, CASHCOLLECTION, CLOSE). | `int4` | No | No | - | [cashcollectioncases_currentstep_type](../master%20tables/cashcollectioncases_currentstep_type.md) |
 | `currentstep_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
 | `nextstep_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | Yes | No | - | - |
-| `nextstep_type` | Classification code describing the nextstep type category (for example: BLOCK, CASHCOLLECTION, CLOSE, MESSAGE). | `int4` | Yes | No | - | - |
+| `nextstep_type` | Classification code describing the nextstep type category (for example: BLOCK, CASHCOLLECTION, CLOSE, MESSAGE). | `int4` | Yes | No | - | [cashcollectioncases_nextstep_type](../master%20tables/cashcollectioncases_nextstep_type.md) |
 | `settings` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 | `missingpayment` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `below_minimum_age` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |

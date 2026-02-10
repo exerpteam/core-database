@@ -9,15 +9,15 @@ A table with the following structure:
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
 | `owner_center` | Center component of the composite reference to the owner person. | `int4` | No | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |
 | `owner_id` | Identifier component of the composite reference to the owner person. | `int4` | No | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |
-| `owner_type` | Classification code describing the owner type category (for example: CORPORATE, FAMILY, FRIEND, ONEMANCORPORATE). | `int4` | No | No | - | - |
+| `owner_type` | Classification code describing the owner type category (for example: CORPORATE, FAMILY, FRIEND, ONEMANCORPORATE). | `int4` | No | No | - | [subscription_sales_owner_type](../master%20tables/subscription_sales_owner_type.md) |
 | `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
 | `employee_id` | Identifier component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |
 | `company_center` | Center component of the composite reference to the related company record. | `int4` | Yes | No | [persons](persons.md) via (`company_center`, `company_id` -> `center`, `id`) | - |
 | `company_id` | Identifier component of the composite reference to the related company record. | `int4` | Yes | No | [persons](persons.md) via (`company_center`, `company_id` -> `center`, `id`) | - |
 | `subscription_type_center` | Center component of the composite reference to the related subscription type record. | `int4` | No | No | [products](products.md) via (`subscription_type_center`, `subscription_type_id` -> `center`, `id`)<br>[subscriptiontypes](subscriptiontypes.md) via (`subscription_type_center`, `subscription_type_id` -> `center`, `id`) | - |
 | `subscription_type_id` | Identifier component of the composite reference to the related subscription type record. | `int4` | No | No | [products](products.md) via (`subscription_type_center`, `subscription_type_id` -> `center`, `id`)<br>[subscriptiontypes](subscriptiontypes.md) via (`subscription_type_center`, `subscription_type_id` -> `center`, `id`) | - |
-| `subscription_type_type` | Classification code describing the subscription type type category (for example: CASH, Cash, EFT, Prospect). | `int4` | No | No | - | - |
-| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `int4` | No | No | - | - |
+| `subscription_type_type` | Classification code describing the subscription type type category (for example: CASH, Cash, EFT, Prospect). | `int4` | No | No | - | [subscription_sales_subscription_type_type](../master%20tables/subscription_sales_subscription_type_type.md) |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `int4` | No | No | - | [subscription_sales_type](../master%20tables/subscription_sales_type.md) |
 | `price_new` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `price_new_sponsored` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `price_new_discount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |

@@ -10,7 +10,7 @@ A table with the following structure:
 | `person_center` | Center component of the composite reference to the related person. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
 | `person_id` | Identifier component of the composite reference to the related person. | `int4` | Yes | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
 | `person_subid` | Business attribute `person_subid` used by journalentries workflows and reporting. | `int4` | Yes | No | - | - |
-| `jetype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `jetype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [journalentries_jetype](../master%20tables/journalentries_jetype.md) |
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
 | `creatorcenter` | Center component of the composite reference to the creator staff member. | `int4` | Yes | No | - | - |
 | `creatorid` | Identifier component of the composite reference to the creator staff member. | `int4` | Yes | No | - | - |

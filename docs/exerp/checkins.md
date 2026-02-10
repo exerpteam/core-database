@@ -15,7 +15,7 @@ A table with the following structure:
 | `checked_out` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 | `card_checked_in` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 | `checkin_result` | Operational field `checkin_result` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
-| `identity_method` | Business attribute `identity_method` used by checkins workflows and reporting. | `int4` | Yes | No | - | - |
+| `identity_method` | Business attribute `identity_method` used by checkins workflows and reporting. | `int4` | Yes | No | - | [checkins_identity_method](../master%20tables/checkins_identity_method.md) |
 | `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 | `origin` | Business attribute `origin` used by checkins workflows and reporting. | `int4` | Yes | No | - | - |
 | `checkout_reminder_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |

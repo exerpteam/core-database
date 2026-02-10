@@ -7,7 +7,7 @@ A table with the following structure:
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
-| `rgtype` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
+| `rgtype` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | [privilege_receiver_groups_rgtype](../master%20tables/privilege_receiver_groups_rgtype.md) |
 | `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
 | `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |

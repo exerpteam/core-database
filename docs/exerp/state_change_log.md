@@ -10,9 +10,9 @@ A table with the following structure:
 | `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
 | `id` | Identifier for this record. | `int4` | No | No | - | - |
 | `subid` | Operational field `subid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
-| `entry_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
-| `stateid` | State indicator used to control lifecycle transitions and filtering. | `int4` | No | No | - | - |
-| `sub_state` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AWAITING ACTIVATION, AWAITING_ACTIVATION, AwaitingActivation). | `int4` | Yes | No | - | - |
+| `entry_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [state_change_log_entry_type](../master%20tables/state_change_log_entry_type.md) |
+| `stateid` | State indicator used to control lifecycle transitions and filtering. | `int4` | No | No | - | [state_change_log_stateid](../master%20tables/state_change_log_stateid.md) |
+| `sub_state` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AWAITING ACTIVATION, AWAITING_ACTIVATION, AwaitingActivation). | `int4` | Yes | No | - | [state_change_log_sub_state](../master%20tables/state_change_log_sub_state.md) |
 | `entry_start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
 | `entry_end_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 | `book_start_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |

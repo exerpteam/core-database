@@ -20,7 +20,7 @@ A table with the following structure:
 | `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 | `sex_restriction` | Business attribute `sex_restriction` used by booking resources workflows and reporting. | `int4` | No | No | - | - |
-| `age_restriction_type` | Classification code describing the age restriction type category (for example: BETWEEN, LESS THAN, LESS THEN, MORE THAN). | `int4` | No | No | - | - |
+| `age_restriction_type` | Classification code describing the age restriction type category (for example: BETWEEN, LESS THAN, LESS THEN, MORE THAN). | `int4` | No | No | - | [booking_resources_age_restriction_type](../master%20tables/booking_resources_age_restriction_type.md) |
 | `age_restriction_value` | Business attribute `age_restriction_value` used by booking resources workflows and reporting. | `int4` | No | No | - | - |
 | `ext_attr_config` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 | `availability_staff` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |

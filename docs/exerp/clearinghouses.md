@@ -11,7 +11,7 @@ A table with the following structure:
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
 | `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
 | `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
-| `ctype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `ctype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [clearinghouses_ctype](../master%20tables/clearinghouses_ctype.md) |
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
 | `datasupplier_id` | Identifier for the related datasupplier entity used by this record. | `text(2147483647)` | Yes | No | - | - |
 | `serial` | Business attribute `serial` used by clearinghouses workflows and reporting. | `int4` | No | No | - | - |

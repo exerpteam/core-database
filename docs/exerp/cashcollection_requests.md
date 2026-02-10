@@ -9,7 +9,7 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [cashcollectioncases](cashcollectioncases.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [cashcollectioncases](cashcollectioncases.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [cashcollection_requests_state](../master%20tables/cashcollection_requests_state.md) |
 | `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `req_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
 | `req_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |

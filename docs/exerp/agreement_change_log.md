@@ -11,7 +11,7 @@ A table with the following structure:
 | `agreement_center` | Center component of the composite reference to the related agreement record. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
 | `agreement_id` | Identifier component of the composite reference to the related agreement record. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
 | `agreement_subid` | Identifier of the related payment agreements record used by this row. | `int4` | Yes | No | [payment_agreements](payment_agreements.md) via (`agreement_center`, `agreement_id`, `agreement_subid` -> `center`, `id`, `subid`) | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [agreement_change_log_state](../master%20tables/agreement_change_log_state.md) |
 | `text` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
 | `code` | Operational field `code` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |

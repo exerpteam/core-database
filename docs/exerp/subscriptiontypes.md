@@ -10,7 +10,7 @@ A table with the following structure:
 | `change_requiredrole` | Business attribute `change_requiredrole` used by subscriptiontypes workflows and reporting. | `int4` | Yes | No | - | - |
 | `reactivation_allowed` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [products](products.md) via (`center`, `id` -> `center`, `id`) | - |
-| `st_type` | Classification code describing the st type category (for example: 3. Pro-rata (Add-ons), 3. Pro-rated dues (Add-on Services), 6. Cash Add-on Services, 6. Cash Add-ons). | `int4` | No | No | - | - |
+| `st_type` | Classification code describing the st type category (for example: 3. Pro-rata (Add-ons), 3. Pro-rated dues (Add-on Services), 6. Cash Add-on Services, 6. Cash Add-ons). | `int4` | No | No | - | [subscriptiontypes_st_type](../master%20tables/subscriptiontypes_st_type.md) |
 | `use_individual_price` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `productnew_center` | Center component of the composite reference to the related productnew record. | `int4` | Yes | No | [products](products.md) via (`productnew_center`, `productnew_id` -> `center`, `id`) | - |
 | `productnew_id` | Identifier component of the composite reference to the related productnew record. | `int4` | Yes | No | [products](products.md) via (`productnew_center`, `productnew_id` -> `center`, `id`) | - |
@@ -22,7 +22,7 @@ A table with the following structure:
 | `bindingperiodcount` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
 | `periodunit` | Operational field `periodunit` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
 | `periodcount` | Operational counter/limit used for processing control and performance monitoring. | `int4` | No | No | - | - |
-| `age_restriction_type` | Classification code describing the age restriction type category (for example: BETWEEN, LESS THAN, LESS THEN, MORE THAN). | `int4` | No | No | - | - |
+| `age_restriction_type` | Classification code describing the age restriction type category (for example: BETWEEN, LESS THAN, LESS THEN, MORE THAN). | `int4` | No | No | - | [subscriptiontypes_age_restriction_type](../master%20tables/subscriptiontypes_age_restriction_type.md) |
 | `age_restriction_value` | Business attribute `age_restriction_value` used by subscriptiontypes workflows and reporting. | `int4` | No | No | - | - |
 | `sex_restriction` | Business attribute `sex_restriction` used by subscriptiontypes workflows and reporting. | `int4` | No | No | - | - |
 | `freezelimit` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |

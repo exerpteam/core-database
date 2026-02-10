@@ -9,7 +9,7 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [accountingperiods](accountingperiods.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [accountingperiods](accountingperiods.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `trans_type` | Classification code describing the trans type category (for example: 0, AR, Account Payable, Account Receivable). | `int4` | No | No | - | - |
+| `trans_type` | Classification code describing the trans type category (for example: 0, AR, Account Payable, Account Receivable). | `int4` | No | No | - | [account_trans_trans_type](../master%20tables/account_trans_trans_type.md) |
 | `trans_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
 | `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
 | `amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
@@ -30,7 +30,7 @@ A table with the following structure:
 | `aggregated_transaction_id` | Identifier component of the composite reference to the related aggregated transaction record. | `int4` | Yes | No | [aggregated_transactions](aggregated_transactions.md) via (`aggregated_transaction_center`, `aggregated_transaction_id` -> `center`, `id`) | - |
 | `vat_type_center` | Center component of the composite reference to the related vat type record. | `int4` | Yes | No | [vat_types](vat_types.md) via (`vat_type_center`, `vat_type_id` -> `center`, `id`) | - |
 | `vat_type_id` | Identifier component of the composite reference to the related vat type record. | `int4` | Yes | No | [vat_types](vat_types.md) via (`vat_type_center`, `vat_type_id` -> `center`, `id`) | - |
-| `info_type` | Classification code describing the info type category (for example: API, AR, ARReason, CashRegister). | `int4` | No | No | - | - |
+| `info_type` | Classification code describing the info type category (for example: API, AR, ARReason, CashRegister). | `int4` | No | No | - | [account_trans_info_type](../master%20tables/account_trans_info_type.md) |
 | `info` | Operational field `info` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `debit_transaction_center` | Center component of the composite reference to the related debit transaction record. | `int4` | Yes | No | - | - |
 | `debit_transaction_id` | Identifier component of the composite reference to the related debit transaction record. | `int4` | Yes | No | - | - |

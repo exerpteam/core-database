@@ -21,18 +21,18 @@ A table with the following structure:
 | `participant_center` | Center component of the composite reference to the related participant record. | `int4` | Yes | No | [persons](persons.md) via (`participant_center`, `participant_id` -> `center`, `id`) | - |
 | `participant_id` | Identifier component of the composite reference to the related participant record. | `int4` | Yes | No | [persons](persons.md) via (`participant_center`, `participant_id` -> `center`, `id`) | - |
 | `showup_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
-| `showup_interface_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `showup_interface_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [participations_showup_interface_type](../master%20tables/participations_showup_interface_type.md) |
 | `showup_using_card` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 | `showup_by_center` | Center component of the composite reference to the related showup by record. | `int4` | Yes | No | [persons](persons.md) via (`showup_by_center`, `showup_by_id` -> `center`, `id`) | - |
 | `showup_by_id` | Identifier component of the composite reference to the related showup by record. | `int4` | Yes | No | [persons](persons.md) via (`showup_by_center`, `showup_by_id` -> `center`, `id`) | - |
 | `on_waiting_list` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | Yes | No | - | - |
-| `cancelation_reason` | Operational field `cancelation_reason` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | Yes | No | - | [participations_state](../master%20tables/participations_state.md) |
+| `cancelation_reason` | Operational field `cancelation_reason` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | [participations_cancelation_reason](../master%20tables/participations_cancelation_reason.md) |
 | `cancelation_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
-| `cancelation_interface_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `cancelation_interface_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [participations_cancelation_interface_type](../master%20tables/participations_cancelation_interface_type.md) |
 | `cancelation_by_center` | Center component of the composite reference to the related cancelation by record. | `int4` | Yes | No | [persons](persons.md) via (`cancelation_by_center`, `cancelation_by_id` -> `center`, `id`) | - |
 | `cancelation_by_id` | Identifier component of the composite reference to the related cancelation by record. | `int4` | Yes | No | [persons](persons.md) via (`cancelation_by_center`, `cancelation_by_id` -> `center`, `id`) | - |
-| `user_interface_type` | Classification code describing the user interface type category (for example: API, App, CLIENT, KIOSK). | `int4` | Yes | No | - | - |
+| `user_interface_type` | Classification code describing the user interface type category (for example: API, App, CLIENT, KIOSK). | `int4` | Yes | No | - | [participations_user_interface_type](../master%20tables/participations_user_interface_type.md) |
 | `reminder_message_attempted` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `no_show_up_punish_state` | State indicator used to control lifecycle transitions and filtering. | `int4` | Yes | No | - | - |
 | `moved_up_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |

@@ -9,7 +9,7 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [cashregisters](cashregisters.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [cashregisters](cashregisters.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `crttype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `crttype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [cashregistertransactions_crttype](../master%20tables/cashregistertransactions_crttype.md) |
 | `transtime` | Operational field `transtime` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
 | `employeecenter` | Center component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
 | `employeeid` | Identifier component of the composite reference to the assigned staff member. | `int4` | No | No | [employees](employees.md) via (`employeecenter`, `employeeid` -> `center`, `id`) | - |
@@ -33,7 +33,7 @@ A table with the following structure:
 | `customercenter` | Center component of the composite reference to the related customer record. | `int4` | Yes | No | - | - |
 | `customerid` | Identifier component of the composite reference to the related customer record. | `int4` | Yes | No | - | - |
 | `cr_action` | Business attribute `cr_action` used by cashregistertransactions workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
-| `config_payment_method_id` | Identifier for the related config payment method entity used by this record. | `int4` | Yes | No | - | - |
+| `config_payment_method_id` | Identifier for the related config payment method entity used by this record. | `int4` | Yes | No | - | [cashregistertransactions_config_payment_method_id](../master%20tables/cashregistertransactions_config_payment_method_id.md) |
 | `marker` | Business attribute `marker` used by cashregistertransactions workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `installment_plan_id` | Identifier of the related installment plans record used by this row. | `int4` | Yes | No | [installment_plans](installment_plans.md) via (`installment_plan_id` -> `id`) | - |
 

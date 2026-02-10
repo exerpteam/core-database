@@ -9,7 +9,7 @@ A table with the following structure:
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
 | `description` | Free-text content providing business context or operator notes for the record. | `text(2147483647)` | Yes | No | - | - |
-| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | [privilege_sets_scope_type](../master%20tables/privilege_sets_scope_type.md) |
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
 | `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
 | `blocked_on` | Business attribute `blocked_on` used by privilege sets workflows and reporting. | `int8` | Yes | No | - | - |

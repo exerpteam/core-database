@@ -11,7 +11,7 @@ A table with the following structure:
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
 | `deliverycode` | Business attribute `deliverycode` used by messages workflows and reporting. | `int4` | No | No | - | - |
 | `delivery_ref` | Business attribute `delivery_ref` used by messages workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
-| `deliverymethod` | Business attribute `deliverymethod` used by messages workflows and reporting. | `int4` | No | No | - | - |
+| `deliverymethod` | Business attribute `deliverymethod` used by messages workflows and reporting. | `int4` | No | No | - | [messages_deliverymethod](../master%20tables/messages_deliverymethod.md) |
 | `templatetype` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
 | `templateid` | Identifier of the related templates record used by this row. | `int4` | Yes | No | [templates](templates.md) via (`templateid` -> `id`) | - |
 | `senderid` | Identifier component of the composite reference to the related sender record. | `int4` | Yes | No | - | - |
@@ -24,7 +24,7 @@ A table with the following structure:
 | `subject` | Operational field `subject` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
 | `mimetype` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | Yes | No | - | - |
 | `mimevalue` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
-| `message_type_id` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `message_type_id` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [messages_message_type_id](../master%20tables/messages_message_type_id.md) |
 | `delivered_by_center` | Center component of the composite reference to the related delivered by record. | `int4` | Yes | No | - | - |
 | `delivered_by_id` | Identifier component of the composite reference to the related delivered by record. | `int4` | Yes | No | - | - |
 | `invoice_line_center` | Center component of the composite reference to the related invoice line record. | `int4` | Yes | No | - | - |

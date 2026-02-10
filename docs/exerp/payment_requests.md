@@ -9,8 +9,8 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [account_receivables](account_receivables.md) via (`center`, `id` -> `center`, `id`)<br>[payment_accounts](payment_accounts.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [account_receivables](account_receivables.md) via (`center`, `id` -> `center`, `id`)<br>[payment_accounts](payment_accounts.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
-| `request_type` | Classification code describing the request type category (for example: Billing, DEBT COLLECTION, Debt Collection, LEGACY). | `int4` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [payment_requests_state](../master%20tables/payment_requests_state.md) |
+| `request_type` | Classification code describing the request type category (for example: Billing, DEBT COLLECTION, Debt Collection, LEGACY). | `int4` | Yes | No | - | [payment_requests_request_type](../master%20tables/payment_requests_request_type.md) |
 | `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `full_reference` | Operational field `full_reference` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `req_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |

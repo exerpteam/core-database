@@ -9,11 +9,11 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [persons](persons.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `rtype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `rtype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [relatives_rtype](../master%20tables/relatives_rtype.md) |
 | `relativecenter` | Center component of the composite reference to the related relative record. | `int4` | No | No | - | - |
 | `relativeid` | Identifier component of the composite reference to the related relative record. | `int4` | No | No | - | - |
 | `relativesubid` | Operational field `relativesubid` used in query filtering and reporting transformations. | `int4` | Yes | No | - | - |
-| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `int4` | No | No | - | - |
+| `status` | Lifecycle state code used for process filtering and reporting (for example: 1_ACTIVE, 2_TEMPORARYINACTIVE, 3_INACTIVE, 4_LEAD). | `int4` | No | No | - | [relatives_status](../master%20tables/relatives_status.md) |
 | `expiredate` | Business attribute `expiredate` used by relatives workflows and reporting. | `DATE` | Yes | No | - | - |
 | `family_allow_card_on_file` | Business attribute `family_allow_card_on_file` used by relatives workflows and reporting. | `VARCHAR(20)` | Yes | No | - | - |
 

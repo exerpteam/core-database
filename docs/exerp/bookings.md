@@ -36,7 +36,7 @@ A table with the following structure:
 | `activity` | Identifier of the related activity record used by this row. | `int4` | Yes | No | [activity](activity.md) via (`activity` -> `id`) | - |
 | `main_booking_center` | Center component of the composite reference to the related main booking record. | `int4` | Yes | No | [bookings](bookings.md) via (`main_booking_center`, `main_booking_id` -> `center`, `id`) | - |
 | `main_booking_id` | Identifier component of the composite reference to the related main booking record. | `int4` | Yes | No | [bookings](bookings.md) via (`main_booking_center`, `main_booking_id` -> `center`, `id`) | - |
-| `recurrence_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `recurrence_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [bookings_recurrence_type](../master%20tables/bookings_recurrence_type.md) |
 | `recurrence_data` | Business attribute `recurrence_data` used by bookings workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `recurrence_end` | Business attribute `recurrence_end` used by bookings workflows and reporting. | `DATE` | Yes | No | - | - |
 | `recurrence_for` | Business attribute `recurrence_for` used by bookings workflows and reporting. | `DATE` | Yes | No | - | - |

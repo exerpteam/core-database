@@ -8,8 +8,8 @@ A table with the following structure:
 | --- | --- | --- | --- | --- | --- | --- |
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
-| `sub_state` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AWAITING ACTIVATION, AWAITING_ACTIVATION, AwaitingActivation). | `int4` | Yes | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [subscriptions_state](../master%20tables/subscriptions_state.md) |
+| `sub_state` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AWAITING ACTIVATION, AWAITING_ACTIVATION, AwaitingActivation). | `int4` | Yes | No | - | [subscriptions_sub_state](../master%20tables/subscriptions_sub_state.md) |
 | `subscriptiontype_center` | Center component of the composite reference to the subscription type. | `int4` | Yes | No | [products](products.md) via (`subscriptiontype_center`, `subscriptiontype_id` -> `center`, `id`)<br>[subscriptiontypes](subscriptiontypes.md) via (`subscriptiontype_center`, `subscriptiontype_id` -> `center`, `id`) | - |
 | `subscriptiontype_id` | Identifier component of the composite reference to the subscription type. | `int4` | Yes | No | [products](products.md) via (`subscriptiontype_center`, `subscriptiontype_id` -> `center`, `id`)<br>[subscriptiontypes](subscriptiontypes.md) via (`subscriptiontype_center`, `subscriptiontype_id` -> `center`, `id`) | - |
 | `owner_center` | Center component of the composite reference to the owner person. | `int4` | Yes | No | [persons](persons.md) via (`owner_center`, `owner_id` -> `center`, `id`) | - |

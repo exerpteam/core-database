@@ -9,8 +9,8 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [subscriptions](subscriptions.md) via (`center`, `id` -> `center`, `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | [subscriptions](subscriptions.md) via (`center`, `id` -> `center`, `id`) | - |
 | `subid` | Primary key component used to uniquely identify this record. | `int4` | No | Yes | - | - |
-| `spp_type` | Classification code describing the spp type category (for example: CONDITIONAL FREEZE, FREE DAYS, FREEZE, INITIAL PERIOD). | `int4` | No | No | - | - |
-| `spp_state` | State indicator used to control lifecycle transitions and filtering. | `int4` | No | No | - | - |
+| `spp_type` | Classification code describing the spp type category (for example: CONDITIONAL FREEZE, FREE DAYS, FREEZE, INITIAL PERIOD). | `int4` | No | No | - | [subscriptionperiodparts_spp_type](../master%20tables/subscriptionperiodparts_spp_type.md) |
+| `spp_state` | State indicator used to control lifecycle transitions and filtering. | `int4` | No | No | - | [subscriptionperiodparts_spp_state](../master%20tables/subscriptionperiodparts_spp_state.md) |
 | `period_number` | Business attribute `period_number` used by subscriptionperiodparts workflows and reporting. | `int4` | No | No | - | - |
 | `from_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |
 | `to_date` | Business date used for scheduling, validity, or reporting cutoffs. | `DATE` | No | No | - | - |

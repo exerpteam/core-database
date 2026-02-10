@@ -13,7 +13,7 @@ A table with the following structure:
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
 | `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `text(2147483647)` | No | No | - | - |
 | `availability` | Operational field `availability` used in query filtering and reporting transformations. | `VARCHAR(2000)` | Yes | No | - | - |
-| `activity_type` | Classification code describing the activity type category (for example: CAMP_PROGRAM, ChildCare, Class, General). | `int4` | No | No | - | - |
+| `activity_type` | Classification code describing the activity type category (for example: CAMP_PROGRAM, ChildCare, Class, General). | `int4` | No | No | - | [activity_activity_type](../master%20tables/activity_activity_type.md) |
 | `activity_group_id` | Identifier for the related activity group entity used by this record. | `int4` | Yes | No | - | [activity_group](activity_group.md) via (`activity_group_id` -> `id`) |
 | `colour_group_id` | Identifier for the related colour group entity used by this record. | `int4` | Yes | No | - | [colour_groups](colour_groups.md) via (`colour_group_id` -> `id`) |
 | `creation_privilege_group_id` | Identifier for the related creation privilege group entity used by this record. | `int4` | Yes | No | - | - |
@@ -43,7 +43,7 @@ A table with the following structure:
 | `headcount_manual_adjustment` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 | `available_from` | Business attribute `available_from` used by activity workflows and reporting. | `DATE` | Yes | No | - | - |
 | `available_to` | Business attribute `available_to` used by activity workflows and reporting. | `DATE` | Yes | No | - | - |
-| `course_schedule_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `course_schedule_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [activity_course_schedule_type](../master%20tables/activity_course_schedule_type.md) |
 | `print_showup_receipt` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |
 | `last_modified` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | Yes | No | - | - |
 | `allow_overlapping_bookings` | Boolean flag controlling related business behavior for this record. | `bool` | Yes | No | - | - |

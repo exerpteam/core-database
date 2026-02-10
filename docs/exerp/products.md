@@ -9,7 +9,7 @@ A table with the following structure:
 | `center` | Primary key component that defines the center scope for this record. | `int4` | No | Yes | [centers](centers.md) via (`center` -> `id`) | - |
 | `id` | Primary key component that uniquely identifies the record within its center scope. | `int4` | No | Yes | - | - |
 | `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
-| `ptype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `ptype` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [products_ptype](../master%20tables/products_ptype.md) |
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | No | No | - | - |
 | `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |

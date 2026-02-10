@@ -12,7 +12,7 @@ A table with the following structure:
 | `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
 | `cycle_type` | Type code defining the business category used for workflow and reporting logic. | `text(2147483647)` | No | No | - | - |
-| `interval_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | - |
+| `interval_type` | Type code defining the business category used for workflow and reporting logic. | `int4` | No | No | - | [payment_cycle_config_interval_type](../master%20tables/payment_cycle_config_interval_type.md) |
 | `INTERVAL` | Operational field `INTERVAL` used in query filtering and reporting transformations. | `int4` | No | No | - | - |
 | `day_in_interval` | Business attribute `day_in_interval` used by payment cycle config workflows and reporting. | `int4` | Yes | No | - | - |
 | `days_before_due` | Business attribute `days_before_due` used by payment cycle config workflows and reporting. | `int4` | No | No | - | - |

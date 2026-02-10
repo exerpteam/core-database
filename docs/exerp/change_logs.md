@@ -7,7 +7,7 @@ A table with the following structure:
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
-| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `int4` | No | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `int4` | No | No | - | [change_logs_type](../master%20tables/change_logs_type.md) |
 | `service_name` | Business attribute `service_name` used by change logs workflows and reporting. | `text(2147483647)` | No | No | - | - |
 | `entry_time` | Timestamp value (epoch milliseconds) used for event ordering and incremental extraction. | `int8` | No | No | - | - |
 | `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | - | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) |

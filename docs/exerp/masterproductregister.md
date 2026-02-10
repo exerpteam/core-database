@@ -8,7 +8,7 @@ A table with the following structure:
 | --- | --- | --- | --- | --- | --- | --- |
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
 | `definition_key` | Identifier referencing another record in the same table hierarchy. | `int4` | No | No | [masterproductregister](masterproductregister.md) via (`definition_key` -> `id`) | - |
-| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | Yes | No | - | [masterproductregister_scope_type](../master%20tables/masterproductregister_scope_type.md) |
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | Yes | No | - | - |
 | `product` | Binary payload storing structured runtime data for this record. | `bytea` | Yes | No | - | - |
 | `globalid` | Operational field `globalid` used in query filtering and reporting transformations. | `text(2147483647)` | No | No | - | - |
@@ -17,7 +17,7 @@ A table with the following structure:
 | `cached_productname` | Operational field `cached_productname` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `cached_productprice` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
 | `cached_productcostprice` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |
-| `cached_producttype` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | - |
+| `cached_producttype` | Type code defining the business category used for workflow and reporting logic. | `int4` | Yes | No | - | [masterproductregister_cached_producttype](../master%20tables/masterproductregister_cached_producttype.md) |
 | `cached_external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 | `info_text` | Business attribute `info_text` used by masterproductregister workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
 | `clearing_house_restriction` | Business attribute `clearing_house_restriction` used by masterproductregister workflows and reporting. | `int4` | No | No | - | - |

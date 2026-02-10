@@ -11,7 +11,7 @@ A table with the following structure:
 | `center` | Operational field `center` used in query filtering and reporting transformations. | `int4` | No | No | - | [centers](centers.md) via (`center` -> `id`) |
 | `TIMESTAMP` | Operational field `TIMESTAMP` used in query filtering and reporting transformations. | `int8` | No | No | - | - |
 | `card_identity` | Business attribute `card_identity` used by offline usages workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
-| `card_identity_method` | Business attribute `card_identity_method` used by offline usages workflows and reporting. | `int4` | No | No | - | - |
+| `card_identity_method` | Business attribute `card_identity_method` used by offline usages workflows and reporting. | `int4` | No | No | - | [offline_usages_card_identity_method](../master%20tables/offline_usages_card_identity_method.md) |
 | `pincode` | Operational field `pincode` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `reader_device_id` | Identifier for the related reader device entity used by this record. | `int4` | No | No | - | - |
 | `reader_device_sub_id` | Identifier for the related reader device sub entity used by this record. | `text(2147483647)` | Yes | No | - | - |

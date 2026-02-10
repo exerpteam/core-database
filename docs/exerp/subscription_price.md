@@ -14,7 +14,7 @@ A table with the following structure:
 | `subscription_id` | Identifier component of the composite reference to the related subscription record. | `int4` | No | No | [subscriptions](subscriptions.md) via (`subscription_center`, `subscription_id` -> `center`, `id`) | - |
 | `price` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | No | No | - | - |
 | `binding` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
-| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | - |
+| `type` | Classification code describing the type category (for example: AMERICAN_EXPRESS, Add, AmericanExpress, CHANGE). | `text(2147483647)` | No | No | - | [subscription_price_type](../master%20tables/subscription_price_type.md) |
 | `coment` | Operational field `coment` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `notified` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `employee_center` | Center component of the composite reference to the assigned staff member. | `int4` | Yes | No | [employees](employees.md) via (`employee_center`, `employee_id` -> `center`, `id`) | - |

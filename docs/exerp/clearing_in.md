@@ -8,7 +8,7 @@ A table with the following structure:
 | --- | --- | --- | --- | --- | --- | --- |
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
 | `clearinghouse` | Identifier of the related clearinghouses record used by this row. | `int4` | Yes | No | [clearinghouses](clearinghouses.md) via (`clearinghouse` -> `id`) | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [clearing_in_state](../master%20tables/clearing_in_state.md) |
 | `REF` | Operational field `REF` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `payment_count` | Operational counter/limit used for processing control and performance monitoring. | `int4` | Yes | No | - | - |
 | `total_amount` | Monetary value used in financial calculation, settlement, or reporting. | `NUMERIC(0,0)` | Yes | No | - | - |

@@ -7,7 +7,7 @@ A table with the following structure:
 | Column Name | Description | Data Type | Nullable | is PK | Physical FK | Logical FK |
 | --- | --- | --- | --- | --- | --- | --- |
 | `id` | Primary key identifier for this record. | `int4` | No | Yes | - | - |
-| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | - |
+| `scope_type` | Classification code describing the scope type category (for example: AREA, CENTER, GLOBAL, System). | `text(2147483647)` | No | No | - | [person_staff_groups_scope_type](../master%20tables/person_staff_groups_scope_type.md) |
 | `scope_id` | Identifier of the scoped entity selected by `scope_type`. | `int4` | No | No | - | - |
 | `person_center` | Center component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |
 | `person_id` | Identifier component of the composite reference to the related person. | `int4` | No | No | [persons](persons.md) via (`person_center`, `person_id` -> `center`, `id`) | - |

@@ -12,7 +12,7 @@ A table with the following structure:
 | `name` | Human-readable value used to identify this record in user interfaces and reports. | `text(2147483647)` | Yes | No | - | - |
 | `roleid` | Identifier of the related roles record used by this row. | `int4` | Yes | No | [roles](roles.md) via (`roleid` -> `id`) | - |
 | `terms` | Business attribute `terms` used by companyagreements workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
-| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | - |
+| `STATE` | Lifecycle state code used for process filtering and reporting (for example: ACTIVE, AGREEMENT CONFIRMED, AKTIV, AWAITING_ACTIVATION). | `int4` | No | No | - | [companyagreements_state](../master%20tables/companyagreements_state.md) |
 | `blocked` | Boolean flag indicating whether the record is blocked from normal use. | `bool` | No | No | - | - |
 | `documentation_required` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `employee_number_required` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
@@ -29,7 +29,7 @@ A table with the following structure:
 | `availability` | Operational field `availability` used in query filtering and reporting transformations. | `text(2147483647)` | Yes | No | - | - |
 | `external_id` | External business identifier used for integration and cross-system matching. | `text(2147483647)` | Yes | No | - | - |
 | `web_text` | Business attribute `web_text` used by companyagreements workflows and reporting. | `text(2147483647)` | Yes | No | - | - |
-| `family_corporate_status` | Business classification code used in reporting transformations (for example: CORPORATE_FAMILY, EMPLOYEES, EMPLOYEES_AND_CORPORATE_FAMILY). | `int4` | No | No | - | - |
+| `family_corporate_status` | Business classification code used in reporting transformations (for example: CORPORATE_FAMILY, EMPLOYEES, EMPLOYEES_AND_CORPORATE_FAMILY). | `int4` | No | No | - | [companyagreements_family_corporate_status](../master%20tables/companyagreements_family_corporate_status.md) |
 | `max_family_corporate` | Business attribute `max_family_corporate` used by companyagreements workflows and reporting. | `int4` | Yes | No | - | - |
 | `require_other_payer` | Boolean flag controlling related business behavior for this record. | `bool` | No | No | - | - |
 | `last_member_update` | Business attribute `last_member_update` used by companyagreements workflows and reporting. | `int8` | No | No | - | - |
