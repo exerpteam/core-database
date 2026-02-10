@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      CASE  WHEN c.id::varchar IS NULL THEN 'total' ELSE c.id::varchar END                                                                                                  AS "Center ID",
      c.name                                                                                                                          AS "Center Name",

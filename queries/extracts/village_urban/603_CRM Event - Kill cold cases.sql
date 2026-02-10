@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This is just to save the source somewhere for the event /JB
 SELECT
     NULL                    CENTER,
     t.ID                    ID,

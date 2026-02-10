@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-1920
 SELECT DISTINCT
     referrer.center||'p'||referrer.id                             AS referrer_id,
     pr_referrer.name                                              AS referrer_membership,

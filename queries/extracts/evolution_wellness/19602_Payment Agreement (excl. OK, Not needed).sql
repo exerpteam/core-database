@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract Member Payment Agreement
 SELECT
          p.center||'p'||p.id AS PersonId,
 	 p.EXTERNAL_ID AS External_Id,	

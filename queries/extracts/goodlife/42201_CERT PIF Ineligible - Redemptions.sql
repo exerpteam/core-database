@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- SALES-372 - Return members who have redeemed ineligible offer in order to prevent making eligible.
 SELECT
 
 s.owner_center||'p'||s.owner_id AS person_id

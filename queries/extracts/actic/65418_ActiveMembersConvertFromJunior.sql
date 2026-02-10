@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List all members turning 16 this day.
+Supposed to be emailed to administrator for conversion from Junior to Adult.
+
 /**
 * List all members turning 16 this day.
 * Supposed to be emailed to administrator for conversion from Junior to Adult.

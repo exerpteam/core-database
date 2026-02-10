@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Exerp
 * Purpose: Summary of Recurring payments for given period and club.

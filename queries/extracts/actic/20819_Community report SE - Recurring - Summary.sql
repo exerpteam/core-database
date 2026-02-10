@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Används för rapportering av autogirointäkter till komunen. Används för autoexport ST-1652 
 WITH
     params AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     i1.PID
   ,i1.COMPANY_NAME

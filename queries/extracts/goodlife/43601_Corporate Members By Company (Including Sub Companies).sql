@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- CAB: ISSUE-38825
 SELECT DISTINCT
 
     pc.fullname AS "Company Name"

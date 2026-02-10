@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Put last day of next month in End Date. Pull report before the last day of the month in Germany and Austria
+Replace Trial LSV-Expected revenue Draft https://clublead.atlassian.net/browse/ST-7871
 
 
 WITH

@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Retuns a list of all Active and Temp inactive members for the chosen scope. 
+New version deployed via ST-8072
  WITH
      PARAMS AS MATERIALIZED
      (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      CASE WHEN mpr.SCOPE_TYPE = 'T' THEN 'System'
           WHEN mpr.SCOPE_TYPE = 'C' THEN c.SHORTNAME

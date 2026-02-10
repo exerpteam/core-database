@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Analysis: What percentage of new sales (Active Member Count) are from past members rejoining?
 -- Compares past member rejoins vs completely new member sales
 

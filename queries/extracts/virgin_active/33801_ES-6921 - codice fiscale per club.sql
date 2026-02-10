@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Get SSN for ACTIVE & TEMPORARY INACTIVE members
  select
  p.center||'p'||p.id as MEMBER_ID,
  p.ssn AS MEMBER_SSN,

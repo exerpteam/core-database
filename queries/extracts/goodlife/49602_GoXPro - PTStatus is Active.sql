@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created on: 10.22.24  Created by: Brent for Sandra Created for: audit of staff people set for GXP
 
 SELECT
 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-5051
 SELECT
     t."PPS Transaction ID / Reference",
     t."Transaction Date",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-3255
  SELECT
      per.current_person_center || 'p' ||per.current_person_id AS MemberID,
      sub.end_date as Enddate,

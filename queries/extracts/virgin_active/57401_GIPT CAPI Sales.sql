@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to highlight any GIPT sales done online
  WITH
      params AS
      (

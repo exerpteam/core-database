@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-8391
 SELECT
     longtodateC(ACT.TRANS_TIME, ACT.center)::DATE AS "Book date",
     ACT.TEXT                                      AS "Text",

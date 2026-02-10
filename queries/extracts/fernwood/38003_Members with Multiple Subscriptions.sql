@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Identifies ACTIVEand TEMP INACTIVE members (excluding staff) who have 2 or more active or frozen subscriptions. Excludes Personal Training Sessions and Sauna Sessions. Filterable by scope/center.
 WITH active_members AS (
     SELECT 
         p.center,
@@ -121,3 +123,4 @@ ORDER BY
     am."Active Subscription Count" DESC,
     am."Last Name",
     am."First Name";
+    

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
           params AS
           (
@@ -44,41 +46,41 @@ WITH
                                                 END AS product 
                                                 ,c.name AS "Center"                                                                                                           
                                         FROM 
-                                                fernwood.cashregistertransactions crt
+                                                cashregistertransactions crt
                                         LEFT JOIN
-                                                fernwood.invoices inv
+                                                invoices inv
                                                 ON inv.paysessionid = crt.paysessionid
                                                 AND inv.cashregister_center = crt.center
                                                 AND inv.cashregister_id = crt.id         
                                         LEFT JOIN
-                                                fernwood.invoice_lines_mt inl 
+                                                invoice_lines_mt inl 
                                                 ON inv.center = inl.center 
                                                 AND inv.id = inl.id
                                         LEFT JOIN 
-                                                fernwood.products pro
+                                                products pro
                                                 ON pro.center = inl.productcenter
                                                 AND pro.id = inl.productid
                                         LEFT JOIN 
-                                                fernwood.product_group pg
+                                                product_group pg
                                                 ON pg.id = pro.primary_product_group_id
                                         LEFT JOIN 
-                                                fernwood.credit_notes cn
+                                                credit_notes cn
                                                 ON cn.paysessionid = crt.paysessionid
                                                 AND cn.cashregister_center = crt.center
                                                 AND cn.cashregister_id = crt.id
                                         LEFT JOIN
-                                                fernwood.credit_note_lines_mt cnt
+                                                credit_note_lines_mt cnt
                                                 ON cnt.center = cn.center
                                                 AND cnt.id = cn.id
                                         LEFT JOIN 
-                                                fernwood.products proc
+                                                products proc
                                                 ON proc.center = cnt.productcenter
                                                 AND proc.id = cnt.productid
                                         LEFT JOIN 
-                                                fernwood.product_group pgc
+                                                product_group pgc
                                                 ON pgc.id = proc.primary_product_group_id  
                                         JOIN 
-                                                fernwood.centers c
+                                                centers c
                                                 ON c.id = crt.center                                                                                                                             
                                         JOIN 
                                                 params 

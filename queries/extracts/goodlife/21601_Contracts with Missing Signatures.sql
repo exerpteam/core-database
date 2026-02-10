@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4428
+Note from Exerp: This extract does not work after signature files were moved to S3 storage. It was replaced by a workaround script not run through Exerp
 WITH
     params AS materialized
     (

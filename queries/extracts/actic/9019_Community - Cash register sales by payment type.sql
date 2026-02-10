@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Används av Norge
 /**
 * Creator: Exerp
 * Purpose: List transactions for a given period and center.

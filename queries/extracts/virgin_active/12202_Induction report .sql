@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Tracking number of induction type bookings made for members within the first 30 days  of their membership. Basis of report is membership start date, NOT join date.
 SELECT
     pid AS "Membership nbr",
     CLUB_NAME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-47633, modification of extract 15201 per request
 
 SELECT
     r.rolename AS r_rolename,

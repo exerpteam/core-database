@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT /*+ NO_BIND_AWARE */
     'Glasgow Bath Street'                                                                                                                                 AS PERSON_CENTER,
     count(*) as "member count"

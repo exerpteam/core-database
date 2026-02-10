@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
   c.name AS club_name,
   COUNT(CASE WHEN derived.age_group = '13 to 18' THEN 1 END) AS "13 to 18",

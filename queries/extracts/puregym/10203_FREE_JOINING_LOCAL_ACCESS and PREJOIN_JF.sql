@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      c.name,
      CASE MAX(CASE pr.GLOBALID WHEN 'PREJOIN_JF' THEN 1 ELSE 0 END) WHEN 1 THEN 'yes' ELSE 'no' END                 AS PREJOIN_JF,

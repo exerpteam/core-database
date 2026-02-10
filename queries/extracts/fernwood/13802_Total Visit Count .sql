@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-1247
 WITH
   params AS
   (
@@ -42,7 +44,7 @@ JOIN
                         ON st.center=pd.center
                         AND st.id=pd.id
         JOIN
-                fernwood.product_and_product_group_link pgp
+                product_and_product_group_link pgp
                         ON pgp.product_center = pd.center
                         AND pgp.product_id = pd.id
                         AND pgp.product_group_id = 4602

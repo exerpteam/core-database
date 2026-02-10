@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- end date more than 6months ago
+50 for NO, SE, DK and 5 for FI
+EC-7151
 SELECT 
 c.country,
 ar.customercenter ||'p'|| ar.customerid AS memberid,

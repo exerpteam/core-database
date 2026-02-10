@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find Bi-Weekly subscriptions linked to a default Monthly payment agreement. Identify members that are on specific PAP scheduled designed product type.
+Biweekly subscription linked to monthly payment
+
 SELECT
     a.PERSON_ID,
     a.MEMBERSHIP_ID,

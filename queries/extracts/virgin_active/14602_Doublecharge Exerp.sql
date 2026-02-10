@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p.fullname                                                                                                                                              AS PayerName,
     p.center ||'p'|| p.id                                                                                                                                   AS "Payer ID" ,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     TO_CHAR(longtodateTZ(act.TRANS_TIME, 'Europe/London'),'DD/MM/YYYY HH24:MI:SS') AS "DATETIME",
     acc.name                                                                       AS account,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This report shows persons who have checked in, but have not been tracked for their booking given day.
 WITH
     params AS
     (

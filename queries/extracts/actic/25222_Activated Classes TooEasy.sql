@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Mikael Ahlberg
 * Purpose: Show information of activated classes for a given period and scope.

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH RECURSIVE centers_in_area AS (
     SELECT a.id, a.parent, ARRAY[a.id] AS chain_of_command_ids, 2 AS level
     FROM areas a

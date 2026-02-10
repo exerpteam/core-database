@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-12304
 select 
     p.center || 'p' || p.id as MemberID
   , to_char(longtodateTZ(c.checkin_time, 'Europe/London'), 'DD/MM/YYYY') as "ENTERDATE"

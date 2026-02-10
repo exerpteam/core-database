@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4192
  SELECT
          t1.AccountBalance AS "Account Balance",
          s.BINDING_END_DATE AS "Binding Date",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     rel.CENTER || 'rel' || rel.ID || 'sub' || rel.SUBID "PERSONASSOCIATEID",
     op.EXTERNAL_ID "PERSONID_MASTER",

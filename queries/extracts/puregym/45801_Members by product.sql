@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3657
+https://clublead.atlassian.net/browse/ES-7866
  WITH
      dates AS Materialized
      (

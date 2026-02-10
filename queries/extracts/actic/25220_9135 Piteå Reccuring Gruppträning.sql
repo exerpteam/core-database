@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Get all recurring grouptraining. Is used to report soled grouptraining clipcards at selected center.
+Finance report
 /**
 * Creator: Mikael Ahlberg
 * Purpose: List Transaction data for purchases related to Grouptraining clipcards.

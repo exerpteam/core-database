@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.center||'p'||p.id,
     pea.txtvalue AS old_system_person_id

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
     p.EXTERNAL_ID                                                                                                                    AS "External ID",
     bo.CENTER||'book'||bo.ID                                                                                                         AS "Class ID booked",

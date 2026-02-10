@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
+Returns list of campaign codes and campaign status for a specific privilege campaign name
+Created for ZD ticket 83731
 select 
 
 cc.CODE,

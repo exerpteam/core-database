@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     (row_number() over() / 500) + 1 AS threadgroup,
     t.ss_center,

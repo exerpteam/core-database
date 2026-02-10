@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
   SELECT SHORTNAME as Club, SUM(venditeTotali) as VenditeTotali,
  SUM(VenditeCorporate) as VenditeCorporate,
  SUM(VenditeWeb) as VenditeWeb

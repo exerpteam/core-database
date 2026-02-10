@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns recurring clipcard subscriptions which have an invoice entry time between March 14th 00:00:00 and March 19th 23:59:59. Current AR balance is available as well
 WITH
     params AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
 	cen.EXTERNAL_ID AS Cost,
 	P.CENTER || 'p' || P.ID AS PersonId,

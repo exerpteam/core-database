@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     (pg.id)::CHARACTER VARYING(255)                      AS "PRODUCT_GROUP_ID",
     pg.name                                                 AS "NAME",

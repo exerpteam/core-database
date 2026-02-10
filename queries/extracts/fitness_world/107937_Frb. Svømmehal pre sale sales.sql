@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT
   TO_CHAR(longtodate(s.CREATION_TIME), 'DD-MM-YYYY') AS creation_date,

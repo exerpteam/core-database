@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Subsription products only
 SELECT
 
 DISTINCT prod.center||'prod'||prod.id AS "Product ID",

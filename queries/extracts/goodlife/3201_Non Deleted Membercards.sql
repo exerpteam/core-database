@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     en.ref_center ||'p'|| en.ref_id as PERSONKEY,
     en.identity AS CARDNUMBER,

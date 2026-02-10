@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes Created by column. Includes Free apart from the ones which are in the list to be excluded.
 SELECT
     (
         CASE sub.CENTER

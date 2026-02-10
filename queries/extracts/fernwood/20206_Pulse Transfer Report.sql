@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes Active and Inactive
 SELECT
     newp.external_id AS "External ID",
     oldp.center || 'p' || oldp.id AS "Old Person ID",
@@ -66,20 +68,20 @@ LEFT JOIN
         AND news.owner_id = newp.id
         AND news.invoiceline_center = oldp.center
 LEFT JOIN
-    fernwood.products pnew
+    products pnew
         ON pnew.center = news.subscriptiontype_center
         AND pnew.id = news.subscriptiontype_id
 JOIN
-    fernwood.person_change_logs pcl
+    person_change_logs pcl
         ON pcl.person_center = oldp.center
         AND pcl.person_id = oldp.id
         AND pcl.change_attribute = '_eClub_TransferredToId'
 JOIN
-    fernwood.employees emp
+    employees emp
         ON emp.center = pcl.employee_center
         AND emp.id = pcl.employee_id
 JOIN
-    fernwood.persons empp
+    persons empp
         ON emp.personcenter = empp.center
         AND emp.personid = empp.id
 LEFT JOIN

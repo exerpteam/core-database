@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         pcl.person_center AS "Member Center",
         CAST(pcl.person_id AS TEXT) AS "Member ID",

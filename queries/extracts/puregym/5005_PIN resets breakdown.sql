@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     cen.NAME                                   AS CenterName,
     bl.PERSON_CENTER||'p'||                       bl.PERSON_ID,

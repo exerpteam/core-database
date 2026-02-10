@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2397
 SELECT
 
     cc.OWNER_CENTER || 'p' ||  cc.OWNER_ID  "Member ID"

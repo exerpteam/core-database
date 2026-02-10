@@ -1,1 +1,0 @@
-select * from SUBSCRIPTIONS where CENTER=30 and ID=8702

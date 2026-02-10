@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         pea.txtvalue AS legacy_id,
         p.external_id,

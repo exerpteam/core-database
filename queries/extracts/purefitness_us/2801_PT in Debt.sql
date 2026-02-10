@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-6641
 SELECT
     t2.personcenter||'p'||t2.personid MemberID,
     t2.Club,

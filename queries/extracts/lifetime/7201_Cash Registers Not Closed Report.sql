@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-11818
 SELECT DISTINCT
     crl.cash_register_center ||' - '||cen.name AS "Cash Register Center"
 FROM

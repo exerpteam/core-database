@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- look for text
+API Register remaining money from payment request
 WITH
     params AS
     (

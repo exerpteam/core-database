@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 050224 - Added as per request of Ebbie on SR-301406
  SELECT DISTINCT
   --q.ANSWER_DATE,
   --PR.Name,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 	
 SELECT
 r.center||'p'||r.id AS primary_id
 ,r.relativecenter||'p'||r.relativeid AS company_id

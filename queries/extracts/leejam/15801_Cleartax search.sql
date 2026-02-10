@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select p.name, pg.name
 from invoice_lines_mt il
          join products p on il.productcenter = p.center and il.productid = p.id

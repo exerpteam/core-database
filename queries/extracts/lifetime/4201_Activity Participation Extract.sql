@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Enter the external id of the activity, and it will return participations for the specified date range.
 with params as (
 SELECT
              c.name as club_of_camp,

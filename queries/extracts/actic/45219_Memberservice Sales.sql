@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List all payments to Memberservice debt account.
+Initially created to find Benify transactions.
+Productgroup is given as argument
 /**
 * List all payments to Memberservice det account.
 * Initially created to find Benify transactions.

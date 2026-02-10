@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- With Clipcard ID, clips left, expiry date, if finished (Verdadero), if not finished (Falso)
 -- Parameters: FromDate(LONG_DATE),ToDateExclusive(LONG_DATE),Scope(SCOPE)
 SELECT
 c.shortname

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     /*+ NO_BIND_AWARE */
     DISTINCT '2015-03-01'                              AS From_Date,

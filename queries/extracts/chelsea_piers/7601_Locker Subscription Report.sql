@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/servicedesk/customer/portal/9/EC-5618, https://clublead.atlassian.net/browse/EC-7094
+
+10/12/22
+https://clublead.atlassian.net/browse/ES-44889 10/12/2024
 SELECT
     "Center",
     "Locker Size",

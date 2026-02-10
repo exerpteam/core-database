@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Ability to research and review for specific range areas.
+Any open amount on the member's account - positive or negative value. Means that there is an open amount of money open that hasn't been properly accounted for.
+
 select 
 
 TO_CHAR(longtodateC(ar.entry_time, 100), 'YYYY-MM-dd HH24:MI') As EntryTime,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- All companies but only if they have an agreement (old or new). Suppliers not included. Possibly not included if there are no profiles linked at all
 select
     com.lastname as company_name,     
 ca.name as companyagreement_name,

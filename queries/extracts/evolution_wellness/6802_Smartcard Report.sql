@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- To extract total membership card being issued for the month
 SELECT 
 DISTINCT P.CENTER ||'p'|| P.ID AS Person_ID, 
 p.external_id,
@@ -25,4 +27,4 @@ LEFT join ENTITYIDENTIFIERS AS gc ON (P.CENTER = gc.REF_CENTER AND P.ID = gc.REF
  JOIN evolutionwellness.products prod ON prod.center = st.center AND prod.id = st.id
 where 
 P.CENTER IN (123, 109, 112, 121, 105, 124, 118, 104, 108, 115, 119, 116, 111, 103, 110, 117, 100)
-and (TO_CHAR(longtodateC(mc.start_time,p.center),'YYYY-MM-DD')) Between '2025-12-01' and '2025-12-31'
+and (TO_CHAR(longtodateC(mc.start_time,p.center),'YYYY-MM-DD')) Between '2026-01-01' and '2026-01-31'

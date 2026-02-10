@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- In AT PT RENT and in CH ALL PT are also "membership subscriptions" and doesnt matter if they are overlapping so you can delete those.
 SELECT
     s.owner_center || 'p' || s.owner_id AS PersonId,
     s.center || 'ss' || s.id            AS Sub1_Id,

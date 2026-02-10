@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 24/01/24 - created vy Exerp (EC-7846) to add pends cleared
 
  SELECT
      /*+ NO_BIND_AWARE */

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Follows MEMBERSINDEBT KPI logic but checks that the debt collection step was reached on the queried date
 WITH
     PARAMS AS materialized
     (

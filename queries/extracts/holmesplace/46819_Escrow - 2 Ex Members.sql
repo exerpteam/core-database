@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Fixed Sponsorship. Fixed duplicates card type excludes giftcard but also taken out card numbers complelty. Deleted payment agreements in account receivables. Binding end date - using end date instead.  Removed IBAN and BIC  if not a Payer. Includes ex members with cancelled only. If they are in GUEST also then include only Ended and Window.    Doesnt include ex members transferred to new club without new membership - included as guests instead.  With debt migrate all in full. With DOI keep all data if end date in last 5 years. Without DOI keep all data if end date last 12 months. Without DOI more than 12 months- with corona value keep only full name and email. No Corona more than 12 months only full name (no email?)
 WITH
     product_spons_pg AS
     (

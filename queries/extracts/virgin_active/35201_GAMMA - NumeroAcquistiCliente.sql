@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT EXTERNAL_ID, sum(nAcquistiTot) as nAcquistiTot, sum(nAcquisti90) as nAcquisti90, max(dataUltimoAcquisto) as dataUltimoAcquisto
 FROM (
 

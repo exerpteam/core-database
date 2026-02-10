@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Tasks belong to Deleted, Duplicate and Anonymised People.
+Transitions exist for New Lead Lost and Sold membership. Apply step Deleted (Run workflow Transistion).
 SELECT
 c.shortname AS "Club",
 emp.fullname AS "AssignedTO",

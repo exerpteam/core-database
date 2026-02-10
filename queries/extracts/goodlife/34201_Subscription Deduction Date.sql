@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Enter Subscription ID and return Deduction Date and Payor ID.
 WITH subscriptions_list AS (
 
 	SELECT

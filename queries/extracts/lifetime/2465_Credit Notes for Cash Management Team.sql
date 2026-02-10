@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 cmt.center || 'cred' || cmt.id || 'cnl' || cmt.subid as CreditNoteId
 ,cmt.invoiceline_center || 'inv' || cmt.invoiceline_id || 'ln' || cmt.invoiceline_subid as InvoiceLineId

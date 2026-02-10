@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3602
+https://clublead.atlassian.net/browse/ST-4014
+https://clublead.atlassian.net/browse/ST-7116
  -- Parameters: scope(SCOPE)
  SELECT
    x.*,

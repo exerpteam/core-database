@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2421
+https://clublead.atlassian.net/browse/EC-4665
 WITH
   params AS
   (
@@ -22,13 +25,13 @@ WITH
                 END AS st_type 
                 ,prod.name AS sub_name
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.id = s.subscriptiontype_id
         JOIN
-                fernwood.products prod
+                products prod
                 ON prod.center = st.center
                 AND prod.id = st.id                                
         WHERE 
@@ -44,13 +47,13 @@ WITH
                 ,'Clipcard' AS st_type
                 ,prod.name AS sub_name
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.id = s.subscriptiontype_id 
         JOIN
-                fernwood.products prod
+                products prod
                 ON prod.center = st.center
                 AND prod.id = st.id               
         WHERE 
@@ -61,9 +64,9 @@ WITH
                                                         (SELECT
                                                                 s.owner_center||'p'||s.owner_id
                                                         FROM
-                                                                fernwood.subscriptions s
+                                                                subscriptions s
                                                         JOIN
-                                                                fernwood.subscriptiontypes st
+                                                                subscriptiontypes st
                                                                 ON st.center = s.subscriptiontype_center
                                                                 AND st.id = s.subscriptiontype_id                
                                                         WHERE 
@@ -80,13 +83,13 @@ WITH
                 ,s.owner_id
                 ,prod.name
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON s.subscriptiontype_center = st.center
                 AND s.subscriptiontype_id = st.id
         JOIN
-                fernwood.products prod
+                products prod
                 ON prod.center = st.center
                 AND prod.id = st.id
  )                       
@@ -102,23 +105,23 @@ SELECT
         ,longtodatec(subscription.creation_time,subscription.owner_center) AS "Subscription created date"
         ,referrer.center||'ss'||referrer.id AS "Subscription ID of referrer"
         ,referrer.sub_name AS "Subscription Name of referrer"
-FROM fernwood.relatives re
-JOIN fernwood.persons p 
+FROM relatives re
+JOIN persons p 
         ON p.center = re.center 
         AND p.id = re.id
-JOIN fernwood.persons pe 
+JOIN persons pe 
         ON pe.center = re.relativecenter 
         AND pe.id = re.relativeid
-JOIN fernwood.state_change_log scl 
+JOIN state_change_log scl 
         ON scl.center = re.center 
         AND scl.id = re.id 
         AND scl.subid = re.subid 
         AND scl.entry_type = 4 
         AND scl.entry_end_time IS NULL
-JOIN fernwood.employees emp 
+JOIN employees emp 
         ON emp.center = scl.employee_center 
         AND emp.id = scl.employee_id
-JOIN fernwood.persons empp 
+JOIN persons empp 
         ON empp.center = emp.personcenter 
         AND empp.id = emp.personid
 JOIN params 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-5748
 SELECT
     d.name   AS "DEVICE_NAME",
     c.name   AS "CLIENT_NAME",

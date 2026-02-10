@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-4467
 WITH
   params AS
   (
@@ -32,7 +34,7 @@ WITH
                 ,t2.person_center
                 ,t2.person_id
         FROM
-                fernwood.tasks t2
+                tasks t2
         JOIN
                 (
                 SELECT 
@@ -40,7 +42,7 @@ WITH
                         ,t.person_center
                         ,t.person_id
                 FROM 
-                        fernwood.tasks t
+                        tasks t
                 WHERE 
                         t.center in (:scope)
                 GROUP BY
@@ -99,12 +101,12 @@ FROM
                 on p.id = part.participant_id
                 AND p.center = part.participant_center
         JOIN 
-                fernwood.person_ext_attrs peeaEmail
+                person_ext_attrs peeaEmail
                 ON peeaEmail.personcenter = p.center
                 AND peeaEmail.personid = p.id
                 AND peeaEmail.name = '_eClub_Email'
         JOIN 
-                fernwood.person_ext_attrs peeaMobile
+                person_ext_attrs peeaMobile
                 ON peeaMobile.personcenter = p.center
                 AND peeaMobile.personid = p.id
                 AND peeaMobile.name = '_eClub_PhoneSMS'
@@ -177,12 +179,12 @@ FROM
                 ON p.current_person_center = newp.center
                 AND p.current_person_id = newp.id        
         JOIN 
-                fernwood.person_ext_attrs peeaEmail
+                person_ext_attrs peeaEmail
                 ON peeaEmail.personcenter = newp.center
                 AND peeaEmail.personid = newp.id
                 AND peeaEmail.name = '_eClub_Email'
         JOIN 
-                fernwood.person_ext_attrs peeaMobile
+                person_ext_attrs peeaMobile
                 ON peeaMobile.personcenter = newp.center
                 AND peeaMobile.personid = newp.id
                 AND peeaMobile.name = '_eClub_PhoneSMS'

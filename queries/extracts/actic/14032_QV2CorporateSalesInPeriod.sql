@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- NOT WORKING AT THE MOMENT
 /* 
  * Corporate sales in period 
  */

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Filter by Binding end date (so only includes monthly members)
 SELECT
      
      c.ID AS CenterID,

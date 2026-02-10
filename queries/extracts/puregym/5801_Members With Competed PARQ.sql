@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p.CENTER || 'p' || p.ID AS PersonID,
     cen.NAME                AS GymName,

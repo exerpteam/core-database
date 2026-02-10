@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- ST-6808: List of Active members with person type 'Corporate' who do not have an active or future subscription asociated with a company agreement
 https://clublead.atlassian.net/browse/ST-7770
 SELECT

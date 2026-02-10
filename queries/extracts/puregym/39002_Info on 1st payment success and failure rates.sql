@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2354
 -- Parameters: scope(SCOPE),FromDate(DATE),ToDate(DATE)
 SELECT
     DECODE(per_center.name, NULL, '--Total', per_center.name) AS "Club Name",

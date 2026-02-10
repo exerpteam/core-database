@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     att.center                                                                 AS "Center ID",
     c.name                                                                     AS "Center Name",

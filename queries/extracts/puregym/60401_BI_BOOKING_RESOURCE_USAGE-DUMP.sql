@@ -1,5 +1,0 @@
-SELECT
-    biview.*
-FROM
-    BI_BOOKING_RESOURCE_USAGE biview
-

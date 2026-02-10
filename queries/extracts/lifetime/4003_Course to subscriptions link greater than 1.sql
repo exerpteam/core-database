@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     COUNT(*)                                         AS number_of_courses_rosteredto,
     rp.subscription_center||'ss'||rp.subscription_id AS subscriptionid,

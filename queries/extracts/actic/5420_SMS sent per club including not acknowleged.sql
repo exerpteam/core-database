@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 s.center, country, count(*) as SMSCount
  FROM SMS s

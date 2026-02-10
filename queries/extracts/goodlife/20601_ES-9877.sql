@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     invl.text AS invl_text,
     --    invl.total_amount                       AS invl_total,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of changes made during the last 7 days by staff members who does not have the Exerp role
 SELECT
     longtodateTZ(cl.entry_time, 'America/Toronto') AS "changetime",
     CASE

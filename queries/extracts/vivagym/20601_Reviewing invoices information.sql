@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT *
 FROM vivagym.invoices i
 LEFT JOIN vivagym.invoice_lines_mt il

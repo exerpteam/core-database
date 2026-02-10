@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Aggregated transactions
 select 
     sums.gl_export_batch_id,
     sums.center,

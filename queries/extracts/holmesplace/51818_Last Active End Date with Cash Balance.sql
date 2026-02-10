@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- with name and Cash account balance
 WITH pmp_xml AS (
         SELECT 
                 m.id, 

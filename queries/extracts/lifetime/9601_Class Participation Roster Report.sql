@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Class Participation Roster Report, updated to sort by WL (ES-38411)
 WITH
     PARAMS AS
     (

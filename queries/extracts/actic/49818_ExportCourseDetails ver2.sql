@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 	b2.CENTER as BOOKING_CENTER,
 	b2.ID as BOOKING_ID,

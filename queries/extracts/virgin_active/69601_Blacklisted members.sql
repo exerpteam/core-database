@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG created on 22nd March 23 for customer service team from request: SR-284436
  SELECT distinct
 	C.Shortname,
      -- CASE  s.STATE  WHEN 2 THEN 'ACTIVE'  WHEN 3 THEN 'ENDED'  WHEN 4 THEN 'FROZEN'  WHEN 7 THEN 'WINDOW'  WHEN 8 THEN 'CREATED' ELSE 'UNKNOWN' END as SUBSCRIPTION_STATE

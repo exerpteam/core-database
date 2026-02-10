@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- PARQ_ACCEPTED NOT TRUE
  SELECT
      P.CENTER || 'p' || P.ID AS "MEMBERID"
  FROM

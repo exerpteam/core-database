@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-4897 report for staff details, emails and staff groups.
 SELECT
         c.id                      AS CENTER_ID,
         c.shortname               AS CENTER_NAME,

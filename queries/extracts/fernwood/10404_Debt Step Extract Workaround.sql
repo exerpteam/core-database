@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 SELECT 
         p.external_id AS "External ID"
         ,p.fullname AS "Debtor Name"
@@ -24,44 +26,44 @@ SELECT
 --        ,p.center||'p'||p.id  AS "Person ID" 
 --        ,ar.balance AS "Account Balance"                  
 FROM
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center
 LEFT JOIN
-        fernwood.center_ext_attrs ceatb
+        center_ext_attrs ceatb
         ON ceatb.center_id = c.id
         AND ceatb.name = 'TALKBOXID' 
 LEFT JOIN
-        fernwood.person_ext_attrs peeaMobile
+        person_ext_attrs peeaMobile
         ON peeaMobile.personcenter = p.center
         AND peeaMobile.personid = p.id
         AND peeaMobile.name = '_eClub_PhoneSMS' 
 JOIN         
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.customercenter = p.center
         AND ar.customerid = p.id
         AND ar.ar_type = 4 
 LEFT JOIN
-        fernwood.center_ext_attrs ceadc
+        center_ext_attrs ceadc
         ON ceadc.center_id = c.id
         AND ceadc.name = 'DebtCollector'  
 LEFT JOIN
-        fernwood.center_ext_attrs ceame
+        center_ext_attrs ceame
         ON ceame.center_id = c.id
         AND ceame.name = 'MemberAdminEmail'    
 LEFT JOIN
-        fernwood.center_ext_attrs ceamn
+        center_ext_attrs ceamn
         ON ceamn.center_id = c.id
         AND ceamn.name = 'MemberAdminNumber'   
 JOIN
-        fernwood.cashcollectioncases cc
+        cashcollectioncases cc
         ON cc.personcenter = p.center
         AND cc.personid = p.id
         AND cc.closed IS FALSE
         AND cc.missingpayment IS TRUE 
 LEFT JOIN
-        fernwood.person_ext_attrs email
+        person_ext_attrs email
         ON email.personcenter = p.center
         AND email.personid = p.id
         AND email.name = '_eClub_Email'                                            

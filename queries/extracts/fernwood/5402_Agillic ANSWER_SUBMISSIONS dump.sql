@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     op.EXTERNAL_ID                                      AS "PERSON_ID",
     CAST ( QA.ID AS VARCHAR(255))             AS "ANSWER_SUBMISSIONS.ANSWER_SUBMISSION_ID",

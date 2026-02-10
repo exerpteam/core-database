@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- til open amount kolonne indtil bug er fikset
 SELECT 
     per.center, 

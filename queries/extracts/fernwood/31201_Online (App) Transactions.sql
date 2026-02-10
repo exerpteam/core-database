@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Morning Journals
 WITH
     params AS
     (
@@ -25,31 +27,31 @@ SELECT
     'Debt Payment'                         AS "Purchase information",
     email.txtvalue AS "Email"
 FROM
-    fernwood.ar_trans art
+    ar_trans art
 JOIN
-    fernwood.account_trans act
+    account_trans act
 ON
     act.center = art.ref_center
 AND act.id = art.ref_id
 AND act.subid = art.ref_subid
 JOIN
-    fernwood.account_receivables ar
+    account_receivables ar
 ON
     ar.center = art.center
 AND ar.id = art.id
 JOIN
-    fernwood.persons per
+    persons per
 ON
     per.center = ar.customercenter
 AND per.id = ar.customerid
 LEFT JOIN
-    fernwood.person_ext_attrs email
+    person_ext_attrs email
 ON
     email.personcenter = per.center
 AND email.personid = per.id
 AND email.name = '_eClub_Email'
 JOIN
-    fernwood.centers c
+    centers c
 ON
     c.id = art.center
 JOIN
@@ -80,9 +82,9 @@ SELECT
     invl.text      AS "Purchase information",
     email.txtvalue AS "Email"
 FROM
-    fernwood.invoices inv
+    invoices inv
 JOIN
-    fernwood.invoice_lines_mt invl
+    invoice_lines_mt invl
 ON
     inv.center = invl.center
 AND inv.id = invl.id
@@ -92,22 +94,22 @@ ON
     pr.center = invl.productcenter
 AND pr.id = invl.productid
 JOIN
-    fernwood.centers c
+    centers c
 ON
     c.id = inv.center
 JOIN
-    fernwood.persons per
+    persons per
 ON
     per.center = inv.payer_center
 AND per.id = inv.payer_id
 LEFT JOIN
-    fernwood.person_ext_attrs email
+    person_ext_attrs email
 ON
     email.personcenter = per.center
 AND email.personid = per.id
 AND email.name = '_eClub_Email'
 LEFT JOIN
-    fernwood.cashregistertransactions crt
+    cashregistertransactions crt
 ON
     inv.paysessionid = crt.paysessionid
 AND inv.cashregister_center = crt.center

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- add title?
 SELECT
 	'INVOICE' AS "Belegart",
 	p.CENTER || 'inv' ||invl.id AS "Nr (invlineID)",

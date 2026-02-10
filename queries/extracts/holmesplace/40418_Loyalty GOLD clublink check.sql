@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Gold loyalty level with thier addons. Check they have the clublink.
+Mark addons with past end date in red, order list by member number and check they have the club link addon which is not ended
 SELECT
 	per.EXTERNAL_ID,
 	s.CENTER ||'ss'|| s.ID AS SubID,

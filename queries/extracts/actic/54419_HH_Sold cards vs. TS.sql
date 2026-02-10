@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* List members that have purchased membership during period and used trainingstart*/
 SELECT 
 	p.FULLNAME AS NAME,

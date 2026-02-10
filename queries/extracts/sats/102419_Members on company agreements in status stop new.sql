@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-9981
 SELECT
         ca.availability as company_agreement_availability,
         c.country as country,

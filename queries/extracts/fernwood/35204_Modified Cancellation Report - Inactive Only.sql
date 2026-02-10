@@ -1,9 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
     a AS
     (
         SELECT max(start_time) AS LastVisitDate, person_center AS PersonCenter, person_id AS PersonID 
         FROM 
-            fernwood.attends   
+            attends   
         GROUP BY 
             person_center, person_id
     )                      
@@ -30,13 +32,13 @@ SELECT
     prod.NAME AS "Subscription Name", -- 9
     s.end_date AS "Effective Cancellation Date"  -- 10
 FROM 
-    fernwood.subscriptions s
+    subscriptions s
 JOIN
-    fernwood.persons p
+    persons p
     ON p.center = s.owner_center
     AND p.id = s.owner_id
 JOIN
-    fernwood.subscriptiontypes st
+    subscriptiontypes st
     ON st.center = s.subscriptiontype_center
     AND st.id = s.subscriptiontype_id
 JOIN
@@ -44,15 +46,15 @@ JOIN
     ON prod.CENTER = st.CENTER
     AND prod.ID = st.ID
 JOIN 
-    fernwood.centers c
+    centers c
     ON c.id = p.center
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaEmail
+    person_ext_attrs peeaEmail
     ON peeaEmail.personcenter = p.center
     AND peeaEmail.personid = p.id
     AND peeaEmail.name = '_eClub_Email'
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaMobile
+    person_ext_attrs peeaMobile
     ON peeaMobile.personcenter = p.center
     AND peeaMobile.personid = p.id
     AND peeaMobile.name = '_eClub_PhoneSMS' 
@@ -67,6 +69,6 @@ WHERE
     AND p.status = 2  -- Only Inactive status
     AND prod.center || 'prod' || prod.id NOT IN 
         (SELECT pg.product_center || 'prod' || pg.product_id AS ID 
-         FROM fernwood.product_and_product_group_link pg 
+         FROM product_and_product_group_link pg 
          WHERE pg.product_group_id = 402)
     AND s.sub_state NOT IN (3, 4, 5, 10)

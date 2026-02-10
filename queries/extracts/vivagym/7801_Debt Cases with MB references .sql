@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     ccc.personcenter || 'p' || ccc.personid AS personkey,
 p.firstname, p.lastname,

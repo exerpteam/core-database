@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- These are contracts without email. PDS consumes this list to sent out contracts by traditional email. 
+
 WITH
     PARAMS AS
     (

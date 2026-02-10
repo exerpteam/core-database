@@ -1,9 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2302
 WITH unsettled_trans AS (
     SELECT 
         center,
         id,
         SUM(unsettled_amount) AS total_unsettled
-    FROM fernwood.ar_trans
+    FROM ar_trans
     WHERE status != 'CLOSED'
       AND due_date < current_date
     GROUP BY center, id
@@ -37,10 +39,10 @@ SELECT
     END AS "Payment Cycle",
     'Payment Account' AS "Account Type"
 FROM 
-    fernwood.persons p
-JOIN fernwood.centers c 
+    persons p
+JOIN centers c 
     ON c.id = p.center
-JOIN fernwood.account_receivables ar 
+JOIN account_receivables ar 
     ON p.center = ar.customercenter 
     AND p.id = ar.customerid 
     AND ar.ar_type = 4
@@ -48,10 +50,10 @@ JOIN fernwood.account_receivables ar
 LEFT JOIN unsettled_trans ut 
     ON ut.center = ar.center 
     AND ut.id = ar.id
-LEFT JOIN fernwood.payment_accounts pac 
+LEFT JOIN payment_accounts pac 
     ON pac.center = ar.center 
     AND pac.id = ar.id
-LEFT JOIN fernwood.payment_agreements pag 
+LEFT JOIN payment_agreements pag 
     ON pac.active_agr_center = pag.center 
     AND pac.active_agr_id = pag.id 
     AND pac.active_agr_subid = pag.subid

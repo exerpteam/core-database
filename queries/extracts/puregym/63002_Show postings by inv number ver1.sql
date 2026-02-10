@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 cred.external_id as creditaccount,
 deb.external_id as Debitaccount,

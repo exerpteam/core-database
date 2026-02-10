@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* Based on Cash register sales by payment type */
 SELECT
     --TO_CHAR(TRUNC(ADD_MONTHS((LAST_DAY(exerpsysdate())+1),-2)),'YYYY-MM-DD') PERIOD_FROM

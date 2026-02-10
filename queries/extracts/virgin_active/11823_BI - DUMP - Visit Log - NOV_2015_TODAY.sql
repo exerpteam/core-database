@@ -1,7 +1,0 @@
-SELECT
-    *
-FROM
-    BI_VISIT_LOG
-WHERE
-    CENTER_ID IN ($$Scope$$)
-    AND ETS >= 1446336000000

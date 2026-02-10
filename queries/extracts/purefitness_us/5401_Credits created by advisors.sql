@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     CNL.PERSON_CENTER ||'p'|| CNL.person_id                     AS "Person ID",
     cnl.total_amount                                            AS "Credited Amount",

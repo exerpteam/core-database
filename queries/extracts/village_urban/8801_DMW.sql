@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  -- Once a to-do is marked as complete, all comments pertaining to that to-do have a status of complete. Therefore, the final COMMENT_TIME is taken as the TO-DO completed time.
  SELECT
      t.PERSONCENTER || 'p' || t.PERSONID AS MEMBER_ID,

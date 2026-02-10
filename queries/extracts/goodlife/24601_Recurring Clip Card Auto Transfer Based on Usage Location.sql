@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4316
+Updated in: ISSUE-35732
 WITH
         params AS
         (        

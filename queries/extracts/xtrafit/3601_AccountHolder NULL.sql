@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-2281
 SELECT
     p.center || 'p' ||p.id AS Member_ID,
     prs.ref                AS invoice_id,

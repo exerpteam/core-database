@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	j.Id AS JournalKey,
 	TO_CHAR(longtodatec(j.creation_time, 100), 'YYYY-MM-DD HH24-MI-SS') AS JournalCreationDateTime,

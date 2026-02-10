@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	 c.Shortname       AS "Club",
 	 p.center || 'p' || p.id AS PersonId,

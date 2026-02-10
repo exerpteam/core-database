@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Cancelled PT Bookings Effected Members
 SELECT
    -- su.person_center||'p'||su.person_id           AS "Staff Person",
     pa.participant_center||'p'||pa.participant_id AS "Person ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Da tenere aggiornato
 WITH
     PARAMS AS MATERIALIZED
     (

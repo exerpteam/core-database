@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Report showing price increases for each club by 'apply date' (date the increase is applicable for). 
  SELECT
      sub.center,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 ----- ASSUMPTIONS FOR THIS SCRIPT ------
 ----- 1. We do NOT have other payer relations
 ----- 2. We are NOT looking at possible privileges that the member might get to get a discount on her next deduction
@@ -47,16 +49,16 @@ ELIGIBLE_SUB AS
                 GREATEST(s.start_date,par.FROM_DATE) AS period_from,
                 LEAST(COALESCE(s.end_date,par.TO_DATE),par.TO_DATE) AS period_to
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         CROSS JOIN PARAMS par
         JOIN
-                fernwood.subscriptiontypes st ON s.subscriptiontype_center = st.center AND s.subscriptiontype_id = st.id AND st.st_type != 0
+                subscriptiontypes st ON s.subscriptiontype_center = st.center AND s.subscriptiontype_id = st.id AND st.st_type != 0
         JOIN
-                fernwood.account_receivables ar ON s.owner_center = ar.customercenter AND s.owner_id = ar.customerid AND ar.ar_type = 4
+                account_receivables ar ON s.owner_center = ar.customercenter AND s.owner_id = ar.customerid AND ar.ar_type = 4
         JOIN
-                fernwood.payment_accounts pac ON ar.center = pac.center AND ar.id = pac.id
+                payment_accounts pac ON ar.center = pac.center AND ar.id = pac.id
         JOIN
-                fernwood.payment_agreements pag ON pac.active_agr_center = pag.center AND pac.active_agr_id = pag.id AND pac.active_agr_subid = pag.subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE
+                payment_agreements pag ON pac.active_agr_center = pag.center AND pac.active_agr_id = pag.id AND pac.active_agr_subid = pag.subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE
         WHERE
                 s.state IN (2,4,8)
                 AND s.start_date <= par.TO_DATE
@@ -109,9 +111,9 @@ FREEZE_PERIOD_SUB AS
                         FROM
                                 ELIGIBLE_SUB es
                         JOIN
-                                fernwood.subscription_freeze_period sfp ON es.center = sfp.subscription_center AND es.id = sfp.subscription_id
-                        JOIN    fernwood.subscriptiontypes st ON st.center = es.subscriptiontype_center AND st.id = es.subscriptiontype_id        
-                        JOIN    fernwood.products prf ON st.freezeperiodproduct_center = prf.center AND st.freezeperiodproduct_id = prf.id                                
+                                subscription_freeze_period sfp ON es.center = sfp.subscription_center AND es.id = sfp.subscription_id
+                        JOIN    subscriptiontypes st ON st.center = es.subscriptiontype_center AND st.id = es.subscriptiontype_id        
+                        JOIN    products prf ON st.freezeperiodproduct_center = prf.center AND st.freezeperiodproduct_id = prf.id                                
                         WHERE   
                                 sfp.cancel_time IS NULL
                                 AND sfp.start_date <= es.TO_DATE
@@ -149,7 +151,7 @@ FREE_PERIOD_SUB AS
                         FROM
                                 ELIGIBLE_SUB es
                         JOIN
-                                fernwood.subscription_reduced_period srp ON es.center = srp.subscription_center AND es.id = srp.subscription_id
+                                subscription_reduced_period srp ON es.center = srp.subscription_center AND es.id = srp.subscription_id
                         WHERE   
                                 srp.cancel_time IS NULL
                                 AND srp.start_date <= es.TO_DATE
@@ -177,7 +179,7 @@ SUBSCRIPTION_ADDONS AS
                         GREATEST(es.period_from, sa.start_date) AS addon_period_from,
                         LEAST(COALESCE(sa.end_date,es.period_to),es.period_to) AS addon_period_to
                 FROM ELIGIBLE_SUB es
-                JOIN fernwood.subscription_addon sa ON sa.subscription_center = es.center AND sa.subscription_id = es.id
+                JOIN subscription_addon sa ON sa.subscription_center = es.center AND sa.subscription_id = es.id
                 WHERE
                         sa.cancelled = false
                         AND sa.start_date <= es.TO_DATE
@@ -216,7 +218,7 @@ FREEZE_PERIOD_ADDON AS
                         FROM
                                 SUBSCRIPTION_ADDONS sa
                         JOIN
-                                fernwood.subscription_freeze_period sfp ON sa.subscription_center = sfp.subscription_center AND sa.subscription_id = sfp.subscription_id
+                                subscription_freeze_period sfp ON sa.subscription_center = sfp.subscription_center AND sa.subscription_id = sfp.subscription_id
                         WHERE   
                                 sfp.cancel_time IS NULL
                                 AND sfp.start_date <= sa.addon_period_to
@@ -255,7 +257,7 @@ FREE_PERIOD_ADDON AS
                         FROM
                                 SUBSCRIPTION_ADDONS sa
                         JOIN
-                                fernwood.subscription_reduced_period srp ON sa.subscription_center = srp.subscription_center AND sa.subscription_id = srp.subscription_id
+                                subscription_reduced_period srp ON sa.subscription_center = srp.subscription_center AND sa.subscription_id = srp.subscription_id
                         WHERE   
                                 srp.cancel_time IS NULL
                                 AND srp.start_date <= sa.addon_period_to
@@ -329,7 +331,7 @@ SUB_PRICE AS
                                 ELIGIBLE_SUB es
                         CROSS JOIN PARAMS par                                
                         JOIN
-                                fernwood.subscription_price sp ON sp.subscription_center = es.center AND sp.subscription_id = es.id
+                                subscription_price sp ON sp.subscription_center = es.center AND sp.subscription_id = es.id
                         WHERE
                                 sp.cancelled IS FALSE
                                 AND sp.from_date <= par.TO_DATE
@@ -510,11 +512,11 @@ FIRST_LIST AS
                                                        -art.amount AS Installament__Amount,
                                                        pag.individual_deduction_day                         
                                                 FROM 
-                                                        fernwood.account_receivables ar
+                                                        account_receivables ar
                                                 CROSS JOIN PARAMS par
-                                                JOIN    fernwood.ar_trans art ON art.center = ar.center AND art.id = ar.id AND art.collected = 0 AND art.status = 'NEW'  
-                                                JOIN    fernwood.installment_plans ip ON art.installment_plan_id = ip.id 
-                                                JOIN    fernwood.payment_agreements pag ON pag.center = ip.collect_agreement_center AND pag.id = ip.collect_agreement_id AND pag.subid = ip.collect_agreement_subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE                                                                                                                  
+                                                JOIN    ar_trans art ON art.center = ar.center AND art.id = ar.id AND art.collected = 0 AND art.status = 'NEW'  
+                                                JOIN    installment_plans ip ON art.installment_plan_id = ip.id 
+                                                JOIN    payment_agreements pag ON pag.center = ip.collect_agreement_center AND pag.id = ip.collect_agreement_id AND pag.subid = ip.collect_agreement_subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE                                                                                                                  
                                                 WHERE 
                                                         art.due_date BETWEEN par.FROM_DATE AND par.TO_DATE
                                                         AND 
@@ -543,11 +545,11 @@ FIRST_LIST AS
                                                         ,ar.balance
                                                         ,pag.individual_deduction_day
                                                 FROM
-                                                        fernwood.account_receivables ar
+                                                        account_receivables ar
                                                 CROSS JOIN PARAMS par                
-                                                JOIN    fernwood.ar_trans art ON art.center = ar.center AND art.id = ar.id AND art.status != 'CLOSED'
-                                                JOIN    fernwood.payment_accounts pac ON ar.center = pac.center AND ar.id = pac.id
-                                                JOIN    fernwood.payment_agreements pag ON pac.active_agr_center = pag.center AND pac.active_agr_id = pag.id AND pac.active_agr_subid = pag.subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE
+                                                JOIN    ar_trans art ON art.center = ar.center AND art.id = ar.id AND art.status != 'CLOSED'
+                                                JOIN    payment_accounts pac ON ar.center = pac.center AND ar.id = pac.id
+                                                JOIN    payment_agreements pag ON pac.active_agr_center = pag.center AND pac.active_agr_id = pag.id AND pac.active_agr_subid = pag.subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE
                                         
                                                 WHERE
                                                         art.due_date < par.FROM_DATE
@@ -577,11 +579,11 @@ FIRST_LIST AS
                                                         ,ar.balance
                                                         ,pag.individual_deduction_day
                                                 FROM
-                                                        fernwood.account_receivables ar
+                                                        account_receivables ar
                                                 CROSS JOIN PARAMS par                
-                                                JOIN    fernwood.ar_trans art ON art.center = ar.center AND art.id = ar.id AND art.status != 'CLOSED'
-                                                JOIN    fernwood.payment_accounts pac ON ar.center = pac.center AND ar.id = pac.id
-                                                JOIN    fernwood.payment_agreements pag ON pac.active_agr_center = pag.center AND pac.active_agr_id = pag.id AND pac.active_agr_subid = pag.subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE
+                                                JOIN    ar_trans art ON art.center = ar.center AND art.id = ar.id AND art.status != 'CLOSED'
+                                                JOIN    payment_accounts pac ON ar.center = pac.center AND ar.id = pac.id
+                                                JOIN    payment_agreements pag ON pac.active_agr_center = pag.center AND pac.active_agr_id = pag.id AND pac.active_agr_subid = pag.subid AND pag.individual_deduction_day = par.PAYMENT_CYCLE
                                         
                                                 WHERE
                                                         (
@@ -606,19 +608,19 @@ FIRST_LIST AS
                                 t1."Deduction Date"
                         )ms
                 JOIN
-                        fernwood.persons p
+                        persons p
                         ON p.center||'p'||p.id = ms."Person ID"
                 LEFT JOIN
-                        fernwood.account_receivables ar 
+                        account_receivables ar 
                         ON ar.customercenter = p.center 
                         AND ar.customerid = p.id 
                         AND ar.ar_type = 4
                 LEFT JOIN 
-                        fernwood.payment_accounts pac 
+                        payment_accounts pac 
                         ON pac.center = ar.center 
                         AND pac.id = ar.id
                 LEFT JOIN 
-                        fernwood.payment_agreements pag 
+                        payment_agreements pag 
                         ON pac.active_agr_center = pag.center 
                         AND pac.active_agr_id = pag.id 
                         AND pac.active_agr_subid = pag.subid
@@ -694,19 +696,19 @@ END AS "Total Debit AFTER Renewal",
                 WHEN pag.clearinghouse = 2 THEN 'Credit Card'
         END AS "Clearing House"           
 FROM         
-        fernwood.persons p
+        persons p
 CROSS JOIN PARAMS par        
 JOIN
-        fernwood.account_receivables ar 
+        account_receivables ar 
         ON ar.customercenter = p.center 
         AND ar.customerid = p.id 
         AND ar.ar_type = 4
 JOIN 
-        fernwood.payment_accounts pac 
+        payment_accounts pac 
         ON pac.center = ar.center 
         AND pac.id = ar.id
 JOIN 
-        fernwood.payment_agreements pag 
+        payment_agreements pag 
         ON pac.active_agr_center = pag.center 
         AND pac.active_agr_id = pag.id 
         AND pac.active_agr_subid = pag.subid

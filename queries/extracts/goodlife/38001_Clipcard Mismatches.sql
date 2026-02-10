@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-27674
+To find instances when clips have not been correctly deducted
 SELECT
     clipcard,
     clip_sum,

@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-1505
+https://clublead.atlassian.net/browse/EC-1840
+https://clublead.atlassian.net/browse/EC-2345
 SELECT
         t1."PersonID"
         ,t1."ExternalID"
@@ -78,59 +82,59 @@ FROM
                 ,cc.center||'cc'||cc.id||'cc'||cc.subid AS "Clip Card ID"
                 ,longtodatec(t2.NextBookedSession,t2.person_center) AS "Next Booked Session"
         FROM 
-                fernwood.persons p
+                persons p
         JOIN 
-                fernwood.clipcards cc 
+                clipcards cc 
                 ON cc.owner_center = p.center 
                 AND cc.owner_id = p.id
                 AND cc.cancelled = 'false' 
                 AND cc.finished = 'false' 
                 AND cc.blocked = 'false' 
         JOIN 
-                fernwood.centers c 
+                centers c 
                 ON c.id = p.center
         JOIN 
-                fernwood.centers cclip
+                centers cclip
                 ON cc.center = cclip.id
         JOIN 
-                fernwood.products pro 
+                products pro 
                 ON pro.center = cc.center
                 AND pro.id = cc.ID                                   
         LEFT JOIN 
-                fernwood.invoice_lines_mt inv
+                invoice_lines_mt inv
                 ON cc.invoiceline_center = inv.center
                 AND cc.invoiceline_id = inv.id
                 AND cc.invoiceline_subid = inv.subid  
         LEFT JOIN 
-                fernwood.invoices i
+                invoices i
                 ON inv.center = i.center     
                 AND inv.id = i.id   
         LEFT JOIN 
-                fernwood.employees emp
+                employees emp
                 ON emp.CENTER = i.employee_center
                 AND emp.ID = i.employee_id
         LEFT JOIN 
-                fernwood.persons pe
+                persons pe
                 ON pe.CENTER = emp.PERSONCENTER
                 AND pe.ID = emp.PERSONID  
         LEFT JOIN 
-                fernwood.person_ext_attrs peeaEmail
+                person_ext_attrs peeaEmail
                 ON peeaEmail.personcenter = p.center
                 AND peeaEmail.personid = p.id
                 AND peeaEmail.name = '_eClub_Email'
         LEFT JOIN 
-                fernwood.person_ext_attrs peeaMobile
+                person_ext_attrs peeaMobile
                 ON peeaMobile.personcenter = p.center
                 AND peeaMobile.personid = p.id
                 AND peeaMobile.name = '_eClub_PhoneSMS' 
         LEFT JOIN 
-                fernwood.person_ext_attrs peeaHome
+                person_ext_attrs peeaHome
                 ON peeaHome.personcenter = p.center
                 AND peeaHome.personid = p.id
                 AND peeaHome.name = '_eClub_PhoneHome'
         LEFT JOIN
                 (SELECT max(checkin_time) AS LastVisitDate, person_center AS PersonCenter, person_id AS PersonID             
-                FROM fernwood.checkins 
+                FROM checkins 
                 GROUP BY person_center,person_id ) la
                 ON la.PersonCenter = p.center
                 AND la.PersonID = p.id
@@ -145,17 +149,17 @@ FROM
                                 ,part.participant_center
                                 ,part.participant_id               
                         FROM 
-                                fernwood.participations part
+                                participations part
                         JOIN 
-                                fernwood.persons p 
+                                persons p 
                                 ON p.center = part.participant_center
                                 AND p.id = part.participant_id
                         JOIN 
-                                fernwood.bookings b
+                                bookings b
                                 ON b.center = part.booking_center
                                 AND b.id = part.booking_id
                         JOIN 
-                                fernwood.activity ac
+                                activity ac
                                 ON b.activity = ac.id
                                 AND ac.activity_type = 4
                         WHERE 
@@ -174,22 +178,22 @@ FROM
                                 ,part.participant_id AS PersonID
                                 ,p2.fullname AS "TRAINER'S NAME"                
                         FROM 
-                                fernwood.participations part
+                                participations part
                         JOIN 
-                                fernwood.bookings b
+                                bookings b
                                 ON b.center = part.booking_center
                                 AND b.id = part.booking_id
                         JOIN 
-                                fernwood.activity ac
+                                activity ac
                                 ON b.activity = ac.id
                                 AND ac.activity_type = 4
                         JOIN 
-                                fernwood.STAFF_USAGE su
+                                STAFF_USAGE su
                                 ON su.BOOKING_CENTER = b.center
                                 AND su.BOOKING_ID = b.id
                                 AND su.state = 'ACTIVE'
                         LEFT JOIN 
-                                fernwood.persons p2
+                                persons p2
                                 ON p2.CENTER = su.PERSON_CENTER
                                 AND p2.id = su.PERSON_ID 
                         )t2
@@ -199,15 +203,15 @@ FROM
                         ON instructor.participant_center = p.center
                         AND instructor.participant_id = p.id
         JOIN 
-                fernwood.masterproductregister mpr
+                masterproductregister mpr
                 ON mpr.globalid = pro.globalid
                 AND mpr.scope_type = 'A'
         JOIN
-                fernwood.privilege_grants pgr
+                privilege_grants pgr
                 ON pgr.granter_id = mpr.id
                 AND pgr.valid_to IS NULL
         JOIN
-                fernwood.privilege_sets pse
+                privilege_sets pse
                 ON pse.id = pgr.privilege_set            
         LEFT JOIN
                 (SELECT 
@@ -216,16 +220,16 @@ FROM
                         ,par.owner_id
                         ,ps.Name 
                 FROM 
-                        fernwood.privilege_usages pu
+                        privilege_usages pu
                 JOIN
-                        fernwood.privilege_grants pg
+                        privilege_grants pg
                         ON pg.ID = pu.GRANT_ID
                         AND pg.valid_to IS NULL 
                 JOIN    
-                        fernwood.privilege_sets ps
+                        privilege_sets ps
                         ON ps.ID = pg.privilege_set                              
                 JOIN 
-                        fernwood.participations par
+                        participations par
                         ON par.center = pu.target_center
                         AND par.id = pu.target_id
                         AND pu.target_service = 'Participation' 
@@ -248,16 +252,16 @@ FROM
                         ,par.owner_id
                         ,ps.Name
                 FROM 
-                        fernwood.privilege_usages pu
+                        privilege_usages pu
                 JOIN
-                        fernwood.privilege_grants pg
+                        privilege_grants pg
                         ON pg.ID = pu.GRANT_ID 
                         AND pg.valid_to IS NULL
                 JOIN    
-                        fernwood.privilege_sets ps
+                        privilege_sets ps
                         ON ps.ID = pg.privilege_set                            
                 JOIN 
-                        fernwood.participations par
+                        participations par
                         ON par.center = pu.target_center
                         AND par.id = pu.target_id
                         AND pu.target_service = 'Participation' 
@@ -282,13 +286,13 @@ FROM
                                 ,pu.person_id
                                 ,ps.Name 
                         FROM 
-                                fernwood.privilege_usages pu
+                                privilege_usages pu
                         JOIN
-                                fernwood.privilege_grants pg
+                                privilege_grants pg
                                 ON pg.ID = pu.GRANT_ID
                                 AND pg.valid_to IS NULL 
                         JOIN    
-                                fernwood.privilege_sets ps
+                                privilege_sets ps
                                 ON ps.ID = pg.privilege_set                              
                         WHERE
                                 pu.state = 'PLANNED'
@@ -303,7 +307,7 @@ FROM
                                 AND p.center = t2.person_center
                                 AND p.id = t2.person_id          
         LEFT JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = pro.center
                 AND pgl.product_id = pro.id
                 AND pgl.product_group_id = 225                  

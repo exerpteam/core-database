@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Transactions not marked as collected. Identify Associate within PDS that have created an invoice which should not be charged to Member's account. Feb. 4, 2019 update reviewed by Exerp in ST-6585.
+
 SELECT
 	
 	p.center || 'p' || p.id as CustomerPersonId,

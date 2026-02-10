@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Filtrerar på produktnamn som innehåller "junior" eller Junior"
 /* 
  * TOTAL PT EFT SUBSCRIPTIONS BY DATE
  */

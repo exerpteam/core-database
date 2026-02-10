@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Inactive. Fixed sponsorship but think we should put everyon as blank if ex member. Added real binding end date but not sure we should keep it. Could just change to end date so they are the same
 WITH
     product_spons_pg AS
     (

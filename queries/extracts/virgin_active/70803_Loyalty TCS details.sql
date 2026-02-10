@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- TCS Attivi
 SELECT distinct
     c.shortname as Club,
     p.center ||'p'|| p.id as PersonID,

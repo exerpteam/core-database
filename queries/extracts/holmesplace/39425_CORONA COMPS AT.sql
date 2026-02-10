@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of members with all Corona Comps chosen and given
 SELECT
 		p.center || 'p' || p.id AS PersonId,
 		p.EXTERNAL_ID,

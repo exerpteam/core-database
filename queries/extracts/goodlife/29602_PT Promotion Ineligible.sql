@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Ineligible - People who bought eligibile subscription on given day but were exlcuded by other reasons
 
 WITH params AS(        

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: Amended 05/10/21 to exclude any PI info
  SELECT distinct
          q1.pt_by_dd_club_name AS "PT_BY_DD_CLUB_NAME",
      q1.members_club AS "MEMBERS_CLUB",

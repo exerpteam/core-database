@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Donna Hudec Scheduled Report
 WITH params AS (
     SELECT
         datetolongC(TO_CHAR(CAST('2025-07-01' AS DATE), 'YYYY-MM-dd HH24:MI'), c.id) AS FromDate,
@@ -295,9 +297,9 @@ JOIN params ON params.center_id = pr.center
                                                                 ,crt.center
                                                                 ,c.name AS "Center"                                                                         
                                                         FROM 
-                                                                fernwood.cashregistertransactions crt
+                                                                cashregistertransactions crt
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON crt.center = c.id                                                
                                                         JOIN    
                                                                 params 
@@ -412,9 +414,9 @@ JOIN params ON params.center_id = pr.center
                                                                 ,crt.center 
                                                                 ,c.name AS "Center"                                                                         
                                                         FROM 
-                                                                fernwood.cashregistertransactions crt
+                                                                cashregistertransactions crt
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON crt.center = c.id                                                
                                                         JOIN    
                                                                 params 
@@ -466,9 +468,9 @@ JOIN params ON params.center_id = pr.center
                                                                 ,crt.center 
                                                                 ,c.name AS "Center"  
                                                         FROM 
-                                                                fernwood.cashregistertransactions crt
+                                                                cashregistertransactions crt
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON crt.customercenter = c.id                                                
                                                         JOIN    
                                                                 params 
@@ -543,9 +545,9 @@ JOIN params ON params.center_id = pr.center
                                                                 ,crt.center
                                                                 ,c.name AS "Center"                                                                         
                                                         FROM 
-                                                                fernwood.cashregistertransactions crt
+                                                                cashregistertransactions crt
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON crt.customercenter = c.id                                                
                                                         JOIN    
                                                                 params 
@@ -611,19 +613,19 @@ JOIN params ON params.center_id = pr.center
                                                                 ,art.center
                                                                 ,c.name AS "Center"   
                                                         FROM
-                                                                fernwood.ar_trans art
+                                                                ar_trans art
                                                         JOIN
-                                                                fernwood.account_trans act
+                                                                account_trans act
                                                                 ON act.center = art.ref_center
                                                                 AND act.id = art.ref_id
                                                                 AND act.subid = art.ref_subid
                                                                 AND art.ref_type = 'ACCOUNT_TRANS'
                                                         JOIN
-                                                                fernwood.account_receivables ar
+                                                                account_receivables ar
                                                                 ON ar.center = art.center
                                                                 AND ar.id = art.id 
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = art.center
                                                         JOIN    
                                                                 params 
@@ -684,19 +686,19 @@ JOIN params ON params.center_id = pr.center
                                                                 ,'Online sales' AS "Type" 
                                                                 ,c.name AS "Center"  
                                                         FROM
-                                                                fernwood.account_trans act
+                                                                account_trans act
                                                         JOIN
-                                                                fernwood.ar_trans art
+                                                                ar_trans art
                                                                 ON act.center = art.ref_center
                                                                 AND act.id = art.ref_id
                                                                 AND act.subid = art.ref_subid
                                                                 AND art.ref_type = 'ACCOUNT_TRANS'
                                                         JOIN
-                                                                fernwood.account_receivables ar
+                                                                account_receivables ar
                                                                 ON ar.center = art.center
                                                                 AND ar.id = art.id 
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = art.center
                                                         JOIN    
                                                                 params 

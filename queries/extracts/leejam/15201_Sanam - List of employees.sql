@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         emp.center||'emp'||emp.id as EmployeeID
         ,emp.personcenter||'p'||emp.personid as PersonID

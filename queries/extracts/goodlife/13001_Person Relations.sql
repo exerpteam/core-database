@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract returns the list of active person relations for a given center.
 /*The following relations are excluded from the Extract:
 'Contact person'
 'Created by'

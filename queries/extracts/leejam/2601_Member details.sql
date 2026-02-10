@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         p.center ||'p'|| p.id AS "Person id"
         ,p.firstname AS "First name"

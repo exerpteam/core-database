@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     'Purefitness us' as client,
     p.center||'p'||p.id as member_key,

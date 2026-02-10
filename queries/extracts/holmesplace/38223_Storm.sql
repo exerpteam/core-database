@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes members with active Classic 12 Month VIP. Pending to include members with Storm Addon
 SELECT
 	c.Shortname						AS "Club",
     p.CENTER ||'p'|| p.ID           AS "Member ID",

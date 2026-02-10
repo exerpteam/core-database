@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select distinct
 s.center ||'ss'|| s.id as "subscription ID",
 longtodate(s.creation_time) as "subscription creation date",

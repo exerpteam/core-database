@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     parent.center||'p'||parent.id                 AS parent_id,
     child.center||'p'||child.id                   AS child_id,

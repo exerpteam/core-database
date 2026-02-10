@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
         open_invoices AS
             (
@@ -7,9 +9,9 @@ WITH
                         ,ar.center
                         ,ar.id
                 FROM
-                        fernwood.account_receivables ar
+                        account_receivables ar
                 JOIN
-                        fernwood.ar_trans art   
+                        ar_trans art   
                                 ON art.center = ar.center    
                                 AND art.id = ar.id        
                 
@@ -92,9 +94,9 @@ SELECT
         ,oi.MinDue AS "Oldest Debt" 
 		     
 FROM 
-        fernwood.payment_agreements pag 
+        payment_agreements pag 
 JOIN 
-        fernwood.account_receivables ar 
+        account_receivables ar 
                 ON ar.center = pag.center 
                 AND ar.id = pag.id
 LEFT JOIN
@@ -102,19 +104,19 @@ LEFT JOIN
                 ON oi.center = ar.center
                 AND oi.id = ar.id                     
 JOIN 
-        fernwood.persons p 
+        persons p 
                 ON p.center = ar.customercenter 
                 AND p.id = ar.customerid 
 JOIN 
-        fernwood.payment_requests pr 
+        payment_requests pr 
                 ON pr.center = pag.center 
                 AND pr.id = pag.id 
                 AND pr.agr_subid = pag.subid
 JOIN 
-        fernwood.centers c 
+        centers c 
                 ON c.id = pr.center
 JOIN 
-        fernwood.clearinghouses ch 
+        clearinghouses ch 
                 ON ch.id = pr.clearinghouse_id
 WHERE 
         pr.rejected_reason_code is not null

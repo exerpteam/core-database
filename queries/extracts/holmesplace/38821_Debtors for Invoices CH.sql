@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on Overdue debt: Lawyer
 SELECT
 	'INVOICE' AS "Belegart",
 	prs.REF AS "Nr",

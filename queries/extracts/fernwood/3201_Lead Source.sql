@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         c.name as Club
         ,pea.personcenter||'p'||pea.personid AS PersonID 
@@ -30,13 +32,13 @@ SELECT
 			WHEN 10 THEN 'External Staff' 
 		END AS "Person type"               
 FROM 
-        fernwood.person_ext_attrs pea
+        person_ext_attrs pea
 join 
-        fernwood.persons p 
+        persons p 
         on p.center = pea.personcenter 
         and p.id = pea.personid
 join 
-        fernwood.centers c 
+        centers c 
         on c.id = p.center 
 where 
         pea.name = 'LeadSource'

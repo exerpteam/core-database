@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     inv.CENTER || 'inv' || inv.ID PAYMENTID,
     inv.CENTER                    SITEID,

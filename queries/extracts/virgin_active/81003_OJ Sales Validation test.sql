@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 28/01/25 - sales validation amended to show OJ sales for Hooks
 SELECT
     /*+ NO_BIND_AWARE */
     --ss.EMPLOYEE_CENTER || 'emp' || ss.EMPLOYEE_ID as Employee_ID,

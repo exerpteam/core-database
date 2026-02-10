@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
    do_not_call_phonenumbers.creation_date,
    do_not_call_phonenumbers.state,

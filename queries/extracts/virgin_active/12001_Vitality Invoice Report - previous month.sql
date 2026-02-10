@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Vitality Bill runs on 'previous month' by default. Used for automation. Modified Report_255 Pru Billing - Previous month to include transfer members having Vitality membership. Basis of report is member external ID rather than membership number to ensure all correct members are captured. Automatically runs monthly in export schedule. If making a change to query, change 12002 as well.  
+25.03.22 - RG updated this report as per SR-256173
  -- Parameters: FromDate(LONG_DATE),ToDate(LONG_DATE),Scope(SCOPE)
 WITH
     params AS

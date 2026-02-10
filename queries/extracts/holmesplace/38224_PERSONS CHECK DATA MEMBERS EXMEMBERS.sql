@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Add active subscritpions? member days and news letter dont work.
 WITH
      Member AS
      (

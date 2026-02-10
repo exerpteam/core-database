@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT 
     art.entry_time as ordered,
     ar.customercenter ||'p'|| ar.customerid as memberid,

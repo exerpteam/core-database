@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- To find UNRESTRICTED freezes
 SELECT
 cen.NAME as CENTERNAME,
 p.CENTER ||'p'|| p.ID as PREF,

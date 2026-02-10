@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- THIS IS THE COMMISIONS REPORT DE ARE USING IN 2025 includes online sales but not Free (no 2x1 Free). Includes Subscription sale employee name and person created by
 SELECT
     (
         CASE sub.CENTER

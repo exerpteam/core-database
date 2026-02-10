@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Use only for Last day of month to get 1-31 need to add if they are member transfers so dont count as leaver or joiner
 WITH
     PARAMS AS
     (

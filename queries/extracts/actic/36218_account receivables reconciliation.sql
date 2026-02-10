@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- AR balance aggregated with external ID
 WITH
     params AS
     (

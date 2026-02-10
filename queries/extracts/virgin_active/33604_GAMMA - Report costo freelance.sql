@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT  DISTINCT c.SHORTNAME, CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8))) as personId, p.FULLNAME as nominativo, a.NAME as corso,
   longtodatec(b.starttime, b.center) as inizio,
   longtodatec(b.stoptime, b.center) as fine,

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Will only pick up changes done vie payment import (changes which have a file ID)
 SELECT
 acl.*,

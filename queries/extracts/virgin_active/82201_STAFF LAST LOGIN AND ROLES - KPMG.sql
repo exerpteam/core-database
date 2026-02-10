@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Estrae tutti i person type STAFF, anche se non hanno mai avuto un ruolo (GRT, Bagnini), con dettaglio dell'ultimo accesso, sub, stato e ruolo
 SELECT
     p.FULLNAME as FullName,
 	C.SHORTNAME as Emp_Club, --su cui ha ruolo

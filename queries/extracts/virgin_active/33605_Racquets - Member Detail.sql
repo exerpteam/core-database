@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Re	quested by Martin Bishop as a copy of PT member revenue
  WITH
      params AS
      (

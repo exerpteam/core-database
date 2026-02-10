@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Extract to export available companyagreements to web.
 * Used to import companies for users to select agreement.

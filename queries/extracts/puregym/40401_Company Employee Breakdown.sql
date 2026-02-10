@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-2370
  SELECT
      co.CENTER || 'p' || co.ID                                 COMPANY_ID
    , co.LASTNAME                                               COMPANY_NAME

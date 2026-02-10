@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select p.fullname,
        je.id as journal_entry_id,
        jes.id as journalentry_signature_id,

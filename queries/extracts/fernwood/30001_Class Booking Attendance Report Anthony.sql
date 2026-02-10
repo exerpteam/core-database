@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Automated Emails
 WITH
     params AS
     (
@@ -20,13 +22,13 @@ WITH
             cc.owner_id,
             pgl.product_group_id
         FROM 
-            fernwood.clipcards cc
+            clipcards cc
         JOIN 
-            fernwood.products pro 
+            products pro 
             ON pro.center = cc.center
             AND pro.id = cc.ID 
         JOIN
-            fernwood.product_and_product_group_link pgl
+            product_and_product_group_link pgl
             ON pgl.product_center = pro.center
             AND pgl.product_id = pro.id
             AND pgl.product_group_id in (11801, 401)
@@ -73,46 +75,46 @@ SELECT
         ELSE 'Other'
     END AS "Product Group"
 FROM    
-    fernwood.participations part
+    participations part
 JOIN    
-    fernwood.persons p 
+    persons p 
     ON p.center = part.participant_center
     AND p.id = part.participant_id
 JOIN    
-    fernwood.bookings b
+    bookings b
     ON b.center = part.booking_center
     AND b.id = part.booking_id
 JOIN    
     params 
     ON params.CENTER_ID = part.booking_center
 JOIN 
-    fernwood.activity ac
+    activity ac
     ON b.activity = ac.id  
 JOIN 
-    fernwood.activity_group acg
+    activity_group acg
     ON acg.id = ac.activity_group_id               
 LEFT JOIN 
-    fernwood.privilege_usages pu
+    privilege_usages pu
     ON pu.target_service = 'Participation'
     AND pu.target_center = part.center
     AND pu.target_id = part.id 
 LEFT JOIN 
-    fernwood.participations AS pa 
+    participations AS pa 
     ON pa.center = pu.target_center
     AND pa.id = pu.target_id
 LEFT JOIN 
-    fernwood.privilege_grants AS pg 
+    privilege_grants AS pg 
     ON pu.grant_id = pg.id
 LEFT JOIN
-    fernwood.privilege_sets ps
+    privilege_sets ps
     ON ps.id = pg.privilege_set                    
 LEFT JOIN
-    fernwood.staff_usage su
+    staff_usage su
     ON su.booking_center = b.center
     AND su.booking_id = b.id
     AND su.state = 'ACTIVE'  
 LEFT JOIN 
-    fernwood.persons instructor
+    persons instructor
     ON instructor.CENTER = su.person_center
     AND instructor.id = su.person_id  
 LEFT JOIN

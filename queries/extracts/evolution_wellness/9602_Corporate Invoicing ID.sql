@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Do not move this one to system, cna not be runned by ID team then
 WITH
   params AS
   (

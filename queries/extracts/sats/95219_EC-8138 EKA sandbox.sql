@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active members with debt without debt step
         SELECT
             c.name                AS homecenter,
             p.center ||'p'|| p.id AS member_id,

@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Transfer sales to other Associates. CnC uses this to ensure that commissions are transferred to the correct Associate. This includes clip cards and non-subscription. 
+
 SELECT 
    ise.*,
    p.external_id AS ActualSalespersonExternalId

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
      COALESCE(COALESCE(prg.NAME, prg1.NAME),sc.NAME) campaign_name,
      cc.CAMPAIGN_TYPE,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      ss.owner_center||'p'||ss.owner_id             AS customer,
          ss.owner_center as owner_center,

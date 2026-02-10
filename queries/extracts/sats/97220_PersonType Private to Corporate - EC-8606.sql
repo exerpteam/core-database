@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS (
     SELECT
         dateToLongC(TO_CHAR(CURRENT_DATE - INTERVAL '1 DAY' * :daysAgo, 'YYYY-MM-DD'), c.id) AS fromDate,

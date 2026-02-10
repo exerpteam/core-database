@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
     params AS
     (
@@ -30,16 +32,16 @@ WITH
             ac.name                              AS class_name,
             TO_CHAR(longtodateC(b.starttime,b.center),'YYYY-MM-DD') AS class_date,
             TO_CHAR(longtodateC(b.starttime,b.center),'HH24:MI')    AS class_time
-        FROM fernwood.participations part
-        JOIN fernwood.persons p
+        FROM participations part
+        JOIN persons p
             ON p.center = part.participant_center
            AND p.id     = part.participant_id
-        JOIN fernwood.bookings b
+        JOIN bookings b
             ON b.center = part.booking_center
            AND b.id     = part.booking_id
-        JOIN fernwood.activity ac
+        JOIN activity ac
             ON ac.id = b.activity
-        JOIN fernwood.centers c
+        JOIN centers c
             ON c.id = b.center
         JOIN params
             ON params.CENTER_ID = b.center

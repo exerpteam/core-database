@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Automated- sent by email daily - personal details have been removed.
 WITH
     params AS MATERIALIZED (
         SELECT c.id AS CENTER_ID

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-6914
 /**************************/
 /* 1.XML Generation       */
 /* 2.SELECT EFT invoices  */

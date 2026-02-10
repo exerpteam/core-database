@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p.center ||'p'|| p.id AS "Person ID",
     p.external_id AS "Exerp External Id",
@@ -56,35 +58,35 @@ SELECT DISTINCT
         ELSE s.state::TEXT
     END AS "Subscription State"
 FROM 
-    fernwood.persons p
+    persons p
 JOIN
-    fernwood.subscriptions s
+    subscriptions s
     ON s.owner_center = p.center
     AND s.owner_id = p.id 
     AND s.state IN (2,4)
 JOIN
-    fernwood.products pro
+    products pro
     ON pro.center = s.SUBSCRIPTIONTYPE_CENTER
     AND pro.ID = s.SUBSCRIPTIONTYPE_ID
 JOIN
-    fernwood.checkins a
+    checkins a
     ON a.person_center = p.center
     AND a.person_id = p.id
 JOIN
-    fernwood.centers c
+    centers c
     ON c.id = p.center
 LEFT JOIN
-    fernwood.person_ext_attrs Email
+    person_ext_attrs Email
     ON Email.personcenter = p.center
     AND Email.personid = p.id
     AND Email.name = '_eClub_Email'
 LEFT JOIN
-    fernwood.person_ext_attrs Mobile
+    person_ext_attrs Mobile
     ON Mobile.personcenter = p.center
     AND Mobile.personid = p.id
     AND Mobile.name = '_eClub_PhoneSMS'
 LEFT JOIN
-    fernwood.person_ext_attrs AcceptEmailMarketing
+    person_ext_attrs AcceptEmailMarketing
     ON AcceptEmailMarketing.personcenter = p.center
     AND AcceptEmailMarketing.personid = p.id
     AND AcceptEmailMarketing.name = 'AcceptEmailMarketing'

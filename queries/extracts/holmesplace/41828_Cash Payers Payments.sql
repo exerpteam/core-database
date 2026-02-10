@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- NOT CORRECT YET. Finance transactions with Line Type and Payment agreement Type
 
 WITH
     params AS

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  -- Parameters: fromDate(DATE),toDate(DATE),scope(SCOPE)
  SELECT pid
       , age

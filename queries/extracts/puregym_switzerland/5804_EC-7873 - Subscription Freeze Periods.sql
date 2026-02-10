@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         s.owner_center AS "Member Center",
         CAST(s.owner_id AS TEXT) AS "Member ID",

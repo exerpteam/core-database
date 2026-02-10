@@ -1,1 +1,0 @@
-select * from attends where rownum < 5000002

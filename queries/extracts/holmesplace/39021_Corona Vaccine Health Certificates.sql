@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List all members with Covid vaccine expiry dates, type and if they have club access or not
 SELECT
 	 c.Shortname       AS "Club",
 	 p.center || 'p' || p.id AS PersonId,

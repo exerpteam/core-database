@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find members with persontype Family and list information about membership and relationship.
 SELECT 
 	child.CENTER||'p'||child.ID,
 	child.FULLNAME,

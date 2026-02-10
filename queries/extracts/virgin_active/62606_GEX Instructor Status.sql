@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG - 25.02.22 - created to flag all accounts with the Instructor status extended attribute populdated on
 SELECT 
 	C.Shortname as Club,
 	E.PERSONCENTER || 'p' || E.PERSONID as member_id,

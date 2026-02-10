@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
         max_sub AS
                 (
@@ -25,7 +27,7 @@ WITH
                 FROM
                         max_sub
                 JOIN                        
-                        fernwood.subscriptions sub
+                        subscriptions sub
                         ON max_sub.LastID = sub.id
                         AND max_sub.MaxCenter = sub.center  
                         AND max_sub.MaxOwnerCenter = sub.owner_center   
@@ -91,12 +93,12 @@ FROM
                 ON p.center = ar.customercenter 
                 AND p.id = ar.customerid 
         JOIN 
-                fernwood.payment_requests pr 
+                payment_requests pr 
                 ON pr.center = pag.center 
                 AND pr.id = pag.id 
                 AND pr.agr_subid = pag.subid
         JOIN
-                fernwood.payment_request_specifications prs
+                payment_request_specifications prs
                 ON pr.INV_COLL_CENTER = prs.CENTER
                 AND pr.INV_COLL_ID = prs.ID
                 AND pr.INV_COLL_SUBID = prs.SUBID 

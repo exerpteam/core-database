@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
   t1.memberid as medlemsnummer, 
   t1.cc_amount as gældsbeløb,

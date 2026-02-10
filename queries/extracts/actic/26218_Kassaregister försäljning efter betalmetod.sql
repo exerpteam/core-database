@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     INV0.CASHREGISTER_CENTER                                   AS CR_CENTER,
     INV0.CASHREGISTER_ID                                       AS CR_ID,

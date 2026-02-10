@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-1501
 SELECT DISTINCT
          t1."Transaction Date"
 	,t1."Person Key"

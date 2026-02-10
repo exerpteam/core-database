@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Previously called: ST-592 - VA Membership Subscription Config. THis was used to get all the priv sets within the subscriptions and you can ask them to be removed or added in bulk via a ST.
  SELECT
      mpr.ID MasterProductId,
      mpr.SCOPE_TYPE,

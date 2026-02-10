@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created for Ebbie on request from SR-336551 to amend the logic to exclude any members who had a price increase 3 months ago
 WITH
     scopes AS MATERIALIZED
     (

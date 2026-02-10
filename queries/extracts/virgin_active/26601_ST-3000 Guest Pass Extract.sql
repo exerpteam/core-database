@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3000
  SELECT
      per.EXTERNAL_ID AS "External Person ID",
      i.PAYER_CENTER || 'p' || i.PAYER_ID AS "Member ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Privilege sets frequency restriction - EC-5610
 WITH
     CHILD_PRIV_SETS AS
     (

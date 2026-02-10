@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT
     TO_CHAR(DATE_TRUNC('week', longtodate(c.CHECKIN_TIME)), 'IYYY-"W"IW') AS "Checkin Week",

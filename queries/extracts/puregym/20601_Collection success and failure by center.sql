@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  -- Parameters: scope(SCOPE),FromDate(DATE),ToDate(DATE)
  SELECT
        CASE   WHEN per_center.name IS NULL THEN  '-Total'  ELSE per_center.name END  AS "Club Name",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.external_id                                                         AS person_id,
     arm.art_paid_center||'ar'||arm.art_paid_id||'art'||arm.art_paid_subid AS paid_ar_transaction_id

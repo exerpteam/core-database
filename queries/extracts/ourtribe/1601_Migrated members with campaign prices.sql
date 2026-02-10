@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Migrated members on ARCA_001 or JOGA_001 whose subcription price is less than 499. Assumption: Migrated members have a subscription comment, so filtering out any subscriptions without a comment.
 SELECT 
 s.CENTER as "CENTERID",
 s.OWNER_CENTER ||'p'|| s.OWNER_ID AS "PERSONKEY",

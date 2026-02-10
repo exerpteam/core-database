@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
  collections.center,
  collections.BANK_DATE, 'CREDIT' as CreditDebit, '' || collections.SUBMISSION_FILE as SUBMIT_FILE_ID,

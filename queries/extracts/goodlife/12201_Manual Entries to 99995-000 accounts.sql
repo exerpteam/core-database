@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- manual entries to interclub accounts, including invoice and credit lines
 
 SELECT * FROM (
 

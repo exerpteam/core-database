@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ActionsAndRoles
 SELECT  r.rolename, a.rolename,a.is_action
 FROM impliedemployeeroles ir
 JOIN roles r ON ir.roleid=r.id

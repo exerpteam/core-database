@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     DISTINCT TRIM(r.EXTERNAL_ID) AS EXTERNAL_ID FROM BOOKING_RESOURCES r
 INNER JOIN CENTERS c

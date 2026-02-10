@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-6947
 WITH
           params AS
           (
@@ -19,46 +21,46 @@ SELECT DISTINCT
         ,pr.req_date AS "Payment Request Date"
         ,payment.amount  
 FROM
-        fernwood.account_receivables ar
+        account_receivables ar
 JOIN
-        fernwood.ar_trans art   
+        ar_trans art   
                 ON art.center = ar.center    
                 AND art.id = ar.id
                 AND art.ref_type = 'ACCOUNT_TRANS' 
 JOIN
-        fernwood.art_match payment
+        art_match payment
                 ON payment.art_paying_center = art.center
                 AND payment.art_paying_id = art.id
                 AND payment.art_paying_subid = art.subid
 JOIN       
-        fernwood.ar_trans armatch
+        ar_trans armatch
                 ON payment.art_paid_center = armatch.center
                 AND payment.art_paid_id = armatch.id
                 AND payment.art_paid_subid = armatch.subid
 JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
                 ON invl.center = armatch.ref_center
                 AND invl.id = armatch.ref_id
 JOIN
-        fernwood.invoices inv
+        invoices inv
                 ON invl.center = inv.center
                 AND invl.id = inv.id
 JOIN
-        fernwood.payment_request_specifications prs
+        payment_request_specifications prs
                 ON prs.center = armatch.payreq_spec_center  
                 AND prs.id = armatch.payreq_spec_id
                 AND prs.subid = armatch.payreq_spec_subid
                 AND prs.cancelled IS FALSE
 JOIN
-        fernwood.payment_requests pr 
+        payment_requests pr 
                 ON prs.center = pr.inv_coll_center 
                 AND prs.id = pr.inv_coll_id 
                 AND prs.subid = pr.inv_coll_subid 
 JOIN 
-        fernwood.clearinghouses ch 
+        clearinghouses ch 
                 ON ch.id = pr.clearinghouse_id   
 JOIN 
-        fernwood.centers c 
+        centers c 
                 ON c.id = pr.center 
 JOIN
         params

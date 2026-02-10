@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     SU.CENTER AS SU_CENTER,
     PR.GLOBALID AS PR_GLOBALID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select owner,object_name,object_type 
 from all_objects 
 WHERE object_type = $$object_type$$

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Fix duplicate filter, exclude cancelled prs
 WITH
 	PAY_REQUESTS AS
 		(

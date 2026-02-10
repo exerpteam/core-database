@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- USARE PER APERTURA RICHIESTE ATTIVAZIONE CORSI SU APP
 SELECT
          act.ID,
      -- act.SCOPE_TYPE,

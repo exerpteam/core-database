@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes Hypoxi amounts outstanding 7 or more days in the past
 WITH params AS (
     SELECT
         datetolongC('2024-07-01 00:00', c.id) AS FromDatelong,
@@ -7,8 +9,8 @@ WITH params AS (
 
 filtered_invoices AS (
     SELECT inv.*, invl.total_amount AS invl_total_amount, invl.center AS invl_center, invl.id AS invl_id, inv.text AS Description
-    FROM fernwood.invoices inv
-    JOIN fernwood.invoice_lines_mt invl ON inv.center = invl.center AND inv.id = invl.id
+    FROM invoices inv
+    JOIN invoice_lines_mt invl ON inv.center = invl.center AND inv.id = invl.id
     JOIN params ON inv.center = params.center_id
     WHERE inv.center IN (:Scope)
       AND inv.trans_time >= params.FromDatelong
@@ -17,8 +19,8 @@ filtered_invoices AS (
 
 filtered_trans AS (
     SELECT act.*, accr.customercenter, accr.customerid, act.text AS Description
-    FROM fernwood.account_trans act
-    JOIN fernwood.account_receivables accr ON act.center = accr.center AND act.id = accr.id AND accr.ar_type = 4
+    FROM account_trans act
+    JOIN account_receivables accr ON act.center = accr.center AND act.id = accr.id AND accr.ar_type = 4
     JOIN params ON act.center = params.center_id
     WHERE act.center IN (:Scope)
       AND act.trans_type = 2
@@ -51,9 +53,9 @@ invoice_data AS (
         art.due_date,
         inv.invl_total_amount AS "Original Amount"
     FROM filtered_invoices inv
-    LEFT JOIN fernwood.ar_trans art ON art.ref_center = inv.invl_center AND art.ref_id = inv.invl_id
+    LEFT JOIN ar_trans art ON art.ref_center = inv.invl_center AND art.ref_id = inv.invl_id
     LEFT JOIN settlements arm ON art.center = arm.art_paid_center AND art.id = arm.art_paid_id AND art.subid = arm.art_paid_subid
-    LEFT JOIN fernwood.persons p ON p.center = inv.payer_center AND p.id = inv.payer_id
+    LEFT JOIN persons p ON p.center = inv.payer_center AND p.id = inv.payer_id
     LEFT JOIN centers c ON c.id = inv.center
     WHERE (art.due_date IS NOT NULL OR art.due_date IS NULL AND art.status = 'SUSPENDED')
 ),
@@ -71,10 +73,10 @@ installment_data AS (
         art.due_date,
         act.amount AS "Original Amount"
     FROM filtered_trans act
-    JOIN fernwood.ar_trans art ON art.ref_center = act.center AND art.ref_id = act.id AND art.ref_subid = act.subid
+    JOIN ar_trans art ON art.ref_center = act.center AND art.ref_id = act.id AND art.ref_subid = act.subid
     LEFT JOIN settlements arm ON art.center = arm.art_paid_center AND art.id = arm.art_paid_id AND art.subid = arm.art_paid_subid
-    JOIN fernwood.account_receivables accr ON accr.center = art.center AND accr.id = art.id
-    LEFT JOIN fernwood.persons p ON p.center = accr.customercenter AND p.id = accr.customerid
+    JOIN account_receivables accr ON accr.center = art.center AND accr.id = art.id
+    LEFT JOIN persons p ON p.center = accr.customercenter AND p.id = accr.customerid
     LEFT JOIN centers c ON c.id = act.center
     WHERE (art.due_date IS NOT NULL OR art.due_date IS NULL AND art.status = 'SUSPENDED')
 )

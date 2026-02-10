@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      centers.name,
      TO_CHAR(TRUNC(longToDateTZ(CIL.CHECKIN_TIME,'Europe/London'),'HH'),'YYYY-MM-dd') AS "Checkin date",

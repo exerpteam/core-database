@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created For: To capture all teen fitness registrants for this year.  Date would need to adjusted to reuse.
+Created By: Sandra & Brent
+Date Added: Jine 2023
 SELECT
 
 p.center||'p'||p.id AS teen_id

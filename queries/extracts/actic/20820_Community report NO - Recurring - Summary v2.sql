@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-1652 
 WITH
     params AS materialized
     (

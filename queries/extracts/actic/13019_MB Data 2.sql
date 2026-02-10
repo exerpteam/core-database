@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used for drafts or other testing
 /* Vi läser in tex 639440944 men de vill ha 806886694 i filen. 
  * För att göra detta ska följande göras:
  * -Convert the number you’ve read to hex

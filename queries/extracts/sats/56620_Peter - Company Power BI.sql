@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  -- Company -- 9
    --subscription_id                                                             AS "Subscription ID",

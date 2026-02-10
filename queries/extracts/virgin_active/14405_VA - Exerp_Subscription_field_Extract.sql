@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  OldPID.txtvalue as OlpdPersonID,
  longToDate(S.CREATION_TIME)as MEMBER_CR_DATE,

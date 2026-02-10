@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  c.SHORTNAME, CONCAT(CONCAT(p.FIRST_NAME, ' '), p.LAST_NAME) as nominativo, CONCAT(CONCAT(CAST(e.CENTER AS CHAR(3)),'emp'),CAST(e.ID as VARCHAR(6))) as employeeId, ROLENAME as ruolo
  FROM

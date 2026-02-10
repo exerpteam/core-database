@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to show configuration of Goods, Service and Add-on Products. 
 SELECT
     prod.CENTER,
 	(CASE prod.PTYPE

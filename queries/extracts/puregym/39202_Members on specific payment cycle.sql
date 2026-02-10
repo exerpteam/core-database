@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns a list of members that have an active agreement with a specific payment cycle 
 select 
 
 

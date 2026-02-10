@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- In this period and scope as input. 
 Output is RETAILS sold in the period, and emp number appears. Can be used for sales contests to see who has sold the most of the X product.
 WITH

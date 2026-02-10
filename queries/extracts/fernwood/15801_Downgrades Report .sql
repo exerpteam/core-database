@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-1998
 SELECT
         t1."Club Name"
         ,t1."External ID"	
@@ -39,7 +41,7 @@ FROM
                         ,person_center AS PersonCenter
                         ,person_id AS PersonID             
                 FROM 
-                        fernwood.checkins 
+                        checkins 
                 GROUP BY 
                         person_center
                         ,person_id 
@@ -56,14 +58,14 @@ FROM
                         ,prod.name
                         ,'RecurringClipcard' AS ServiceType
                 FROM
-                        fernwood.subscriptions s        
+                        subscriptions s        
                 JOIN
-                        fernwood.subscriptiontypes st
+                        subscriptiontypes st
                         ON st.center = s.subscriptiontype_center
                         AND st.ID = s.subscriptiontype_id
                         AND st.st_type = 2 
                 JOIN
-                        fernwood.products prod
+                        products prod
                         ON prod.center = st.center
                         AND prod.id = st.id
                 JOIN
@@ -82,19 +84,19 @@ FROM
                         ,prod_addon.name
                         ,'Addon' AS ServiceType
                 FROM
-                        fernwood.subscription_addon sao 
+                        subscription_addon sao 
                 JOIN  
-                        fernwood.masterproductregister mpr_addon 
+                        masterproductregister mpr_addon 
                         ON mpr_addon.id = sao.addon_product_id
                 JOIN 
-                        fernwood.products prod_addon
+                        products prod_addon
                         ON prod_addon.center = sao.center_id
                         AND prod_addon.globalid = mpr_addon.globalid
                 JOIN
                         params 
                         ON params.center_id = sao.subscription_center 
                 LEFT JOIN
-                        fernwood.product_and_product_group_link pglc
+                        product_and_product_group_link pglc
                         ON pglc.product_center = prod_addon.center
                         AND pglc.product_id = prod_addon.id
                         AND pglc.product_group_id = 401                        
@@ -115,13 +117,13 @@ FROM
                         ,cc.valid_from
                         ,'Clipcard' AS ServiceType
                 FROM
-                        fernwood.clipcards cc 
+                        clipcards cc 
                 JOIN 
-                        fernwood.products pro 
+                        products pro 
                         ON pro.center = cc.center
                         AND pro.id = cc.ID
                 LEFT JOIN
-                        fernwood.product_and_product_group_link pglc
+                        product_and_product_group_link pglc
                         ON pglc.product_center = pro.center
                         AND pglc.product_id = pro.id
                         AND pglc.product_group_id in (6,225,401)
@@ -174,35 +176,35 @@ FROM
                         WHEN rcc.ServiceType IS NOT NULL THEN 'DD'
                 END AS ServiceType                        
         FROM
-                fernwood.subscriptions s        
+                subscriptions s        
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.ID = s.subscriptiontype_id
                 AND st.st_type != 2 
         JOIN
-                fernwood.products prod
+                products prod
                 ON prod.center = st.center
                 AND prod.id = st.id
         JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = prod.center  
                 AND pgl.product_id = prod.id
                 AND pgl.product_group_id = 5601 
         JOIN
-                fernwood.persons p
+                persons p
                 ON p.center = s.owner_center
                 AND p.id = s.owner_id
         JOIN
-                fernwood.centers c
+                centers c
                 ON c.id = p.center
         LEFT JOIN
-                fernwood.person_ext_attrs mobile
+                person_ext_attrs mobile
                 ON mobile.personcenter = p.center
                 AND mobile.personid = p.id
                 AND mobile.name = '_eClub_PhoneSMS'
         LEFT JOIN
-                fernwood.person_ext_attrs email
+                person_ext_attrs email
                 ON email.personcenter = p.center
                 AND email.personid = p.id
                 AND email.name = '_eClub_Email'

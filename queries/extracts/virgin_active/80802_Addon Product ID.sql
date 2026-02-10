@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Da confrontare in CERCA.VERT con la lista degli addon disponibili e attivi ITA
 SELECT DISTINCT
     prod.name AS add_on_name,
 	sa.ADDON_PRODUCT_ID

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by RG based on the PT Revenue member detail with amended GL codes
  WITH
      params AS
      (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select CE.NAME as SALESPERSON_CENTER,
  PE.CENTER || 'p' || PE.ID as SALESPERSON_ID,
  PE.FIRSTNAME || ' ' || PE.LASTNAME as SALESPERSON,

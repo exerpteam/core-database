@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT S.CENTER, S.ID, P.ID AS PERSONID, P.FIRSTNAME, P.LASTNAME,P.CENTER AS PERSON_CENTER,  
 DECODE (STATE, 2,'Active', 3,'Ended', 4,'Frozen', 7,'Window', 8,'Created','Unknown') as STATE,
  DECODE (SUB_STATE, 1,'None', 6, 'Transferred', 9,'Blocked') AS SUB_STATE, S.SUBSCRIPTIONTYPE_CENTER, S.BINDING_END_DATE, S.SUBSCRIPTION_PRICE, S.START_DATE, S.END_DATE, 

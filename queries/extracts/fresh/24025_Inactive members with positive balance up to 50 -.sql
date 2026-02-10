@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- end date more than 6 months ago. EC-7271
 SELECT DISTINCT
 ar.customercenter ||'p'|| ar.customerid AS memberid,
 ar.balance, 

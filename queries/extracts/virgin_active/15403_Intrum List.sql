@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Formerly Known as ST-1247
 SELECT
     p.CENTER || 'p' || p.ID                        MEMBER_ID,
     p.FULLNAME                                     MEMBER_NAME,

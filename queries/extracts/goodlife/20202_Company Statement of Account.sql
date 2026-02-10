@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns Payment Requests for Selected Company that have an open balance.
 SELECT DISTINCT
     p.fullname AS "Company Name"
     ,p.center || 'p' || p.id AS "Company Person ID"

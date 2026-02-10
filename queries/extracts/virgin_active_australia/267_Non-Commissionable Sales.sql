@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Amended version of the sales validation report - to look at where the commissionalble field is set to no
  WITH params AS (
     SELECT

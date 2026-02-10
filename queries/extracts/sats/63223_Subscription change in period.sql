@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      s_new.OWNER_CENTER , s_new.OWNER_ID ,
      longToDate(sc.CHANGE_TIME)                  AS change_time,

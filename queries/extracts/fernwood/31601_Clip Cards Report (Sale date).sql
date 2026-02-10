@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         t1."PersonID"
         ,t1."ExternalID"
@@ -77,70 +79,70 @@ FROM
                  ,(CAST(longtodatec(la.LastVisitDate,la.PersonCenter) as date)) AS "Last Visit Date"
                  ,cc.center||'cc'||cc.id||'cc'||cc.subid
         FROM 
-                fernwood.persons p
+                persons p
         JOIN 
-                fernwood.clipcards cc 
+                clipcards cc 
                 ON cc.owner_center = p.center 
                 AND cc.owner_id = p.id
         LEFT JOIN 
-                fernwood.card_clip_usages ccu 
+                card_clip_usages ccu 
                 ON ccu.card_center = cc.center 
                 AND ccu.card_id = cc.id 
                 AND ccu.card_subid = cc.subid
                 AND ccu.type = 'ADJUSTMENT'
         JOIN 
-                fernwood.centers c 
+                centers c 
                 ON c.id = p.center
         JOIN 
-                fernwood.centers cclip
+                centers cclip
                 ON cc.center = cclip.id
         JOIN 
-                fernwood.products pro 
+                products pro 
                 ON pro.center = cc.center
                 AND pro.id = cc.ID
         LEFT JOIN 
-                fernwood.invoice_lines_mt inv
+                invoice_lines_mt inv
                 ON cc.invoiceline_center = inv.center
                 AND cc.invoiceline_id = inv.id
                 AND cc.invoiceline_subid = inv.subid  
         LEFT JOIN 
-                fernwood.invoices i
+                invoices i
                 ON inv.center = i.center     
                 AND inv.id = i.id   
         LEFT JOIN 
-                fernwood.employees emp
+                employees emp
                 ON emp.CENTER = i.employee_center
                 AND emp.ID = i.employee_id
         LEFT JOIN 
-                fernwood.persons pe
+                persons pe
                 ON pe.CENTER = emp.PERSONCENTER
                 AND pe.ID = emp.PERSONID  
         LEFT JOIN 
-                fernwood.employees empa
+                employees empa
                 ON empa.CENTER = ccu.employee_center
                 AND empa.ID = ccu.employee_id
         LEFT JOIN 
-                fernwood.persons pea
+                persons pea
                 ON pea.CENTER = empa.PERSONCENTER
                 AND pea.ID = empa.PERSONID  
         LEFT JOIN 
-                fernwood.person_ext_attrs peeaEmail
+                person_ext_attrs peeaEmail
                 ON peeaEmail.personcenter = p.center
                 AND peeaEmail.personid = p.id
                 AND peeaEmail.name = '_eClub_Email'
         LEFT JOIN 
-                fernwood.person_ext_attrs peeaMobile
+                person_ext_attrs peeaMobile
                 ON peeaMobile.personcenter = p.center
                 AND peeaMobile.personid = p.id
                 AND peeaMobile.name = '_eClub_PhoneSMS' 
         LEFT JOIN 
-                fernwood.person_ext_attrs peeaHome
+                person_ext_attrs peeaHome
                 ON peeaHome.personcenter = p.center
                 AND peeaHome.personid = p.id
                 AND peeaHome.name = '_eClub_PhoneHome'
         LEFT JOIN
                 (SELECT max(checkin_time) AS LastVisitDate, person_center AS PersonCenter, person_id AS PersonID             
-                FROM fernwood.checkins 
+                FROM checkins 
                 GROUP BY person_center,person_id ) la
                 ON la.PersonCenter = p.center
                 AND la.PersonID = p.id
@@ -148,7 +150,7 @@ FROM
                 params 
                 ON params.CENTER_ID = c.id
         LEFT JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = pro.center
                 AND pgl.product_id = pro.id
                 AND pgl.product_group_id = 225
@@ -158,7 +160,7 @@ FROM
                         ,id
                         ,entry_time
                  FROM
-                        fernwood.invoices
+                        invoices
                 )t
                 ON cc.invoiceline_center = t.center 
                 AND cc.invoiceline_id = t.id

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -43,12 +45,12 @@ SELECT
         ,empp.fullname || ' - ' ||
          TO_CHAR(longtodateC(tlog.entry_time, tlog.employee_center), 'DD/MM/YYYY') AS "LastComment"
 FROM
-        fernwood.tasks t                
+        tasks t                
 LEFT JOIN
-        fernwood.task_steps ts
+        task_steps ts
                 ON ts.id = t.step_id            
 JOIN
-        fernwood.persons p
+        persons p
                 ON p.center = t.person_center
                 AND p.id = t.person_id
 LEFT JOIN
@@ -58,13 +60,13 @@ LEFT JOIN
                 ,tk.person_center
                 ,tk.person_id
         FROM
-                fernwood.task_log tl
+                task_log tl
         JOIN
-                fernwood.task_log_details tld
+                task_log_details tld
                 ON tld.task_log_id = tl.id
                 AND tld.name = '_eClub_COMMENT'
         JOIN
-                fernwood.tasks tk
+                tasks tk
                 ON tk.id = tl.task_id                
         GROUP BY
                 tk.person_center
@@ -73,40 +75,40 @@ LEFT JOIN
                 ON tc.person_center = p.center
                 AND tc.person_id = p.id 
 LEFT JOIN
-        fernwood.task_log_details tcomment
+        task_log_details tcomment
                 ON tcomment.task_log_id = tc.TaskID
                 AND tcomment.name = '_eClub_COMMENT'
 LEFT JOIN
-        fernwood.task_log tlog
+        task_log tlog
                 ON tcomment.task_log_id = tlog.id                
 LEFT JOIN
-        fernwood.persons empp
+        persons empp
                 ON empp.center = tlog.employee_center
                 AND empp.id = tlog.employee_id                                                                                   
 LEFT JOIN
-        fernwood.persons assignee
+        persons assignee
                 ON assignee.center = t.asignee_center
                 AND assignee.id = t.asignee_id  
 JOIN
-        fernwood.centers c
+        centers c
                 ON c.id = t.person_center  
 LEFT JOIN
-        fernwood.person_ext_attrs peaMobile
+        person_ext_attrs peaMobile
                 ON peaMobile.personcenter = p.center
                 AND peaMobile.personid = p.id
                 AND peaMobile.name = '_eClub_PhoneSMS'
 LEFT JOIN
-        fernwood.person_ext_attrs peaEmail
+        person_ext_attrs peaEmail
                 ON peaEmail.personcenter = p.center
                 AND peaEmail.personid = p.id
                 AND peaEmail.name = '_eClub_Email'
 LEFT JOIN
-        fernwood.person_ext_attrs peaSource
+        person_ext_attrs peaSource
                 ON peaSource.personcenter = p.center
                 AND peaSource.personid = p.id
                 AND peaSource.name = 'CampaignSource'  
 LEFT JOIN
-        fernwood.person_ext_attrs pea
+        person_ext_attrs pea
                 ON pea.personcenter = p.center
                 AND pea.personid = p.id
                 AND pea.name = 'CREATION_DATE'                                                                

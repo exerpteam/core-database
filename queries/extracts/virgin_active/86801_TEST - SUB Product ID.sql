@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
      prod.CENTER || 'prod' || prod.ID AS Product_ID,
 	 prod.name as Product_Name,

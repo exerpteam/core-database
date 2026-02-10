@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select sc.*, ex.SERVICE FROM EXCHANGED_FILE_SC sc
 INNER JOIN
 EXCHANGED_FILE ex

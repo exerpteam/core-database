@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     COUNT(AR.CUSTOMERCENTER ||'p'||ar.CUSTOMERID) OVER (partition BY AR.CUSTOMERCENTER ||'p'||ar.CUSTOMERID ORDER BY AR.CUSTOMERCENTER ||'p'||ar.CUSTOMERID ) AS "Entries",
     AR.CUSTOMERCENTER ||'p'||ar.CUSTOMERID                                                                                                                    AS "Member ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Audit of members with Family Add-On Memberships who are no longer eligible for the discount.
 /*
 
 Audit Active Family Add-On Memberships where member does not have privilege for discount.

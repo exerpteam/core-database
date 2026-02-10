@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-9025
 WITH
     RECURSIVE CTE AS MATERIALIZED
     (

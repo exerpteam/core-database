@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- COLONNE: Club + Sub Type + Price Signed on Contact (€) + Member ID + Price from Pricelist
+https://clublead.atlassian.net/browse/ST-2611
  SELECT
     c.SHORTNAME AS "Club",
     pr.NAME AS "Sub Type",

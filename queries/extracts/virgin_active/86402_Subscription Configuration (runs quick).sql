@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Duplicate of the Subscription Configuration report, however removes any duplicate lines if club and product name are the same
 SELECT *
 FROM (
     SELECT

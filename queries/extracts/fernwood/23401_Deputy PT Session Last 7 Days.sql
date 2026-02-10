@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -47,10 +49,10 @@ LEFT JOIN
         ON p2.CENTER = su.PERSON_CENTER
         AND p2.id = su.PERSON_ID         
 JOIN
-        fernwood.centers c2
+        centers c2
         ON b.center = c2.id  
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center               
 WHERE
         b.center in (:Scope)

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH pmp_xml AS (
         SELECT pp.id, CAST(convert_from(pp.configuration, 'UTF-8') AS XML) AS pxml FROM privilege_punishments pp 
 )

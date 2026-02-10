@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Check dates
 
 WITH
     PARAMS AS

@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes new changes for EC-5102
+https://clublead.atlassian.net/browse/EC-5102
 SELECT DISTINCT
         t1."Status" 
         ,t1.PersonID

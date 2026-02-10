@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2477
+-- Lists all debt and positive balances for inactive members that is below 10 SEK, 10 NOK and 1 EUR, no matter how old the debt/positive balance is
 -- Lists all debt and positive balances for inactive members that is below 10 SEK, 10 NOK and 1 EUR, no matter how old the debt/positive balance is
 
 

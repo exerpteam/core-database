@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-12037
 SELECT distinct
   p.center as "Centre id", 
   c.name as "Centre name",

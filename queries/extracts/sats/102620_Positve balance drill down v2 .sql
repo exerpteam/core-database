@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Added information regarding payment method in the extract.
 WITH params AS MATERIALIZED
                 (
                         SELECT

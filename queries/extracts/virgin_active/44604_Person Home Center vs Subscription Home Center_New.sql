@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-5158
 SELECT
     p.CENTER                     AS "HOME_CENTER_PERSON",
     p.CENTER || 'p' || p.ID                         AS "PERSON_ID",

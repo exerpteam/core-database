@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 21/2/19 changed IDMETHOD in Query from 2 to 4 in order to export RFID rather than MAG STRIPE. Required for new car park barriers. Denis McAlinden
 
 SELECT
     p.center || 'p' || p.id AS PersonId,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
             old_subscription_center AS center ,
             old_subscription_id     AS id,

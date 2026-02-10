@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Use ON LAST DAY OF MONTH. Shows Extras from previous day and calculates LM based on the extras for the previouse day. Extas on last day of month are always too high to this is our way to solve that issue
 WITH
     PARAMS AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT ex.* FROM(
 SELECT CONCAT(CONCAT(CAST(prod.CENTER as CHAR(3)),'p'),CAST(prod.ID as VARCHAR(10))) as productId, prod.NAME FROM  SUBSCRIPTIONTYPES st
 JOIN PRODUCTS prod

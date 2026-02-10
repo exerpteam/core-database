@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- All members in debt and whether they have an open task in cRM or not.
 WITH
     params AS MATERIALIZED

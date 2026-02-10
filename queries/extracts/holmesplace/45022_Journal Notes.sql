@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Using Escrow-xJournalNotes extract but instead of selecting type you select dates. Only includes Notes.
 SELECT
     p.center || 'p' || p.id AS PERSONID,
     TO_CHAR(longToDateC(jrn.creation_time, jrn.creatorcenter),'yyyy-MM-dd HH24:MI:SS')  AS CREATIONDATE,    

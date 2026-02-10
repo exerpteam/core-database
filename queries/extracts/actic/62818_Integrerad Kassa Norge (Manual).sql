@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* Based on Cash register sales by payment type */
 SELECT
    TO_CHAR(LONGTODATE($$periodFromLong$$),'YYYY-MM-DD') AS "PERIOD_FROM"

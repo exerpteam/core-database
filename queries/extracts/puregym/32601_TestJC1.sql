@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Testing ticket 80872
 SELECT -- BI_SUBSCRIPTION_STATE_LOG
     KEY
 FROM

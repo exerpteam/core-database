@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG copied FME and added Can Email,  External ID. Binding date and Age
+- Updated 10.06.21 to add in Third Party offers
  WITH
      PARAMS AS
      (

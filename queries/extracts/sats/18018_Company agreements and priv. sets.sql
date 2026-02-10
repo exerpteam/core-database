@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      company.center||'p'||company.id as companyId,
      company.LASTNAME as companyname,

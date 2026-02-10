@@ -1,8 +1,0 @@
-Select *
-
-from 
-CLIPCARDS C
-
-where
-C.OWNER_CENTER >= 501 AND
-C.OWNER_CENTER <= 549

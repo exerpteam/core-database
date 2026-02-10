@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     lines."INVOICE ID" "INVOICE/CREDIT NOTE",
     lines.RECEIPT_ID as "ParagonNo",

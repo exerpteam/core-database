@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Estrazione ext. attr. corporate value
 SELECT distinct
     p.center ||'p'|| p.id as memberid, 
     p.center as owner_center,

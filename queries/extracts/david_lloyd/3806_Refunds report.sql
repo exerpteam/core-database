@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/EC-10769
 /*This extract aims to export all the 'refunds' that took place in a period. hese refunds should
 only include

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH pmp_xml AS (
 SELECT m.id, CAST(convert_from(m.product, 'UTF-8') AS XML) AS pxml FROM goodlife.masterproductregister m 
 )

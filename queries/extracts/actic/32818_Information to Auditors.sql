@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/wiki/spaces/CAS/pages/472416261/Information+to+Auditors
+https://clublead.atlassian.net/browse/ST-6354
 SELECT
     'GLE'||GL_EXPORT_BATCH_ID              AS "Reference",
     longtodateC(gle.ENTRY_TIME,agt.CENTER) AS "Date",

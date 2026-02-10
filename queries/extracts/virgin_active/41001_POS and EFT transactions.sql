@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/st-5870
+https://clublead.atlassian.net/browse/ES-20504
+https://clublead.atlassian.net/browse/ES-17211
  SELECT
      CASE  WHEN cp.center IS NULL THEN '' ELSE cp.center||'p'||cp.id END AS "ID",
      cp.FULLNAME          AS "Name and Last name",

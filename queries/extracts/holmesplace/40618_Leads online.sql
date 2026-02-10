@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Failed Online Sales. Leads created by OSP or Member Web
 SELECT
 	c.Shortname AS "Club",
   	p.CENTER AS "Center",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* QV2NewLeadsDaily */
 /*
  - Ändra i leads scriptet så att det enbart tar bort de fyra riktiga kategorierna av medlemskap, 

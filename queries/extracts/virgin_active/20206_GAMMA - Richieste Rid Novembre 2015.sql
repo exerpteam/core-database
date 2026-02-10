@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 CONCAT(CONCAT(cast(p1.CENTER as char(3)),'p'), cast(p1.ID as varchar(8))) as persondId, p1.FULLNAME as nominativo, prs.REF as IDFATTURA, 
 DECODE(pr.STATE, 1, 'PS_NEW', 2, 'PS_SENT', 3, 'PS_DONE', 5, 'PS_REJECTED_BY_CLEARINGHOUSE', 12, 'PS_FAIL_NO_CREDITOR', 17,'PS_FAIL_REJ_DEB_REVOKED') "Stato", PR.STATE,

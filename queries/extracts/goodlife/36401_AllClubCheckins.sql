@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH RECURSIVE province (center,area) AS (
 
     -- All center area links in system scope

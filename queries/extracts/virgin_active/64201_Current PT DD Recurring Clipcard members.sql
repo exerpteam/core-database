@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
 	q1.PT_ID,
 	q1.PT_NAME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to fetch members with PT subscriptions that was ended within given period.
 SELECT 
 	sub.OWNER_CENTER || 'p'|| sub.OWNER_ID AS PersonKey,
 	per.FULLNAME AS Namn,

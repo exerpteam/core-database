@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find monthly subscriptions linked to a default Bi-Weekly payment agreement
+
 SELECT
     a.PERSON_ID,
     a.MEMBERSHIP_ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     s.owner_center ||'p'|| s.owner_id AS member,
     s.start_date,

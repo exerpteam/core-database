@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select distinct 
 t1.Member_ID as "Member ID",
 t1.fullname as "Members Name",

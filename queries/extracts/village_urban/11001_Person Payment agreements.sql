@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     ar.CUSTOMERCENTER || 'p' ||  ar.CUSTOMERID as memberid,
     DECODE(ar.AR_TYPE,1,'Cash',4,'Payment',5,'Debt') account_type,

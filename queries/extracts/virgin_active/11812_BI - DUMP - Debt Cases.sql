@@ -1,1 +1,0 @@
-select * from BI_DEBT_CASES where CENTER_ID in ($$scope$$)

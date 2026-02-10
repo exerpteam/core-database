@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Fitness Bookings - Last 60 Days Report Gladstone Equivalent
 SELECT DISTINCT ON (bk.center, bk.id)
      c.id AS "ClubID",

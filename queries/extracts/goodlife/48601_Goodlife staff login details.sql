@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-43674
 SELECT
     p.center||'p'||p.id member_id,
     CASE p.status

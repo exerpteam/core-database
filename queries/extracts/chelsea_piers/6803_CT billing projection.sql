@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to be used for billing projection data on a test system to pull up all generated payment requests for Center 18
 SELECT
         p.center AS "CENTER",
         pea.txtvalue AS "LEGEACY ID",

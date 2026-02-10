@@ -1,3 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Targeting:
+- Active & Temporary Active
+- Private & Corporate
+- No enddate
+- No binding
+- Atleast 1 checkin latest 3 months
+- 12 months binding subscriptions
 /* All subscriptions for pricechange*/
 
 SELECT

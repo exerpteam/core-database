@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Henrik Håkanson
 * Purpose: List transaction made with crttype=13 and paymentmethod. 

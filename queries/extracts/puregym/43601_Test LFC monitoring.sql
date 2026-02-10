@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     rank() over (partition BY STARTDATE ORDER BY bl.STARTTIME) as rank,
     longtodate(bl.STARTTIME) STARTTIME,

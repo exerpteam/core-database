@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Version  of the sales validation report looking at the new extended attribute: Pend Cleared and commissionable = No
 SELECT
     *

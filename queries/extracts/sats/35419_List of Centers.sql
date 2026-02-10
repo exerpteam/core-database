@@ -1,3 +1,0 @@
-SELECT
-    *
-FROM SATS.CENTERS order by ID

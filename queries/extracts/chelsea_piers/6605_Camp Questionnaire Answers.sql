@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Dump of memebrs's questionnaire answers including free text
 SELECT
     QA.ID                                     AS "ID",
     QA.question_id 							AS "Question_ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 	CONCAT(CONCAT(cast(pE.CENTER as char(3)),'p'), cast(pe.ID as varchar(8))) as personId 
 FROM

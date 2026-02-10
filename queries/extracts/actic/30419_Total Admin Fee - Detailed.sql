@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-1637
 SELECT ar.CUSTOMERCENTER||'p'||ar.CUSTOMERID
 FROM
   AR_TRANS art

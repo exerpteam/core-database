@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT longtodatec(pr.entry_time, pr.center),pr.* FROM ACCOUNT_RECEIVABLEs ar
 join payment_requests pr ON pr.center = ar.center and pr.id = ar.id
 WHERE ar.customerCenter = 3

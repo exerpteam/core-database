@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-9865
  SELECT
  "PERSON_ID",
  "ACCOUNT_TYPE",

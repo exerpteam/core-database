@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     jes.PERSON_CENTER || 'p'|| jes.PERSON_ID AS MEMBER,
     jes.JETYPE AS ENTRY_TYPE,

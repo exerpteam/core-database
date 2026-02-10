@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     i3.CENTER_NAME AS CLUB_NAME,
     i3.PID AS PERSON_ID,

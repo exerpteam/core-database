@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to see used privileges/coupons that is connected to the loyalty program for one externalID.
  WITH PRG AS materialized (
  select * from (
 SELECT

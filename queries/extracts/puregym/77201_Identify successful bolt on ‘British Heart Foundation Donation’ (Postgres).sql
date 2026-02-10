@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract 'end date' parameter must be at least 17 working days ago when running.
 WITH
     params AS MATERIALIZED
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     TO_CHAR(TRUNC(longtodatetz(op.START_TIME,'Europe/London')),'yyyy-MM-dd')          AS EXPORT_DATE,
     TO_CHAR(longtodatetz(MIN(exp.EXPORT_TIME),'Europe/London'), 'yyyy-MM-dd hh24:mi')    FIRST_EXPORT_TIME,

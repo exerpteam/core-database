@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to check that the set up accounts is correct for the cash register
 /**
 * Creator: Exerp
 * Purpose: Used to check that the set up accounts is correct for the cash register

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      p.center||'p'||p.id                                              AS PERSONID,
      TO_CHAR(longToDateC(a.start_TIME,a.center),'YYYY-MM-dd HH24:MI') AS VisitDateTime,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Privat, student och senior
 /*
  * SoldCardsDailyManual
  * mimics the Subscription sales report in Exerp

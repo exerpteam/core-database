@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- end date more than 36months ago 
+Other payers that are inactive and pay for other members has been removed from this extract
 SELECT 
 c.country,
 ar.customercenter ||'p'|| ar.customerid AS memberid,

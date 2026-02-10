@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-8474
  SELECT
      friend.FULLNAME                             AS "Member Name",
      friend.center||'p'||friend.id               AS "Member ID",

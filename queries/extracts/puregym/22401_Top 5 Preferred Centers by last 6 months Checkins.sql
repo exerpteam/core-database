@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* INSERT INTO PREFERRED_CENTERS(PERSON_CENTER, PERSON_ID, PREFERRED_CENTER) */
 WITH 
   chkin_counts As

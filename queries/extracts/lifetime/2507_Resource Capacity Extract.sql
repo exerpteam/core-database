@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 	
 		br.center AS "ClubID",
 		c.name AS "ClubName",

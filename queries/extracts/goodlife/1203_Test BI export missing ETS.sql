@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 'bi2_accepted_material' AS EXPORT, count(*) FROM bi2_accepted_material WHERE "ETS" is null union all
 SELECT 'bi2_access_privilege_usage' AS EXPORT, count(*) FROM bi2_access_privilege_usage WHERE "ETS" is null union all
 SELECT 'bi2_agreement_case' AS EXPORT, count(*) FROM bi2_agreement_case WHERE "ETS" is null union all

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
    b.NAME,  c.SHORTNAME as Club, p.FULLNAME AS Nominativo,CONCAT(CONCAT(cast(p.CENTER as INT), 'p'), cast(p.ID as int)) as personId, longToDate(B.STARTTIME) as dataPrenotazione FROM bookings b
 INNER JOIN Centers c

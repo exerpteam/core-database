@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 null as remote_chain_id,
 P.CENTER as remote_site_id,

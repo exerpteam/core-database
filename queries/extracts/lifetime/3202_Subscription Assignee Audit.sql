@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-9680
 SELECT
     pd.name AS "Product Name",
     p.external_id as "Assigned Employee",

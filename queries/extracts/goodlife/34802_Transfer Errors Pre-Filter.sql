@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract returns members and subscriptions that can be transferred without causing errors in Exerp. This is based on Extract Person Auto-Transfer.
+
+Approved in CAB in: ISSUE-35784
+Reviewed By Exerp in: ST-12866
 WITH
         params AS
         (        

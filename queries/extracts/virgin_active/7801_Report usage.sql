@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Gives an overview on how often reports are used and when it was last used
+RG: 11.01.22 - updated to remove Italy scope and anything Gamma related.
  SELECT
         e.ID "Report ID",
      e.NAME,

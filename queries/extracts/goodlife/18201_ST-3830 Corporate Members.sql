@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Checks for fully sponsored corporate subscriptions that are not using the same deduction date as their company (ES-6484).
+https://clublead.atlassian.net/browse/ES-13364
 SELECT
         (CASE p.persontype
                 WHEN 0 THEN 'Private'

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         c.name                                           AS "CLUB",
         br.NAME                                          AS "NAME",
@@ -9,14 +11,14 @@ SELECT
         br.CENTER                                        AS "CENTER_ID",       
         brc.business_starttimes                          AS "BUSINESS_START_TIME"
 FROM
-        fernwood.booking_resources br
+        booking_resources br
 LEFT JOIN
-        fernwood.booking_privilege_groups bpg
+        booking_privilege_groups bpg
         ON bpg.ID = br.ATTEND_PRIVILEGE_ID
 LEFT JOIN
-        fernwood.booking_resource_configs brc
+        booking_resource_configs brc
         ON brc.booking_resource_center = br.center
         AND brc.booking_resource_id = br.id
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = br.center 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH clip_invoice AS (
         SELECT  
                 c.invoiceline_center, c.invoiceline_id,

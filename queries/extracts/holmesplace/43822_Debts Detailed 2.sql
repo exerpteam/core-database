@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on Debtors for invoice sales line CH
 WITH
     PAY_REQUESTS AS
     (

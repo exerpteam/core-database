@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
    E.IDENTITY as CARDNO,
    1 as CARDSTATUS,

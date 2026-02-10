@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT              
         E.IDENTITY AS CHIPID,
         TO_CHAR(E.REF_ID) AS cusstomernumbers,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Fixed duplicates with deleted pament agreements but not duplicates due to barcode in member card
 SELECT DISTINCT
     center.id                          AS centerId,
     center.NAME                        AS centerName,

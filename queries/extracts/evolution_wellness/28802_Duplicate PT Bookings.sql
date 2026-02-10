@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH base AS ( 
   SELECT
     CAST(ccu.time                  AS BIGINT) AS ccu_time_ms,

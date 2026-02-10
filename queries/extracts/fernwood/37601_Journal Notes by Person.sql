@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- PARAMETERS:
 -- :Scope      -> list of centers (keep your usual scope picker)
 -- :PersonID   -> e.g. '100p12345' (center || 'p' || id)
@@ -39,7 +41,7 @@ src AS (
       e.personcenter  AS emp_person_center,
       e.personid      AS emp_person_id
   FROM j
-  LEFT JOIN fernwood.employees e
+  LEFT JOIN employees e
     ON e.center = j.author_center
    AND e.id     = j.author_id
 ),
@@ -56,10 +58,10 @@ SELECT
     COALESCE(a.note_details, '')                                                        AS "Note Details",
     COALESCE(staff_from_emp.fullname, staff_direct.fullname, 'Unknown')                 AS "Author Name"
 FROM auth a
-LEFT JOIN fernwood.persons staff_from_emp
+LEFT JOIN persons staff_from_emp
   ON staff_from_emp.center = a.emp_person_center
  AND staff_from_emp.id     = a.emp_person_id
-LEFT JOIN fernwood.persons staff_direct
+LEFT JOIN persons staff_direct
   ON staff_direct.center = a.author_center
  AND staff_direct.id     = a.author_id
 ORDER BY "Note Date" DESC;

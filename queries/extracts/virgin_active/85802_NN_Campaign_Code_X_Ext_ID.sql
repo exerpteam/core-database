@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.external_id              AS person_external_id,
     s.id                       AS subscription_id,

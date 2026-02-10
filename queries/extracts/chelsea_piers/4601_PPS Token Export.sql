@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Export CP will use to add zip codes to PPS tokens.  EC-4537
 SELECT
     p.center ||'p'|| p.id                             AS member,
     p.fullname,

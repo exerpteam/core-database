@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     np.EXTERNAL_ID                                                             AS "EXTERNALID",
     su.center||'ss'||su.id                                                     AS "SUBSCRIPTIONID",

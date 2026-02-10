@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Linked to Contract Mix uk report
+
 SELECT
 	c.id,
 	c.name center_name,

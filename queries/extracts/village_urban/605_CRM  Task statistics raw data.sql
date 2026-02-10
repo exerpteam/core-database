@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Prel variant to get all changes associated with a customer out as log files
 SELECT
     t.ID                              task_id,
     tl.ID                             LOG_ID,

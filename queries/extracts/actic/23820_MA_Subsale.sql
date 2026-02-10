@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	ss.OWNER_CENTER || 'p' || ss.OWNER_ID AS PersonId,
 	per.FIRSTNAME,

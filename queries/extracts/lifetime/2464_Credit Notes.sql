@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- It allows us to pull up all the credit notes across all Clubs. Filterable. What credit note is being processed at a Club in detail.
+
 
 select 
 c.id as ClubNumber

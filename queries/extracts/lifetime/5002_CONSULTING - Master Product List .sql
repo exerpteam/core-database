@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used for product audit to get a list of all products with the same or similar global IDs
+It's possible to use % as a wildcard at the end of the Global ID, for example MCA_SEMI_PVT_60_MIN_SUB_LV% or MCA%
 SELECT
     p1.scope_id AS scope_id,
     p1.scope_type,

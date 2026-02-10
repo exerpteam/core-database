@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-12717
  -- CHECK END_DATES
  -- CHECK NO MORE THAN 2 SUBSCRIPTIONS
  -- CHECK SUB_STATES

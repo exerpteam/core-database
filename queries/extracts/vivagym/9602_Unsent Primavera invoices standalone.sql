@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Specific list of invoices
 SELECT
         r1.*
 FROM

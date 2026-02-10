@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-5869
  SELECT
      p.CENTER || 'p' || p.ID AS ID,
      p.FIRSTNAME             AS Nome,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Delete the PT and leave the Body Scan RCC. Tells you if the membership is going to stop before the RCC. No other Membership created. If there is no membership subscription at all it means it already ended!  If RCC State is created  you canto delete manually. If already active you can stop if the billed until date is less than the membership stop date. If it is later, you need to delete it and balance account.
 SELECT
     t.PersonId,
     t.RCCId,

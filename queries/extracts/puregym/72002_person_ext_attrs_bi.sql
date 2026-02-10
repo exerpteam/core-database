@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT p.personid
 FROM PERSONS P_DIS 
 JOIN  PERSON_EXT_ATTRS P 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to show product in product group 4. SATS Clothing & 4. SATS Nutrition online. 
  SELECT
      prod.name "Product name",
      prod.globalid "Global ID",

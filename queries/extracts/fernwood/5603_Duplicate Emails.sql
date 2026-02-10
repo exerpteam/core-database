@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         p.center ||'p'|| p.id AS "Person ID"
         ,p.external_id AS "External ID"
@@ -19,7 +21,7 @@ SELECT
 FROM
         (
         SELECT pea.txtvalue AS Email,count(*)  AS Total
-        FROM fernwood.person_ext_attrs pea
+        FROM person_ext_attrs pea
         WHERE 
                 pea.NAME = '_eClub_Email'
                 AND
@@ -27,15 +29,15 @@ FROM
         GROUP BY pea.txtvalue 
         )t1
 JOIN
-        fernwood.person_ext_attrs pe
+        person_ext_attrs pe
         ON pe.txtvalue = t1.Email
         AND pe.name = '_eClub_Email'
 JOIN
-        fernwood.persons p 
+        persons p 
         ON p.center = pe.personcenter             
         AND p.id = pe.personid
 JOIN 
-        fernwood.centers c 
+        centers c 
         ON c.id = p.center        
 WHERE
         t1.Total > 1        

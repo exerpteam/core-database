@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT 
 --P.CENTER AS CENTER, 
 --P.ID AS ID, 

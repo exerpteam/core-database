@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://puregym.zendesk.com/agent/tickets/453885
+Copied from extract 1201 with text adjustments, only necessary for scheduling
 SELECT
     e1.*,
     e1."Today's Joiners 1pm"-e1."Today's Leavers 1pm" AS "Today's Net Gain 1pm"

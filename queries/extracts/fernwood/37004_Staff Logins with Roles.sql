@@ -1,8 +1,10 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.name,
     p.center || 'p' || p.id AS PersonId,
     e.center || 'emp' || e.id AS LoginId,
-    fernwood.bi_decode_field('PERSONS','STATUS',p.status) as status,
+    bi_decode_field('PERSONS','STATUS',p.status) as status,
     p.fullname,
     pea.txtvalue AS LegacyId,
     (CASE
@@ -16,28 +18,28 @@ SELECT
     STRING_AGG(DISTINCT r.rolename, ', ') AS "Roles",
     COUNT(DISTINCT r.id) AS "Role Count"
 FROM 
-    fernwood.persons p
+    persons p
 JOIN
-    fernwood.centers c ON p.center = c.id
+    centers c ON p.center = c.id
 JOIN
-    fernwood.employees e ON p.center = e.personcenter AND p.id = e.personid
+    employees e ON p.center = e.personcenter AND p.id = e.personid
 -- Add employee roles using correct table structure from your existing extract
 LEFT JOIN
-    fernwood.employeesroles er
+    employeesroles er
     ON e.center = er.center 
     AND e.id = er.id
 LEFT JOIN
-    fernwood.roles r
+    roles r
     ON r.id = er.roleid
 LEFT JOIN
-    fernwood.person_ext_attrs pea ON pea.personcenter = p.center AND pea.personid = p.id AND pea.NAME = '_eClub_OldSystemPersonId'
+    person_ext_attrs pea ON pea.personcenter = p.center AND pea.personid = p.id AND pea.NAME = '_eClub_OldSystemPersonId'
 LEFT JOIN 
 (
     SELECT
         eph.employee_center,
         eph.employee_id
     FROM
-        fernwood.employee_password_history eph
+        employee_password_history eph
     GROUP BY 
         eph.employee_center,
         eph.employee_id
@@ -51,9 +53,9 @@ LEFT JOIN
         ,su.person_center AS PersonCenter
         ,su.person_id AS PersonID
     FROM 
-        fernwood.bookings b
+        bookings b
     JOIN 
-        fernwood.staff_usage su
+        staff_usage su
         ON su.booking_center = b.center AND su.booking_id = b.id
     WHERE
         b.state = 'ACTIVE'

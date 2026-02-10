@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH active_members AS
         (
         SELECT 
@@ -8,22 +10,22 @@ WITH active_members AS
                 ,pgl.product_group_id
                 ,per.center       
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.id = s.subscriptiontype_id
         JOIN
-                fernwood.products p
+                products p
                 ON p.center = st.center
                 AND p.id = st.id
         JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = p.center  
                 AND pgl.product_id = p.id
                 AND pgl.product_group_id IN (5601)
         JOIN
-                fernwood.persons per
+                persons per
                 ON per.center = s.owner_center
                 AND per.id = s.owner_id        
         WHERE
@@ -41,22 +43,22 @@ subs AS
                 ,pgl.product_group_id 
                 ,per.center      
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.id = s.subscriptiontype_id
         JOIN
-                fernwood.products p
+                products p
                 ON p.center = st.center
                 AND p.id = st.id
         JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = p.center  
                 AND pgl.product_id = p.id
                 AND pgl.product_group_id IN (215,3802)
         JOIN
-                fernwood.persons per
+                persons per
                 ON per.center = s.owner_center
                 AND per.id = s.owner_id        
         WHERE
@@ -80,13 +82,13 @@ clipcards AS
                 ,pro.name
                 ,p.center
         FROM
-                fernwood.clipcards cc
+                clipcards cc
         JOIN
-                fernwood.products pro 
+                products pro 
                 ON pro.center = cc.center
                 AND pro.id = cc.ID
         JOIN 
-                fernwood.persons p
+                persons p
                 ON cc.owner_center = p.center 
                 AND cc.owner_id = p.id  
         JOIN

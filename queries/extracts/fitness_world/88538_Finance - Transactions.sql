@@ -1,124 +1,102 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
+WITH params AS MATERIALIZED
+                (
+                        SELECT
+                                CAST(datetolong(TO_CHAR(TO_DATE(:from, 'YYYY-MM-DD'), 'YYYY-MM-DD')) AS BIGINT) AS fromDateLong,
+                                CAST(datetolong(TO_CHAR(TO_DATE(:to, 'YYYY-MM-DD')+ interval '1 day', 'YYYY-MM-DD')) AS BIGINT) AS toDateLong,
+                                c.id as center_id,
+                                c.name as center_name,
+                                c.country
+                                
+                       
+                                        FROM 
+                                                centers c
+                                           
+            where c.id in (:scope) )  
 
 
-WITH
-    params AS
-    (
-        SELECT
-            /*+ materialize */
-            $$ToDate$$                      AS fromDate,
-            $$FromDate$$  AS toDate
-        FROM
-            dual
-    )
+
+
 
 SELECT
+  to_char(longtodateC(atr.entry_time, atr.center), 'DD-MM-YYYY') AS "Book date",
+  atr.text AS "Text",
+  debit.external_id AS "Debit",
+   credit.external_id AS "Credit",
+sum(atr.amount)
 
-TO_CHAR(longtodateC(atr.ENTRY_TIME, atr.center),'DD-MM-YYYY') AS "Book date",
-atr.TEXT as "Text",
-debit.external_id as "Debit",
-round(atr.amount,2) as "Amount",
-credit.external_id as "Credit",
-debit.name||' ('||debit.center||'acc'||debit.id||')' as "Debit account",
-credit.name||' ('||credit.center||'acc'||credit.id||')' as "Credit account",
+FROM account_trans atr
 
-vat.amount as "VAT",
-vt.name as "VAT type",
+join params par
+on
+par.center_id = atr.center
 
-CASE atr.TRANS_TYPE WHEN 1 THEN 'General Ledger' WHEN 2 THEN 'Account Receivable' WHEN 3 THEN 'Account Payable' WHEN 4 THEN 'Invoice Line' WHEN 5 THEN 'Credit Note Line' WHEN 6 THEN 'Bill Line' ELSE 'Undefined' END
-as "Type",
+LEFT JOIN invoice_lines_mt il
+  ON atr.center = il.account_trans_center
+ AND atr.id = il.account_trans_id
+ AND atr.subid = il.account_trans_subid
 
-TO_CHAR(longtodateC(atr.ENTRY_TIME, atr.center),'DD-MM-YYYY HH24:MI') as "Entry time",
-atr.aggregated_transaction_id as "Aggr. trans. id", --blank
+LEFT JOIN invoices i
+  ON i.center = il.center
+ AND i.id = il.id
 
-case when il.center is not null then il.center||'inv'||il.id else '' end as "Invoice",
-case when i.PAYER_CENTER is not null then i.PAYER_CENTER||'p'||i.PAYER_ID else '' end as "Member",
+LEFT JOIN accounts debit
+  ON debit.center = atr.debit_accountcenter
+ AND debit.id = atr.debit_accountid
 
-c.name as "Center name",
-debit_center.name as "Debit center",
-credit_center.name as "Credit center",
+LEFT JOIN accounts credit
+  ON credit.center = atr.credit_accountcenter
+ AND credit.id = atr.credit_accountid
+
+LEFT JOIN invoicelines_vat_at_link ivat
+  ON ivat.invoiceline_center = il.center
+ AND ivat.invoiceline_id = il.id
+ AND ivat.invoiceline_subid = il.subid
+
+LEFT JOIN account_trans vat
+  ON vat.center = ivat.account_trans_center
+ AND vat.id = ivat.account_trans_id
+ AND vat.subid = ivat.account_trans_subid
+
+LEFT JOIN accounts debitv
+  ON debitv.center = vat.debit_accountcenter
+ AND debitv.id = vat.debit_accountid
+
+LEFT JOIN accounts creditv
+  ON creditv.center = vat.credit_accountcenter
+ AND creditv.id = vat.credit_accountid
+
+LEFT JOIN ar_trans art
+  ON art.ref_center = i.center
+ AND art.ref_id = i.id
+ AND art.ref_type = 'INVOICE'
+
+LEFT JOIN vat_types vt
+  ON vat.vat_type_center = vt.center
+ AND vat.vat_type_id = vt.id
+
+LEFT JOIN centers c
+  ON atr.center = c.id
+
+LEFT JOIN centers debit_center
+  ON debit.center = debit_center.id
+
+LEFT JOIN centers credit_center
+  ON credit.center = credit_center.id
 
 
-atr.info as "Info",
 
-CASE atr.INFO_TYPE WHEN 1 THEN 'Legacy' WHEN 2 THEN 'DataConversion' WHEN 3 THEN 'EFT-File' WHEN 4 THEN 'Debt collection-File' WHEN 5 THEN 'AR' WHEN 6 THEN 'CashRegister' WHEN 7 THEN 'OtherGL' WHEN 8 THEN 'API' WHEN 9 THEN 'CreditCard' WHEN 10 THEN 'VoucherRegistration' WHEN 11 THEN 'AccountReceivableOwner' WHEN 12 THEN 'CashRegisterManual' WHEN 13 THEN 'Inventory' WHEN 14 THEN 'GiftCard' WHEN 15 THEN 'Delivery' WHEN 16 THEN 'OwnerManualPaymentOfRequest' WHEN 17 THEN 'UnplacedPayment' ELSE 'Undefined' END
-as "Info type",
+WHERE
+  (credit.external_id IN ('6743') or debit.external_id in ('6743'))
+  AND atr.center in (:scope)           
+  AND atr.entry_time BETWEEN par.fromdatelong AND par.todatelong
 
-atr.center||'acc'||atr.id||'tr'||atr.subid as "Account transaction id",
+group by
+atr.center, 
+atr.entry_time,
+  atr.text,
+  debit.external_id,
+  credit.external_id
+  
 
-CASE WHEN vat.center is not null
-     THEN vat.center||'acc'||vat.id||'tr'||vat.subid
-     ELSE ''
-     END as "VAT transaction id",
-     
- CASE WHEN vat.credit_accountcenter is not null
-     THEN vat.credit_accountcenter||'acc'||vat.credit_accountid
-     ELSE ''
-     END as "VAT transaction account id"
-
-FROM ACCOUNT_TRANS atr 
-
-LEFT JOIN INVOICE_LINES_MT il ON atr.center = il.ACCOUNT_TRANS_CENTER
-AND atr.id = il.ACCOUNT_TRANS_ID
-AND atr.SUBID = il.ACCOUNT_TRANS_SUBID 
-
-LEFT JOIN INVOICES i ON i.CENTER = il.CENTER
-AND i.ID = il.ID
-
-LEFT JOIN
-    ACCOUNTS debit
-ON
-    debit.center = atr.DEBIT_ACCOUNTCENTER
-AND debit.id = atr.DEBIT_ACCOUNTID
-LEFT JOIN
-    ACCOUNTS credit
-ON
-    credit.center = atr.CREDIT_ACCOUNTCENTER
-AND credit.id = atr.CREDIT_ACCOUNTID 
-LEFT JOIN
-    INVOICELINES_VAT_AT_LINK ivat
-ON
-    ivat.INVOICELINE_CENTER=il.CENTER
-AND ivat.INVOICELINE_ID=il.ID
-AND ivat.INVOICELINE_SUBID=il.SUBID
-left JOIN
-    ACCOUNT_TRANS vat
-ON
-    vat.center = ivat.ACCOUNT_TRANS_CENTER
-AND vat.id = ivat.ACCOUNT_TRANS_ID
-AND vat.SUBID = ivat.ACCOUNT_TRANS_SUBID
-LEFT JOIN
-    ACCOUNTS debitv
-ON
-    debitv.center = vat.DEBIT_ACCOUNTCENTER
-AND debitv.id = vat.DEBIT_ACCOUNTID
-LEFT JOIN
-    ACCOUNTS creditv
-ON
-    creditv.center = vat.CREDIT_ACCOUNTCENTER
-AND creditv.id = vat.CREDIT_ACCOUNTID
-LEFT JOIN
-    AR_TRANS art
-ON
-    art.REF_CENTER = i.CENTER
-AND art.REF_ID = i.ID
-AND art.REF_TYPE = 'INVOICE'
-
-left join vat_types vt
-on vat.vat_type_center = vt.center and vat.vat_type_id = vt.id
-
-left join centers c on atr.CENTER = c.id
-left join centers debit_center on debit.center = debit_center.id
-left join centers credit_center on credit.center = credit_center.id
-
-CROSS JOIN params
-
-WHERE 
-credit.globalid not in ('VAT_SALES_50_50', 'VAT_SALES_25_00')
-and
-
-atr.CENTER in (:scope)
-AND atr.ENTRY_TIME BETWEEN params.fromDate AND params.toDate
-
-ORDER BY atr.ENTRY_TIME desc

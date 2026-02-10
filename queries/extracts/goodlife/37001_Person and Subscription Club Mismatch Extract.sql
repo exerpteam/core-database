@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- To support club openings and closings due to COVID-19, PDS needs to audit and resolve instances where the person club is different from the main subscription club. When the person and the subscription are not at the same club, this can cause issues with billing and revenue.
+
+The new “Person and Subscription Club Mismatch” extract will provide a list to PDS so they can transfer persons to the subscription club to resolve the above issues.
 SELECT 
 	CONCAT(p.center,'p',p.id) as ClubPersonID,
 	CASE p.persontype

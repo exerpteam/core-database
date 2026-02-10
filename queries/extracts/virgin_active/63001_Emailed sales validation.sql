@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: 12/01/22 - created for Gibbo without member names
  SELECT
      /*+ NO_BIND_AWARE */
      centre.SHORTNAME                      club,

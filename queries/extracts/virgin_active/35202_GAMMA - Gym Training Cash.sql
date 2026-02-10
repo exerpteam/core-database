@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT c.SHORTNAME as Club, P.FULLNAME as Nominativo, CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8))) as PersonId, inv.TEXT as motivazione, pr.NAME, invl.QUANTITY as Quantità,
 sum(invl.TOTAL_AMOUNT) as Prezzo,
 TRUNC(LongToDate(inv.TRANS_TIME)) as dataAcquisto

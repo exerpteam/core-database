@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT p.CENTER, p.ID, p.FULLNAME,TO_DATE('1970/01/01 00:00:00','yyyy/mm/dd hh24:mi:ss') + (pa.CREATION_TIME/86400/1000) as CREATION_DATE,  pa.BANK_NAME, pa.BANK_CONTROL_DIGITS,pa.BANK_ACCNO, pa.BANK_ACCOUNT_HOLDER, pa.IBAN, pa.BIC
    FROM PERSONS p
 

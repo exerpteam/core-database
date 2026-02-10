@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     pro.RANK AS "Progress Rank",
     pro.NAME AS "Progress Category",

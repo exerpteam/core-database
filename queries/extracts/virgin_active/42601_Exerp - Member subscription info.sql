@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Subscription information needed by MWC to create multiple subscription
  SELECT
      persons.center || 'p' || persons.id
                              AS memberid,

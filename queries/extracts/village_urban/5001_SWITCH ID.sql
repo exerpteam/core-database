@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of Notes with SWITCH for note subject
 SELECT
     p.CENTER ||'p'|| p.ID as PersonId,
     p.FULLNAME                                                                     AS "Member Name",

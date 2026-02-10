@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of all active and temporary inactive members. Includes staff and complimentary members. 
 WITH
     params AS MATERIALIZED
     (

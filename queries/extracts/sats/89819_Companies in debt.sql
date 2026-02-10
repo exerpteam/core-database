@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 t1.company as companyid,
 t1.fullname as "Name of Company",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Looking back 30 days. Member starts new subscription which points to payer's agreement but payer relation is missing
 SELECT
     s.center||'ss'||s.id AS subscription,
     s.start_date,

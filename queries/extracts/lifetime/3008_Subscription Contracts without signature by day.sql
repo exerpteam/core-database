@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         --p.fullname as "Member Name",p.center || 'p' || p.id AS PersonId,        p.external_id,
 TO_CHAR(longtodateC(creation_time,person_center),'YYYY-MM-DD') as ENTRY_TIME, COUNT(JE.*) as subcount

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by: Monali Patel/Sandra Gupta  Created for: Support and PDS  Created on:  9.30.24
 SELECT DISTINCT ON (person_change_logs.person_id) 
     person_change_logs.person_id, 
     person_change_logs.person_center, 

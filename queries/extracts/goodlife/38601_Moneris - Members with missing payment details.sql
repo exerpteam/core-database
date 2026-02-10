@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Will pull a list of any member with a payment request in state new who have missing card information in their payment agreement
 SELECT
 --    longtodateTZ(pa.last_modified, 'America/Toronto')    pa_lastmodified,
     p.center ||'p'|| p.id                             AS member,

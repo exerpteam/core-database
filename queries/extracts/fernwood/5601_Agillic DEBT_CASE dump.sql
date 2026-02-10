@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     CASE
         WHEN (p.CENTER != p.TRANSFERS_CURRENT_PRS_CENTER

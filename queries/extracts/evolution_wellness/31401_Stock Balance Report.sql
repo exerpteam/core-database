@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
+--#198104 Exclude inactive products
+
 SELECT DISTINCT ON (inv.product_center, inv.product_id)
     c.name AS "Center",
     i.name AS "Inventory",
@@ -10,6 +14,7 @@ FROM evolutionwellness.inventory_trans inv
 JOIN evolutionwellness.products prod
     ON prod.center = inv.product_center
     AND prod.id = inv.product_id
+	AND blocked IS FALSE
 JOIN Inventory i
 	ON i.id = inv.Inventory
 	AND i.center = inv.product_center
@@ -20,4 +25,5 @@ WHERE inv.product_center IN (:Scope)
 ORDER BY 
     inv.product_center,
     inv.product_id,
-    inv.book_time DESC;
+    inv.book_time DESC,
+	inv.id DESC;

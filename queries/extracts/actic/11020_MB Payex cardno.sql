@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID personid,
 	pa.BANK_ACCNO AS CARDNO,

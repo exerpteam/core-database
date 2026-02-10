@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     t.centername,
     t.booking_center||'book'||t.booking_id                                      AS bookingid,

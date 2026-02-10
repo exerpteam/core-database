@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT  c.personId, CASE WHEN c1.CONSENSO IS NULL THEN c.CONSENSO ELSE c1.CONSENSO END as consenso FROM (
 SELECT p.EXTERNAL_ID as personId, p.FULLNAME, 
 CASE  WHEN atts.TXTVALUE = 'false' THEN 0 ELSE 1 END as consenso

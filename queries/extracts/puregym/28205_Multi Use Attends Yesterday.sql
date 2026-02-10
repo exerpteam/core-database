@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Memebers who have another attends either more the two hours before or two hours after  (ST-1269)
 SELECT
     FULLNAME
   , BIRTHDATE

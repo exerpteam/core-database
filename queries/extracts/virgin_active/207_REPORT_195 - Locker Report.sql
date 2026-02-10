@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 21.08.23 - RG updated this report as per INC-290667
          SELECT DISTINCT
              c.id,
              c.SHORTNAME                                                                                                                                                                        members_club,

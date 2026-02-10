@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Village Advance 30 Day New Member Call note aded by Member Relations
  SELECT
      p.CENTER ||'p'|| p.ID as PersonId,
      p.FULLNAME                                                                     AS "Member Name",

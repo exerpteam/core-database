@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on member having certian privilege sets by name
 SELECT		
     
     ss.OWNER_CENTER || 'p' || ss.OWNER_ID person_id,		

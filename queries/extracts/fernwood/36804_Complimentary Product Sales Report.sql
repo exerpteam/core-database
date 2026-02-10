@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Shows all transactions for complimentary products within your specified date range and scope, including the employee who processed each transaction. 
 WITH
 params AS
 (
@@ -45,62 +47,62 @@ SELECT
     END AS "Person Status",
     bi_decode_field('PERSONS', 'PERSONTYPE', p.persontype) AS "Person Type"
 FROM
-    fernwood.subscriptions s        
+    subscriptions s        
 JOIN
-    fernwood.subscriptiontypes st
+    subscriptiontypes st
     ON st.center = s.subscriptiontype_center
     AND st.id = s.subscriptiontype_id
 JOIN
-    fernwood.products prod
+    products prod
     ON prod.center = st.center
     AND prod.id = st.id
 JOIN
-    fernwood.product_and_product_group_link pgl
+    product_and_product_group_link pgl
     ON pgl.product_center = prod.center  
     AND pgl.product_id = prod.id
 JOIN
-    fernwood.product_group pg
+    product_group pg
     ON pg.id = pgl.product_group_id
     AND (LOWER(pg.name) LIKE '%complimentary%' OR pg.name = 'Complimentary Products')
 JOIN
-    fernwood.persons p
+    persons p
     ON p.center = s.owner_center
     AND p.id = s.owner_id
 JOIN
-    fernwood.centers c
+    centers c
     ON c.id = p.center
 JOIN    
-    fernwood.employees emp
+    employees emp
     ON emp.center = s.creator_center
     AND emp.id = s.creator_id
 JOIN
-    fernwood.persons pe
+    persons pe
     ON pe.center = emp.personcenter
     AND pe.id = emp.personid            
 LEFT JOIN
-    fernwood.subscription_sales ss
+    subscription_sales ss
     ON s.center = ss.subscription_center
     AND s.id = ss.subscription_id
 LEFT JOIN     
-    fernwood.employees emps
+    employees emps
     ON emps.center = ss.employee_center
     AND emps.id = ss.employee_id
 LEFT JOIN
-    fernwood.persons pes
+    persons pes
     ON pes.center = emps.personcenter
     AND pes.id = emps.personid
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaMobile
+    person_ext_attrs peeaMobile
     ON peeaMobile.personcenter = p.center
     AND peeaMobile.personid = p.id
     AND peeaMobile.name = '_eClub_PhoneSMS' 
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaEmail
+    person_ext_attrs peeaEmail
     ON peeaEmail.personcenter = p.center
     AND peeaEmail.personid = p.id
     AND peeaEmail.name = '_eClub_Email'
 LEFT JOIN
-    fernwood.subscription_price sp
+    subscription_price sp
     ON sp.subscription_center = s.center
     AND sp.subscription_id = s.id
     AND s.start_date > sp.from_date
@@ -147,62 +149,62 @@ SELECT
     END AS "Person Status",
     bi_decode_field('PERSONS', 'PERSONTYPE', p.persontype) AS "Person Type"
 FROM
-    fernwood.clipcards cc 
+    clipcards cc 
 JOIN
-    fernwood.persons p
+    persons p
     ON p.center = cc.owner_center
     AND p.id = cc.owner_id
 JOIN 
-    fernwood.products prod 
+    products prod 
     ON prod.center = cc.center
     AND prod.id = cc.id
 JOIN
-    fernwood.product_and_product_group_link pgl
+    product_and_product_group_link pgl
     ON pgl.product_center = prod.center  
     AND pgl.product_id = prod.id
 JOIN
-    fernwood.product_group pg
+    product_group pg
     ON pg.id = pgl.product_group_id
     AND (LOWER(pg.name) LIKE '%complimentary%' OR pg.name = 'Complimentary Products')
 JOIN                                                 
-    fernwood.invoices inv
+    invoices inv
     ON inv.center = cc.invoiceline_center
     AND inv.id = cc.invoiceline_id								
 JOIN
-    fernwood.invoice_lines_mt invl
+    invoice_lines_mt invl
     ON cc.invoiceline_center = invl.center
     AND cc.invoiceline_id = invl.id
     AND cc.invoiceline_subid = invl.subid                                     
 JOIN
-    fernwood.employees emp
+    employees emp
     ON emp.center = inv.employee_center
     AND emp.id = inv.employee_id
 JOIN
-    fernwood.persons pemp
+    persons pemp
     ON pemp.center = emp.personcenter
     AND pemp.id = emp.personid
 LEFT JOIN
-    fernwood.invoice_sales_employee ise
+    invoice_sales_employee ise
     ON ise.invoice_center = inv.center
     AND ise.invoice_id = inv.id
 LEFT JOIN
-    fernwood.employees emps
+    employees emps
     ON emps.center = ise.sales_employee_center
     AND emps.id = ise.sales_employee_id
 LEFT JOIN
-    fernwood.persons pemps
+    persons pemps
     ON pemps.center = emps.personcenter
     AND pemps.id = emps.personid
 JOIN
-    fernwood.centers c
+    centers c
     ON c.id = p.center
 LEFT JOIN
-    fernwood.person_ext_attrs peeaMobile
+    person_ext_attrs peeaMobile
     ON peeaMobile.personcenter = p.center
     AND peeaMobile.personid = p.id
     AND peeaMobile.name = '_eClub_PhoneSMS'
 LEFT JOIN
-    fernwood.person_ext_attrs peeaEmail
+    person_ext_attrs peeaEmail
     ON peeaEmail.personcenter = p.center
     AND peeaEmail.personid = p.id
     AND peeaEmail.name = '_eClub_Email'

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Only Boutique memberships. Based on Creation dates. Includes active and ended memberships sold during that period. Excludes cancelled memberships
 SELECT
     ss.OWNER_CENTER || 'p' || ss.OWNER_ID AS "MemberID",
 	owner.FULLNAME AS "MemberName",

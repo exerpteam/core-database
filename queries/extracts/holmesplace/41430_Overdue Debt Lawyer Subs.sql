@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Has the latest subscription - if active/temp then the current subscription  if ended then the last active subscription they had. Excludes PTbyDD so if empty it might be because they only ever had PTDD)
 SELECT
     p.CENTER || 'p' || p.ID AS kd_nr,
     NULL vkz,

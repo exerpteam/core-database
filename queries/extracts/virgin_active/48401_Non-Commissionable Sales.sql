@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 28/11: Amended version of the sales validation report - to look at where the commissionalble field is set to no
 WITH persondata AS MATERIALIZED
 (
  SELECT

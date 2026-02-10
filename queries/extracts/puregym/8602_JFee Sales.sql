@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     nvl(c.NAME,' Total') as Center,
     COUNT(DISTINCT inv.center||'inv'||inv.id||'il'||il.SUBID) AS "Jfee count"

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT c.SHORTNAME,  SUM(acc.AMOUNT) AS AMOUNT  FROM
      ACCOUNT_TRANS acc
  INNER JOIN AR_TRANS art

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created 02.05.23 by RG
  SELECT
      /*+ NO_BIND_AWARE */
      centre.SHORTNAME                      club,

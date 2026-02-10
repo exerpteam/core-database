@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select pe.personcenter || 'p' || pe.personid as PersonId, ROUND(Length(pe.mimevalue)/1024, 2) as size_in_mb from 
 fw.person_ext_attrs pe

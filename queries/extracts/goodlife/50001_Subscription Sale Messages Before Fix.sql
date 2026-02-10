@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 m.center||'p'||m.id as member,
  longtodateC(m.last_modified, m.center)    last_mod,

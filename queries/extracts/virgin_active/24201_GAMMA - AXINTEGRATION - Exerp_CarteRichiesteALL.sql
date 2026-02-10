@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.EXTERNAL_ID                                                             AS clubId,
     CONCAT(CONCAT(CAST(p1.CENTER AS CHAR(3)),'p'), CAST(p1.ID AS VARCHAR(8))) AS personId,

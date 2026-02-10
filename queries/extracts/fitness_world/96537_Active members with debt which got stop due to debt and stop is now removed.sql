@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- EC-7405
 SELECT DISTINCT
     sc.old_subscription_center ||'ss'||sc.old_subscription_id AS "subID",

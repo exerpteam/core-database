@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Free periods already started and not yet ended
 
  SELECT
      c.NAME                          AS center,

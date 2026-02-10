@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     par.booking_center AS CENTER,
     centers.name AS CENTER_NAME,

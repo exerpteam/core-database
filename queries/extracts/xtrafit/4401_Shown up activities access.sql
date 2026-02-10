@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     par.participant_center ||'p'|| par.participant_id AS memberid,
     TO_CHAR(longtodate(par.start_time), 'dd-mm-yyyy HH:MI') AS Start_time,

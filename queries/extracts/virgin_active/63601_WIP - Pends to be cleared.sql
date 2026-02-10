@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Rg 23.03.22 - added to check INC-256768
  SELECT
      /*+ NO_BIND_AWARE */
      centre.SHORTNAME                      club,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Active Member Count Product Sales Report
 -- This report shows subscription sales of products in the "Active Member Count" product group
 -- FIXED: Uses specific product group ID instead of fuzzy name matching

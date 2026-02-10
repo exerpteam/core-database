@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Use to find a Camapaign and Campaign code based on Campaign code ID
+Excluding startup campaigns
+
  SELECT
  cc.ID,
  cc.CODE,

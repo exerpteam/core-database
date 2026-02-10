@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-9434
 WITH PARAMS AS (
   /*+ materialize */
   select datetolong('2019-08-01 00:00') as august1

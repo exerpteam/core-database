@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of all open clips - default exludes if sold before Jan 2022. Exlude staff? Check clips
+Excludes Inactive members if product group is Gym Income, Coaching, Nutrition Income, Studio courses, Studio income)
+Try to exlude Personal Training Beratung if sold before "date"
 -- Parameters: Center(SCOPE)
 
 SELECT

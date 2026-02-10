@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-7318
 SELECT
         t0.CompanyId                                                    AS "Company Person ID",
         t0.CompanyFullName                                              AS "Company Name",

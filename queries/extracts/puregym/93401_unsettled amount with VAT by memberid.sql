@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 t3.memberid,
 t3.text,
@@ -6,11 +8,20 @@ t3."VAT amount" as "original VAT amount",
 t3."Total Amount" as "original Total amount",
 case when t3."Total Amount"= t3.unsettled_amount
 then t3."VAT amount"
+when t3."Total Amount" = 0
+then '0'
 else t3."Unsettled VAT amount" end as "unsettled VAT amount" ,
 case when t3."Total Amount"= t3.unsettled_amount
 then t3."amount without VAT"
+when  t3."Total Amount" = 0
+then '0'
 else t3.unsettled_amount-t3."Unsettled VAT amount" end as "unsettled amount without VAT",
-t3.unsettled_amount as "total unsettled amount"
+
+case
+when t3."Total Amount" = 0
+then '0'
+else t3.unsettled_amount
+end as "total unsettled amount"
 from
 (
 Select
@@ -38,7 +49,10 @@ t1."VAT amount"/t1."amount without VAT"*100 as "vat rate"
 
 from
 (
-SELECT
+SELECT distinct
+art.center,
+art.id,
+art.subid,
  ar.customercenter ||'p'|| ar.customerid as memberid,
  case when il.text is not null
  then il.text
@@ -61,6 +75,8 @@ SELECT
  then il.total_amount
  when cnl.total_amount is not null
  then cnl.total_amount*-1
+ when il.total_amount = 0
+ then '0'
  else art.amount end as "Total Amount",
  art.unsettled_amount,
  

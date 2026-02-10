@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- All sales excluding cancelled sales grouped by product group
  SELECT
          c.id,
          c.name center_name,

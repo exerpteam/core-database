@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to report on ADDACS files
 SELECT
     ar.CUSTOMERCENTER||'p'||ar.CUSTOMERID AS "P Number",
     CASE

@@ -1,4 +1,0 @@
-SELECT *
-FROM BI_MEMBER_STATE_LOG
-WHERE CENTER_ID = $$Center$$
-AND ETS BETWEEN $$StartDate$$ AND $$EndDate$$

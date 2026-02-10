@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT center, shortname, blocked, p.name,price, globalid, show_in_sale, show_on_web, mapi_selling_points
 FROM products as p LEFT JOIN centers as c ON p.center = c.id
 WHERE p.name IN ('Criação IBERIA', 'Criação ZONE', 'Criação CLUB', 'Creation Cuota IBERIA', 'Creation Cuota ZONE', 'Creation Cuota CLUB','Creation Cuota ONE', 'Creation Cuota FLEX', 'Creation Cuota PRIME', 'Cuota ONE', 'Cuota FLEX','Cuota PRIME');

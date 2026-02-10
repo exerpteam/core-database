@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     longtodateTZ(m.senttime, 'America/Toronto')     AS m_time,
     m.center,

@@ -1,1 +1,0 @@
-SELECT 'payment_agreement' AS TABLE_NAME, COUNT(*) FROM bi2_payment_agreement WHERE ETS <1578920425000 

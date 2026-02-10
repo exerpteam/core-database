@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Copy of the Upgrades report but is set up to email at the end of each day for todays upgrades
 WITH
 product_group_flags AS
         (
@@ -13,13 +15,13 @@ product_group_flags AS
                 ,p.center
                 ,p.id                
         FROM
-                fernwood.products p
+                products p
         JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = p.center
                 AND pgl.product_id = p.id
         JOIN        
-                fernwood.product_group pg
+                product_group pg
                 ON pg.id = pgl.product_group_id
         WHERE 
                 pg.id in (226,214,215,5801,8002,217,4802,235,2202,224)
@@ -73,21 +75,21 @@ lastattend AS
                                                 WHEN b.activity IN (10,11,13,14,3402,10601,10801,11203,11604,11605,23401,23402) THEN 'hypoxi_' 
                                         END AS Activity                                                    
                                 FROM
-                                        fernwood.participations part
+                                        participations part
                                 JOIN    
-                                        fernwood.persons p 
+                                        persons p 
                                         ON p.center = part.participant_center
                                         AND p.id = part.participant_id
                                 JOIN    
-                                        fernwood.bookings b
+                                        bookings b
                                         ON b.center = part.booking_center
                                         AND b.id = part.booking_id
                                         AND b.activity IN (16,7201,9401,5203,13002,15001,13003,15401,13401,15203,15405,14203,13201,6,8020,9003,803,3401,9404,9004,8019,3,2,601,9005,8417,6401,6601,6801,9405,8802,9406,2603,3201,802,3001,1001,1002,17,2006,10,11,13,14,3402,10601,10801,11203,11604,11605,23401,23402)
                                 JOIN 
-                                        fernwood.activity ac
+                                        activity ac
                                         ON b.activity = ac.id                        
                                 JOIN 
-                                        fernwood.activity_group acg
+                                        activity_group acg
                                         ON acg.id = ac.activity_group_id               
                                  WHERE
                                         part.state != 'CANCELLED'
@@ -212,20 +214,20 @@ FROM
                                                                 ,p.external_id
                                                                 ,1 as subid
                                                         FROM
-                                                                fernwood.subscription_sales ss
+                                                                subscription_sales ss
                                                         JOIN
-                                                                fernwood.subscriptions s
+                                                                subscriptions s
                                                                 ON s.center = ss.SUBSCRIPTION_CENTER
                                                                 AND s.id = ss.SUBSCRIPTION_ID
                                                                 AND s.state != 5
                                                                 AND s.sub_state not in (8,7)
                                                         JOIN
-                                                                fernwood.subscriptiontypes st
+                                                                subscriptiontypes st
                                                                 ON s.subscriptiontype_center = st.center
                                                                 AND s.subscriptiontype_id = st.id
                                                                 AND st.st_type = 1
                                                         JOIN
-                                                                fernwood.products prod
+                                                                products prod
                                                                 ON prod.center = st.center
                                                                 AND prod.id = st.id 
                                                         JOIN
@@ -236,26 +238,26 @@ FROM
                                                                 params 
                                                                 ON params.CENTER_ID = s.center
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = s.center
                                                         JOIN
-                                                                fernwood.persons p
+                                                                persons p
                                                                 ON p.center = s.owner_center
                                                                 AND p.id = s.owner_id
                                                         JOIN
-                                                                fernwood.employees emp
+                                                                employees emp
                                                                 ON emp.center = s.creator_center
                                                                 AND emp.id = s.creator_id
                                                         JOIN
-                                                                fernwood.persons pemp
+                                                                persons pemp
                                                                 ON pemp.center = emp.personcenter
                                                                 AND pemp.id = emp.personid
                                                         LEFT JOIN     
-                                                                fernwood.employees emps
+                                                                employees emps
                                                                 ON emps.center = ss.employee_center
                                                                 AND emps.id = ss.employee_id
                                                         LEFT JOIN
-                                                                fernwood.persons pemps
+                                                                persons pemps
                                                                 ON pemps.CENTER = emps.PERSONCENTER
                                                                 AND pemps.ID = emps.PERSONID                                                                                                        
                                                         WHERE
@@ -304,20 +306,20 @@ FROM
                                                                 ,p.external_id
                                                                 ,1 as subid
                                                         FROM
-                                                                fernwood.subscription_sales ss
+                                                                subscription_sales ss
                                                         JOIN
-                                                                fernwood.subscriptions s
+                                                                subscriptions s
                                                                 ON s.center = ss.SUBSCRIPTION_CENTER
                                                                 AND s.id = ss.SUBSCRIPTION_ID
                                                                 AND s.state != 5
                                                                 AND s.sub_state != 8
                                                         JOIN
-                                                                fernwood.subscriptiontypes st
+                                                                subscriptiontypes st
                                                                 ON s.subscriptiontype_center = st.center
                                                                 AND s.subscriptiontype_id = st.id
                                                                 AND st.st_type = 2
                                                         JOIN
-                                                                fernwood.products prod
+                                                                products prod
                                                                 ON prod.center = st.center
                                                                 AND prod.id = st.id 
                                                         JOIN
@@ -328,26 +330,26 @@ FROM
                                                                 params 
                                                                 ON params.CENTER_ID = s.center
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = s.center
                                                         JOIN
-                                                                fernwood.persons p
+                                                                persons p
                                                                 ON p.center = s.owner_center
                                                                 AND p.id = s.owner_id
                                                         JOIN
-                                                                fernwood.employees emp
+                                                                employees emp
                                                                 ON emp.center = s.creator_center
                                                                 AND emp.id = s.creator_id
                                                         JOIN
-                                                                fernwood.persons pemp
+                                                                persons pemp
                                                                 ON pemp.center = emp.personcenter
                                                                 AND pemp.id = emp.personid
                                                         LEFT JOIN     
-                                                                fernwood.employees emps
+                                                                employees emps
                                                                 ON emps.center = ss.employee_center
                                                                 AND emps.id = ss.employee_id
                                                         LEFT JOIN
-                                                                fernwood.persons pemps
+                                                                persons pemps
                                                                 ON pemps.CENTER = emps.PERSONCENTER
                                                                 AND pemps.ID = emps.PERSONID  
                                                         LEFT JOIN
@@ -357,9 +359,9 @@ FROM
                                                                         ,s.id
                                                                         ,inl.total_amount
                                                                 FROM 
-                                                                        fernwood.subscriptions s
+                                                                        subscriptions s
                                                                 JOIN
-                                                                        fernwood.invoice_lines_mt inl
+                                                                        invoice_lines_mt inl
                                                                         ON inl.center = s.invoiceline_center
                                                                         AND inl.id = s.invoiceline_id
                                                                         AND inl.subid = s.invoiceline_subid
@@ -367,7 +369,7 @@ FROM
                                                                 ON su.center = s.center
                                                                 AND su.id = s.id  
                                                         LEFT JOIN
-                                                                fernwood.subscriptions schange
+                                                                subscriptions schange
                                                                 ON schange.changed_to_center = s.center
                                                                 AND schange.changed_to_id = s.id
                                                                 AND schange.change_type = 13                                                                                                     
@@ -411,27 +413,27 @@ FROM
                                                                 ,p.external_id
                                                                 ,sao.id as subid
                                                         FROM
-                                                                fernwood.subscription_addon sao
+                                                                subscription_addon sao
                                                         JOIN       
-                                                                fernwood.subscriptions s
+                                                                subscriptions s
                                                                 ON sao.subscription_center = s.center 
                                                                 AND sao.subscription_id = s.id
                                                                 AND s.state != 5 
                                                                 AND s.sub_state != 8
                                                         JOIN
-                                                                fernwood.subscriptiontypes st
+                                                                subscriptiontypes st
                                                                 ON s.subscriptiontype_center = st.center
                                                                 AND s.subscriptiontype_id = st.id  
                                                                 AND st.st_type = 1                                         
                                                         JOIN
-                                                                fernwood.persons p
+                                                                persons p
                                                                 ON p.center = s.owner_center
                                                                 AND p.id = s.owner_id
                                                         JOIN  
-                                                                fernwood.masterproductregister mpr_addon 
+                                                                masterproductregister mpr_addon 
                                                                 ON mpr_addon.id = sao.addon_product_id
                                                         JOIN 
-                                                                fernwood.products prod
+                                                                products prod
                                                                 ON prod.center = sao.center_id
                                                                 AND prod.globalid = mpr_addon.globalid       
                                                         JOIN
@@ -439,32 +441,32 @@ FROM
                                                                 ON pgf.center = prod.center
                                                                 AND pgf.id = prod.id        
                                                         JOIN
-                                                                fernwood.employees emp
+                                                                employees emp
                                                                 ON emp.center = sao.employee_creator_center
                                                                 AND emp.id = sao.employee_creator_id
                                                         JOIN
-                                                                fernwood.persons pemp
+                                                                persons pemp
                                                                 ON pemp.center = emp.personcenter
                                                                 AND pemp.id = emp.personid  
                                                         JOIN 
                                                                 params 
                                                                 ON params.CENTER_ID = p.center                                          
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = p.center 
                                                         JOIN
-                                                                fernwood.subscriptionperiodparts spp
+                                                                subscriptionperiodparts spp
                                                                 ON spp.center = s.center
                                                                 AND spp.id = s.id
                                                                 AND spp.spp_state = 1
                                                                 AND spp.spp_type = 1
                                                         JOIN       
-                                                                fernwood.spp_invoicelines_link sil 
+                                                                spp_invoicelines_link sil 
                                                                 ON spp.center = sil.period_center 
                                                                 AND spp.id = sil.period_id 
                                                                 AND spp.subid = sil.period_subid
                                                         LEFT JOIN
-                                                                fernwood.invoice_lines_mt il                                
+                                                                invoice_lines_mt il                                
                                                                 ON sil.invoiceline_center = il.center 
                                                                 AND sil.invoiceline_id = il.id 
                                                                 AND sil.invoiceline_subid = il.subid
@@ -472,11 +474,11 @@ FROM
                                                                 AND il.productcenter = prod.center
                                                                 AND il.productid = prod.id                                                                                      
                                                         LEFT JOIN
-                                                                fernwood.invoices i
+                                                                invoices i
                                                                 ON i.center = il.center 
                                                                 AND i.id = il.id 
                                                         JOIN
-                                                                fernwood.add_on_product_definition aop
+                                                                add_on_product_definition aop
                                                                 ON aop.id = sao.addon_product_id                                                            
                                                         WHERE 
                                                                 sao.cancelled = 'false'
@@ -507,13 +509,13 @@ FROM
                                                                 ,p.external_id
                                                                 ,cc.subid
                                                         FROM
-                                                                fernwood.clipcards cc 
+                                                                clipcards cc 
                                                         JOIN
-                                                                fernwood.persons p
+                                                                persons p
                                                                 ON p.center = cc.owner_center
                                                                 AND p.id = cc.owner_id
                                                         JOIN 
-                                                                fernwood.products prod 
+                                                                products prod 
                                                                 ON prod.center = cc.center
                                                                 AND prod.id = cc.ID 
                                                         JOIN
@@ -521,39 +523,39 @@ FROM
                                                                 ON pgf.center = prod.center
                                                                 AND pgf.id = prod.id      
                                                         JOIN                                                 
-                                                                fernwood.invoices inv
+                                                                invoices inv
                                                                 ON inv.center = cc.invoiceline_center
                                                                 AND inv.id = cc.invoiceline_id								
                                                         JOIN
-                                                                fernwood.invoice_lines_mt invl
+                                                                invoice_lines_mt invl
                                                                 ON cc.invoiceline_center = invl.center
                                                                 AND cc.invoiceline_id = invl.id
                                                                 AND cc.invoiceline_subid = invl.subid                                     
                                                         JOIN
-                                                                fernwood.employees emp
+                                                                employees emp
                                                                 ON emp.center = inv.employee_center
                                                                 AND emp.id = inv.employee_id
                                                         JOIN
-                                                                fernwood.persons pemp
+                                                                persons pemp
                                                                 ON pemp.center = emp.personcenter
                                                                 AND pemp.id = emp.personid
                                                         LEFT JOIN                                                 
-                                                                fernwood.invoice_sales_employee ins
+                                                                invoice_sales_employee ins
                                                                 ON ins.invoice_center = inv.center
                                                                 AND ins.invoice_id = inv.id  
                                                         LEFT JOIN
-                                                                fernwood.employees emps
+                                                                employees emps
                                                                 ON emps.center = ins.sales_employee_center
                                                                 AND emps.id = ins.sales_employee_id
                                                         LEFT JOIN
-                                                                fernwood.persons pemps
+                                                                persons pemps
                                                                 ON pemps.center = emps.personcenter
                                                                 AND pemps.id = emps.personid   
                                                         JOIN 
                                                                 params 
                                                                 ON params.CENTER_ID = p.center
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = p.center                                           
                                                         WHERE 
                                                                 cc.cancelled IS FALSE
@@ -597,7 +599,7 @@ FROM
                         ,t1.external_id
                 )t1                                
         LEFT JOIN
-                fernwood.installment_plans ip
+                installment_plans ip
                 ON ip.person_center = t1.center
                 AND ip.person_id = t1.id
                 AND ip.end_date > current_date

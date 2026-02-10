@@ -1,3 +1,9 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extracts returns members who haven't visited a club. This extract will help you identify members who haven't visited your club. Allows for optional parameter to be 
+set to a number (e.g., 30, 60, 90) to show members who haven't visited in that many days
+
+
+. Leave empty to show members who have never visited the club
 -- Extract: Members with No Club Visits
 -- Description: Identifies active members who have never visited the club or haven't visited within a specified time period
 -- Parameters: :Scope (center selection), :Days_Since_Last_Visit (integer, optional - default to show all with no visits)

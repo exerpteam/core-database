@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     d.club_name      AS "Club Name",
     d.person_id      AS "PersonID",
@@ -16,7 +18,7 @@ FROM
                 TO_CHAR(CURRENT_TIMESTAMP, 'YYYY-MM-dd HH24:MI'),
                 c.id
             ) AS ToDate
-        FROM fernwood.centers c
+        FROM centers c
     ),
 
     base AS
@@ -34,26 +36,26 @@ FROM
                 THEN 'New Member'
                 ELSE 'Existing Member'
             END AS member_type
-        FROM fernwood.persons p
-        JOIN fernwood.clipcards cc
+        FROM persons p
+        JOIN clipcards cc
             ON cc.owner_center = p.center
            AND cc.owner_id     = p.id
-        JOIN fernwood.centers c
+        JOIN centers c
             ON c.id = p.center
-        JOIN fernwood.products pro
+        JOIN products pro
             ON pro.center = cc.center
            AND pro.id     = cc.id
         JOIN params
             ON params.center_id = c.id
-        JOIN fernwood.product_and_product_group_link pgl
+        JOIN product_and_product_group_link pgl
             ON pgl.product_center   = pro.center
            AND pgl.product_id       = pro.id
            AND pgl.product_group_id IN (18801, 224, 237)
-        LEFT JOIN fernwood.invoice_lines_mt inv
+        LEFT JOIN invoice_lines_mt inv
             ON cc.invoiceline_center = inv.center
            AND cc.invoiceline_id     = inv.id
            AND cc.invoiceline_subid  = inv.subid
-        LEFT JOIN fernwood.invoices t
+        LEFT JOIN invoices t
             ON cc.invoiceline_center = t.center
            AND cc.invoiceline_id     = t.id
         WHERE

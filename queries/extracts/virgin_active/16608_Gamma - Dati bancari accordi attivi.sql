@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT p.CENTER, p.ID, p.FULLNAME, pa.BIC, pa.IBAN,  pa.BANK_NAME, pa.BANK_CONTROL_DIGITS,pa.BANK_ACCNO, pa.BANK_ACCOUNT_HOLDER, pa.IBAN, pa.BIC
    FROM PERSONS p
 

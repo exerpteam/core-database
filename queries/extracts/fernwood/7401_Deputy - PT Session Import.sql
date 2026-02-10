@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-12006https://clublead.atlassian.net/browse/EC-3238
 WITH
   params AS
   (
@@ -47,7 +49,7 @@ LEFT JOIN
         ON p2.CENTER = su.PERSON_CENTER
         AND p2.id = su.PERSON_ID         
 JOIN
-        fernwood.centers c2
+        centers c2
         ON b.center = c2.id        
 WHERE 
        b.center in (:Scope)

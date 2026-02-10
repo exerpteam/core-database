@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Client Only Version, not exported.
 SELECT
 		p.lastname AS "Company_Name",
      	p.external_id AS "External_ID",

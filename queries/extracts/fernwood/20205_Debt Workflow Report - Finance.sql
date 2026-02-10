@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -57,7 +59,7 @@ SELECT
 		,eac.balance AS "Member Debt Collector Balance"
 		,p.external_id AS "External ID"
 FROM 
-        fernwood.tasks t
+        tasks t
 JOIN
         (SELECT 
                 MAX(task.id) AS MAXID
@@ -65,16 +67,16 @@ JOIN
                 ,task.person_id AS PersonID
                 ,tc.name AS Category
         FROM 
-                fernwood.tasks task
+                tasks task
         JOIN 
                 params 
                         ON params.CENTER_ID = task.person_center
         JOIN
-                fernwood.task_types tt
+                task_types tt
                         ON tt.id = task.type_id
                         AND tt.external_id = 'DM_NEW'                                        
         LEFT JOIN
-                fernwood.task_categories tc
+                task_categories tc
                         ON task.task_category_id = tc.id 
         WHERE 
                 task.status NOT IN ('CLOSED','DELETED')
@@ -91,69 +93,69 @@ JOIN
                 AND t1.PersonCenter = t.person_center
                 AND t1.PersonID = t.person_id                        
 LEFT JOIN 
-        fernwood.task_steps ts 
+        task_steps ts 
                 ON ts.id = t.step_id
 JOIN
-        fernwood.persons p
+        persons p
                 ON p.center = t.person_center
                 AND p.id = t.person_id  
 LEFT JOIN
-        fernwood.persons assignee
+        persons assignee
                 ON assignee.center = t.asignee_center
                 AND assignee.id = t.asignee_id  
 JOIN
-        fernwood.centers c
+        centers c
                 ON c.id = t.person_center   
 LEFT JOIN
-        fernwood.person_ext_attrs pea
+        person_ext_attrs pea
                 ON pea.personcenter = p.center
                 AND pea.personid = p.id
                 AND pea.name = '_eClub_Email' 
 LEFT JOIN
-        fernwood.zipcodes zc
+        zipcodes zc
                 ON zc.zipcode = p.zipcode 
 		AND zc.city = p.city
 LEFT JOIN 
-        fernwood.account_receivables ar 
+        account_receivables ar 
                 ON p.center = ar.customercenter 
                 AND p.id = ar.customerid 
                 AND ar.ar_type = 4   
 LEFT JOIN 
-        fernwood.payment_accounts pac 
+        payment_accounts pac 
                 ON pac.center = ar.center 
                 AND pac.id = ar.id
 LEFT JOIN 
-        fernwood.payment_agreements pag 
+        payment_agreements pag 
                 ON pac.active_agr_center = pag.center 
                 AND pac.active_agr_id = pag.id 
                 AND pac.active_agr_subid = pag.subid
 LEFT JOIN
-        fernwood.person_ext_attrs GuardianEmail
+        person_ext_attrs GuardianEmail
                 ON GuardianEmail.personcenter = p.center
                 AND GuardianEmail.personid = p.id 
                 AND GuardianEmail.name = 'GuardianEmail'
 LEFT JOIN
-        fernwood.person_ext_attrs GuardianRelation
+        person_ext_attrs GuardianRelation
                 ON GuardianRelation.personcenter = p.center
                 AND GuardianRelation.personid = p.id 
                 AND GuardianRelation.name = 'GuardianRelation'                
 LEFT JOIN
-        fernwood.person_ext_attrs GuardianName
+        person_ext_attrs GuardianName
                 ON GuardianName.personcenter = p.center
                 AND GuardianName.personid = p.id 
                 AND GuardianName.name = 'GuardianName'                 
 LEFT JOIN
-        fernwood.person_ext_attrs GuardianAddress
+        person_ext_attrs GuardianAddress
                 ON GuardianAddress.personcenter = p.center
                 AND GuardianAddress.personid = p.id 
                 AND GuardianAddress.name = 'GuardianAddress'    
 LEFT JOIN
-        fernwood.person_ext_attrs GuardianContactNumber
+        person_ext_attrs GuardianContactNumber
                 ON GuardianContactNumber.personcenter = p.center
                 AND GuardianContactNumber.personid = p.id 
                 AND GuardianContactNumber.name = 'GuardianContactNumber' 
 LEFT JOIN 
-        fernwood.account_receivables eac
+        account_receivables eac
                 ON p.center = eac.customercenter 
                 AND p.id = eac.customerid 
                 AND eac.ar_type = 5                  

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-2369-ver2
 SELECT 
 	INV0.CENTER AS "SALES_CENTER"
 	,TO_CHAR(longtodate(INV0.ENTRY_TIME), 'YYYY-MM-DD HH24:MI') AS "SALES_DATE"

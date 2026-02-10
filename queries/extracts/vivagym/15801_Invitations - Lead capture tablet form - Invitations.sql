@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report to get the invitations assigned to the lead from tablets
        WITH
             params AS
             (

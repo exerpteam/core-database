@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     P.CENTER || 'p' || P.ID                        AS "MEMBERNO",
     to_char(p.CENTER)                              AS "PCENTER",

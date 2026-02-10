@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
      TO_CHAR(to_date($$BookDate$$,'yyyy-mm-dd'), 'YYYY-MM-DD') "Date",
      extId AS "MEASUREID",

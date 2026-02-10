@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
     p.CENTER || 'p' || p.ID "PERSONID",
 	CASE atts.NAME WHEN '_eClub_Comment' THEN 'COMMENT' WHEN '_eClub_InvoiceAddress1' THEN 'ADDRESS1' WHEN '_eClub_InvoiceAddress2' THEN 'ADDRESS2' WHEN '_eClub_InvoiceCity' THEN 'CITY' WHEN '_eClub_InvoiceCoName' THEN 'CO_NAME' WHEN '_eClub_InvoiceCountry' THEN 'COUNTRY' WHEN '_eClub_InvoiceEmail' THEN 'EMAIL' WHEN '_eClub_InvoiceZipCode' THEN 'ZIPCODE' END "INVOICEDETAIL",

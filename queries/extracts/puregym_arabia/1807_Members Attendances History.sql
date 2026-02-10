@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.center || 'p' || p.id                                              AS MemberID ,
     TO_CHAR(longtodatec(c.checkin_time, c.checkin_center), 'DD/MM/YYYY') AS "ENTERDATE" ,

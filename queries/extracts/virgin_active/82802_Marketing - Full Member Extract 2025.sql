@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by RG 060625 as requested by Emma Beevers for the details that marketing need for any member over 15 and only with email
  WITH
      PARAMS AS
      (

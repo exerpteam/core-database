@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Ticket 35267
 SELECT
     NVL2(invl.SPONSOR_INVOICE_SUBID,'TRUE','FALSE') sponsored_line,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- eCollect members: all AR transactions from Payment, External Debt, Installment
 WITH params AS (
   SELECT
@@ -26,20 +28,20 @@ SELECT
     art.info                                                AS "Info",
     ar.customercenter || 'p' || ar.customerid               AS "Person ID",
     p.fullname                                              AS "Full Name"
-FROM fernwood.persons p
+FROM persons p
 
-JOIN fernwood.person_ext_attrs pea
+JOIN person_ext_attrs pea
   ON pea.personcenter = p.center
  AND pea.personid     = p.id
  AND pea.name         = 'eCollect'
  AND pea.txtvalue ILIKE 'yes%'
-JOIN fernwood.account_receivables ar
+JOIN account_receivables ar
   ON ar.customercenter = p.center
  AND ar.customerid     = p.id
-JOIN fernwood.ar_trans art
+JOIN ar_trans art
   ON art.center = ar.center
  AND art.id     = ar.id
-JOIN fernwood.centers c
+JOIN centers c
   ON c.id = art.center
 JOIN params pms
   ON pms.center_id = art.center

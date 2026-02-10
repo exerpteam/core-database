@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -68,75 +70,75 @@ SELECT
                 ELSE sp.price
         END AS "DD Amount"
 FROM
-        fernwood.subscriptions s        
+        subscriptions s        
 JOIN
-        fernwood.subscriptiontypes st
+        subscriptiontypes st
         ON st.center = s.subscriptiontype_center
         AND st.ID = s.subscriptiontype_id
 JOIN
-        fernwood.products prod
+        products prod
         ON prod.center = st.center
         AND prod.id = st.id
 JOIN
-        fernwood.product_and_product_group_link pgl
+        product_and_product_group_link pgl
         ON pgl.product_center = prod.center  
         AND pgl.product_id = prod.id
         AND pgl.product_group_id = 5601    
 JOIN
-        fernwood.persons p
+        persons p
         ON p.center = s.owner_center
         AND p.id = s.owner_id
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center
 LEFT JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON p.center = ar.customercenter 
         AND p.id = ar.customerid 
         AND ar.ar_type = 4
 JOIN    
-        fernwood.employees emp
+        employees emp
         ON emp.center = s.creator_center
         AND emp.id = s.creator_id
 JOIN
-        fernwood.persons pe
+        persons pe
         ON pe.CENTER = emp.personcenter
         AND pe.ID = emp.personid            
 LEFT JOIN
-        fernwood.subscription_sales ss
+        subscription_sales ss
         ON s.center = ss.subscription_center
         AND s.id = ss.subscription_id
 LEFT JOIN     
-        fernwood.employees emps
+        employees emps
         ON emps.center = ss.employee_center
         AND emps.id = ss.employee_id
 LEFT JOIN
-        fernwood.persons pes
+        persons pes
         ON pes.center = emps.personcenter
         AND pes.id = emps.personid
 LEFT JOIN 
-        fernwood.person_ext_attrs peeaMobile
+        person_ext_attrs peeaMobile
         ON peeaMobile.personcenter = p.center
         AND peeaMobile.personid = p.id
         AND peeaMobile.name = '_eClub_PhoneSMS' 
 LEFT JOIN 
-        fernwood.person_ext_attrs peeaEmail
+        person_ext_attrs peeaEmail
         ON peeaEmail.personcenter = p.center
         AND peeaEmail.personid = p.id
         AND peeaEmail.name = '_eClub_Email'                                      
 LEFT JOIN
-        fernwood.state_change_log scl
+        state_change_log scl
         ON scl.center = p.center
         AND scl.id = p.id        
         AND scl.entry_type = 5
         --AND TO_CHAR(longtodatec(s.creation_time,p.center),'DD-MM-YYYY') = TO_CHAR(longtodatec(scl.entry_start_time,p.center),'DD-MM-YYYY')        
         AND scl.entry_end_time IS NULL
 LEFT JOIN
-        fernwood.subscriptions rea
+        subscriptions rea
         ON rea.reassigned_center = s.center     
         AND rea.reassigned_id = s.id
 LEFT JOIN
-        fernwood.subscription_price sp
+        subscription_price sp
         ON sp.subscription_center = s.center
         AND sp.subscription_id = s.id
         AND s.START_DATE > sp.from_date

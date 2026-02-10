@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Excluded digital club 100. Includes membership name in report
 WITH
      Member AS
      (

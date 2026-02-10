@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-2369
 /* Based on Cash register sales by payment type */
 WITH
     PARAMS AS materialized

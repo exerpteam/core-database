@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report showing details of planned and unused free periods and their origin (manually added or part of a start-up campaign).
  SELECT s.center "Club Id"
       , c.name "Club Name"
       , p.center||'p'||p.id "Membership number"

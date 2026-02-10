@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2470
 WITH
   params AS
   (
@@ -28,25 +30,25 @@ FROM
                 ,sold.end_date AS "Last Subscription End Date"
                 ,pgl.product_group_id
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.centers c
+                centers c
                 ON c.id = s.center
         JOIN
-                fernwood.persons p
+                persons p
                 ON p.center = s.owner_center
                 AND p.id = s.owner_id
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.ID = s.subscriptiontype_id
                 AND st.st_type != 2
         JOIN
-                fernwood.products prod
+                products prod
                 ON prod.center = st.center
                 AND prod.id = st.id
         LEFT JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                 ON pgl.product_center = prod.center
                 AND pgl.product_id = prod.id
                 AND pgl.product_group_id IN (237,2801,2606)                                        
@@ -57,9 +59,9 @@ FROM
                         ,s.owner_center
                         ,s.owner_id
                 FROM
-                        fernwood.subscriptions s
+                        subscriptions s
                 JOIN
-                        fernwood.subscriptiontypes st
+                        subscriptiontypes st
                         ON st.center = s.subscriptiontype_center
                         AND st.ID = s.subscriptiontype_id
                         AND st.st_type != 2                
@@ -68,8 +70,8 @@ FROM
                         AND
                         s.center||'ss'||s.id NOT IN 
                                                 (SELECT s.center||'ss'||s.id 
-                                                FROM Fernwood.subscriptions s
-                                                JOIN fernwood.subscriptiontypes st ON st.center = s.subscriptiontype_center AND st.ID = s.subscriptiontype_id AND st.st_type != 2
+                                                FROM subscriptions s
+                                                JOIN subscriptiontypes st ON st.center = s.subscriptiontype_center AND st.ID = s.subscriptiontype_id AND st.st_type != 2
                                                 JOIN params ON params.CENTER_ID = s.center 
                                                 WHERE 
                                                         s.CREATION_TIME BETWEEN params.FromDate AND params.ToDate --Date
@@ -88,15 +90,15 @@ FROM
                         ON sprevious.owner_center = s.owner_center
                         AND sprevious.owner_id = s.owner_id
         LEFT JOIN
-                fernwood.subscriptions sold
+                subscriptions sold
                 ON sold.center =  sprevious.center
                 AND sold.id =  sprevious.MaxID
         LEFT JOIN
-                fernwood.subscriptiontypes stold
+                subscriptiontypes stold
                 ON stold.center = sold.subscriptiontype_center
                 AND stold.ID = sold.subscriptiontype_id
         LEFT JOIN
-                fernwood.products prodold
+                products prodold
                 ON prodold.center = stold.center
                 AND prodold.id = stold.id                                        
         JOIN 

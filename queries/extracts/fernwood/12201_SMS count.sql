@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-13863
 WITH
   params AS
   (
@@ -13,21 +15,21 @@ SELECT
         c.name AS "Club Name"
         ,count(*) AS "Total SMS Credit"
 FROM
-        fernwood.messages m
+        messages m
 JOIN
-        fernwood.sms s
+        sms s
         ON s.message_center = m.center
         AND s.message_id = m.id
         AND s.message_sub_id = m.subid  
 JOIN
-        fernwood.sms_splits ss
+        sms_splits ss
         ON ss.sms_center = s.center
         AND ss.sms_id = s.id
 JOIN    
         params
         ON params.CENTER_ID = m.center
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = m.center              
 WHERE
         m.senttime BETWEEN params.FromDate AND params.ToDate

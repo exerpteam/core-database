@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 * Fetch membershipchanges made by customersupport during a given period.
 * Creator: Henrik Håkanson, 2020-02-19

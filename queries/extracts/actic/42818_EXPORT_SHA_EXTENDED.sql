@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Henrik Håkanson
 * Purpose: List currently active RFID-keys (last 30 days) and memberinformation.

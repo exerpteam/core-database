@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find memberships that are linked to blocked other_payers
 SELECT DISTINCT
     s.center||'ss'||s.id AS SUBSCRIPTION_ID,
     CASE

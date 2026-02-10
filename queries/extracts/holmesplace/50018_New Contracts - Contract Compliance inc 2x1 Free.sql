@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Currently includes other Free memberships, pnding to exlcude if necessary
 SELECT
     (
         CASE sub.CENTER

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- skal bruges til at finde dem der ikke er sent til e.inkasso
 SELECT 
     ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID as memberid, 

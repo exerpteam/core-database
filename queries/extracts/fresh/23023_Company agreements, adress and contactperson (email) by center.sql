@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  Select
      ca.center                           as agreement_company_center,
      ca.id                               as agreement_company_id,

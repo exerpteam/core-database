@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
          p.external_id as "shopper reference Adyen", 
          ar.CUSTOMERCENTER ||'p'|| ar.CUSTOMERID AS payer_id,

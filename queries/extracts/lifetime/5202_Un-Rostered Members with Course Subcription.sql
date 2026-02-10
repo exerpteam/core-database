@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.fullname as "Member Name",
     p.external_id "Member External_ID",

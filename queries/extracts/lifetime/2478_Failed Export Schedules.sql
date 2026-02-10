@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select		cast(ec.id as varchar(25)) AS RefId,
 			ec.filename,
 			exp.attempt,

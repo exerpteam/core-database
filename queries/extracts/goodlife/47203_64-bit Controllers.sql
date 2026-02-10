@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract can Identify 64-bit controller architecture
 SELECT DISTINCT
      ON
         (

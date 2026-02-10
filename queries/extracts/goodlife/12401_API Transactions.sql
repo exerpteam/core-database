@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
   art.center As Center
 , TO_CHAR(longtodateC(art.trans_time, 100), 'YYYY-MM-dd HH24:MI') As TransactionTime

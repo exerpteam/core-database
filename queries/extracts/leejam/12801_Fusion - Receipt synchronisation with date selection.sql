@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-6954 - New fusion report - EC-8252
 SELECT
         t."BusinessUnitName"
         ,t."ReceiptMethodName"

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
         SELECT DISTINCT
             p.center as "Home club ID",
                  CE.NAME AS "Home Club nombre", 

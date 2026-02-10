@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Shows all exported transactions per account per day of the month
 SELECT
     *
 FROM

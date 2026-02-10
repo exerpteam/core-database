@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 t1.count,
 t1.center ||'p'|| t1.id AS member_id,

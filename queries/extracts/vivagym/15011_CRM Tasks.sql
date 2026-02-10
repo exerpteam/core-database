@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- created when the workflow Lead To Sale was built
 SELECT
     t.ID     AS "ID",
     t.STATUS AS "STATUS",

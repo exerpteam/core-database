@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Selects if they have an egymid in their profile and used between 1 and 999 times during the date range chosen
 select DISTINCT
 	P.center || 'p' || P.id AS "PersonId",
 	PA.PERSONCENTER AS "ClubNo",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     t2.EXTRACT_ID,
     t2."Extract Name",

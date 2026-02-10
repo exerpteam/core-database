@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- DATA PASSWORD STAFF - LAST LOGIN
 SELECT
          C.ID,
          C.NAME,

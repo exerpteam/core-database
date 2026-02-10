@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-6462
 SELECT
         t.*
 FROM
@@ -41,26 +43,26 @@ FROM
                                 ,ar.center
                                 ,ar.id
                         FROM 
-                                fernwood.installment_plans ip
+                                installment_plans ip
                         JOIN
-                                fernwood.installment_plan_configs ipc
+                                installment_plan_configs ipc
                                 ON ipc.id = ip.ip_config_id
                         LEFT JOIN
-                                fernwood.person_ext_attrs pea
+                                person_ext_attrs pea
                                 ON pea.personcenter = ip.person_center
                                 AND pea.personid = ip.person_id 
                                 AND pea.name = '_eClub_OldSystemPersonId' 
                         LEFT JOIN
-                                fernwood.account_receivables ar
+                                account_receivables ar
                                 ON ar.customercenter = ip.person_center
                                 AND ar.customerid = ip.person_id 
                                 AND ar.ar_type = 6
                         JOIN
-                                fernwood.persons p
+                                persons p
                                 ON p.center = ip.person_center
                                 AND p.id = ip.person_id 
                         LEFT JOIN
-                                fernwood.ar_trans art   
+                                ar_trans art   
                                 ON art.center = ar.center    
                                 AND art.id = ar.id
                                 AND ip.id = art.installment_plan_id
@@ -71,13 +73,13 @@ FROM
                                         ,s.owner_center
                                         ,s.owner_id
                                 FROM
-                                        fernwood.subscriptions s
+                                        subscriptions s
                                 JOIN
-                                        fernwood.subscriptiontypes st
+                                        subscriptiontypes st
                                         ON st.center = s.subscriptiontype_center
                                         AND st.ID = s.subscriptiontype_id
                                 JOIN
-                                        fernwood.products prod
+                                        products prod
                                         ON prod.center = st.center
                                         AND prod.id = st.id
                                 )sub
@@ -91,13 +93,13 @@ FROM
                                         ,cc.owner_id
                                         ,inl.installment_plan_id         
                                 FROM
-                                        fernwood.clipcards cc
+                                        clipcards cc
                                 JOIN 
-                                        fernwood.products prod 
+                                        products prod 
                                         ON prod.center = cc.center
                                         AND prod.id = cc.ID
                                 JOIN
-                                        fernwood.invoice_lines_mt inl
+                                        invoice_lines_mt inl
                                         ON cc.invoiceline_center = inl.center
                                         AND cc.invoiceline_id = inl.id
                                         AND cc.invoiceline_subid = inl.subid
@@ -132,7 +134,7 @@ FROM
                                 ,cc.name	
                         )t1
                 LEFT JOIN
-                        fernwood.ar_trans artb   
+                        ar_trans artb   
                         ON artb.center = t1.center    
                         AND artb.id = t1.id
                         AND artb.installment_plan_id = t1."Installment ID"

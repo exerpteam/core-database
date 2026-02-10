@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 23.09.25 - Created for INC-333194 to find the member a Vitality enitity number matches to
 SELECT 
     per.center || 'p' || per.id AS "Member ID",
     (SELECT pea.TXTVALUE

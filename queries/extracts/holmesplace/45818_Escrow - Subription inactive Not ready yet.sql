@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Getting more than one subscription for same person, need to get last active one only
 WITH
     product_spons_pg AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Test used for member notes
  SELECT distinct
      p.center || 'p' || p.id AS PERSONID,
      TO_CHAR(longToDateC(jrn.creation_time, jrn.creatorcenter),'yyyy-MM-dd HH24:MI:SS')  AS NoteCreationTime,
@@ -72,6 +74,6 @@
              AND pay_for.payer_id = p.id
  WHERE
      --jrn.jetype = 3
-    p.center || 'p' || p.id IN ('69p3641')
+    p.center || 'p' || p.id IN ('39p117491')
 	--P.external_id = '590019'
 ORDER BY  NoteCreationTime desc

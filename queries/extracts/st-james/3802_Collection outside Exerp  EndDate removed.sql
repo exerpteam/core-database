@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         longtodatec(sc.cancel_time,sc.old_subscription_center) AS cancellation_of_cancellation_req,
         pea.txtvalue AS legacy_id,

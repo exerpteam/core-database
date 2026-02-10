@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns members currently on any of the specified HYPOXI 8 Week subscriptions/products
 -- HYPOXI 8 WEEK SUBSCRIPTION & CLIPCARD EXTRACT
 -- Returns members currently on any of the specified HYPOXI 8 Week subscriptions OR clipcards
 -- Includes cancellation date if applicable

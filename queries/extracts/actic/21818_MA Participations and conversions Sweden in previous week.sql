@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Exported to CM weekly
+Activitys included:  (14244, 14240, 14235, 18417, 18817, 18821, 18822, 18823)
 SELECT
     c.SHORTNAME                                                                                                                                                AS "Center",
    TO_CHAR(longtodate(bk.STARTTIME), 'YYYY-MM-DD')                                                                                   dato,

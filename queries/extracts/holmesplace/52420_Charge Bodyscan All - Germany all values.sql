@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Works for any value not 0 or 0.00 or empty. Validated 1 June 25. Dont get for 1 club only...always by region.
 WITH
     latest_coa_sale AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to help audit for members that have participations stuck in tentative state (not cleared after cutoff)
 select Participation_LastModified_time, Personkey, count(*) from (
 SELECT
    distinct Date(longtodateC(participations.last_modified,136)) AS Participation_LastModified_time,

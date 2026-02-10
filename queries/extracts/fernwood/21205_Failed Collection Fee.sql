@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-5343
 SELECT 
         p.center ||'p'|| p.id AS PersonID
         ,pr.req_amount

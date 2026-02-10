@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS
 (
     SELECT
@@ -15,23 +17,23 @@ SELECT
     longtodatec(inv.trans_time, inv.center) AS "Date of Charge",
     ABS(invl.total_amount) AS "Price"
 FROM
-    fernwood.invoices inv
+    invoices inv
 JOIN
-    fernwood.invoice_lines_mt invl ON inv.center = invl.center AND inv.id = invl.id   
+    invoice_lines_mt invl ON inv.center = invl.center AND inv.id = invl.id   
 LEFT JOIN    
-    fernwood.products prod ON prod.center = invl.productcenter AND prod.id = invl.productid 
+    products prod ON prod.center = invl.productcenter AND prod.id = invl.productid 
 LEFT JOIN
-    fernwood.masterproductregister mpr ON mpr.scope_id = prod.center AND mpr.globalid = prod.globalid
+    masterproductregister mpr ON mpr.scope_id = prod.center AND mpr.globalid = prod.globalid
 LEFT JOIN
-    fernwood.product_account_configurations pac ON pac.id = mpr.product_account_config_id
+    product_account_configurations pac ON pac.id = mpr.product_account_config_id
 LEFT JOIN
-    fernwood.accounts income ON income.globalid = pac.sales_account_globalid AND prod.center = income.center  
+    accounts income ON income.globalid = pac.sales_account_globalid AND prod.center = income.center  
 LEFT JOIN
-    fernwood.account_trans act ON act.center = invl.account_trans_center AND act.id = invl.account_trans_id AND act.subid = invl.account_trans_subid
+    account_trans act ON act.center = invl.account_trans_center AND act.id = invl.account_trans_id AND act.subid = invl.account_trans_subid
 LEFT JOIN
-    fernwood.accounts credit ON credit.center = act.credit_accountcenter AND credit.id = act.credit_accountid                     
+    accounts credit ON credit.center = act.credit_accountcenter AND credit.id = act.credit_accountid                     
 JOIN
-    fernwood.persons p ON p.center = inv.payer_center AND p.id = inv.payer_id
+    persons p ON p.center = inv.payer_center AND p.id = inv.payer_id
 JOIN
     params ON params.center_id = inv.center       
 WHERE
@@ -49,23 +51,23 @@ SELECT
     longtodatec(cn.trans_time, cn.center) AS "Date of Charge",
     cnl.total_amount AS "Price"
 FROM
-    fernwood.credit_notes cn
+    credit_notes cn
 JOIN
-    fernwood.credit_note_lines_mt cnl ON cn.center = cnl.center AND cn.id = cnl.id 
+    credit_note_lines_mt cnl ON cn.center = cnl.center AND cn.id = cnl.id 
 LEFT JOIN    
-    fernwood.products prod ON prod.center = cnl.productcenter AND prod.id = cnl.productid 
+    products prod ON prod.center = cnl.productcenter AND prod.id = cnl.productid 
 LEFT JOIN
-    fernwood.masterproductregister mpr ON mpr.scope_id = prod.center AND mpr.globalid = prod.globalid
+    masterproductregister mpr ON mpr.scope_id = prod.center AND mpr.globalid = prod.globalid
 LEFT JOIN
-    fernwood.product_account_configurations pac ON pac.id = mpr.product_account_config_id
+    product_account_configurations pac ON pac.id = mpr.product_account_config_id
 LEFT JOIN
-    fernwood.accounts income ON income.globalid = pac.sales_account_globalid AND prod.center = income.center  
+    accounts income ON income.globalid = pac.sales_account_globalid AND prod.center = income.center  
 LEFT JOIN
-    fernwood.account_trans act ON act.center = cnl.account_trans_center AND act.id = cnl.account_trans_id AND act.subid = cnl.account_trans_subid
+    account_trans act ON act.center = cnl.account_trans_center AND act.id = cnl.account_trans_id AND act.subid = cnl.account_trans_subid
 LEFT JOIN
-    fernwood.accounts debit ON debit.center = act.debit_accountcenter AND debit.id = act.debit_accountid 
+    accounts debit ON debit.center = act.debit_accountcenter AND debit.id = act.debit_accountid 
 JOIN
-    fernwood.persons p ON p.center = cnl.person_center AND p.id = cnl.person_id
+    persons p ON p.center = cnl.person_center AND p.id = cnl.person_id
 JOIN
     params ON params.center_id = cn.center       
 WHERE

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
     cen.NAME AS Center,  
 	person.center||'p'||person.id as customer,

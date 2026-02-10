@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Identifies post-paid subscriptions for Accounting in order to accrue revenue that was collected in the next month the prior month.
+https://clublead.atlassian.net/browse/ST-3031
+https://clublead.atlassian.net/browse/ES-6116
+https://clublead.atlassian.net/browse/ST-8520
 WITH
     params AS
     (

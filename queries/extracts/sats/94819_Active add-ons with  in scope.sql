@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns subscriptions in state active, frozen and created with active add-ons
 SELECT
 per.external_id,
      ss.owner_center||'p'||ss.owner_id             AS "Member ID",

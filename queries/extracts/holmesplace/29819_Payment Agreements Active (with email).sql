@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List all Active Payment agreements. Use default to see if they are currently in use. Includes if they want to be invoiced by email - last 2 columns
 SELECT distinct
   p.center as "Centre id", 
   c.name as "Centre name",

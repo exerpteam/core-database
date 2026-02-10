@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by specific profile is in the code. 
+API TEST STAFF 100emp2001
+WEB SALES 100em14806
 SELECT distinct
   p.center as "Centre id", 
   c.name as "Centre name",

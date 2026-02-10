@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     otherpayer.center || 'p' || otherpayer.id AS "OtherPayerId",
     otherpayer.external_id                    AS "Other Payers External Id",

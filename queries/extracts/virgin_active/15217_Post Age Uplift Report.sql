@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      c.SHORTNAME "Member home club name"
    , gm.FULLNAME "Member home club GM full name"

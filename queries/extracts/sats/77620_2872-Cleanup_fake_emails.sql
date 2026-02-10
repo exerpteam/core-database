@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
          floor((row_number() over(ORDER BY per.center,per.id))/1000)+1 AS threadnumber,
          per.EXTERNAL_ID,

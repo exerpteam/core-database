@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Old version as of 15.03.18.  The new one has been added to the main Report 200 which was updated to remove cancelled subscriptions. 
 SELECT
     /*+ NO_BIND_AWARE */
     centre.SHORTNAME                      club,

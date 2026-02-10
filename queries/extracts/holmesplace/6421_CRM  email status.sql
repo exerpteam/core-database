@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select distinct 
 p.CENTER as Person_Center,
 p.ID as PERSON_ID,

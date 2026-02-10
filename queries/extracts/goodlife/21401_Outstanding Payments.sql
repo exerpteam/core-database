@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4418
 select p.external_id "External ID" , p.fullname "Full Name", art.info "MHP Number"
 from 
   ar_trans art

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
  c.SHORTNAME as center,
     GREATEST(TRUNC(longtodate(ch.CHECKIN_TIME)-4,'WW')+4,longtodatetz($$from_date$$,'Europe/London')) AS FROM_DATE,

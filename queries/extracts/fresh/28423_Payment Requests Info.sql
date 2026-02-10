@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
     to_char(current_date,'dd-mon-yyyy') as extractdate,
     case

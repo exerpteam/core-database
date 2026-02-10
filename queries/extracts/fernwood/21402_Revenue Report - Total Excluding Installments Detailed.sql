@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH params AS
 (
     SELECT
@@ -50,46 +52,46 @@ FROM
             ELSE 'No'
         END AS "Paid with Installment"
     FROM
-        fernwood.invoices inv
+        invoices inv
     JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
         ON inv.center = invl.center
         AND inv.id = invl.id   
     LEFT JOIN    
-        fernwood.products prod
+        products prod
         ON prod.center = invl.productcenter
         AND prod.id = invl.productid 
     LEFT JOIN
-        fernwood.masterproductregister mpr
+        masterproductregister mpr
         ON mpr.scope_id = prod.center
         AND mpr.globalid = prod.globalid
     LEFT JOIN
-        fernwood.product_account_configurations pac
+        product_account_configurations pac
         ON pac.id = mpr.product_account_config_id
     LEFT JOIN
-        fernwood.accounts income
+        accounts income
         ON income.globalid = pac.sales_account_globalid
         AND prod.center = income.center  
     LEFT JOIN
-        fernwood.account_trans act
+        account_trans act
         ON act.center = invl.account_trans_center
         AND act.id = invl.account_trans_id
         AND act.subid = invl.account_trans_subid
     LEFT JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON inv.center = art.ref_center
         AND inv.id = art.ref_id
         AND art.ref_type = 'INVOICE'
     LEFT JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.center = art.center
         AND ar.id = art.id                     
     LEFT JOIN
-        fernwood.accounts credit
+        accounts credit
         ON credit.center = act.credit_accountcenter
         AND credit.id = act.credit_accountid                     
     JOIN
-        fernwood.centers c
+        centers c
         ON c.id = inv.center                                  
     JOIN
         params
@@ -129,46 +131,46 @@ FROM
             ELSE 'No'
         END AS "Paid with Installment"
     FROM
-        fernwood.credit_notes cn
+        credit_notes cn
     JOIN
-        fernwood.credit_note_lines_mt cnl
+        credit_note_lines_mt cnl
         ON cn.center = cnl.center
         AND cn.id = cnl.id 
     LEFT JOIN    
-        fernwood.products prod
+        products prod
         ON prod.center = cnl.productcenter
         AND prod.id = cnl.productid 
     LEFT JOIN
-        fernwood.masterproductregister mpr
+        masterproductregister mpr
         ON mpr.scope_id = prod.center
         AND mpr.globalid = prod.globalid
     LEFT JOIN
-        fernwood.product_account_configurations pac
+        product_account_configurations pac
         ON pac.id = mpr.product_account_config_id
     LEFT JOIN
-        fernwood.accounts income
+        accounts income
         ON income.globalid = pac.sales_account_globalid
         AND prod.center = income.center  
     LEFT JOIN
-        fernwood.account_trans act
+        account_trans act
         ON act.center = cnl.account_trans_center
         AND act.id = cnl.account_trans_id
         AND act.subid = cnl.account_trans_subid
     LEFT JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON cn.center = art.ref_center
         AND cn.id = art.ref_id
         AND art.ref_type = 'CREDIT_NOTE' 
     LEFT JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.center = art.center
         AND ar.id = art.id                     
     LEFT JOIN
-        fernwood.accounts debit
+        accounts debit
         ON debit.center = act.debit_accountcenter
         AND debit.id = act.debit_accountid 
     JOIN
-        fernwood.centers c
+        centers c
         ON c.id = cn.center                                  
     JOIN
         params
@@ -197,26 +199,26 @@ FROM
         END AS "Account", 
         'N/A' AS "Paid with Installment"
     FROM
-        fernwood.account_trans act
+        account_trans act
     JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON act.center = art.ref_center
         AND act.id = art.ref_id
         AND act.subid = art.ref_subid
         AND art.ref_type = 'ACCOUNT_TRANS'
     JOIN
-        fernwood.accounts credit
+        accounts credit
         ON credit.center = act.credit_accountcenter
         AND credit.id = act.credit_accountid
     JOIN
-        fernwood.accounts debit
+        accounts debit
         ON debit.center = act.debit_accountcenter
         AND debit.id = act.debit_accountid 
     JOIN
-        fernwood.centers c
+        centers c
         ON c.id = act.center   
     JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.center = art.center
         AND ar.id = art.id
         AND ar.ar_type != 6               
@@ -229,14 +231,14 @@ FROM
             ar.customercenter,
             ar.customerid
         FROM
-            fernwood.payment_requests pr
+            payment_requests pr
         JOIN
-            fernwood.payment_agreements pag
+            payment_agreements pag
             ON pr.center = pag.center 
             AND pr.id = pag.id 
             AND pr.agr_subid = pag.subid 
         JOIN
-            fernwood.account_receivables ar 
+            account_receivables ar 
             ON ar.center = pag.center 
             AND ar.id = pag.id
         ) pr                      

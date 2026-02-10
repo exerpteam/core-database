@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-7108
 SELECT DISTINCT
     oldsub.center || 'ss' || oldsub.id AS "Originating Subscription Number",
     newsub.center || 'ss' || newsub.id AS "Destination Subscription Number",

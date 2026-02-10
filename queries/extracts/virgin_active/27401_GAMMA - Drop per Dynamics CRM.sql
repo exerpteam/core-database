@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
  "ID EXERP SOCIO" as PersonId,
  "CAUSALE DROP" as DropMotivazione,

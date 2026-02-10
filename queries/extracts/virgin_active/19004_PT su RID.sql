@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT distinct
          q1.pt_by_dd_club_name,
      q1.members_club,

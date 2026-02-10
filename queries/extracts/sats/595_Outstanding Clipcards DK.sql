@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  Select c.center, c.id, c.subid,c.owner_center, c.owner_id, c.clips_left, c.clips_initial, LongToDate(c.valid_until),c.owner_center||'p'||c.owner_id AS MemberId, p.name, p.ptype
  from
  CLIPCARDS C, products p

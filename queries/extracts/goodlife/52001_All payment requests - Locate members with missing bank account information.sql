@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     pr.center, pr.id, pr.subid, pr.req_amount, pr.req_date
 FROM

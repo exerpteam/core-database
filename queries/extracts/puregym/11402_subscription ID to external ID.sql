@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      s.center||'ss'||s.id AS subscription ,
      p2.EXTERNAL_ID

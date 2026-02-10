@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-8560 filters to request type 'payment'
 SELECT
     pr.REQ_DATE,
     ch.name AS clearinghouseName,

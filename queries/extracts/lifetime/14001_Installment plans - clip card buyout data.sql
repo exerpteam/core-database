@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-16636 Extract to identify members where credits were added to an installment plan but also paid out to the member
 WITH
     params AS materialized
     (

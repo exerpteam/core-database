@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT --count(distinct p.CENTER || 'p' || p.ID)
     cen.NAME,
     p.FULLNAME,

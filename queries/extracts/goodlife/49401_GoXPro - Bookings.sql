@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by: Sandra Gupta  Created on: 10.22.24 Created for: GoXP Integration POC
 SELECT
         t1.*
 FROM

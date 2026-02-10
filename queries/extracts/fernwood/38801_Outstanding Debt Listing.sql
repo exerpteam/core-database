@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS (
       SELECT
@@ -17,12 +19,12 @@ WITH
             task.person_center AS PersonCenter,
             task.person_id AS PersonID,
             tc.name AS Category
-        FROM fernwood.tasks task
+        FROM tasks task
         JOIN params ON params.CENTER_ID = task.person_center
-        JOIN fernwood.task_types tt
+        JOIN task_types tt
               ON tt.id = task.type_id
              AND tt.external_id = 'DM_NEW'
-        LEFT JOIN fernwood.task_categories tc
+        LEFT JOIN task_categories tc
               ON task.task_category_id = tc.id 
         WHERE task.status NOT IN ('CLOSED','DELETED')
           AND task.last_update_time BETWEEN params.FromDate AND params.ToDate
@@ -40,7 +42,7 @@ WITH
                 ck.person_center,
                 ck.person_id
             FROM t1
-            JOIN fernwood.checkins ck
+            JOIN checkins ck
               ON ck.person_center = PersonCenter
              AND ck.person_id = PersonID
             GROUP BY ck.person_center, ck.person_id
@@ -81,44 +83,44 @@ SELECT
         ELSE 'FF_Invoice'
     END AS "Payment Cycle",
     p.external_id AS "External ID"
-FROM fernwood.tasks t
+FROM tasks t
 JOIN t1
   ON t1.MAXID = t.id
  AND t1.PersonCenter = t.person_center
  AND t1.PersonID = t.person_id
-LEFT JOIN fernwood.task_steps ts 
+LEFT JOIN task_steps ts 
   ON ts.id = t.step_id
-JOIN fernwood.persons p
+JOIN persons p
   ON p.center = t.person_center
  AND p.id = t.person_id
-LEFT JOIN fernwood.persons assignee
+LEFT JOIN persons assignee
   ON assignee.center = t.asignee_center
  AND assignee.id = t.asignee_id
-JOIN fernwood.centers c
+JOIN centers c
   ON c.id = t.person_center
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
   ON pea.personcenter = p.center
  AND pea.personid = p.id
  AND pea.name = '_eClub_Email'
-LEFT JOIN fernwood.zipcodes zc
+LEFT JOIN zipcodes zc
   ON zc.zipcode = p.zipcode
  AND zc.city = p.city
-LEFT JOIN fernwood.account_receivables ar
+LEFT JOIN account_receivables ar
   ON p.center = ar.customercenter
  AND p.id = ar.customerid
  AND ar.ar_type = 4
-LEFT JOIN fernwood.payment_accounts pac
+LEFT JOIN payment_accounts pac
   ON pac.center = ar.center
  AND pac.id = ar.id
-LEFT JOIN fernwood.payment_agreements pag
+LEFT JOIN payment_agreements pag
   ON pac.active_agr_center = pag.center
  AND pac.active_agr_id = pag.id
  AND pac.active_agr_subid = pag.subid
-LEFT JOIN fernwood.account_receivables eac
+LEFT JOIN account_receivables eac
   ON p.center = eac.customercenter
  AND p.id = eac.customerid
  AND eac.ar_type = 5
-LEFT JOIN fernwood.account_receivables arip
+LEFT JOIN account_receivables arip
   ON arip.customercenter = p.center
  AND arip.customerid = p.id
  AND arip.ar_type = 6

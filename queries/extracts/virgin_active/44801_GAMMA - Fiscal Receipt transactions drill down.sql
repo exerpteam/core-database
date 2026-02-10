@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- In attesa del rilascio di eXerp abbiamo portato in prod. la versione in collaudo del 18/06/2019.
+https://clublead.atlassian.net/browse/ST-5871.
 WITH
     params AS
     (

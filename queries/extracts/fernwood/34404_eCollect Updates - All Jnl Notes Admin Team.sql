@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH j AS (
   SELECT
       je.person_center,
@@ -25,7 +27,7 @@ src AS (
       e.personcenter  AS emp_person_center,
       e.personid      AS emp_person_id
   FROM j
-  LEFT JOIN fernwood.employees e
+  LEFT JOIN employees e
     ON e.center = j.author_center
    AND e.id     = j.author_id
 ),
@@ -50,30 +52,30 @@ SELECT
     a.resolved_author_center || 'p' || a.resolved_author_id                       AS "Author Person ID",
     COALESCE(staff_from_emp.fullname, staff_direct.fullname, '')                  AS "Staff Name"
 FROM auth a
-JOIN fernwood.persons p
+JOIN persons p
   ON p.center = a.person_center AND p.id = a.person_id
-JOIN fernwood.centers c
+JOIN centers c
   ON c.id = p.center
-LEFT JOIN fernwood.account_receivables pay_ar
+LEFT JOIN account_receivables pay_ar
   ON pay_ar.customercenter = a.person_center
  AND pay_ar.customerid     = a.person_id
  AND pay_ar.ar_type        = 4
-LEFT JOIN fernwood.account_receivables inst_ar
+LEFT JOIN account_receivables inst_ar
   ON inst_ar.customercenter = a.person_center
  AND inst_ar.customerid     = a.person_id
  AND inst_ar.ar_type        = 6
-LEFT JOIN fernwood.account_receivables ext_ar
+LEFT JOIN account_receivables ext_ar
   ON ext_ar.customercenter = a.person_center
  AND ext_ar.customerid     = a.person_id
  AND ext_ar.ar_type        = 5
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
   ON pea.personcenter = a.person_center
  AND pea.personid     = a.person_id
  AND pea.name         = 'eCollect'
-LEFT JOIN fernwood.persons staff_from_emp
+LEFT JOIN persons staff_from_emp
   ON staff_from_emp.center = a.emp_person_center
  AND staff_from_emp.id     = a.emp_person_id
-LEFT JOIN fernwood.persons staff_direct
+LEFT JOIN persons staff_direct
   ON staff_direct.center = a.author_center
  AND staff_direct.id     = a.author_id
 WHERE (a.resolved_author_center || 'p' || a.resolved_author_id) IN (

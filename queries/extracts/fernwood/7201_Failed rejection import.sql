@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
             params AS
             (
@@ -17,9 +19,9 @@ SELECT
         ,pr.req_amount
         ,pr.req_date 
 FROM
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.cashcollectioncases cc
+        cashcollectioncases cc
         ON cc.personcenter = p.center
         AND cc.personid = p.id 
         AND cc.closed IS FALSE

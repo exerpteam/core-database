@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     s.CENTER||'ss'||s.id AS Subscription_ID,
     pr.NAME              AS Addon,

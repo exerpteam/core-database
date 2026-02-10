@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     p.EXTERNAL_ID                                  AS "External ref",
     CASE c.IDENTITY_METHOD  WHEN 1 THEN 'BARCODE'  WHEN 2 THEN  'MAGNETIC_CARD'  WHEN 3 THEN  'SSN'  WHEN 4 THEN  'Fob'  WHEN 5 THEN  'PIN'  WHEN 7 THEN  'QR'  ELSE 'Undefined' END   AS "PIN/QR flag",

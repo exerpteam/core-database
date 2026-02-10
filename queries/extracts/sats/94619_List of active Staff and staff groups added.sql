@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select distinct
 --e.center ||'emp'|| e.id as "employee ID",
 p.center ||'p'|| p.id as "Member ID",

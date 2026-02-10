@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
         params AS MATERIALIZED
                 (
@@ -6,7 +8,7 @@ WITH
                                 TO_DATE(getcentertime(c.id),'YYYY-MM-DD') - INTERVAL '14 days' AS from_date,
                                 TO_DATE(getcentertime(c.id),'YYYY-MM-DD') AS to_date
                         FROM
-                                fernwood.centers c
+                                centers c
                 
                 ),
         subscription_freeze AS
@@ -15,13 +17,13 @@ WITH
                                 s.center
                                 ,s.id
                         FROM
-                                fernwood.subscriptions s
+                                subscriptions s
                         JOIN        
-                                fernwood.subscription_reduced_period srp
+                                subscription_reduced_period srp
                                 ON s.center = srp.subscription_center
                                 AND s.id = srp.subscription_id
                         JOIN
-                                fernwood.centers c
+                                centers c
                                 ON c.id = s.center 
                         JOIN
                                 params par
@@ -38,13 +40,13 @@ WITH
                         SELECT DISTINCT
                                 p.external_id
                         FROM 
-                                fernwood.tasks task
+                                tasks task
                         JOIN
-                                fernwood.task_types tt
+                                task_types tt
                                 ON tt.id = task.type_id
                                 AND tt.external_id IN ('NAW_V1')
                         JOIN
-                                fernwood.persons p
+                                persons p
                                 ON p.center = task.person_center
                                 AND p.id = task.person_id                                               
                         WHERE 
@@ -57,26 +59,26 @@ WITH
                                 ,p.id 
                                 ,p.external_id                                
                         FROM
-                                fernwood.persons p
+                                persons p
                         JOIN
-                                fernwood.subscriptions s
+                                subscriptions s
                                 ON s.owner_center = p.center
                                 AND s.owner_id = p.id      
                         JOIN
-                                fernwood.subscriptiontypes st
+                                subscriptiontypes st
                                 ON st.center = s.subscriptiontype_center
                                 AND st.id = s.subscriptiontype_id 
                         JOIN 
-                                fernwood.products prod
+                                products prod
                                 ON prod.center = st.center
                                 AND prod.id = st.id
                         JOIN
-                                fernwood.product_and_product_group_link pgl
+                                product_and_product_group_link pgl
                                 ON pgl.product_center = prod.center
                                 AND pgl.product_id = prod.id
                                 AND pgl.product_group_id = 5601 
                         JOIN
-                                fernwood.centers c
+                                centers c
                                 ON c.id = p.center                                              
                         WHERE
                                 p.status = 1
@@ -121,13 +123,13 @@ WITH
                                                 ,ck.checkin_center
                                                 ,c.id
                                         FROM 
-                                                fernwood.checkins ck
+                                                checkins ck
                                         JOIN
-                                                fernwood.persons p
+                                                persons p
                                                 ON p.center = ck.person_center
                                                 AND p.id = ck.person_id
                                         JOIN
-                                                fernwood.centers c
+                                                centers c
                                                 ON c.id = ck.checkin_center
                                         JOIN
                                                 eligible_members em

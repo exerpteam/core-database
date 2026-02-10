@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT ON (cp.center, cp.id)
     cp.center || 'p' || cp.id AS "MEMBER_ID",
     CASE ar.AR_TYPE

@@ -1,5 +1,0 @@
-SELECT
-    center||'p'||id AS CLUBLEAD_ID,
-	EXTERNAL_ID AS COMPANY_ID
-FROM sats.PERSONS 
-WHERE sex = 'C'

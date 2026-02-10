@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH
   PARAMS AS MATERIALIZED (
     SELECT
@@ -101,9 +103,9 @@ FROM (
         c.shortname                       AS "Center Name",
         act.text                          AS "Description",
         pemp.fullname                     AS "Employee Name"
-    FROM fernwood.account_trans act
+    FROM account_trans act
     CROSS JOIN params
-    JOIN fernwood.ar_trans art
+    JOIN ar_trans art
       ON art.ref_center = act.center
      AND art.ref_id     = act.id
      AND art.ref_subid  = act.subid
@@ -119,7 +121,7 @@ FROM (
     JOIN persons pemp
       ON pemp.center = emp.personcenter
      AND pemp.id     = emp.personid
-    JOIN fernwood.centers c
+    JOIN centers c
       ON c.id = act.center
     WHERE act.trans_type = 2
       AND act.info_type  = 23

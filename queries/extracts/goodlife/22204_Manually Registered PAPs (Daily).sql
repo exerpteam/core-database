@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Audits for payments registered from the payment requests tab as opposed to through the cash register using the pay button.
+
+Approved in ISSUE-30572
+Reviewed in ST-5798
 ;WITH art
 AS (
 SELECT

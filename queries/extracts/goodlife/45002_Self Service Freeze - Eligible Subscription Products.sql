@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created for: MemeApps team to check Exerp config for products eligible for contractual freeze, used to update blob storage, see MemApps-271
 with mpr_xml as (
 select m.id, 
        cast(convert_from(m.product, 'UTF-8') AS xml) AS pxml 

@@ -1,1 +1,0 @@
-select * from BI_PRODUCTS where product_id = '114prod89351'

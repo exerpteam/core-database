@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
     case 
 when t.payer_center in (5,7,8,11,14,15,17,27,29,30,32,36,41,42,44,47,48,49,50,52,54,55,57) then 1

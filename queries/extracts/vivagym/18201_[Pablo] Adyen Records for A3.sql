@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Testing the creation of accounting records for Altafit
 SELECT
 		MAX(original_query.todate) AS fecha_cobro,
 		original_query.center_id AS centro,

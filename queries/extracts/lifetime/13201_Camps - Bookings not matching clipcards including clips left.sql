@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of members with the number of camp bookings starting after 2023-03-01 where main and lunch bookings are not linked to the matching clipcard as well as initial and remaining clips 
+On 2023-06-05 after upgrade updated extract to look at camps after '2023-06-05'
 --ES-37882
 SELECT
     COUNT (*),

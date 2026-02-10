@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- adjustments can be subscription price changes or payment account adjustments
 -- applied should only include subscription price
 -- created should include both subscription price and account transactions

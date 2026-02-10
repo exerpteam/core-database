@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on Debtor overview instead of over due debt lawyer
 SELECT
     p.external_id AS "MemberNumber",
 	NULL AS "UserNumber",    

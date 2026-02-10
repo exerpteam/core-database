@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-6037
  SELECT DISTINCT
 	p.fullname AS "Full Name",
     s.center || 'ss' ||s.id AS "Subscription ID",

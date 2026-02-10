@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      c.SHORTNAME as center,
      COUNT(DISTINCT p.CURRENT_PERSON_CENTER||'p'||p.CURRENT_PERSON_ID) AS "Unique Visits"

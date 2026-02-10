@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     event_type_config.id,
     event_type_config.event_type_id,

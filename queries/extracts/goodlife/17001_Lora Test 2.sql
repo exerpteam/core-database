@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- trying to get info about a list of agts
 SELECT 
         art.amount,
         actr.info as memberid,

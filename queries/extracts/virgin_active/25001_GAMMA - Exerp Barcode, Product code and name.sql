@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 i.IDENTITY, i.REF_GLOBALID, r.CACHED_EXTERNAL_ID, r.STATE
 

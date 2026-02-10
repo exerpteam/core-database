@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- End date is more than today. Includes Future Free Periods
  SELECT
 
 	'1' AS "IsUpdate",

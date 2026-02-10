@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         c.name AS "Homeclub name"
         ,p.center||'p'||p.ID AS "Member id"

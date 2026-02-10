@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- see https://goodlifefitness.atlassian.net/wiki/spaces/ITS/pages/3063283727/Exerp+-+First+of+Month+Accounting+Billing+Issue
 
 SELECT
 

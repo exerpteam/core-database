@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      lpad(IDENTITY,16,'0') || rpad(FIRSTNAME || ' ' || LASTNAME,20) || '000' || case sign(COALESCE( SUM(AMOUNT),0)) when 0 then '0' when -1 then '0' when +1 then '-' end || lpad(CAST(ABS(COALESCE( SUM(AMOUNT),0)*100) AS VARCHAR),7,'0') || lpad(CAST(DEBIT_MAX AS VARCHAR),6,'0') as "data"
  FROM

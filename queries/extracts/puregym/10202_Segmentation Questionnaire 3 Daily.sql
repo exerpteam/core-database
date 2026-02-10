@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     op.EXTERNAL_ID   AS "External ID",
     qa.QUESTION_ID   AS "Question ID",

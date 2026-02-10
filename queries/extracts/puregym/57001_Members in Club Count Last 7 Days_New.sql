@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- No of people for each hour in each day for each gym.
+Modified version of original extract 28802 to return UTC time.
 WITH
     params AS
     (

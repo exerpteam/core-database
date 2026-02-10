@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 b.center ||'book'|| b.id as bookingId,  
 b.name as "class name",

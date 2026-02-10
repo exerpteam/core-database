@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3278
+Used by PDS Corporate to send blockmessages or reminder messages for members to complete Induction Tour.
 SELECT 
   p.center||'p'||p.ID AS "Person_ID",
   pea.txtvalue As "Date_Person_Added",

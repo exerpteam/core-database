@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
       SELECT
             c.id as "Club ID Exerp",
             cea1.txt_value as "Delegation ID", 

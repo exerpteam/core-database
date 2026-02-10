@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     par.CENTER || 'par' || par.ID "BOOKINGID",
     p.EXTERNAL_ID "PERSONID",

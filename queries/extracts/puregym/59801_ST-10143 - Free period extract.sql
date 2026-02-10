@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     sub.OWNER_CENTER || 'p' || sub.OWNER_ID AS MEMBER_ID,
     pag.INDIVIDUAL_DEDUCTION_DAY,

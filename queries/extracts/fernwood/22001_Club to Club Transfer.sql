@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
         params AS MATERIALIZED
                 (
@@ -11,7 +13,7 @@ WITH
                                         c.id
                                 ) AS cut_date
                         FROM
-                                fernwood.centers c
+                                centers c
                 ),
         checkins_all AS
                 (                
@@ -28,7 +30,7 @@ WITH
                                         ,ck.person_id
                                         ,ck.checkin_center
                                 FROM 
-                                        fernwood.checkins ck
+                                        checkins ck
                                 JOIN
                                         params par
                                         ON par.center_id = ck.checkin_center  
@@ -44,14 +46,14 @@ WITH
                                 ,p.external_id
                                 ,minimum_checkin.checkins
                         FROM
-                                fernwood.persons p
+                                persons p
                         JOIN
-                                fernwood.subscriptions s
+                                subscriptions s
                                 ON s.owner_center = p.center
                                 AND s.owner_id = p.id
                                 AND s.end_date IS NULL
                         JOIN
-                                fernwood.centers c
+                                centers c
                                 ON c.id = p.center
                         JOIN
                                 (
@@ -66,7 +68,7 @@ WITH
                                         FROM
                                                 checkins_all ck
                                         JOIN
-                                                fernwood.centers c
+                                                centers c
                                                 ON c.id = ck.person_center                                                        
                                         GROUP BY
                                                 ck.person_center
@@ -156,16 +158,16 @@ WITH
                                 ON em.center = p.center
                                 AND em.id = p.id                                
                         JOIN
-                                fernwood.persons transfer
+                                persons transfer
                                 ON transfer.current_person_center = em.center
                                 AND transfer.current_person_id = em.id        
                         JOIN
-                                fernwood.person_ext_attrs trd
+                                person_ext_attrs trd
                                 ON trd.personcenter= transfer.CENTER
                                 AND trd.personid = transfer.id
                                 AND trd.NAME = '_eClub_TransferDate' 
                         JOIN
-                                fernwood.PERSON_EXT_ATTRS pea
+                                PERSON_EXT_ATTRS pea
                                 ON pea.PERSONCENTER= transfer.CENTER
                                 AND pea.PERSONID= transfer.ID
                                 AND pea.NAME = '_eClub_TransferredToId'        
@@ -179,7 +181,7 @@ WITH
                                 ,em.center
                                 ,em.id
                         FROM
-                                fernwood.cashcollectioncases ccc
+                                cashcollectioncases ccc
                         JOIN
                                 eligible_members em
                                 ON em.center = ccc.personcenter
@@ -193,7 +195,7 @@ WITH
                                 pgl.product_center
                                 ,pgl.product_id 
                         FROM
-                                fernwood.product_and_product_group_link pgl       
+                                product_and_product_group_link pgl       
                         WHERE
                                 pgl.product_group_id in (7,237,401) 
                         ),
@@ -204,18 +206,18 @@ WITH
                                 ,p.id
                                 ,STRING_AGG((prel.center||'p'||prel.id),', ') as childid
                         FROM
-                                fernwood.persons p
+                                persons p
                         JOIN
                                 eligible_members em
                                 ON em.center = p.center
                                 AND em.id = p.id       
                         JOIN
-                                fernwood.relatives rel
+                                relatives rel
                                 ON rel.center = em.center
                                 AND rel.id = em.id 
                                 AND rel.rtype in (4,5)
                         JOIN
-                                fernwood.persons prel
+                                persons prel
                                 ON prel.center = rel.relativecenter
                                 AND prel.id = rel.relativeid
                         GROUP BY
@@ -230,16 +232,16 @@ WITH
                                 ,p.external_ID
                                 ,ip.id as ip_id
                         FROM 
-                                fernwood.installment_plans ip
+                                installment_plans ip
                         JOIN
-                                fernwood.installment_plan_configs ipc
+                                installment_plan_configs ipc
                                 ON ipc.id = ip.ip_config_id
                         JOIN
-                                fernwood.persons p
+                                persons p
                                 ON p.center = ip.person_center
                                 AND p.id = ip.person_id 
                         JOIN
-                                fernwood.account_receivables ar
+                                account_receivables ar
                                 ON ar.customercenter = ip.person_center
                                 AND ar.customerid = ip.person_id 
                                 AND ar.ar_type = 6                                                                          
@@ -267,16 +269,16 @@ WITH
             FROM
                     eligible_members em       
             JOIN
-                    fernwood.subscriptions s
+                    subscriptions s
                     ON s.owner_center = em.center
                     AND s.owner_id = em.id
                     AND s.end_date IS NULL
             JOIN 
-                    fernwood.subscriptiontypes st
+                    subscriptiontypes st
                     ON st.center = s.subscriptiontype_center
                     AND st.id = s.subscriptiontype_id 
             JOIN 
-                    fernwood.products prod
+                    products prod
                     ON prod.center = st.center
                     AND prod.id = st.id
             LEFT JOIN
@@ -296,10 +298,10 @@ WITH
                     ON rel.center = em.center
                     AND rel.id = em.id
             JOIN
-                    fernwood.centers c 
+                    centers c 
                     ON c.id = em.center
             JOIN
-                    fernwood.centers newc
+                    centers newc
                     ON newc.id = cko.checkin_center 
             LEFT JOIN
                     Installment_plan ip

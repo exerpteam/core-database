@@ -1,1 +1,0 @@
-select * from public.d20210730_nsync

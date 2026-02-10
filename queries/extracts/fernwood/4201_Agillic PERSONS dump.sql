@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.EXTERNAL_ID                      AS "PERSON_ID",
     CAST ( p.CENTER AS VARCHAR(255))   AS "HOME_CENTER_ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Available lockers report
 --Seats within resources are used as the inventory of available lockers.  Resource group containing
 -- lockers is 'Lockers'.
 --Resource name shauld start with either 'Mens - ...' or 'Womens - ...' to match the extended

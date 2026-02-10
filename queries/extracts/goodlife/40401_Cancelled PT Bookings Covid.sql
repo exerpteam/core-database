@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     b.center||'book'||b.id                                          AS "Booking_ID",
     TO_CHAR(longtodatec(b.starttime,b.center),'yyyy-mm-dd hh24:mi') AS "Booking Time",

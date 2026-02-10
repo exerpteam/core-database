@@ -1,1 +1,3 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS ( SELECT /*+ materialize */ to_date(:date_start,'YYYY-MM-DD') AS StartDate, to_date(:date_end,'YYYY-MM-DD') AS EndDate, id as center FROM CENTERS ) SELECT s.OWNER_CENTER || 'p' || s.OWNER_ID AS PersonId, s.OWNER_CENTER AS CENTER, sp.start_date AS Startdate, TO_CHAR(sp.end_date, 'YYYY-MM-DD') AS Enddate, (sp.end_date::date - sp.start_date::date)+1 AS days FROM SUBSCRIPTIONS s JOIN PERSONS p ON s.OWNER_CENTER = p.center AND s.OWNER_ID = p.id JOIN SUBSCRIPTION_FREEZE_PERIOD sp ON sp.subscription_center = s.center AND sp.subscription_id = s.id JOIN PARAMS ON PARAMS.center = s.center WHERE sp.end_date BETWEEN PARAMS.StartDate AND PARAMS.EndDate AND p.PERSONTYPE NOT IN (8)

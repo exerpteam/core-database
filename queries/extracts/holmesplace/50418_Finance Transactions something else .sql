@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Change Debit/Credit account for something else - instead of PT
 
 
 WITH

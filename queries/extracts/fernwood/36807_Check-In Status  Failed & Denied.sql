@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Check-In Status Report - Including Failed and Successful Attempts
 -- Based on checkins table with checkin_result field for success/failure status
 

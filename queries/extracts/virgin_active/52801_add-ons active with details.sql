@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT distinct
      per.center||'p'||per.id            AS customer,
          s.owner_center as owner_center,

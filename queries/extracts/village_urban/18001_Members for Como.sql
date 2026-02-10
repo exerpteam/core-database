@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active/Temp Inactive members for Como data dump.
 SELECT
     p.external_id AS "MemberID",
 	p.firstname AS "Frrst Name",

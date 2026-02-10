@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- test Röda Kunder
 SELECT DISTINCT
 	P.CENTER ||'p'|| P.ID PersID,
 	(select c.lastname from persons c where c.center = r.center and c.id = r.id ) as companyname,

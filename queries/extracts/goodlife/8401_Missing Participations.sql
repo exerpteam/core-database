@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT	bk.center as "ClubNumber",	
 		bk.center || 'bk' || bk.Id as "ExerpBookingId",
 		TO_CHAR(longtodateC(bk.starttime, bk.center), 'YYYY-MM-DD HH24:MI:SS') as "StartDateTime",

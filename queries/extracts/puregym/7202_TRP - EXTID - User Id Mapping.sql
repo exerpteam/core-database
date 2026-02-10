@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p.CURRENT_PERSON_CENTER || 'p' || p.CURRENT_PERSON_ID  AS old_remote_user_id,
     p.EXTERNAL_ID                                          AS new_remote_user_id,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     longtodateC(art.TRANS_TIME,art.CENTER) AS BOOK_DATE,
     longtodateC(art.ENTRY_TIME,art.CENTER) AS ENTRY_DATE,

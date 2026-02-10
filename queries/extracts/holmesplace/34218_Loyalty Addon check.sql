@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Members with  LoytalydeAddon as Yes. Check that their addon is still active.  If end date in past, untick loyaltyaddon in ext attr
+
+
 SELECT
 	per.EXTERNAL_ID,
     s.OWNER_CENTER || 'p' ||s.OWNER_ID AS MemNo,

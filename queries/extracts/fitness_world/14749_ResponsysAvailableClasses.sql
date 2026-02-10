@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select distinct bk.center, bk.NAME as Class, agr.NAME as Category
 from FW.BOOKINGS bk

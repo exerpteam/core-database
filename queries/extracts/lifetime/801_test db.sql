@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     par.center||'par'||par.id AS participation_id,
     par.recurring_participation_key,

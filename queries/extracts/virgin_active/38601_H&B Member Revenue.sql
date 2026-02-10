@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: Taken from the Swim member revenue extract and the H&B GL codes added
  WITH
      params AS
      (

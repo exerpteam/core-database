@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Dettaglio Add on creati: parametro di ricerca = Person ID
+Created by support - ticket no: 72603
  SELECT
      p.center ||'p'|| p.id AS "Member ID",
      p.FULLNAME,

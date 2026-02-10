@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 count(*) from SUBSCRIPTIONS s
 join persons p on s.owner_center = p.center and s.owner_id = p.id

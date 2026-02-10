@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT distinct
      p.EXTERNAL_ID "ADDRESSID",
      REPLACE(REPLACE(REPLACE(REPLACE(p.ADDRESS1,chr(10),' '),chr(13),' '),';',' '),'"','''') "ADDRESS1",

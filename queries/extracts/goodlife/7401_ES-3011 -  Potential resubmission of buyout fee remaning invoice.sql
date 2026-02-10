@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select ar.customercenter  || 'p' || ar.customerid as PersonKey, pr.req_date as OriginalDeductionDate, pr.rejected_reason_code, pr.req_amount as OriginalRequestAmount, pr.xfr_date as RejectionDate, ar.balance as PaymentAccountBalance, pag.state, pag.active, TO_CHAR(longtodate(art.entry_time),'YYYY-MM-DD') as FeeApplied, art.amount as FeeAmount, art.unsettled_amount 
 --select art.center, art.id, art.subid
 from goodlife.ar_trans art

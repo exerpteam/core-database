@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT
    t.EXTRACT_ID, e.name AS "Extract Name", longtodateC(t.TIME, 100) AS "Last Used Time", 

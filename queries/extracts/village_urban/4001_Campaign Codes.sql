@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find campaigns for a specific campaign code ID 
 select 
 
 cc.ID as "Campaign_code_id",

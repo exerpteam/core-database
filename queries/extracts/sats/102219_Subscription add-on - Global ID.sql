@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
     m.globalid as "Global ID",
     prod.name                                    AS "Product name",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     TO_CHAR(longtodate(bk.STARTTIME), 'YYYY-MM-DD') dato,
 	 TO_CHAR (longtodate(bk.STARTTIME), 'HH24:MI') AS STARTTIME,

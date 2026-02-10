@@ -1,3 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns a list of payment requests in state "Requires Approval", showing the same data displayed in the Payment Request Approval page in the Finance App.
+
+Approved in CAB in: ISSUE-35738
+Reviewed by Exerp in : ST-12725
+
+08/17/21 - Added Associate Name, and Employee ID to help sort volume and prioritize after Club Reopening (COVID response)
+Approved by CAB: ISSUE-36116
 WITH RECURSIVE province (center,area) AS (
 
     SELECT

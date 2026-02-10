@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- excluding sold by Martyn. 
+Previously called: add-on PT by DD sold after 1sep20
  SELECT
      ss.owner_center||'p'||ss.owner_id             AS customer,
          ss.owner_center as owner_center,

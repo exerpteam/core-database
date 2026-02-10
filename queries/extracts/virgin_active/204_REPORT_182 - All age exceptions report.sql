@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Finds any subscription in state ACTIVE, FROZEN, OR CREATED where the member are outside of the allowed age stan
  SELECT
      p.CENTER Club,
          c.name club_name,

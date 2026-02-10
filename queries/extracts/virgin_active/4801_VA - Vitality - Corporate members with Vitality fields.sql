@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This is used by the Vitality ETL and can be run manually as required.
  SELECT
      c.ID AS "CLUBID",
      c.SHORTNAME AS "CLUB",

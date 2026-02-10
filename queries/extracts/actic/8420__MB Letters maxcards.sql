@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- * Can be replaced by 16639 - ended cash subscriptions
 /* Only centers with max cards */
 
 SELECT

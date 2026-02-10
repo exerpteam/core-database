@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         longtodatec(sc.change_time,sc.old_subscription_center) AS change_time,
         pea.txtvalue AS legacy_id,

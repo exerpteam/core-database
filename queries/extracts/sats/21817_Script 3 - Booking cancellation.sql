@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Booking cancellation distribution by hours before class count
  SELECT
      COUNT(p.CENTER) cnt,
      ROUND((p.CANCELATION_TIME - p.START_TIME)/1000/60/60) hours_before

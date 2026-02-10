@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Kiruna Company Group Training monthly
 /* Based on Cash register sales by payment type */
 WITH
     PARAMS AS materialized

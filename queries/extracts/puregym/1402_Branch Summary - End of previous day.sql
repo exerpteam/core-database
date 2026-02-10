@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  WITH PARAMS as materialized (
                  SELECT
                      TRUNC(CURRENT_TIMESTAMP-1 ,'DDD')                                                  p_date,

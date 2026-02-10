@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
     c.id          AS "Club Id",
     c.name        AS "Club Name",

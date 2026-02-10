@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-22717 Exerp internal sanction manangement
 --Data script
 SELECT
 ag.id   AS "ActivityGroupID",

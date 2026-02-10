@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes all persons where a transaction has taken place on their payment account/payment agreement
 SELECT DISTINCT
       p.center ||'p'||p.id AS "Person key",
      p.external_id AS "Member id",

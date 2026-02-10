@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Use this one need each debt separate with due date/transaction date Some dates are empty unless I use entry date so using entry date + 3 days.
+Still missing cash account debt. If debts are identical only one goes into PGM - need to differenciate
 SELECT
     p.external_id AS "MemberNumber",
 	NULL AS "UserNumber",    

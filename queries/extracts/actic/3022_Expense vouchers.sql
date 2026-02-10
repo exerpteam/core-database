@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     ACT.CENTER,
     TO_CHAR(LONGTODATE(ACT.TRANS_TIME),'YYYY-MM-DD')       AS BOOK_DATE,

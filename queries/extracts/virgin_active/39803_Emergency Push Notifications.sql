@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4934
  SELECT
      c.SHORTNAME "Home Club",
      p.center||'p'||p.id "Member ID",

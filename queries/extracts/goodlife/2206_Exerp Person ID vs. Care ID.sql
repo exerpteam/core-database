@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.CENTER||'p'||p.id AS EXERP_PERSON_ID,
     ext.txtvalue AS CARE_ID

@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List checkins by members related to a companyagreement.
+Should be emailed scheduled to partner.
 /**
 * List checkins by members related to a companyagreement.
 * Should be emailed scheduled to partner.

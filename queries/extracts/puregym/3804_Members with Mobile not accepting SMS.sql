@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 p.center, p.id, ext.txtvalue, ext_accept_email.txtvalue  
 from PUREGYM.PERSONS p

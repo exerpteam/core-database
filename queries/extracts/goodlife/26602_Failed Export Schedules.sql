@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-16524
+ST-8260
 select		cast(ec.id as varchar(25)) AS RefId,
 			ec.filename,
 			exp.attempt,

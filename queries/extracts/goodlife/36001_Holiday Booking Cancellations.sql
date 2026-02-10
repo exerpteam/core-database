@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-6050
+
+https://github.com/exerpteam/client-services-sql/blob/pipeline/Bookings/Cancellations/Holiday_bookings_cancel_GL.sql
 WITH
     params AS
     (

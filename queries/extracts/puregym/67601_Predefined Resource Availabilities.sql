@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-13079
  SELECT x.center, x.name Resource_Name, x.ATTEND_AVAILABILITY_PERIOD_ID, ap.name Availability_Name FROM
  (
  SELECT

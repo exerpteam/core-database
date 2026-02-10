@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         t1."PersonID"
         ,t1."ExternalID"
@@ -78,50 +80,50 @@ FROM
             ,cclip.shortname AS "Sold at"
             ,CAST(longtodatec(la.LastVisitDate, la.PersonCenter) AS date) AS "Last Visit Date"
             ,cc.center || 'cc' || cc.id || 'cc' || cc.subid
-    FROM fernwood.persons p
-    JOIN fernwood.clipcards cc
+    FROM persons p
+    JOIN clipcards cc
         ON cc.owner_center = p.center
        AND cc.owner_id = p.id
-    LEFT JOIN fernwood.card_clip_usages ccu
+    LEFT JOIN card_clip_usages ccu
         ON ccu.card_center = cc.center
        AND ccu.card_id = cc.id
        AND ccu.card_subid = cc.subid
        AND ccu.type = 'ADJUSTMENT'
-    JOIN fernwood.centers c
+    JOIN centers c
         ON c.id = p.center
-    JOIN fernwood.centers cclip
+    JOIN centers cclip
         ON cc.center = cclip.id
-    JOIN fernwood.products pro
+    JOIN products pro
         ON pro.center = cc.center
        AND pro.id = cc.ID
-    LEFT JOIN fernwood.invoice_lines_mt inv
+    LEFT JOIN invoice_lines_mt inv
         ON cc.invoiceline_center = inv.center
        AND cc.invoiceline_id = inv.id
        AND cc.invoiceline_subid = inv.subid
-    LEFT JOIN fernwood.invoices i
+    LEFT JOIN invoices i
         ON inv.center = i.center
        AND inv.id = i.id
-    LEFT JOIN fernwood.employees emp
+    LEFT JOIN employees emp
         ON emp.center = i.employee_center
        AND emp.id = i.employee_id
-    LEFT JOIN fernwood.persons pe
+    LEFT JOIN persons pe
         ON pe.center = emp.personcenter
        AND pe.id = emp.personid
-    LEFT JOIN fernwood.employees empa
+    LEFT JOIN employees empa
         ON empa.center = ccu.employee_center
        AND empa.id = ccu.employee_id
-    LEFT JOIN fernwood.persons pea
+    LEFT JOIN persons pea
         ON pea.center = empa.personcenter
        AND pea.id = empa.personid
-    LEFT JOIN fernwood.person_ext_attrs peeaEmail
+    LEFT JOIN person_ext_attrs peeaEmail
         ON peeaEmail.personcenter = p.center
        AND peeaEmail.personid = p.id
        AND peeaEmail.name = '_eClub_Email'
-    LEFT JOIN fernwood.person_ext_attrs peeaMobile
+    LEFT JOIN person_ext_attrs peeaMobile
         ON peeaMobile.personcenter = p.center
        AND peeaMobile.personid = p.id
        AND peeaMobile.name = '_eClub_PhoneSMS'
-    LEFT JOIN fernwood.person_ext_attrs peeaHome
+    LEFT JOIN person_ext_attrs peeaHome
         ON peeaHome.personcenter = p.center
        AND peeaHome.personid = p.id
        AND peeaHome.name = '_eClub_PhoneHome'
@@ -131,7 +133,7 @@ FROM
                 MAX(checkin_time) AS LastVisitDate,
                 person_center AS PersonCenter,
                 person_id AS PersonID
-            FROM fernwood.checkins
+            FROM checkins
             GROUP BY person_center, person_id
         ) la
         ON la.PersonCenter = p.center
@@ -140,7 +142,7 @@ FROM
         ON params.CENTER_ID = c.id
 
     
-    JOIN fernwood.product_and_product_group_link pgl
+    JOIN product_and_product_group_link pgl
         ON pgl.product_center = pro.center
        AND pgl.product_id = pro.id
        AND pgl.product_group_id IN (18801, 224, 237)
@@ -151,7 +153,7 @@ FROM
                 center,
                 id,
                 entry_time
-            FROM fernwood.invoices
+            FROM invoices
         ) t
         ON cc.invoiceline_center = t.center
        AND cc.invoiceline_id = t.id

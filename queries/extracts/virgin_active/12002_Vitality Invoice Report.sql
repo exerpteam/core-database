@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Version of the Vitality Invoice report which can be run for a selected time period. If you change the query, change it in report 12001 as well.
+https://clublead.atlassian.net/browse/ST-3180
 -- Parameters: FromDate(LONG_DATE),ToDate(LONG_DATE),Scope(SCOPE)
 WITH
     params AS

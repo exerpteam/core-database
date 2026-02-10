@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     CAST ( S.CENTER AS VARCHAR(255)) AS CENTER,
     CAST ( S.ID AS VARCHAR(255))     AS ID,

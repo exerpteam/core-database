@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Full transitive graph:
 -- 1) product -> product_group (explicit via link, then implicit via ancestors)
 -- 2) product_group -> parent product_group (explicit child->parent, then implicit ancestors)

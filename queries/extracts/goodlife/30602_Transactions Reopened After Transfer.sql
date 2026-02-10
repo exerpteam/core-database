@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract looks for collected transactions that will be resent to the bank after a transfer is completed.
+Approved in:
+ISSUE-35208
+ST-10717
 -- Transfer Transactions Re-Opened
 
 SELECT

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Solo Staff che ha avuto almeno un ruolo. Per Extract di tutti i person type Staff inclusi bagnini e grt cercare 'KPMG'
 SELECT
     p.FULLNAME as FullName,
 	C.SHORTNAME as Emp_Club, --su cui ha ruolo

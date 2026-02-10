@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-10619
  SELECT
     p.EXTERNAL_ID                AS "External_ID",
     p.FULLNAME                   AS "Name",

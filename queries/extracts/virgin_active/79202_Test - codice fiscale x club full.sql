@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
  p.center||'p'||p.id as MEMBER_ID,
  p.ssn AS MEMBER_SSN,

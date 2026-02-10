@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-6750 Extract company, company agreements and active privilege sets for a list of members
 SELECT
 
     p.center||'p'||p.id as member_key,

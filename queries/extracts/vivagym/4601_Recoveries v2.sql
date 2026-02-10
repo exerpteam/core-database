@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-3587
 SELECT
         c.id AS center,
 		ar.customercenter || 'p' || ar.customerid AS PersonId,

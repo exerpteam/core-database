@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     child.external_id                             AS child_ext_id,
     pa.participant_center||'p'||pa.participant_id AS child,

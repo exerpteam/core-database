@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- non ended startup campaign and privilege campaign IDs with their plugins and code plugins - limitation doesn't work for SQL type plugin as it is stored as different type
 WITH extracted AS (
   SELECT
     'SC_' || sc.id AS campaign_id,

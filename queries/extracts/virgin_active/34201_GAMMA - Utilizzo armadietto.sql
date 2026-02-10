@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT c.SHORTNAME as club, CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8))) as personId, p.FULLNAME, e.TXTVALUE as numero, e1.TXTVALUE as posizione, e2.TXTVALUE as dataScadenza  FROM PERSON_EXT_ATTRS e
  INNER JOIN PERSONS p
  ON

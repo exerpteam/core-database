@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created on: 12.6.23
+Created by: Sandra Gupta
+Created for: to provide numbers to Julie for online vs in club freezes and cancel
+Returns from start date entered to today/
 SELECT
 
 subscription_center||'ss'||subscription_id AS subscription_id

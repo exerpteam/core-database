@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3394
 WITH temp1 AS (
     SELECT * FROM
         generate_series(CAST($$END_DATE$$ AS DATE), CAST($$START_DATE$$ AS DATE), '-1 day') AS d1  

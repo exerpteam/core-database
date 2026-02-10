@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 23.03.23 - RG updated to add in PT ID and name based on the new 'PT' extended attribute
 WITH
      params AS
      (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select distinct * from (
  SELECT
      mpr.ID "Master Product ID",

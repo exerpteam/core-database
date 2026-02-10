@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Export planned classes to TooEasy.
+Configured to take dateparameters as offset value in order to create a period of days.
 SELECT
 	TO_CHAR(longtodate(bk.STARTTIME), 'YYYY-MM-DD') dato,
 	TO_CHAR (longtodate(bk.STARTTIME), 'HH24:MI') AS STARTTIME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 pcl.person_center ||'p'|| pcl.person_id as personid,
 pcl.change_source,

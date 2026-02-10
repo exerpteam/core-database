@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active and Temp inactive only, with current subs start date, delete dups
 SELECT
         p.CENTER || 'p' || p.ID AS MEMBER_ID,
 		p.FULLNAME AS "Name",

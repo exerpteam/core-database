@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to show used campaigncodes for Twiik Rewards
 SELECT 
 	us.PERSON_CENTER||'p'||us.PERSON_ID,
 	us.TARGET_SERVICE,

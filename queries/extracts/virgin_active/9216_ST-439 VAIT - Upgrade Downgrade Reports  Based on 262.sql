@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      c.NAME                  club,
      p.CENTER || 'p' || p.id pid,

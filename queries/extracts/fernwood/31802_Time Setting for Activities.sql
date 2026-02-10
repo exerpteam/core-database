@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
         availability AS
         (
@@ -51,8 +53,8 @@ WITH
         (
                 SELECT  
                         a.*
-                FROM fernwood.activity a
-                LEFT JOIN fernwood.activity topact ON a.top_node_id = topact.id
+                FROM activity a
+                LEFT JOIN activity topact ON a.top_node_id = topact.id
                 WHERE
                         a.state = 'ACTIVE'
                         AND a.top_node_id IS NULL
@@ -106,9 +108,9 @@ WITH
                 b.center
                 ,a.id
         FROM    
-                fernwood.activity a
+                activity a
         JOIN
-                fernwood.bookings b
+                bookings b
                 ON b.activity = a.id        
         WHERE 
                 b.starttime > datetolong(to_char(current_date, 'YYYY-MM-DD'))
@@ -219,7 +221,7 @@ WITH
                 *,
                 rank() over (partition BY coalesce(a.top_node_id, a.id), sc."CENTER_ID" ORDER BY sc."LEVEL" DESC) AS rnk
                 from 
-                fernwood.activity a
+                activity a
                 join scope_center sc
                 ON 
                 a.scope_type = sc."SCOPE_TYPE"
@@ -298,18 +300,18 @@ SELECT DISTINCT
                 ELSE 'Yes'
         END AS "used in planning"           
 FROM
-        fernwood.activity a
+        activity a
 JOIN
-        fernwood.colour_groups cg
+        colour_groups cg
         ON cg.id = a.colour_group_id 
 JOIN
-        fernwood.activity_group ag
+        activity_group ag
         ON a.activity_group_id = ag.id
 JOIN
-        fernwood.activity_resource_configs arc
+        activity_resource_configs arc
         ON a.id = arc.activity_id  
 JOIN
-        fernwood.booking_resource_groups brg
+        booking_resource_groups brg
         ON brg.id = arc.booking_resource_group_id         
 LEFT JOIN
         (
@@ -367,11 +369,11 @@ LEFT JOIN
         AND override.top_node_id IS NOT NULL
         AND a.id = override.top_node_id                      
 LEFT JOIN
-        fernwood.booking_time_configs btc
+        booking_time_configs btc
         ON btc.id = override.time_config_id
         AND override.top_node_id IS NOT NULL
 LEFT JOIN
-        fernwood.booking_time_configs btca
+        booking_time_configs btca
         ON btca.id = a.time_config_id
         AND override.top_node_id IS NULL
 LEFT JOIN       

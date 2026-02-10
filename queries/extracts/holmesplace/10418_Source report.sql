@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 
 SELECT
     COALESCE(Source, '-'||'-GrandTotal') AS Source,

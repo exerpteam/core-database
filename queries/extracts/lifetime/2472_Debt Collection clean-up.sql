@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 
 TO_CHAR(longtodateC(ar.entry_time, 100), 'YYYY-MM-dd HH24:MI') As EntryTime,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS (
     SELECT
         datetolongC(TO_CHAR(CAST(:FromDate AS DATE), 'YYYY-MM-dd HH24:MI'), c.id) AS FromDate,
@@ -18,15 +20,15 @@ SELECT
     ar.customercenter || 'p' || ar.customerid AS "Person ID",
     p.fullname AS "Full Name"
 FROM
-    fernwood.ar_trans art
+    ar_trans art
 JOIN
-    fernwood.account_receivables ar
+    account_receivables ar
     ON ar.center = art.center AND ar.id = art.id
 JOIN
-    fernwood.persons p
+    persons p
     ON p.center = ar.customercenter AND p.id = ar.customerid
 JOIN
-    fernwood.centers c
+    centers c
     ON c.id = art.center
 JOIN
     params pms

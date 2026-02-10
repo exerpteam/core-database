@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Cut date is latest creation date of addon
 
 
 SELECT

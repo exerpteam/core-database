@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to extract all members in a scope on a specific level. 
  Select
  p.center || 'p' || p.id as memberid,
  p.external_id as "External Id",

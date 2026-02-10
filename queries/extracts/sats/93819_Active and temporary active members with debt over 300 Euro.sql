@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Debt Finland over 300 Euro
 SELECT
    cp.center as "CENTER",
    cp.FULLNAME,

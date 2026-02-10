@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select p.FULLNAME,emp.CENTER EMPLOYEE_CENTER,emp.ID EMPLOYEE_ID, r.ROLENAME,r.ID ROLE_ID,r.IS_ACTION,r.BLOCKED,er.CENTER ER_CENTER,er.ID ER_ID,er.SUBID ER_SUBID,er.SCOPE_TYPE,er.SCOPE_ID from EMPLOYEESROLES er 
 join EMPLOYEES emp on emp.CENTER = er.CENTER and emp.ID = er.ID 
 join PERSONS p on p.CENTER = emp.PERSONCENTER and p.ID = emp.PERSONID

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Excludes transferred to cash collection account, rejection and debt collection fees, and entries dated today or yesterday.
 -- Open items across AR types (as of TODAY, date-only)
 WITH params AS (
   SELECT
@@ -28,12 +30,12 @@ SELECT
       WHEN art.ref_type = 'ACCOUNT_TRANS' THEN 'Manual invoice'
       ELSE art.ref_type
     END                                                       AS "Source"
-FROM fernwood.ar_trans art
-JOIN fernwood.account_receivables ar
+FROM ar_trans art
+JOIN account_receivables ar
   ON ar.center = art.center AND ar.id = art.id
-JOIN fernwood.persons p
+JOIN persons p
   ON p.center = ar.customercenter AND p.id = ar.customerid
-JOIN fernwood.centers c
+JOIN centers c
   ON c.id = art.center
 JOIN params pa
   ON pa.center_id = art.center

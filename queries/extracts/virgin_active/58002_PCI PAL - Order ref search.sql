@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Creatd by Exerp (EC-1267) to find the transactions details from the Shopper ref on Adyen MOTO account
  SELECT DISTINCT
      cct.CENTER                                                                                     AS "CCT_CENTER",
  c.name as "Club name",

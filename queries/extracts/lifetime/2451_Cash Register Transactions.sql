@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT crt.center AS CashRegisterCenter
 , crt.id AS CashRegisterId
 , TO_CHAR(longtodateC(crt.transtime, 100), 'YYYY-MM-dd HH24:MI') AS TransactionTime

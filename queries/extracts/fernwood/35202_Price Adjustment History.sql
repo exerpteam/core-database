@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
 active_members AS (
     SELECT
@@ -93,13 +95,13 @@ member_addons AS (
         sao.end_date AS addon_end_date,
         sao.individual_price_per_unit AS addon_price
     FROM
-        fernwood.subscription_addon sao
+        subscription_addon sao
     JOIN
-        fernwood.subscriptions s ON s.center = sao.subscription_center AND s.id = sao.subscription_id
+        subscriptions s ON s.center = sao.subscription_center AND s.id = sao.subscription_id
     JOIN
-        fernwood.masterproductregister mpr_addon ON mpr_addon.id = sao.addon_product_id
+        masterproductregister mpr_addon ON mpr_addon.id = sao.addon_product_id
     JOIN
-        fernwood.products prod_addon ON prod_addon.center = sao.center_id AND prod_addon.globalid = mpr_addon.globalid
+        products prod_addon ON prod_addon.center = sao.center_id AND prod_addon.globalid = mpr_addon.globalid
     WHERE
         sao.cancelled != 'true' 
         AND (sao.end_date IS NULL OR sao.end_date > CURRENT_DATE)

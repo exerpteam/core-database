@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- noAMF attribute is not 'false', person state is 'INACTIVE'.
 SELECT
     "Member ID",
 	"Member Name",

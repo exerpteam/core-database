@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3265
  SELECT
    c.NAME AS CENTER,
    a.NAME AS PARTNERSHIP_NAME,

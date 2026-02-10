@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
  invoice.CENTER || 'inv' || invoice.ID AS INVOICEID,
  salesPersonCenter.NAME AS SALESPERSON_CENTER,

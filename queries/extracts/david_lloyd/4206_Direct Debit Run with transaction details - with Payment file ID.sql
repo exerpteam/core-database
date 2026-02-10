@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/DATA-124
 WITH
     res AS ( 
@@ -57,6 +57,7 @@ WITH
         END                                                     AS "Payment Request State"
         , art.center||'ar'||art.id||'art'||art.subid            AS "Transaction ID"
         , pr.req_date                                           AS "Transaction Date"
+        , pr.req_delivery
         , COALESCE(sac.name,sac_cl.name)                        AS "Ledger Group"
         , COALESCE(sac.external_id,sac_cl.external_id)          AS "Ledger Group Code"
         , acc.name                                              AS "Account for Manual Operations"
@@ -71,43 +72,12 @@ WITH
         END                            AS "Revenue Type",
         COALESCE(prod.name,art.text)   AS "Item Description",
         pr.xfr_date                    AS "Payment Collected date",
-        CASE
-            WHEN ROW_NUMBER() over (
-                                PARTITION BY
-                                    pr.center||'pr'||pr.id||'id'||pr.subid
-                                ORDER BY
-                                    art.subid ASC ) = 1
-            THEN pr.req_amount
-            ELSE NULL
-        END AS "Total Requested Amount",
-        CASE
-            WHEN ROW_NUMBER() over (
-                                PARTITION BY
-                                    pr.center||'pr'||pr.id||'id'||pr.subid
-                                ORDER BY
-                                    art.subid ASC ) = 1
-            THEN
-                CASE
-                    WHEN pr.state IN(4,18)
-                    THEN 0
-                    ELSE pr.xfr_amount
-                END
-            ELSE NULL
-        END AS "Total Collected Amount",
-        CASE
-            WHEN ROW_NUMBER() over (
-                                PARTITION BY
-                                    pr.center||'pr'||pr.id||'id'||pr.subid
-                                ORDER BY
-                                    art.subid ASC ) = 1
-            THEN
-                CASE
-                    WHEN pr.state IN(4,18)
-                    THEN 0
-                    ELSE pr.xfr_amount
-                END
-            ELSE NULL
-        END      AS "Transaction Amount",
+        COALESCE(-1*cl.total_amount,il.total_amount,-1*art.amount) AS "Total Requested Amount",
+        CASE WHEN pr.state NOT IN (4,18)
+             THEN COALESCE(-1*cl.total_amount,il.total_amount,-1*art.amount)
+             ELSE 0
+        END "Total Collected Amount",
+        il.person_center||'p'||il.person_id as member_id,        
         CASE
             WHEN art.ref_type = 'INVOICE'
             THEN il.center||'inv'||il.id||'ln'||il.subid
@@ -122,10 +92,6 @@ WITH
         pr.agr_subid
     FROM
         payment_requests pr
---    JOIN
---        params
---    ON
---        params.center = pr.center
     JOIN
         ar_trans art
     ON
@@ -204,9 +170,7 @@ WITH
         acc.center = act.credit_accountcenter
     AND acc.id = act.credit_accountid
     WHERE
-      pr.req_delivery = :Payment_export_id
-        --pr.req_date BETWEEN params.from_date AND params.to_date
-          --pr.req_delivery = 4413
+      pr.req_delivery::VARCHAR IN (:Payment_export_id)
       AND pr.state != 8  --- cancelled
       AND pr.req_amount != 0
     )
@@ -215,8 +179,9 @@ SELECT
         c.id                                                          AS "Club Number",
         c.external_id                                                 AS "Club Code",
         cp.external_id                                                AS "Membership Number",
-        p.center||'p'||p.id                                           AS "Person Key",
-        cp.center||'p'||cp.id                                         AS "Current Person Key",
+        res.member_id                                                 AS "Member ID",
+        cp.center||'p'||cp.id                                         AS "Payer ID",
+        res.req_delivery                                              AS "Payment Export File",
         res."Bank Run ID",
         res."Bank Run Type",
         res."Payment Request State",
@@ -230,7 +195,6 @@ SELECT
         res."Payment Collected date",
         res."Total Requested Amount",
         res."Total Collected Amount",
-        res."Transaction Amount",
         res."Sales Line ID",
         res."Total Quantity",
         res."Total Sale Amount",

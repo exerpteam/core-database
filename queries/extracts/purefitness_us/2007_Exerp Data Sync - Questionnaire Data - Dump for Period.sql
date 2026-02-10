@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- TODO: QC IDs are copied from UK version, when US version of campaigns are ready. They should be replcaed with the corresponding IDs
 -- Exerp_HY  2022-08-25
 

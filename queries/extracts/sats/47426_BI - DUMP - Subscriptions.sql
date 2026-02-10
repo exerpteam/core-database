@@ -1,1 +1,0 @@
-select * from BI_SUBSCRIPTIONS where BI_SUBSCRIPTIONS.SUBSCRIPTION_CENTER in ($$Scope$$)

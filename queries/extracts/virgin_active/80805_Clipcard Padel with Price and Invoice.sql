@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select distinct
 	c.shortname as club_name,
 	p.center ||'p'|| p.id as id_socio, 

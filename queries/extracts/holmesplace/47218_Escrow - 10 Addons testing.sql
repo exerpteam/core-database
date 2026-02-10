@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Add which scope the addon is linked to and create an ID for conversion. Getting less here than in addon standard report, but here you get the product name instead of global. Add global here? Why am I missing some?
 SELECT DISTINCT
 c.shortname AS CLUB,
 p2.EXTERNAL_ID,

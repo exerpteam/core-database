@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     su.owner_center                    as Club, -- center scope
     SU.OWNER_CENTER||'p'||SU.OWNER_ID  as SubscriptionOwnerKey,

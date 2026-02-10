@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select t.TABLESPACE_NAME, c.*
 FROM dba_tables t
 INNER JOIN dba_tab_cols

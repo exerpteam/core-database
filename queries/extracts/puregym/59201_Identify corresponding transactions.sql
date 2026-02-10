@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- The script locates any additional transactions linked to interclub transactions based on an aggregate transaction id
 SELECT
     actr.amount AS account_trans_amount,
     actr.info   AS Info,

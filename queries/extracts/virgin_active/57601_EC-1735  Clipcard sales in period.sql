@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      productGroup.NAME product_group_name,
      p.CENTER || 'p' || p.ID payer_id,

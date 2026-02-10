@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Shows last login of all staff members
 SELECT
     p.center||'p'||p.id member_id,
     CASE p.status

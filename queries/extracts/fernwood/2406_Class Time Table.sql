@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT 
         c.shortname AS "Club" 
         ,b.name AS "Class Name"
@@ -23,7 +25,7 @@ LEFT JOIN
         AND su.booking_id = b.id
         AND su.state != 'CANCELLED'
 LEFT JOIN
-        fernwood.persons p
+        persons p
         ON p.center = su.person_center
         AND p.id = su.person_id        
 WHERE

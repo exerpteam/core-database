@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Dedicated to TeleSale
+Leads created by API AND APP user is exluded.
 SELECT
     cen.NAME,
     cen.id,

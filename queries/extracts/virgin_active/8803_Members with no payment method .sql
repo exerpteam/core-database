@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Highlights member who have DD or other payer on their account.
  SELECT
      C.ID as ClubID ,
      c.NAME as ClubName,

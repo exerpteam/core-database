@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-2147
  SELECT distinct
     case cc.hold when 0 then 'no' when 1 then 'yes' end as "on pause?",
     c.name as clubname,

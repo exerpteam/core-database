@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
     cen.Name AS "Center",
     t1.CampaignName AS "Campaign Name",

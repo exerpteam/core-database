@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Delivered by Exerp in https://clublead.atlassian.net/browse/ST-7108
+
+Modified in ISSUE-35994
+
 SELECT DISTINCT
 
     

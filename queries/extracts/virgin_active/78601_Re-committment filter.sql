@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -------Areas in sql to keep up to date
 -------1. GlobalIDs of known monthlyDD to compare to
 -------2. GlobalIDs of known recommittment subscriptions to compare

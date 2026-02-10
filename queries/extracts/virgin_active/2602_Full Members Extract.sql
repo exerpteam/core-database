@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Old version of FME which has been replaced by report ID: 15401
  SELECT DISTINCT
      "Club",
      "Member ID",

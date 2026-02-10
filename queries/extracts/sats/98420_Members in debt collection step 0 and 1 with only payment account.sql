@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Members with debt on payment account not sent to external debt agency 
 WITH params AS MATERIALIZED
                 (
                         SELECT

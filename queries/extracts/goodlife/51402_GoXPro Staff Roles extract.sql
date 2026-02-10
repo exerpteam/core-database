@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-16930 - GXP Integration
 WITH RECURSIVE centers_in_area AS
         (
                 SELECT

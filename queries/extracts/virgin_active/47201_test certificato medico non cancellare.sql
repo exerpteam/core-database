@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
                  bi."PERSON_ID",
  --              p.CURRENT_PERSON_CENTER,

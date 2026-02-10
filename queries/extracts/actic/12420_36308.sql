@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Exerp
 * Note: Latest usage in 2013-12-02. Wait with further comments.

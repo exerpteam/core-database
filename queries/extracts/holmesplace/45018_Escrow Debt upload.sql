@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Missing debt from LSV retries or cash account.
 SELECT
 	
   	p.external_id AS "MemberId",

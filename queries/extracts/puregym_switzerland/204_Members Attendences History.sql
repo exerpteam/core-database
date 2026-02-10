@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Members Attendences History
  SELECT
      p.center || 'p' || p.id                                              AS MemberID ,
      TO_CHAR(longtodateTZ(c.checkin_time, cn.time_zone), 'DD/MM/YYYY') AS "ENTERDATE" ,

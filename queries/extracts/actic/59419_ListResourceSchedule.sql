@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List resources that are occupied. Prefferably used to present simminglane availability on the webpage.
 /**
 * Extract to display resource schedule on the webpage and app (Bassängschema).
 * First get all classes of type personal Training and Courses.

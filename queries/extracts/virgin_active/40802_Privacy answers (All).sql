@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4983
  SELECT
      p.center||'p'||p.id       AS "Person ID",
      DatiSensibili.TXTVALUE    AS "consenso dati appartenenti",

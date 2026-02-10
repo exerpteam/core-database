@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List details of Regional memberships sold on a given date. Extract is made only for 180 Skövde City.
+Finance report
 /**
 * Creator: Mikael Ahlberg
 * Purpose: List details of Regional memberships sold on a given date.

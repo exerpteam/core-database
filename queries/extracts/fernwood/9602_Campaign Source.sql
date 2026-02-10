@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         c.name as Club
         ,pea.personcenter||'p'||pea.personid AS PersonID 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-7538
 SELECT
      s.CENTER||'ss'||s.ID AS "SUBSCRIPTION_ID",
      p.EXTERNAL_ID AS "EXTERNAL_ID",

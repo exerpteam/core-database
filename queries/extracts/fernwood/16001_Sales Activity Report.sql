@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH
   params AS
   (
@@ -41,34 +43,34 @@ SELECT
         END AS "Appointment Status"
         ,sub.name AS "Subscription Name"                 
 FROM
-        fernwood.participations part
+        participations part
 JOIN 
-        fernwood.persons p 
+        persons p 
         ON p.center = part.participant_center
         AND p.id = part.participant_id
 JOIN 
-        fernwood.bookings b
+        bookings b
         ON b.center = part.booking_center
         AND b.id = part.booking_id
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center
 JOIN
-        fernwood.activity ac
+        activity ac
         ON ac.id = b.activity
         AND ac.activity_group_id = 2601 -- Sales Activity Group               
 LEFT JOIN
-        fernwood.person_ext_attrs peaMobile
+        person_ext_attrs peaMobile
         ON peaMobile.personcenter = p.center
         AND peaMobile.personid = p.id
         AND peaMobile.name = '_eClub_PhoneSMS'
 LEFT JOIN
-        fernwood.person_ext_attrs peaEmail
+        person_ext_attrs peaEmail
         ON peaEmail.personcenter = p.center
         AND peaEmail.personid = p.id
         AND peaEmail.name = '_eClub_Email'
 LEFT JOIN
-        fernwood.person_ext_attrs LeadSource
+        person_ext_attrs LeadSource
         ON LeadSource.personcenter = p.center
         AND LeadSource.personid = p.id
         AND LeadSource.name = 'LeadSource' 
@@ -78,13 +80,13 @@ LEFT JOIN
                 ,s.owner_id
                 ,prod.name
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN 
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
                 AND st.ID = s.subscriptiontype_id
         JOIN
-                fernwood.products prod
+                products prod
                 ON prod.center = st.center
                 AND prod.id = st.id 
         WHERE 

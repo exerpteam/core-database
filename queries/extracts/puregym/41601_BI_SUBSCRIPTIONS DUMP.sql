@@ -1,4 +1,0 @@
-SELECT
-    DISTINCT biview.*
-FROM
-    BI_SUBSCRIPTIONS biview

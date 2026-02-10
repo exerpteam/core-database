@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- doesnt work. Want to add the transaction id
 WITH
     params AS
     (

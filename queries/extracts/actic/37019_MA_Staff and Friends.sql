@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 staff.fullname as Staff_Fullname,
 friend.fullname as Friend_Fullname,

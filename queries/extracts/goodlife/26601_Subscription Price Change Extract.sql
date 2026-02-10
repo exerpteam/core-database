@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-7663
 SELECT
     new_sp.from_date                         AS "Effective Change Date",
     longtodateC(new_sp.entry_time,sc.center) AS "Date of Change",

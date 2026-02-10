@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-8560
 SELECT DISTINCT
     p.external_id,
     p.center || 'p' || p.id AS PersonId,

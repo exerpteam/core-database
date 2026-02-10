@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- created july 2023 to show all products configured in Exerp for freeze, used for MEMAPPS-271
 with mpr_xml as (
 select m.id, 
        cast(convert_from(m.product, 'UTF-8') AS xml) AS pxml 

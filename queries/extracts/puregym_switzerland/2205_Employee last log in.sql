@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 e.last_login AS LAST_LOGIN,
 c.name AS CENTER_NAME,

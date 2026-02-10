@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Error with some memberships not coming through
 SELECT 
         t."Club Name"
         ,t."Club ID"
@@ -24,23 +26,23 @@ FROM
                 ,params.ToDate                          AS "Date To"
                 ,s.owner_center||'p'||s.owner_id        AS "Person ID"        
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
-                fernwood.subscriptiontypes st
+                subscriptiontypes st
                         ON st.center = s.subscriptiontype_center
                         AND st.id = s.subscriptiontype_id
                         AND st.st_type != 2 
         LEFT JOIN
-                fernwood.product_and_product_group_link pgl
+                product_and_product_group_link pgl
                         ON pgl.product_center = st.center
                         AND pgl.product_id = st.id
                         AND pgl.product_group_id = 402
         JOIN
-                fernwood.products prod
+                products prod
                         ON prod.center = st.center
                         AND prod.id = st.id
         JOIN
-                fernwood.centers c
+                centers c
                         ON c.id = s.center 
         JOIN
                 params

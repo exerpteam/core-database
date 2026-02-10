@@ -1,3 +1,9 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Ths extract returns product configuration data.
+
+Updates made on March 17, 2020, approved in:
+ISSUE-35138
+ST-10581
 WITH pmp_xml AS (
 	
 	SELECT 

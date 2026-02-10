@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Tracks member check-ins and flags members with multiple swipes on the same day. Shows person status and ability to filter by date range 
 -- Member Attendance Report with Multiple Swipes
 -- Description: Tracks member check-ins and flags members with multiple swipes on the same day
 -- Parameters: :From (start date), :To (end date), :Scope (center selection)

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      cc.PERSONCENTER || 'p' || cc.PERSONID pid,
      ccr.REQ_DATE,

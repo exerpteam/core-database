@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by Exerp in: ST-4527
+Updated in: ISSUE-35732
+
 SELECT
         DISTINCT
         s.center || 'ss' || s.id AS "Subscription Key",

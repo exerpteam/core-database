@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- includes if the prefer invoice by email column
 
 SELECT
     p.CENTER || 'p' || p.ID as MEMBERID,

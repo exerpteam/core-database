@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Shows members ranked by their check-in frequency within a specified date range. 
 -- Top Attendees Check-ins Extract
 -- This extract shows members ranked by their check-in frequency within a specified date range
 

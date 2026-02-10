@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      inv.PAYER_CENTER,
      inv.PAYER_ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 04/03/24 - copy of report_200 sales validation for marketing team joiner email
  SELECT
      /*+ NO_BIND_AWARE */
 

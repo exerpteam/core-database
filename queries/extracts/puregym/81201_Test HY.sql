@@ -1,1 +1,0 @@
-select * from subscription_retention_campaigns sr

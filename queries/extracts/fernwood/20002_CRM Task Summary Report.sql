@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-4469
 WITH
   params AS
   (
@@ -66,7 +68,7 @@ FROM
                         ,t.person_center
                         ,t.person_id
                 FROM 
-                        fernwood.tasks t
+                        tasks t
                 WHERE 
                         t.center in (:scope)
                 GROUP BY
@@ -76,7 +78,7 @@ FROM
                         ON t.person_center = p.center
                         AND t.person_id = p.id         
         LEFT JOIN
-                fernwood.tasks t2
+                tasks t2
                 ON t2.person_center = t.person_center 
                 AND t2.person_id = t.person_id
                 AND t2.id = t.ID

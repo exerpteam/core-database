@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Usato per check addon digital
 SELECT distinct
     p.center ||'p'|| p.id as memberid, 
 	p.firstname,

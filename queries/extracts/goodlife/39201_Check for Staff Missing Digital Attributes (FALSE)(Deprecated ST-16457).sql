@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Check for Staff Missing Digital Attributes (FALSE)
 --select t."External Person ID",
 --t."Current Person Type",
 --t."Current Person State",

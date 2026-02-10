@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
         HYPOXI AS
                 (
@@ -5,22 +7,22 @@ WITH
                         p.external_id
                         ,'sub' as type
                 FROM
-                        fernwood.subscriptions s
+                        subscriptions s
                 JOIN
-                        fernwood.subscriptiontypes st
+                        subscriptiontypes st
                         ON st.center = s.subscriptiontype_center
                         AND st.id = s.subscriptiontype_id
                 JOIN
-                        fernwood.products prod
+                        products prod
                         ON prod.center = st.center
                         AND prod.id = st.id     
                 JOIN
-                        fernwood.product_and_product_group_link pgl
+                        product_and_product_group_link pgl
                         ON pgl.product_center = prod.center  
                         AND pgl.product_id = prod.id
                         AND pgl.product_group_id = 235
                 JOIN
-                        fernwood.persons p
+                        persons p
                         ON p.center = s.owner_center
                         AND p.id = s.owner_id
                 WHERE
@@ -30,17 +32,17 @@ WITH
                         p.external_id
                         ,'cc' as type
                 FROM 
-                        fernwood.clipcards cc
+                        clipcards cc
                 JOIN 
-                        fernwood.persons p 
+                        persons p 
                         ON cc.owner_center = p.center 
                         AND cc.owner_id = p.id
                 JOIN 
-                        fernwood.products prod 
+                        products prod 
                         ON prod.center = cc.center
                         AND prod.id = cc.ID 
                 JOIN
-                        fernwood.product_and_product_group_link pgl
+                        product_and_product_group_link pgl
                         ON pgl.product_center = prod.center  
                         AND pgl.product_id = prod.id
                         AND pgl.product_group_id = 235  
@@ -53,9 +55,9 @@ WITH
                         prod.center
                         ,prod.id 
                 FROM
-                        fernwood.products prod   
+                        products prod   
                 JOIN
-                        fernwood.product_and_product_group_link pgl
+                        product_and_product_group_link pgl
                         ON pgl.product_center = prod.center  
                         AND pgl.product_id = prod.id
                         AND pgl.product_group_id = 235
@@ -70,13 +72,13 @@ WITH
                                 p.external_id
                                 ,'sub' as type
                         FROM
-                                fernwood.subscriptions s
+                                subscriptions s
                         JOIN
-                                fernwood.subscriptiontypes st
+                                subscriptiontypes st
                                 ON st.center = s.subscriptiontype_center
                                 AND st.id = s.subscriptiontype_id
                         JOIN
-                                fernwood.products prod
+                                products prod
                                 ON prod.center = st.center
                                 AND prod.id = st.id     
                         LEFT JOIN
@@ -84,7 +86,7 @@ WITH
                                 ON hprod.center = prod.center
                                 AND hprod.id = prod.id
                         JOIN
-                                fernwood.persons p
+                                persons p
                                 ON p.center = s.owner_center
                                 AND p.id = s.owner_id     
                         WHERE
@@ -96,13 +98,13 @@ WITH
                                 p.external_id
                                 ,'cc' as type
                         FROM 
-                                fernwood.clipcards cc
+                                clipcards cc
                         JOIN 
-                                fernwood.persons p 
+                                persons p 
                                 ON cc.owner_center = p.center 
                                 AND cc.owner_id = p.id
                         JOIN 
-                                fernwood.products prod 
+                                products prod 
                                 ON prod.center = cc.center
                                 AND prod.id = cc.ID 
                         LEFT JOIN
@@ -127,7 +129,7 @@ WITH
                         ,person_center AS PersonCenter
                         ,person_id AS PersonID 
                 FROM 
-                        fernwood.attends   
+                        attends   
                 GROUP BY 
                         person_center
                         ,person_id 
@@ -154,13 +156,13 @@ SELECT DISTINCT
 FROM
         FERNWOOD_FITNESS ff
 JOIN
-        fernwood.persons p
+        persons p
         ON p.external_id = ff.personID
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center        
 LEFT JOIN 
-        fernwood.person_ext_attrs peeaEmail
+        person_ext_attrs peeaEmail
         ON peeaEmail.personcenter = p.center
         AND peeaEmail.personid = p.id
         AND peeaEmail.name = '_eClub_Email'

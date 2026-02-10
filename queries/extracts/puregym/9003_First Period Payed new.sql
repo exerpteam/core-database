@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     nvl(c_NAME, '_Total')                 AS Center,
     COUNT(DISTINCT SID) AS "Total Sold",

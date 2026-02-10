@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-2837
 SELECT
     TO_CHAR(TRUNC(ADD_MONTHS((LAST_DAY(exerpsysdate())+1),-2)),'YYYY-MM-DD') PERIOD_FROM ,
     TO_CHAR(TRUNC(ADD_MONTHS((LAST_DAY(exerpsysdate())),-1)),'YYYY-MM-DD')   period_to ,

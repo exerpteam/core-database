@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/EC-10285
 WITH
     future_freeze AS
@@ -501,7 +501,7 @@ JOIN
 ON
     s.OWNER_CENTER = p.CENTER
 AND s.OWNER_ID = p.ID
-AND s.state IN (2,3,4)
+AND s.state IN (2,3,4,8) -- 2 ACTIVE, 3 Ended, 4 Frozen, 8 Created
 JOIN
     SUBSCRIPTIONTYPES st
 ON

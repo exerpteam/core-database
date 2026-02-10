@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Village Advance 7 Day New Member Call Notes ES-49410
 ---CTE for journal notes---         
 WITH
     journal AS MATERIALIZED

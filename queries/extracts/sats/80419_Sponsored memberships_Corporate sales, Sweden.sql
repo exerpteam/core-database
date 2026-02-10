@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to see if a "delbetalning" membership is sold without an friskvårds fee.
  select
  /*PP.CENTER || 'p' || PP.ID as MemberID,
  pp.external_id MemberExternalID,

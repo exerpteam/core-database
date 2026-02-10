@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- I want the Finance Transactions report with text from invoice and credit note lines
 
 WITH
     params AS

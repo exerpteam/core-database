@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 c.shortname as Club,
     p.center||'p'||p.id as MembershipNumber,

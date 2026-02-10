@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select c.id, c.NAME, decode(pr.REQUEST_TYPE, 1, 'Normal', 6, 'Representation', 5, 'Refund') as RequestType,
 sum(case when pr.state in (1,2) then 1 else 0 end) as Pending,
 sum(case when pr.state in (3,4,18) then 1 else 0 end) as Paid,

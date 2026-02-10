@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- USO INTERNO NON USARE NON CANCELLARE
 select distinct * from (
  SELECT
      mpr.ID "Master Product ID",

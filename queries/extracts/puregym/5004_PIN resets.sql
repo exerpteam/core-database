@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- number of times that a 'blacklisted' note was created and a 'balcklisted cancelled' note was created within 5 minutes
 SELECT
     bl.PERSON_CENTER,
     NVL(cen.NAME,'TOTAL'),

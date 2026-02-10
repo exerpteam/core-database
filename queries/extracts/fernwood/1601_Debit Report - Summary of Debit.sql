@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report used by NSO to to balance the debit based on what has been sent to the bank on debit day.
+https://clublead.atlassian.net/browse/ST-9886
 SELECT
                 t2."Club"
                 ,t2."Date"

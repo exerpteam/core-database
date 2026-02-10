@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract PT Balance
+-- #198412 - Fix the product name after person transferred due to closd club
 WITH 
 	Used_Clips AS (
     SELECT c1.card_center, c1.card_id, c1.card_subid, sum(c1.used_clips) as used_clips
@@ -123,7 +126,7 @@ LEFT JOIN Used_clips uc
         AND cc.id = uc.card_id 
         AND cc.subid = uc.card_subid
 JOIN evolutionwellness.invoice_lines_mt il ON cc.invoiceline_center = il.center AND cc.invoiceline_id = il.id AND cc.invoiceline_subid = il.subid
-JOIN evolutionwellness.products pr ON il.productcenter = pr.center AND il.productid = pr.id AND pr.PTYPE = 4
+JOIN evolutionwellness.products pr ON cc.center = pr.center AND cc.id = pr.id AND pr.PTYPE = 4
 JOIN PRODUCT_GROUP pg ON pg.ID = pr.PRIMARY_PRODUCT_GROUP_ID
 --JOIN MASTERPRODUCTREGISTER mpr ON mpr.GLOBALID = pr.GLOBALID AND mpr.scope_type != 'T'
 --LEFT JOIN PRIVILEGE_GRANTS pgr ON pgr.GRANTER_ID = mpr.ID AND pgr.granter_service = 'GlobalCard' AND pgr.valid_to IS NULL 

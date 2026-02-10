@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 -- Credit notes with 'EC Member Rejoining' in narration (last 31 days)
 SELECT DISTINCT
     c.name AS "Club Name",

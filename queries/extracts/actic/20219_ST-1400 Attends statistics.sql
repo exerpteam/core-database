@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     attends_inner.center as SENTER,
     p.CENTER || 'p' || p.ID AS MEDLEMSID,

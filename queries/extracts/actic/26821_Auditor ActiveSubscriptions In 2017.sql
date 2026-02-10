@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extension of Active memberships
 /* active subscriptions reworked */
 /**
 * Creator: Martin Blomgren

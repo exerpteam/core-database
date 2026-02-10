@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Number of members in a club right now
+https://clublead.atlassian.net/browse/ST-4502
+https://clublead.atlassian.net/browse/ST-9402
  WITH
     tmp AS 
     (

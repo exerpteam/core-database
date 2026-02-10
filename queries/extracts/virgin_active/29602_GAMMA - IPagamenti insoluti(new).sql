@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  CONCAT(CONCAT(CAST(p1.CENTER AS CHAR(3)),'p'),CAST(p1.ID as VARCHAR(6))) as personId, CONCAT(CONCAT(CAST(agr.CENTER AS CHAR(3)),'agt'),CAST(agr.ID as VARCHAR(6))) as agrTrans, art.TEXT,  art.AMOUNT, pr.req_date, longtodate(art.ENTRY_TIME) as paymentDate,
  art.EMPLOYEECENTER

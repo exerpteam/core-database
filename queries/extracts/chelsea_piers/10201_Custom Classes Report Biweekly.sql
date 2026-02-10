@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS (
     SELECT
         c.id AS center_id

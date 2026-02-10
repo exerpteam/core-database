@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract counts checkins -
+a) For members only (excludes staff, day passes, et cetera relative to the person state at time of checkin)
+b) Excluding failed checkins  (excludes checkins where CHECKIN_RESULT = 0)
+c) Excluding duplicates for a person for a <1 hour interval in a day (if the member uses twice at 9:30am and 10:30am then count 1, but uses twice at 9:30am and 10:31am then count 2)
 WITH
     recursive v1 AS
     (

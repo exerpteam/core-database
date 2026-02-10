@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- YesMail
 SELECT distinct
     cen.NAME,
     p.CENTER || 'p' || p.ID AS Pref,

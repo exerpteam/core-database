@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract used to find subscription product overrides that have 'Use contract' and the contract template is set to Default
 select 
 
 c.SHORTNAME,

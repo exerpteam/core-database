@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: New report to show new swim and racquets subscriptions
 SELECT distinct
 	--q1.PT_ID,
 	--q1.PT_NAME,

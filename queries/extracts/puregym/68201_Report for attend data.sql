@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-13383
  SELECT
    CASE
          WHEN p.external_id is null

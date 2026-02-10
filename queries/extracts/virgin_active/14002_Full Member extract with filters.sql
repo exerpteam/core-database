@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Copy of Full Member Extract with the following differences:
+Additional filters (Added by Exerp in ST-842).
+Subscription binding end date added (not by Exerp).
+https://clublead.atlassian.net/browse/ST-3732
  SELECT DISTINCT
      "Club",
      "Member ID",

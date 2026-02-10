@@ -1,9 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- adjusted copy of ID 10801
 SELECT
             CASE pag.STATE WHEN 1 THEN 'Created' WHEN 2 THEN 'Sent' WHEN 3 THEN 'Failed' WHEN 4 THEN 'OK' WHEN 5 THEN 'Ended, bank' WHEN 6 THEN 'Ended, clearing house' WHEN 7 THEN 'Ended, debtor' WHEN 8 THEN 'Cancelled, not sent' WHEN 9 THEN 'Cancelled, sent' WHEN 10 THEN 'Ended, creditor' WHEN 11 THEN 'No agreement' WHEN 12 THEN 'Cash payment (deprecated)' WHEN 13 THEN 'Agreement not needed (invoice payment)' WHEN 14 THEN 'Agreement information incomplete' WHEN 15 THEN 'Transfer' WHEN 16 THEN 'Agreement Recreated' WHEN 17 THEN 'Signature missing' ELSE 'UNDEFINED' END AS STATE,
             p.center || 'p' || p.id person_id,
             (CASE
                 WHEN pag.clearinghouse IN (1,3601,4402,3803,4001,4201,5201,3002,4601,3201,7402) THEN 'Adyen'
-                WHEN pag.clearinghouse IN (201,5001,5401,3401,3802,3801,4401,4403,3001,4801,2801,5801,5601,6201,6001,7602) THEN 'SEPA'
+                WHEN pag.clearinghouse IN (201,3001,2801,3401,3801,3802,4401,4801,5001,4403,5401,5601,5801,6001,6201,7602,7601,7001,7201,7401,7202,6601,6801) THEN 'SEPA'
                 ELSE 'UNKNOWN'
             END) AS payment_method,
 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Including current, list and  current price soruce 
 /* active subscriptions reworked */
 
 -- TODO

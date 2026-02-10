@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Italy Freeze Status Report+Data inserimento
 SELECT DISTINCT
      p.center || 'p' || p.id AS "PID",
      s.CENTER || 'ss' || s.ID "Membership Number",

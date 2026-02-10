@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2365
 WITH
 params AS
 (
@@ -21,34 +23,34 @@ SELECT
         ,act.amount AS "Amount"
         ,empp.fullname AS "Employee name" --(who was the employee that processed the transaction
 FROM
-        fernwood.account_trans act
+        account_trans act
 JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON art.ref_center = act.center
         AND art.ref_id = act.id 
         AND art.ref_subid = act.subid
         AND art.amount < 0
 JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.center = art.center
         AND ar.id = art.id
 JOIN
-        fernwood.persons p
+        persons p
         ON p.center = ar.customercenter
         AND p.id = ar.customerid
 JOIN
-        fernwood.employees emp
+        employees emp
         ON emp.center = art.employeecenter
         AND emp.id = art.employeeid
 JOIN
-        fernwood.persons empp
+        persons empp
         ON empp.center = emp.personcenter
         AND empp.id = emp.personid
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = act.center
 LEFT JOIN
-        fernwood.payment_agreements pag 
+        payment_agreements pag 
         ON ar.center = pag.center 
         AND ar.id = pag.id
         AND pag.clearinghouse = 2   

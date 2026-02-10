@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract returns all payment requests and credit card transactions processed by a home office associate, excluding API user and only for MED cash register (#3).
 WITH cashcollaggregate AS
 (
 SELECT MAX(startdate) AS MaxStartDate, personcenter, personid

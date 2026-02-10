@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-7651
 SELECT
 p.center ||'p'|| p.id AS company_id,
 p.fullname AS company_name,

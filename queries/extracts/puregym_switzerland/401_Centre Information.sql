@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns basic info about the gyms
 SELECT
      cen.ID,
      cen.SHORTNAME,

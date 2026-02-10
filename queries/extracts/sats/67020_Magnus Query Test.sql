@@ -1,3 +1,0 @@
-select 	(1316390000000 - (15552000000 * (TRUNC (SYSDATE - date '2019-09-21') - 1))) as ETSTo,
-	 	(1316390000000 - (15552000000 * (TRUNC (SYSDATE - date '2019-09-21') - 0))) as ETSFrom
-from dual

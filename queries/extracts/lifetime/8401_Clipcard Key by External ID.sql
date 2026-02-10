@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-27735
 SELECT
     pd.name                                    AS "clipcard_name",
     cc.center ||'cc'|| cc.id ||'cc'|| cc.subid AS "clipcard_key",

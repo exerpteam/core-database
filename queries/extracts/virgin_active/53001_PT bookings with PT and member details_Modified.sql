@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      TO_CHAR(longtodateTZ(bok.starttime, 'Europe/Rome'),'Day') "Booking Day" ,
      TO_CHAR(longtodateTZ(bok.starttime, 'Europe/Rome'),'DD Mon YYYY') "Booking Date" ,

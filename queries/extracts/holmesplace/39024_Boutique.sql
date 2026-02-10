@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on membersihps names - currently includes Boutique and Classic Vip memberships
 SELECT
 	c.Shortname						AS "Club",
     p.CENTER ||'p'|| p.ID           AS "Member ID",

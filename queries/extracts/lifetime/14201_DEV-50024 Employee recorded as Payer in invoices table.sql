@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 SELECT DISTINCT
     i.center||'inv'||i.id                                                          AS invoice_id,
     TO_CHAR (longtodateTZ (i.trans_time, 'America/Toronto'), 'MM/DD/YYYY HH24:MI') AS "trans time",

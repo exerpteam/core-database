@@ -1,10 +1,12 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- THis extract to be used to find product over-writes missing Active Member Count Product Group
 SELECT
         prod.name AS Product_Name
         ,prod.globalid AS Product_Global_id
         ,c.shortname AS Center
         ,prod.blocked
 FROM
-        fernwood.products prod
+        products prod
 JOIN
         (
                 SELECT
@@ -36,7 +38,7 @@ LEFT JOIN
         AND pgl.product_id = prod.id
         AND pgl.product_group_id = 5601
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = prod.center          
 WHERE
         pgl.product_group_id IS NULL             

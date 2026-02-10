@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns a list of all companies and their corresponding payment cycle and deduction day.
 SELECT
 	CASE WHEN p.Id IS NULL THEN '' ELSE p.center || 'p' || p.id	END AS CompanyPersonId,
 	p.lastname as CompanyName,

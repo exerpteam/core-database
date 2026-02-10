@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
   (WITH params AS MATERIALIZED
                 (SELECT
                                 TRUNC(to_date(getcentertime(c.id), 'YYYY-MM-DD HH24:MI')) AS fromDate,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Visar endsast medlemskap som innehåller namet orden "max" och "add"
 /* 
  * TOTAL PT EFT SUBSCRIPTIONS BY DATE
  */

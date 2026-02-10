@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT
     ppgl.PRODUCT_CENTER||'prod'||ppgl.PRODUCT_ID  AS "PRODUCT_ID",

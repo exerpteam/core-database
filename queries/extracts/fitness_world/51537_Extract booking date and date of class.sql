@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-7278
 SELECT 
    TO_CHAR(longtodate(par.CREATION_TIME),'DD-MM-YYYY HH:MM') AS "Date of booking", 

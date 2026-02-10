@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -28,74 +30,74 @@ SELECT
         ,peeaMobile.txtvalue AS "Referred By Person Mobile"
         ,peeaHome.txtvalue AS "Referred By Person Home"        
 FROM 
-        fernwood.subscriptions s
+        subscriptions s
 JOIN 
         params 
         ON params.CENTER_ID = s.center  
 JOIN
-        fernwood.subscriptiontypes st
+        subscriptiontypes st
         ON st.center = s.subscriptiontype_center
         AND st.id = s.subscriptiontype_id
 JOIN
-        fernwood.products prod
+        products prod
         ON prod.center = st.center
         AND prod.id = st.id
         AND prod.globalid in ('12_MONTH_FIXED_TERM_MEMBERSHIP','12_MONTH_ONGOING_MEMBERSHIP','12_MONTH_PIF_MEMBERSHIP','18_MONTH_FIXED_TERM_MEMBERSHIP','18_MONTH_ONGOING_MEMBERSHIP_1','18_MONTH_ONGOING_MEMBERSHIP')  
 JOIN 
-        fernwood.persons p
+        persons p
         ON p.center = s.owner_center
         AND p.id = s.owner_id
 JOIN 
-        fernwood.centers c
+        centers c
         ON c.id = p.center          
 LEFT JOIN 
-        fernwood.relatives re
+        relatives re
         ON p.center = re.center AND p.id = re.id
         AND rtype = 13
 LEFT JOIN 
-        fernwood.persons pe 
+        persons pe 
         ON pe.center = re.relativecenter 
         AND pe.id = re.relativeid
 LEFT JOIN
-        fernwood.centers ce
+        centers ce
         ON ce.id = pe.center          
 LEFT JOIN 
-        fernwood.person_ext_attrs peaEmail
+        person_ext_attrs peaEmail
         ON peaEmail.personcenter = p.center
         AND peaEmail.personid = p.id
         AND peaEmail.name = '_eClub_Email'
 LEFT JOIN 
-         fernwood.person_ext_attrs peaMobile
+         person_ext_attrs peaMobile
         ON peaMobile.personcenter = p.center
         AND peaMobile.personid = p.id
         AND peaMobile.name = '_eClub_PhoneSMS' 
 LEFT JOIN 
-         fernwood.person_ext_attrs peaHome
+         person_ext_attrs peaHome
         ON peaHome.personcenter = p.center
         AND peaHome.personid = p.id
         AND peaHome.name = '_eClub_PhoneHome'  
 LEFT JOIN
-        fernwood.person_ext_attrs peaOLDID
+        person_ext_attrs peaOLDID
         ON peaOLDID.personcenter = p.center
         AND peaOLDID.personid = p.id 
         AND peaOLDID.name = '_eClub_OldSystemPersonId' 
 LEFT JOIN 
-        fernwood.person_ext_attrs peeaEmail
+        person_ext_attrs peeaEmail
         ON peeaEmail.personcenter = pe.center
         AND peeaEmail.personid = pe.id
         AND peeaEmail.name = '_eClub_Email'
 LEFT JOIN 
-         fernwood.person_ext_attrs peeaMobile
+         person_ext_attrs peeaMobile
         ON peeaMobile.personcenter = pe.center
         AND peeaMobile.personid = pe.id
         AND peeaMobile.name = '_eClub_PhoneSMS' 
 LEFT JOIN 
-         fernwood.person_ext_attrs peeaHome
+         person_ext_attrs peeaHome
         ON peeaHome.personcenter = pe.center
         AND peeaHome.personid = pe.id
         AND peeaHome.name = '_eClub_PhoneHome' 
 LEFT JOIN
-        fernwood.person_ext_attrs peeaOLDID
+        person_ext_attrs peeaOLDID
         ON peeaOLDID.personcenter = pe.center
         AND peeaOLDID.personid = pe.id 
         AND peeaOLDID.name = '_eClub_OldSystemPersonId'                                                                

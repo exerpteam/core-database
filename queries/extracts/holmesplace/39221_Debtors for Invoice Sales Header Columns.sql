@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Same as Sales Line extract but with different columns. Removed duplicates with payment requests resent in same Due date Period.
 WITH
 	PAY_REQUESTS AS
 		(

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns available clipcards by PersonID
 SELECT 
 	c.center as ClipcardCenter,
 	p.center || 'p' || p.id AS PersonID,

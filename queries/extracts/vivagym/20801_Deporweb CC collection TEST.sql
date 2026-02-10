@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- cópia do ID 19001, Paula
 WITH og_trans AS
 ( 
     SELECT

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS
 (
     SELECT
@@ -5,7 +7,7 @@ WITH params AS
         datetolongC('2025-12-01 00:00', c.id) AS FromDate,
         c.id AS center_id,
         datetolongC(TO_CHAR(CURRENT_TIMESTAMP, 'YYYY-MM-dd HH24:MI'), c.id) AS ToDate
-    FROM fernwood.centers c
+    FROM centers c
 ),
 
 
@@ -17,26 +19,26 @@ paid_strong_start AS
         (p.center || 'p' || p.id) AS person_id,
         COALESCE(inv.total_amount, 0) AS amount_paid,
         t.entry_time AS entry_time
-    FROM fernwood.persons p
-    JOIN fernwood.clipcards cc
+    FROM persons p
+    JOIN clipcards cc
         ON cc.owner_center = p.center
        AND cc.owner_id     = p.id
-    JOIN fernwood.centers c
+    JOIN centers c
         ON c.id = p.center
-    JOIN fernwood.products pro
+    JOIN products pro
         ON pro.center = cc.center
        AND pro.id     = cc.ID
     JOIN params
         ON params.center_id = c.id
-    JOIN fernwood.product_and_product_group_link pgl
+    JOIN product_and_product_group_link pgl
         ON pgl.product_center   = pro.center
        AND pgl.product_id       = pro.id
        AND pgl.product_group_id IN (18801, 224, 237)
-    LEFT JOIN fernwood.invoice_lines_mt inv
+    LEFT JOIN invoice_lines_mt inv
         ON cc.invoiceline_center = inv.center
        AND cc.invoiceline_id     = inv.id
        AND cc.invoiceline_subid  = inv.subid
-    LEFT JOIN fernwood.invoices t
+    LEFT JOIN invoices t
         ON cc.invoiceline_center = t.center
        AND cc.invoiceline_id     = t.id
     WHERE
@@ -80,8 +82,8 @@ club_members AS
     SELECT
         c.shortname AS club_name,
         COUNT(DISTINCT (p.center || 'p' || p.id)) AS club_member_base
-    FROM fernwood.persons p
-    JOIN fernwood.centers c
+    FROM persons p
+    JOIN centers c
       ON c.id = p.center
     WHERE
         p.status = 1

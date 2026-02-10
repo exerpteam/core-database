@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-3388
 SELECT '1090' As SurveyID, p.CENTER||'p'||p.ID AS PersonID, p.FIRSTNAME, p.LASTNAME, email.TXTVALUE As EMail, c.CHECKIN_CENTER, TO_CHAR(exerpro.longtodate(c.CHECKIN_TIME), 'YYYY-MM-DD HH24:MI') AS CheckinTime, 
        s.CREATOR_CENTER AS Sales_Center, TO_CHAR(p.FIRST_ACTIVE_START_DATE, 'YYYY-MM-DD') AS First_Active_Start_Date, TO_CHAR(ss.TERMINATION_DATE, 'YYYY-MM-DD') AS Resigned_Date, s.END_DATE AS Membership_End_Date,

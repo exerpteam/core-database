@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Migration to ExerpPOS
 WITH
         params AS MATERIALIZED
         (

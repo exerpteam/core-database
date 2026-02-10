@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Fire & Ice Members Report (Recovery Product Group)
 -- Shows all active and temporarily inactive members with Fire & Ice subscriptions
 

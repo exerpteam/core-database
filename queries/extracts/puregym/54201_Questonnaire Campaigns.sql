@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/projects/ES/queues/issue/ES-15535
 SELECT 
   qc.ID AS "QUESTIONNAIRE_CAMPAIGN_ID",  
   qc.QUESTIONNAIRE "QUESTIONNAIRE_ID",

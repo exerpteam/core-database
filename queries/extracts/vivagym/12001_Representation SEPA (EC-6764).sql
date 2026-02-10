@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         t1.*
 FROM
@@ -49,7 +51,7 @@ FROM
         WHERE
                 pr.req_date > par.cutdate
                 --AND par.executionDate = 15 -- Execution Date.
-		AND pr.clearinghouse_id in (201,3001,2801,3401,3801,3802,4401,4801,5001,4403,5401,5601,5801,6001,6201,7602) -- SEPA
+		AND pr.clearinghouse_id in (201,3001,2801,3401,3801,3802,4401,4801,5001,4403,5401,5601,5801,6001,6201,7602,7601,7001,7201,7401,7202,6601,6801) -- SEPA
                 AND ar.balance < 0
                 AND ar.ar_type = 4
                 AND rep_req.center IS NULL -- exclude already represented requests

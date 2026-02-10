@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This report shows members whose participations have been cancelled.
 WITH
     params AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 CRM Task Trends Report - STEP 1: BASIC VERSION
 Purpose: Start simple - just get lead details and their current CRM task status
@@ -62,13 +64,13 @@ JOIN
     ON c.id = p.center
     
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaEmail
+    person_ext_attrs peeaEmail
     ON peeaEmail.personcenter = p.center
     AND peeaEmail.personid = p.id
     AND peeaEmail.name = '_eClub_Email'
     
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaMobile
+    person_ext_attrs peeaMobile
     ON peeaMobile.personcenter = p.center
     AND peeaMobile.personid = p.id
     AND peeaMobile.name = '_eClub_PhoneSMS'

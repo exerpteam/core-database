@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find member ID based on Payment Request Ref
 SELECT
     pr.REF                                                                                                                                                                                                        AS terminal_Reference_Number ,
     ar.CUSTOMERCENTER||'p'||ar.CUSTOMERID                                                                                                                                                                                                        AS MEMBER_ID,

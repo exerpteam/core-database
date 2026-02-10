@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-10186
 SELECT
         inv.PAYER_CENTER || 'p' || inv.PAYER_ID AS CompanyId,
         pr.REQ_AMOUNT,

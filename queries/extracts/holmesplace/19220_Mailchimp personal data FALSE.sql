@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Same as Mailchimp personal data but where GDPR opt-in is false
 SELECT
     p.external_id                                                                                                                                                                   AS "EXTERNAL ID",
     p.center || 'p' || p.id                                                                                                                                                         AS "PERSON ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of all homekit purchases
  SELECT
      ext_sal.txtvalue as "CustomerTitle",
      p.FIRSTNAME as "CustomerFirstname",

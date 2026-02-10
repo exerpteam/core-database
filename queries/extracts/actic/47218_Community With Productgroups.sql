@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Community Report Specification with selectable product groups.
 /**
 * Creator: Exerp
 * Purpose: Get a specificaation over recurring payments for club and period.

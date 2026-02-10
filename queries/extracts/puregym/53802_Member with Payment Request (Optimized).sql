@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-6218
 WITH params AS
         (       
                 SELECT 

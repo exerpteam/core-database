@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- PARAMETERS:
 -- :Scope      -> list of centers
 -- :FromDate   -> 'YYYY-MM-DD HH24:MI'
@@ -8,7 +10,7 @@ WITH par AS MATERIALIZED (
     c.id AS center_id,
     datetolongC(TO_CHAR(to_date(:FromDate, 'YYYY-MM-DD HH24:MI'), 'YYYY-MM-DD HH24:MI'), c.id) AS from_long,
     datetolongC(TO_CHAR(to_date(:ToDate,   'YYYY-MM-DD HH24:MI'), 'YYYY-MM-DD HH24:MI'), c.id) + 86400 * 1000 AS to_long
-  FROM fernwood.centers c
+  FROM centers c
   WHERE c.id IN (:Scope)
 ),
 
@@ -30,7 +32,7 @@ norm_label AS (
       WHEN pro.name ILIKE 'Fernwood Foundation Donation%' THEN 'FERNWOOD FOUNDATION'
       ELSE 'OTHER'
     END AS donation_program
-  FROM fernwood.products pro
+  FROM products pro
 ),
 
 -- 1) CASH REGISTER INVOICE LINES (positive)
@@ -46,13 +48,13 @@ cr_inv AS (
       inl.quantity::numeric                                AS qty,
       inl.total_amount::numeric                            AS amount,
       'CASH REGISTER'::text                                AS payment_source
-  FROM fernwood.cashregistertransactions crt
+  FROM cashregistertransactions crt
   JOIN par ON par.center_id = crt.center
-  JOIN fernwood.invoices inv
+  JOIN invoices inv
     ON inv.paysessionid = crt.paysessionid
    AND inv.cashregister_center = crt.center
    AND inv.cashregister_id = crt.id
-  JOIN fernwood.invoice_lines_mt inl
+  JOIN invoice_lines_mt inl
     ON inv.center = inl.center AND inv.id = inl.id
   JOIN norm_label nl
     ON nl.center = inl.productcenter AND nl.id = inl.productid
@@ -79,13 +81,13 @@ cr_cn AS (
       cnt.quantity::numeric                                AS qty,
       (-cnt.total_amount)::numeric                         AS amount,
       'CASH REGISTER'::text                                AS payment_source
-  FROM fernwood.cashregistertransactions crt
+  FROM cashregistertransactions crt
   JOIN par ON par.center_id = crt.center
-  JOIN fernwood.credit_notes cn
+  JOIN credit_notes cn
     ON cn.paysessionid = crt.paysessionid
    AND cn.cashregister_center = crt.center
    AND cn.cashregister_id = crt.id
-  JOIN fernwood.credit_note_lines_mt cnt
+  JOIN credit_note_lines_mt cnt
     ON cnt.center = cn.center AND cnt.id = cn.id
   JOIN norm_label nl
     ON nl.center = cnt.productcenter AND nl.id = cnt.productid
@@ -112,13 +114,13 @@ addon_billed AS (
       inl.quantity::numeric                                AS qty,
       inl.total_amount::numeric                            AS amount,
       'ADDON'::text                                        AS payment_source
-  FROM fernwood.invoices inv
+  FROM invoices inv
   JOIN par ON par.center_id = inv.center
-  JOIN fernwood.invoice_lines_mt inl
+  JOIN invoice_lines_mt inl
     ON inv.center = inl.center AND inv.id = inl.id
   JOIN norm_label nl
     ON nl.center = inl.productcenter AND nl.id = inl.productid
-  LEFT JOIN fernwood.cashregistertransactions crt_link
+  LEFT JOIN cashregistertransactions crt_link
     ON inv.paysessionid        = crt_link.paysessionid
    AND inv.cashregister_center = crt_link.center
    AND inv.cashregister_id     = crt_link.id
@@ -154,6 +156,6 @@ SELECT
     a.amount,
     a.payment_source
 FROM all_lines a
-LEFT JOIN fernwood.persons  p ON p.center = a.person_center AND p.id = a.person_id
-LEFT JOIN fernwood.centers  c ON c.id     = a.center_id
+LEFT JOIN persons  p ON p.center = a.person_center AND p.id = a.person_id
+LEFT JOIN centers  c ON c.id     = a.center_id
 ORDER BY center, a.sale_time, member_name, a.product_name;

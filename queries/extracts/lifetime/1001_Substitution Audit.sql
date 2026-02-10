@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     bk.name                                                           AS "Activity",
     TO_CHAR(longtodateC(bk.starttime,bk.center),'YYYY-MM-DD HH12:MI') AS "Date/Time",

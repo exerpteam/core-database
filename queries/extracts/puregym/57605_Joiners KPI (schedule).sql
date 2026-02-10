@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-17413
  WITH
      PARAMS AS MATERIALIZED
      (

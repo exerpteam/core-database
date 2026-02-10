@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select SHORTNAME as club,
  count(*) as numero,
 sum(AMOUNT)*-1 AS IMPORTO

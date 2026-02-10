@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Bla
 SELECT
 	je.PERSON_CENTER ||'p'||PERSON_ID AS MEMBER_ID,
 	je.NAME AS NOTE,

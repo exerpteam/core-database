@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
                 t1.center || 'p' || t1.id AS PERSON_KEY,
 				t1.STATUS,

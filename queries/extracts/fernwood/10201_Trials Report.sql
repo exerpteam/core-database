@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-13019
 WITH active_subscriptions AS
         (
         SELECT 
@@ -6,7 +8,7 @@ WITH active_subscriptions AS
                 ,s.owner_id
                 ,s.start_date         
         FROM
-                fernwood.subscriptions s
+                subscriptions s
         JOIN
                 subscriptiontypes st
                 ON st.center = s.subscriptiontype_center
@@ -67,7 +69,7 @@ LEFT JOIN
         AND email.personid = p.id
         AND email.name = '_eClub_Email' 
 LEFT JOIN
-        fernwood.person_ext_attrs Mobile
+        person_ext_attrs Mobile
         ON Mobile.personcenter = p.center
         AND Mobile.personid = p.id
         AND Mobile.name = '_eClub_PhoneSMS'  
@@ -82,7 +84,7 @@ LEFT JOIN
                 ,person_center AS PersonCenter
                 ,person_id AS PersonID             
         FROM 
-                fernwood.checkins 
+                checkins 
         GROUP BY 
                 person_center
                 ,person_id
@@ -96,7 +98,7 @@ LEFT JOIN
                 ,person_center AS PersonCenter
                 ,person_id AS PersonID             
         FROM 
-                fernwood.checkins 
+                checkins 
         GROUP BY 
                 person_center
                 ,person_id
@@ -110,7 +112,7 @@ LEFT JOIN
                 ,inl.center
                 ,inl.id 
         FROM 
-                fernwood.invoice_lines_mt inl 
+                invoice_lines_mt inl 
         GROUP BY
                 inl.center
                 ,inl.id   

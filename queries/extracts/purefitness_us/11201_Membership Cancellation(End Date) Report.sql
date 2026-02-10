@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-10512
 SELECT
     scStopstaff.external_id                                                                             AS "External Id",
     scStopstaff.center || 'p' || scStopstaff.id                                                         AS "Person Id",

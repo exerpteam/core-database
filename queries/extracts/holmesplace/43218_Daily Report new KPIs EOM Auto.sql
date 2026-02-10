@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Auto version of new Daily report kpis EOM with changes to EXTRA. Auto= report for the day before today
 
 
 WITH

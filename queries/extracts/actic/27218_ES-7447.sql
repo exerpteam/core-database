@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find debt collection cases with no companyID
 SELECT
     p.center||'p'||p.id            AS company_id,
     ccs.NAME                       AS agency_name,

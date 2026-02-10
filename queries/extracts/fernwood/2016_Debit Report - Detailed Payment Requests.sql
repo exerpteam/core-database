@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used by NSO to balance the debit based on what has been sent to the bank on debit day.
 SELECT 
                                         p.center || 'p' || p.id AS "ExerpId"
                                         ,p.fullname AS "Name"

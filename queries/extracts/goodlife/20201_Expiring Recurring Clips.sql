@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 	c.owner_center || 'p' || c.owner_id AS PersonID, 
 	c.clips_initial, 

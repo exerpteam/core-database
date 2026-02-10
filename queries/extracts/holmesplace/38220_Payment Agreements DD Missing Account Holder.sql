@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Filter account holder for empty and only worry about them if they are Active=Verdadero
 SELECT distinct
   p.center as "Centre id", 
   c.name as "Centre name",

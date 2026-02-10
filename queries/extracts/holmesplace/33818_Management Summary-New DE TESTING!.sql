@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- with kpi for rejoiners2 to change rejoiners winder to 60 instead of 90 days
 WITH
     PARAMS AS
     (

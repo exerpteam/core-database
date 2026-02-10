@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Gets Privilege Discount data for multiple Privilege Sets. Takes in a comma separated list of Privilege Set Ids
 WITH
     globalRounding AS
     (

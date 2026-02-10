@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
     params AS
     (
@@ -25,14 +27,14 @@ WITH
         SELECT
             b.center AS booking_center,
             p.id     AS person_id
-        FROM fernwood.participations part
-        JOIN fernwood.persons p
+        FROM participations part
+        JOIN persons p
             ON p.center = part.participant_center
            AND p.id     = part.participant_id
-        JOIN fernwood.bookings b
+        JOIN bookings b
             ON b.center = part.booking_center
            AND b.id     = part.booking_id
-        JOIN fernwood.activity ac
+        JOIN activity ac
             ON ac.id = b.activity
         JOIN params
             ON params.CENTER_ID = b.center
@@ -210,7 +212,7 @@ SELECT
         2
     ) AS "Avg classes per member"
 FROM gf_attendance ga
-JOIN fernwood.centers c
+JOIN centers c
     ON c.id = ga.booking_center
 GROUP BY
     c.name

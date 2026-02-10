@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p.EXTERNAL_ID,
     DECODE(r.RTYPE,1,p3.EXTERNAL_ID,NULL)   AS "Friend of",

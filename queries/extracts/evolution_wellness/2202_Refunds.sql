@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- exclude free credit notes
 WITH
     RECURSIVE centers_in_area AS

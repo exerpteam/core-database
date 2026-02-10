@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select sub.CENTER || 'ss' || sub.id as SubscriptionId, fr.START_DATE, fr.END_DATE
 from FW.SUBSCRIPTION_FREEZE_PERIOD fr

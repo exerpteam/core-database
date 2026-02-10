@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List the bookingresources with the external_id = 'VirtualAttend". This should be exported to website and used as ID when attending with inverted QR-code.
 SELECT 
 	c.NAME,
 	c.ID AS CENTER,

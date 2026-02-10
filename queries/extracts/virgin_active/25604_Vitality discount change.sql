@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Modification of Full Member Extract. Add person external id in parameters to get list of members with current and future subscriptions/prices.
  SELECT DISTINCT
    "ExternalID",
      "Club",

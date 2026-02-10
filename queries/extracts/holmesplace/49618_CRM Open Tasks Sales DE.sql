@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- All tasks not closed or deleted. Excludes tasks for people who are Duplicate, Deleted or Anonymised.
 SELECT
 c.shortname AS "Club",
 emp.fullname AS "AssignedTO",

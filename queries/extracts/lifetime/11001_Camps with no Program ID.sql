@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report to audit any camps/electives that do not have a program ID.
 select b.center, a.name, longtodatec( b.starttime, b.center) booking_start_date, b.state
 from bookings b, activity a
 where b.booking_program_id is null

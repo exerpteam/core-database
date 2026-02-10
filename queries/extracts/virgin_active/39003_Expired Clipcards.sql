@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by RG 11/10/18
 SELECT 
     center.ID centerId,
     center.NAME centerName,

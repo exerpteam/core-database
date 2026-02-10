@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to find the members that do not have a valid PT start clip card on their profile. 
  select distinct
  p.center ||'p'|| p.id as "Member ID",
  p.external_id as "External ID",

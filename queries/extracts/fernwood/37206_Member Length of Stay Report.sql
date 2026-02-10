@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Member Length of Stay Report
 -- Includes total length of stay for members and staff members
 

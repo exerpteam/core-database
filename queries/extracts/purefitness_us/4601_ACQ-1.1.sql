@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Get data for Company Discounts
 WITH params AS MATERIALIZED (
 	SELECT
 		dateToLongC(getCenterTime(c.id), c.id) AS today,

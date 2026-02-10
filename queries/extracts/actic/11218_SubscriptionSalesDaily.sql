@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- CutDate = LongDate, time/date in ms
 -- to_date & from_date = Date, ex. 2013-04-05
 

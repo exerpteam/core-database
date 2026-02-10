@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-9205
+
 WITH
         params AS materialized
     (

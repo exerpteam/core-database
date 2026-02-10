@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 ext.personcenter as "staffPerson center",
 ext.personid as "staffPerson id"

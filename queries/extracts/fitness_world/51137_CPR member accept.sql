@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-7038
 SELECT 
     SUM(CASE WHEN gdpr.TXTVALUE = 'true' AND cre.TXTVALUE < '2018-05-25' THEN 1 END) AS "Accept_Before_GDPR",

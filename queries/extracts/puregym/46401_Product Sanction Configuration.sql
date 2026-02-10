@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4066
  SELECT
          mpr.CACHED_PRODUCTNAME AS "Product Name",
          --mpr.CACHED_PRODUCTTYPE,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select --distinct
         mp.cached_productname AS "Product Name"
         ,mp.globalid AS "Global ID"
@@ -21,5 +23,5 @@ select --distinct
         ELSE 'Other'
         END AS "Product Type"
 		,*
-from fernwood.masterproductregister mp
+from masterproductregister mp
 order by 4,1

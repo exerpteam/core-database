@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Working with Gibbo  on this one for Covid-19 PT by DD refunds
 SELECT 
 			p.CENTER || 'p' || p.id  member_id,
             p.CENTER  Person_Club,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 * Dropoff daily used for churn KPI.
 * EFT uses enddate and for CASH we use subscription enddate + window

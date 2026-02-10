@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract members with subscriptions to products in "Active Member Count" product group with Active and Temporarily Inactive statuses
 SELECT DISTINCT
     p.center || 'p' || p.id AS "Person ID",
     p.external_id AS "External ID",

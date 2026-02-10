@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.EXTERNAL_ID AS "PERSON_ID",
     TO_CHAR(longtodatetz(che.CHECKIN_TIME, cen.time_zone),'yyyy-MM-dd') AS "LAST_CHECKIN_DATE"

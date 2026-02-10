@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created as part of ES-39367
 WITH
     params AS
     (

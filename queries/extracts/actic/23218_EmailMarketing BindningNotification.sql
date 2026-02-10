@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Showing EFT members who has an binding enddate expires in 30 days  
 SELECT DISTINCT
 	cen.EXTERNAL_ID 								AS Cost,
 	cen.ID 											AS CenterId,

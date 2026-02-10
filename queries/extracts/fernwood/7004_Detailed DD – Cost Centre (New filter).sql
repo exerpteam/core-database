@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH PARAMS AS
         (
         SELECT
@@ -47,22 +49,22 @@ FROM
                             act.amount                            AS "Transaction Line Amount excluding VAT",
                             ar.customercenter                     AS "Scope"  
                         FROM -- Go over all payment requests
-                            fernwood.payment_requests pr
+                            payment_requests pr
                         JOIN -- Join with account receiveables to filter on member ID
-                            fernwood.account_receivables ar
+                            account_receivables ar
                         ON
                             ar.center = pr.center
                             AND ar.id = pr.id
                             AND ar_type = 4
                             AND pr.STATE IN (3,4) -- Only include payment requests in state Done / Done manual
                         JOIN -- Join payment request specifications to get additional info on the payment request
-                            fernwood.payment_request_specifications prs
+                            payment_request_specifications prs
                         ON
                             prs.center = pr.inv_coll_center
                             AND prs.id = pr.inv_coll_id
                             AND prs.subid = pr.inv_coll_subid
                         JOIN -- Join with payment agreement to get Payway Customer Number
-                            fernwood.payment_agreements pag
+                            payment_agreements pag
                         ON
                             pag.center = pr.center
                             AND pag.id = pr.id
@@ -75,7 +77,7 @@ FROM
                             AND art_inv.PAYREQ_SPEC_SUBID = prs.subid
                             AND art_inv.REF_TYPE IN ('INVOICE')
                         JOIN
-                            fernwood.invoice_lines_mt ivl
+                            invoice_lines_mt ivl
                         ON
                             ivl.center = art_inv.ref_center
                             AND ivl.id = art_inv.ref_id
@@ -87,12 +89,12 @@ FROM
                             AND act.id = ivl.account_trans_id
                             AND act.subid = ivl.account_trans_subid
                         LEFT JOIN
-                            fernwood.products prod
+                            products prod
                         ON
                             prod.center = ivl.productcenter
                             AND prod.id = ivl.productid
                         JOIN
-                            fernwood.product_account_configurations pac
+                            product_account_configurations pac
                         ON
                             pac.id = prod.product_account_config_id
                         UNION ALL
@@ -113,22 +115,22 @@ FROM
                             act.amount                            AS "Transaction Line Amount excluding VAT",
                             ar.customercenter                     AS "Scope"                              
                         FROM -- Go over all payment requests
-                            fernwood.payment_requests pr
+                            payment_requests pr
                         JOIN -- Join with account receiveables to filter on member ID
-                            fernwood.account_receivables ar
+                            account_receivables ar
                         ON
                             ar.center = pr.center
                             AND ar.id = pr.id
                             AND ar_type = 4
                             AND pr.STATE IN (3,4) --Only include payment requests in state Done / Done manual
                         JOIN -- Join payment request specifications to get additional info on the payment request
-                            fernwood.payment_request_specifications prs
+                            payment_request_specifications prs
                         ON
                             prs.center = pr.inv_coll_center
                             AND prs.id = pr.inv_coll_id
                             AND prs.subid = pr.inv_coll_subid
                         JOIN -- Join with payment agreement to get Payway Customer Number
-                            fernwood.payment_agreements pag
+                            payment_agreements pag
                         ON
                             pag.center = pr.center
                             AND pag.id = pr.id
@@ -141,7 +143,7 @@ FROM
                             AND art_inv.PAYREQ_SPEC_SUBID = prs.subid
                             AND art_inv.REF_TYPE IN ('CREDIT_NOTE')
                         JOIN
-                            fernwood.credit_note_lines_mt cnl
+                            credit_note_lines_mt cnl
                         ON
                             cnl.center = art_inv.ref_center
                             AND cnl.id = art_inv.ref_id
@@ -153,12 +155,12 @@ FROM
                             AND act.id = cnl.account_trans_id
                             AND act.subid = cnl.account_trans_subid
                         LEFT JOIN
-                            fernwood.products prod
+                            products prod
                         ON
                             prod.center = cnl.productcenter
                             AND prod.id = cnl.productid
                         JOIN
-                            fernwood.product_account_configurations pac
+                            product_account_configurations pac
                         ON
                             pac.id = prod.product_account_config_id
                         UNION ALL
@@ -179,22 +181,22 @@ FROM
                             NULL                                  AS "Transaction Line Amount excluding VAT",
                             ar.customercenter                     AS "Scope"                              
                         FROM -- Go over all payment requests
-                            fernwood.payment_requests pr
+                            payment_requests pr
                         JOIN -- Join with account receiveables to filter on member ID
-                            fernwood.account_receivables ar
+                            account_receivables ar
                         ON
                             ar.center = pr.center
                             AND ar.id = pr.id
                             AND ar_type = 4
                             AND pr.STATE IN (3,4) --Only include payment requests in state Done / Done manual
                         JOIN -- Join payment request specifications to get additional info on the payment request
-                            fernwood.payment_request_specifications prs
+                            payment_request_specifications prs
                         ON
                             prs.center = pr.inv_coll_center
                             AND prs.id = pr.inv_coll_id
                             AND prs.subid = pr.inv_coll_subid
                         JOIN -- Join with payment agreement to get Payway Customer Number
-                            fernwood.payment_agreements pag
+                            payment_agreements pag
                         ON
                             pag.center = pr.center
                             AND pag.id = pr.id
@@ -249,22 +251,22 @@ JOIN
                             act.amount                            AS "Transaction Line Amount excluding VAT",
                             ar.customercenter                     AS "Scope"
                         FROM -- Go over all payment requests
-                            fernwood.payment_requests pr
+                            payment_requests pr
                         JOIN -- Join with account receiveables to filter on member ID
-                            fernwood.account_receivables ar
+                            account_receivables ar
                         ON
                             ar.center = pr.center
                             AND ar.id = pr.id
                             AND ar_type = 4
                             AND pr.STATE IN (3,4) -- Only include payment requests in state Done / Done manual
                         JOIN -- Join payment request specifications to get additional info on the payment request
-                            fernwood.payment_request_specifications prs
+                            payment_request_specifications prs
                         ON
                             prs.center = pr.inv_coll_center
                             AND prs.id = pr.inv_coll_id
                             AND prs.subid = pr.inv_coll_subid
                         JOIN -- Join with payment agreement to get Payway Customer Number
-                            fernwood.payment_agreements pag
+                            payment_agreements pag
                         ON
                             pag.center = pr.center
                             AND pag.id = pr.id
@@ -277,7 +279,7 @@ JOIN
                             AND art_inv.PAYREQ_SPEC_SUBID = prs.subid
                             AND art_inv.REF_TYPE IN ('INVOICE')
                         JOIN
-                            fernwood.invoice_lines_mt ivl
+                            invoice_lines_mt ivl
                         ON
                             ivl.center = art_inv.ref_center
                             AND ivl.id = art_inv.ref_id
@@ -289,12 +291,12 @@ JOIN
                             AND act.id = ivl.account_trans_id
                             AND act.subid = ivl.account_trans_subid
                         LEFT JOIN
-                            fernwood.products prod
+                            products prod
                         ON
                             prod.center = ivl.productcenter
                             AND prod.id = ivl.productid
                         JOIN
-                            fernwood.product_account_configurations pac
+                            product_account_configurations pac
                         ON
                             pac.id = prod.product_account_config_id
                         UNION ALL
@@ -315,22 +317,22 @@ JOIN
                             act.amount                            AS "Transaction Line Amount excluding VAT",
                             ar.customercenter                     AS "Scope"                            
                         FROM -- Go over all payment requests
-                            fernwood.payment_requests pr
+                            payment_requests pr
                         JOIN -- Join with account receiveables to filter on member ID
-                            fernwood.account_receivables ar
+                            account_receivables ar
                         ON
                             ar.center = pr.center
                             AND ar.id = pr.id
                             AND ar_type = 4
                             AND pr.STATE IN (3,4) --Only include payment requests in state Done / Done manual
                         JOIN -- Join payment request specifications to get additional info on the payment request
-                            fernwood.payment_request_specifications prs
+                            payment_request_specifications prs
                         ON
                             prs.center = pr.inv_coll_center
                             AND prs.id = pr.inv_coll_id
                             AND prs.subid = pr.inv_coll_subid
                         JOIN -- Join with payment agreement to get Payway Customer Number
-                            fernwood.payment_agreements pag
+                            payment_agreements pag
                         ON
                             pag.center = pr.center
                             AND pag.id = pr.id
@@ -343,7 +345,7 @@ JOIN
                             AND art_inv.PAYREQ_SPEC_SUBID = prs.subid
                             AND art_inv.REF_TYPE IN ('CREDIT_NOTE')
                         JOIN
-                            fernwood.credit_note_lines_mt cnl
+                            credit_note_lines_mt cnl
                         ON
                             cnl.center = art_inv.ref_center
                             AND cnl.id = art_inv.ref_id
@@ -355,12 +357,12 @@ JOIN
                             AND act.id = cnl.account_trans_id
                             AND act.subid = cnl.account_trans_subid
                         LEFT JOIN
-                            fernwood.products prod
+                            products prod
                         ON
                             prod.center = cnl.productcenter
                             AND prod.id = cnl.productid
                         JOIN
-                            fernwood.product_account_configurations pac
+                            product_account_configurations pac
                         ON
                             pac.id = prod.product_account_config_id
                         UNION ALL
@@ -381,22 +383,22 @@ JOIN
                             NULL                                  AS "Transaction Line Amount excluding VAT",
                             ar.customercenter                     AS "Scope"                            
                         FROM -- Go over all payment requests
-                            fernwood.payment_requests pr
+                            payment_requests pr
                         JOIN -- Join with account receiveables to filter on member ID
-                            fernwood.account_receivables ar
+                            account_receivables ar
                         ON
                             ar.center = pr.center
                             AND ar.id = pr.id
                             AND ar_type = 4
                             AND pr.STATE IN (3,4) --Only include payment requests in state Done / Done manual
                         JOIN -- Join payment request specifications to get additional info on the payment request
-                            fernwood.payment_request_specifications prs
+                            payment_request_specifications prs
                         ON
                             prs.center = pr.inv_coll_center
                             AND prs.id = pr.inv_coll_id
                             AND prs.subid = pr.inv_coll_subid
                         JOIN -- Join with payment agreement to get Payway Customer Number
-                            fernwood.payment_agreements pag
+                            payment_agreements pag
                         ON
                             pag.center = pr.center
                             AND pag.id = pr.id

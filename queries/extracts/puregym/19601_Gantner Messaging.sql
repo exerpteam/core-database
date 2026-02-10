@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT centers.id AS "Club Id"
      , centers.name AS "Club Name"
      , TRUNC(longtodateTZ(messages.senttime, 'Europe/London')) AS "Delivery Date"          

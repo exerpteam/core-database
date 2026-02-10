@@ -1,4 +1,0 @@
-SELECT 
-   biview.*
-FROM 
-   BI_COMPANY_AGREEMENTS biview

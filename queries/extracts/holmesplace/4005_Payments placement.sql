@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select ch.name, cli.FILENAME,
 up.xfr_date as PaymentDate, up.XFR_AMOUNT as Amount, up.XFR_DEBITOR_ID as VariableSymbolFromBankFile, xfr_text as InfoFromBank
 --up.*, 

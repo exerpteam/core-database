@@ -1,3 +1,12 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Medlemskap som innehåller följande ord är excluderade:
+WHERE
+ prod.NAME NOT LIKE '%Max%' 
+AND prod.NAME NOT LIKE '%max%' 
+AND prod.NAME NOT LIKE '%junior%'
+AND prod.NAME NOT LIKE '%Junior%'
+AND prod.NAME NOT LIKE '%add%'
+AND prod.NAME NOT LIKE '%Add%'
 /* 
  * TOTAL PT EFT SUBSCRIPTIONS BY DATE
  */

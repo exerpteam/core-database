@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- KS 021023 Created for James Shilling as part of EC-7525
 WITH
      params AS
      (

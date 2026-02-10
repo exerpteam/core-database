@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 c.name,
 staff.fullname as STAFF_FULLNAME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Anonymized and Deleted
 WITH
     product_spons_pg AS
     (

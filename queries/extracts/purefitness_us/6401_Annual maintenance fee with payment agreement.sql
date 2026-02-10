@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 6201 with deduction date and agreement state
 SELECT
    "Member ID",
    "External ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Analysis Facturas 1st Month - Portugal
 WITH params AS MATERIALIZED
 (
         SELECT

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         cn.center AS "Center",
         TO_CHAR(longtodateC(cn.trans_time, cn.center), 'dd-MM-YYYY') AS "Transaction date",

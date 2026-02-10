@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Estrazione soci attivi, frozen o created con dettaglio sub e addon
 WITH
     PARAMS AS MATERIALIZED
     (

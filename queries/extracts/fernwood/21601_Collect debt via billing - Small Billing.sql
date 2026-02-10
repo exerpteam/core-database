@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH
     open_invoices AS
         (
@@ -6,14 +8,14 @@ WITH
                 inv.payer_center,
                 inv.payer_id
             FROM
-                fernwood.invoices inv
+                invoices inv
             JOIN
-                fernwood.ar_trans art
+                ar_trans art
                 ON inv.center = art.ref_center
                 AND inv.id = art.ref_id
                 AND art.ref_type = 'INVOICE'
             JOIN
-                fernwood.invoice_lines_mt invl
+                invoice_lines_mt invl
                 ON inv.center = invl.center
                 AND inv.id = invl.id
             WHERE
@@ -34,9 +36,9 @@ SELECT
     s.end_date AS Subscription_end_date,
     longtodatec(ar.collected_until, ar.center) AS payment_account_last_collection
 FROM
-    fernwood.persons p
+    persons p
 JOIN
-    fernwood.subscriptions s
+    subscriptions s
     ON s.owner_center = p.center
     AND s.owner_id = p.id
     AND s.state IN (2, 4)
@@ -45,13 +47,13 @@ LEFT JOIN
     ON open_invoices.payer_center = p.center
     AND open_invoices.payer_id = p.id
 JOIN
-    fernwood.account_receivables ar
+    account_receivables ar
     ON p.center = ar.customercenter
     AND p.id = ar.customerid
     AND ar.ar_type = 4
     AND ar.balance < 0
 JOIN
-    fernwood.payment_agreements pag
+    payment_agreements pag
     ON ar.center = pag.center
     AND ar.id = pag.id
     AND pag.state IN (1, 4)

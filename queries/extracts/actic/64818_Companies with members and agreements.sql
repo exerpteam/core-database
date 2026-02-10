@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
     (person.center::text || 'p' || person.id::text) AS customer,
     (person.firstname || ' ' || person.lastname)    AS person_name,

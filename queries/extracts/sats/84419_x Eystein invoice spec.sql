@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      ar.CUSTOMERCENTER AS CENTER,
      ar.CUSTOMERID AS ID,

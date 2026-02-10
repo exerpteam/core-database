@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      p2.CENTER ||'p'|| p2.id,
      p2.FULLNAME as "Member Name",

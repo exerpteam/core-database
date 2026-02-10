@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.CHECKIN_CENTER,
     DECODE(GROUPING(CE.NAME),1,'Total',ce.name) AS "Club",

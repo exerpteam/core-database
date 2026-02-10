@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select part.PARTICIPANT_CENTER || 'p' || part.PARTICIPANT_ID as MemberId, bk.NAME as Class, agr.NAME as Category, longtodate(part.CREATION_TIME) as BookedTime, longtodate(part.START_TIME) as StartTime, 
 case when part.STATE = 'PARTICIPATION' then 'SHOWUP' when part.CANCELATION_REASON in ('USER') then 'CANCELLED_MEMBER' when part.CANCELATION_REASON in ('NO_SHOW') then 'NOSHOW' when part.CANCELATION_REASON in ('NO_SEAT') then 'NOSEAT' else 'CANCELLED_CENTER' end as STATUS, 

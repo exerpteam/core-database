@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG WIP 11.05.22
  WITH
      params AS
      (

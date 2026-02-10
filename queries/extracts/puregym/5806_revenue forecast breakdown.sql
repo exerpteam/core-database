@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     decode(p.center,null,'total',p.center||'p'||p.id) AS MemberID,
     CASE

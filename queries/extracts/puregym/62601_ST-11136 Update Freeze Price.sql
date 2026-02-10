@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-11136
  SELECT
          t1.ID as mprID,
          t1.freezePrice,

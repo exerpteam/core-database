@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-8560
+edit: ES-31581, ES-32513
 WITH
     params AS MATERIALIZED
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Disabled Access
 SELECT
 TO_CHAR(p.EXTERNAL_ID) AS "EXTERNALID",
 DECODE(pea.DISABLEDACCESS_TXTVALUE,'true',1,0)                                                                                                                                AS "DISABLEDACCESS"

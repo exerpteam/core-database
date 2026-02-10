@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: WIP for James Shilling and team 10.07.23
  WITH
      params AS
      (

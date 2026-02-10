@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select longtodate(act.TRANS_TIME) as BookTime, longtodate(act.ENTRY_TIME) as EntryTime, credit_acc.GLOBALID as CreditGlobalId, credit_acc.EXTERNAL_ID as CreditExternalId, debit_acc.GLOBALID as DebitGlobalId, debit_acc.EXTERNAL_ID as DebitExternalId, act.AMOUNT, act.text, act.info
  
 from ACCOUNT_TRANS act

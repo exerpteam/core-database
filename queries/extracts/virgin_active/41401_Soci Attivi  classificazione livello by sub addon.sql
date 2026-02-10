@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-6073
  SELECT
      p.center||'p'||p.id                                                                                                                                                                  AS MEMBER_ID,
      p.EXTERNAL_ID                                                                                                                                                                        AS EXTERNAL_ID,

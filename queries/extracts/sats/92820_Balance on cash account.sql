@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-7859
 SELECT
    cp.center as "CENTER",
    cp.FULLNAME,

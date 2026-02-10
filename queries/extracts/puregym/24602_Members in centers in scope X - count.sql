@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Include the club ID as parameter so that you get the results for the defined club
 SELECT att.PERSON_CENTER CENTER_ID, c.NAME CENTER_NAME,
     count(*) as "member count"
 FROM

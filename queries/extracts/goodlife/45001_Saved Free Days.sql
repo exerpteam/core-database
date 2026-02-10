@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created for: Saved free days report for Jesse G and Diane Conley.  Run at end of each month.  Created by: Brent & Sandra  Date added: July, 2023
 WITH RECURSIVE subs (center,id,transferred_center,transferred_id)  AS (
 
         -- Get original subscription id if transferred to get person id at time of sale

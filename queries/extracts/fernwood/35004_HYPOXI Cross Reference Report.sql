@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
 product_group_flags AS
         (
@@ -368,9 +370,9 @@ FROM
                                                                         ,s.id
                                                                         ,inl.total_amount
                                                                 FROM 
-                                                                        fernwood.subscriptions s
+                                                                        subscriptions s
                                                                 JOIN
-                                                                        fernwood.invoice_lines_mt inl
+                                                                        invoice_lines_mt inl
                                                                         ON inl.center = s.invoiceline_center
                                                                         AND inl.id = s.invoiceline_id
                                                                         AND inl.subid = s.invoiceline_subid
@@ -378,7 +380,7 @@ FROM
                                                                 ON su.center = s.center
                                                                 AND su.id = s.id  
                                                         LEFT JOIN
-                                                                fernwood.subscriptions schange
+                                                                subscriptions schange
                                                                 ON schange.changed_to_center = s.center
                                                                 AND schange.changed_to_id = s.id
                                                                 AND schange.change_type = 13                                                                                                     
@@ -469,10 +471,10 @@ FROM
                                                                 params 
                                                                 ON params.CENTER_ID = p.center                                          
                                                         JOIN
-                                                                fernwood.centers c
+                                                                centers c
                                                                 ON c.id = p.center 
                                                         JOIN
-                                                                fernwood.subscriptionperiodparts spp
+                                                                subscriptionperiodparts spp
                                                                 ON spp.center = s.center
                                                                 AND spp.id = s.id
                                                                 AND spp.spp_state = 1

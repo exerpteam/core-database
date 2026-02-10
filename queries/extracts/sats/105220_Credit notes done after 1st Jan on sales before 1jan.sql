@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
      i.center||'inv'||i.id as "Invoice id",
      longtodate(i.entry_time) as "invoice date",

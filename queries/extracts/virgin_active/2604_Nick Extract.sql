@@ -1,1 +1,0 @@
-SELECT trunc(sysdate) - (to_number(to_char(sysdate,'DD')) - 1) FROM persons

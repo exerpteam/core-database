@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Pre data migration transactions (Inkasso)
  --Query 1
 SELECT
     ar.customercenter ||'p'|| ar.customerid as memberid,

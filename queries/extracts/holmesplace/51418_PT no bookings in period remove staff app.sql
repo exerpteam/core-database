@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- with person status and last login. Excludes Exerp and API profiles
 
 WITH
     PARAMS AS

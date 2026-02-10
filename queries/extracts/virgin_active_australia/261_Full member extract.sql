@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Retuns a list of all Active and Temp inactive members for the chosen scope. 
 WITH
      PARAMS AS MATERIALIZED

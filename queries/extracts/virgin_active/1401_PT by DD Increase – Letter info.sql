@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-19886
+Previously called: PT by DD Mail Merge Info 2 (45577)
 SELECT distinct
     q1.*,
     q1.p_center || 'p' || q1.p_id pid,

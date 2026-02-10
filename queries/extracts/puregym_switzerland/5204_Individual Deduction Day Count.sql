@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     case when par.INDIVIDUAL_DEDUCTION_DAY is Null
     then 'Total without individyúal deduction day defined'

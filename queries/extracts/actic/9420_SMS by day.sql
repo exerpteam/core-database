@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 to_char(longtodate(m.senttime), 'YYYY-MM-DD') as SentDate
 , sum(case when sp.ok is not null and sp.ok = 1 then 1 else 0 end) as ACK

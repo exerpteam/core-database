@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  -- Parameters: from_date(LONG_DATE),to_date(LONG_DATE),scope(SCOPE)
  SELECT
      c.SHORTNAME                                                                                                                                                                            AS center,

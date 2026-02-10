@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Extract to list active members that have visited any facility the last 30 days.
 * Initialize values with fromDate 30 days earlier than toDate.

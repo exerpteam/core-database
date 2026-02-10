@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-6218
 SELECT
     TO_CHAR(longtodateC(pr.ENTRY_TIME,pr.center), 'YYYY-MM-DD') AS Request_Entry_Date
 FROM

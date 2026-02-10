@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Gets data for Privilege Set Discounts
 Select distinct
 p.globalid as "GlobalId",
 pg.id  as "ProductGroup",

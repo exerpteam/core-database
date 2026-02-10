@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by Exerp (EC-7896) to find a true number of OJ's made
 SELECT
         t1.*,
         ss.sales_date,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     sales.invId invoiceId,
     to_char(longtodate(sales.trans_time),'YYYY-MM-DD') bookdate,

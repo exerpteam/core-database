@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-3780
 SELECT c.id AS "clubID",
 	c.name AS "clubName",
 	p.center || 'p' || p.id AS "personKey",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- The script  identifies any payment requests in state "new" with a payment request type "refund" with bank information missing, that could be causing refund files to fail.
 SELECT
     pr.center, pr.id, pr.subid, pr.req_amount, pr.req_date
 FROM

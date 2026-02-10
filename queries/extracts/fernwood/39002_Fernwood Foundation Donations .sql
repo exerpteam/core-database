@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Tracks the value of Fernwood Foundation donations across the network 
 WITH
 params AS
 (

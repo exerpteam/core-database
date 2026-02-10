@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* 
  * Subscriptions with end_date within 42 days
  */

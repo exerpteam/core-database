@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  /*
  PG free period due to corona virus problem
  1. Exlcude any clubs. Needs to confirm in the meeting.

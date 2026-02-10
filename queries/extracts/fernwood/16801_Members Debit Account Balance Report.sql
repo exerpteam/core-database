@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2195
+https://clublead.atlassian.net/browse/EC-2304
 SELECT  
         c.shortname AS "Club"
         ,p.center||'p'||p.id AS "Person ID"
@@ -11,27 +14,27 @@ SELECT
                 ELSE 'FF_Invoice'
         END) AS "Payment Cycle"
 FROM
-        fernwood.persons p
+        persons p
 JOIN 
-        fernwood.account_receivables ar 
+        account_receivables ar 
         ON ar.customercenter = p.center 
         AND ar.customerid = p.id
         AND ar.ar_type = 4
 JOIN 
-        fernwood.payment_accounts pac 
+        payment_accounts pac 
         ON ar.center = pac.center 
         AND ar.id = pac.id
 JOIN 
-        fernwood.payment_agreements pag 
+        payment_agreements pag 
         ON pac.active_agr_center = pag.center 
         AND pac.active_agr_id = pag.id 
         AND pac.active_agr_subid = pag.subid
         AND pag.state = 4
 JOIN 
-        fernwood.centers c 
+        centers c 
         ON c.id = pag.center
 LEFT JOIN 
-        fernwood.ar_trans art 
+        ar_trans art 
         ON art.center = ar.center 
         AND art.id = ar.id
         AND art.status != 'CLOSED'

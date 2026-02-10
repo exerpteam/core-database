@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Approved in CAB in ISSUE-34431
+Reviewed by Exerp in ST-10157
 WITH params AS (        
 
    

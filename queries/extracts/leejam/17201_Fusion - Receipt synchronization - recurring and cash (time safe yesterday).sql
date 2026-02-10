@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS MATERIALIZED
   (
@@ -285,6 +287,7 @@ FROM
                         ON payment.art_paid_center = armatch.center
                         AND payment.art_paid_id = armatch.id
                         AND payment.art_paid_subid = armatch.subid
+                        AND armatch.ref_type != 'ACCOUNT_TRANS'
         JOIN
                 invoices inv
                         ON armatch.ref_center = inv.center

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
     params AS
     (
@@ -24,10 +26,10 @@ SELECT
     ag.name AS "Activity Group",
     COUNT(*) AS "Number of Scheduled Classes",
     SUM(CASE WHEN b.state != 'CANCELLED' THEN 1 ELSE 0 END) AS "Non-cancelled Classes"
-FROM fernwood.bookings b
-JOIN fernwood.activity ac
+FROM bookings b
+JOIN activity ac
     ON ac.id = b.activity
-LEFT JOIN fernwood.activity_group ag
+LEFT JOIN activity_group ag
     ON ag.id = ac.activity_group_id
 JOIN params
     ON params.CENTER_ID = b.center

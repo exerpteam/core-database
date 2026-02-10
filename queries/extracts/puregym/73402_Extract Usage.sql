@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
    t.EXTRACT_ID, e.name AS "Extract Name", longtodateC(t.TIME, 100) AS "Last Used Time", 
    p.FIRSTNAME || ' ' || p.LASTNAME AS "Employee Name",

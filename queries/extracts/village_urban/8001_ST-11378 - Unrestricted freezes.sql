@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created for ST-11378
 SELECT
     s.owner_center || 'p' || s.owner_id                           AS PersonId,
     s.center || 'ss' || s.id                                      AS SubscriptionId,

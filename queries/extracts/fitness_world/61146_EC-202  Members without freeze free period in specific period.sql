@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Used for lock down in Nordjylland to find all members without freeze/free period in the period 7/11-3/12.  
 WITH
     params AS

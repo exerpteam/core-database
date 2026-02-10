@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-4702
  SELECT
             agt.book_date                  AS "BOOK_DATE",
             agt.text                       AS "TEXT",

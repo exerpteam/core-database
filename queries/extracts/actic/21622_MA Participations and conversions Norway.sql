@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- On activitys: 22817, 23407, 22410, 22416, 22417, 22816, 23408, 22415, 22818, 23008, 22815, 23007, 23409
 SELECT
     c.SHORTNAME                                                                                                                                                AS "Center",
     TO_CHAR(longtodate(bk.STARTTIME), 'YYYY-MM-DD')                                                                                                               dato,

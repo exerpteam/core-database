@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- in progess. duplicate entries when step and status are changed by an action... hard to choose which one to keep - probably step is better. 
 
 SELECT DISTINCT
 c.shortname AS "Club",

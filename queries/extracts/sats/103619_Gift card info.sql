@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 p.external_id as "Exernal ID",
 p.center ||'p'|| p.id as "Member ID",

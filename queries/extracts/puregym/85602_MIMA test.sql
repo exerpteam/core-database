@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params
 AS materialized (
 	SELECT cast(:StartDate AS DATE) AS StartDate

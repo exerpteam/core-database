@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-3912
 SELECT distinct
     p2.center || 'p' || p2.id AS "Member ID",

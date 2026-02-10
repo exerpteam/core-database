@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract is to be used for Personal Training Promotions targeting 'Number of sessions trained'.
+
+Reviewed by Exerp in: ST-12883
+Delivered as part of ISSUE-35815
 WITH params AS (        
 
 	SELECT

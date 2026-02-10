@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         p.fullname AS "Member Name"
         ,p.center ||'p'|| p.id AS "Person ID"
@@ -9,20 +11,20 @@ SELECT
         ,t.title AS "Task Title"
         ,t.follow_up AS "Follow-up Date"
 FROM  
-        fernwood.task_types tt
+        task_types tt
 JOIN
-        fernwood.tasks t
+        tasks t
         ON t.type_id = tt.id
         AND t.status != 'CLOSED'  
 JOIN    
-        fernwood.task_steps ts
+        task_steps ts
         ON ts.id = t.step_id
 JOIN
-        fernwood.persons p
+        persons p
         ON p.center = t.person_center
         AND p.id = t.person_id
 LEFT JOIN
-        fernwood.persons assignee
+        persons assignee
         ON assignee.center = t.asignee_center
         AND assignee.id = t.asignee_id                                    
 WHERE

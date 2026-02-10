@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- For comparing all activities and related configuration within a selected activity group to a baseline activity to locate misconfigured activities.
 WITH
     baseline AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract finds duplicates and transfers based on input of external_id
 WITH RECURSIVE duplicateMembers (center, id, current_person_center, current_person_id, external_id) AS(
 	SELECT center, id, current_person_center, current_person_id, external_id
 		FROM persons p

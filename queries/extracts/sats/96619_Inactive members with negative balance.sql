@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Inactive members with negative balance up to 50 kr NO/DK/SE and 5 Euro in Finland end date more than 6 months ago
 SELECT
     c.country,
     ar.customercenter ||'p'|| ar.customerid AS memberid,

@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Excluding Deferred revenues
+https://clublead.atlassian.net/issues/EC-8542
 SELECT
     CENTER,
     EXTERNAL_ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     pg.id AS "Product Group ID",
     pg.name AS "Product Group Name",

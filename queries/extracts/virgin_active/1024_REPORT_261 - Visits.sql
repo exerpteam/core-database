@@ -1,3 +1,13 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Columns:  
+* RecordID: This is the unique key for the person. It's similar as the p-number but will only exist for the active person. If the person for example gets transferred the p-number will change but the unique key (RecordID) will stay the same
+* VisitDateTime: Date and time when the check-in was made
+* ClubID: Club where the check-in was made
+* HomeClubID: Home club of the member doing the check-in
+* EntryDenied: Will always return zero since Exerp don't log invalid access attempts 
+
+The extract reports ALL check-ins done yesterday related to when the extract was ran. 
+If the same member checks in more then once a day all his check-ins will be counted. 
 WITH
     PARAMS AS
     (

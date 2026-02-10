@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract identifies all unpaid invoices for companies and shows correct aging on each invoice to indicate which company needs to be contacted.
+
+Approved in ISSUE-30563
+Reviewed in ST-5797
 
 SELECT DISTINCT
     p.fullname AS "Company Name"

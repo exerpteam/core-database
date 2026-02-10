@@ -1,1 +1,0 @@
-select * from lifetime.persons where center = 100 and id = 6401

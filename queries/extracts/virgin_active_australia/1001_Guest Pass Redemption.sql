@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select p.center || 'p' || p.id as MemebrID, p.first_active_start_date as GuestPassRedemtpionDate, p.fullname as MemberName,pp.name as SubscriptionName from subscriptions s join persons p
 on s.owner_center = p.center and s.owner_id = p.id

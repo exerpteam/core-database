@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-16777 staff roles audit for SOX testing
 
 SELECT
     r.rolename AS r_rolename,

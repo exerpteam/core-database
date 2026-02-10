@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Braze Export. Used to export data for parsing and import to external MA-system
 WITH
     PARAMS AS materialized
     (

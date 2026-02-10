@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to find clients with a pci-pal device and an incorrect callbackURL 
+Was called ES-7722 (from the ticket)
 SELECT 
  CLIENT_NAME,
      CLIENT_ID,

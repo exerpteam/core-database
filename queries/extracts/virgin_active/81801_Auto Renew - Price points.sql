@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: 030325 - created for Ebbie (via Exerp) to highlight members between certain bind dates
 WITH
     PARAMS AS MATERIALIZED
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     t.shortname             AS "Center Name",
     t.center || 'p' || t.id AS "PersonId",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      pr.center || 'prod' || pr.id          AS "PRODUCTID",
      pr.NAME                               AS "NAME",

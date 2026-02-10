@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- New report with Amount for BodySan/Health Coaching to be charged all prices, ignores if Charge BS = Yes or  No, includes if price is 0 but not Free Memberships. You must make sure all possible prices are listed in this extract at the bottom of the code
 WITH
     latest_coa_sale AS
     (

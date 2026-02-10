@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- VERY HEAVY !!!
 SELECT
     m.* ,
     longToDate(par.START_TIME) "LAST CLASS BOOKED DATE" ,

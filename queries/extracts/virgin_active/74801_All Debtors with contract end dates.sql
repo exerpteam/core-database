@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by RG 16/01/2024 for Jonny and Ebbie to track debtors and their contract end dates for applying stop dates to the relevant members
 SELECT 
 	
 	

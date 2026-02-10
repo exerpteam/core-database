@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     EXCHANGED_FILE_SC.NAME extract_job_name,
     EXCHANGED_FILE_SC.SCHEDULE extract_job_schedule,    

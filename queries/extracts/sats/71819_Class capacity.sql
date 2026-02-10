@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
              b.center ||'bk'||b.id AS BOOKING_ID,
              b.CLASS_CAPACITY,

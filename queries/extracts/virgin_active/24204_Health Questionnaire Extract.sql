@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2510
  SELECT
   qa.CENTER || 'p' || qa.ID AS "PersonId",
   qc.NAME as "Questionnaire",

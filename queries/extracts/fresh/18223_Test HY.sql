@@ -1,1 +1,0 @@
- select TO_CHAR(CAST('2022-05-01' AS DATE),'Mon-YYYY') AS "Credit Card Expiration Date" from dual

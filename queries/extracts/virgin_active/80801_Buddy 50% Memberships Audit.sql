@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 09.01.25 -RG: Created for Ebbie as part of SR-320051
  SELECT
 	
 	

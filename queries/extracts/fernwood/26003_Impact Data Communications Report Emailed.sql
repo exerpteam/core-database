@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Impact Data Communications Report Emailed
 WITH
   Open_Debt_Step AS --centers to be added and removed here
   (
@@ -6,9 +8,9 @@ WITH
                 ,task.person_center AS PersonCenter
                 ,task.person_id AS PersonID
         FROM 
-                fernwood.tasks task
+                tasks task
         JOIN
-                fernwood.task_types tt
+                task_types tt
                         ON tt.id = task.type_id
                         AND tt.external_id = 'DM_NEW'                                        
         WHERE 
@@ -29,9 +31,9 @@ WITH
                 ,c.shortname
                 ,cea.txt_value AS Talkbox_ID
         FROM
-                fernwood.centers c
+                centers c
         JOIN
-                fernwood.center_ext_attrs cea
+                center_ext_attrs cea
                 ON cea.center_id = c.id
                 AND cea.name = 'TALKBOXID'                
   ),
@@ -159,9 +161,9 @@ WITH
                 END AS Talkbox_Task                                                
                 ,wf.external_id 
         FROM 
-                fernwood.workflows wf
+                workflows wf
         JOIN
-                fernwood.task_steps ts
+                task_steps ts
                 ON ts.workflow_id = wf.id        
         WHERE
                 wf.external_id = 'DM_NEW'
@@ -173,7 +175,7 @@ WITH
                 ,email.personid
                 ,email.txtvalue
         FROM
-                fernwood.person_ext_attrs email
+                person_ext_attrs email
         WHERE
                 email.name = '_eClub_Email'
                 AND
@@ -186,7 +188,7 @@ WITH
                 ,mobile.personid
                 ,mobile.txtvalue
         FROM
-                fernwood.person_ext_attrs mobile
+                person_ext_attrs mobile
         WHERE
                 mobile.name = '_eClub_PhoneSMS'
                 AND
@@ -212,7 +214,7 @@ SELECT
                 ELSE 'no phone number'
         END AS Mobile
 FROM 
-        fernwood.tasks t
+        tasks t
 JOIN
         Open_Debt_Step ods
                 ON ods.MAXID = t.id
@@ -222,26 +224,26 @@ LEFT JOIN
         Talkbox_Task_steps tts 
                 ON tts.id = t.step_id
 JOIN
-        fernwood.persons p
+        persons p
                 ON p.center = t.person_center
                 AND p.id = t.person_id  
 LEFT JOIN
-        fernwood.persons assignee
+        persons assignee
                 ON assignee.center = t.asignee_center
                 AND assignee.id = t.asignee_id  
 JOIN
         Club_TALKBOXID ct
                 ON ct.id = t.person_center                   
 LEFT JOIN 
-        fernwood.task_steps ts 
+        task_steps ts 
                 ON ts.id = t.step_id
 LEFT JOIN 
-        fernwood.account_receivables ar 
+        account_receivables ar 
                 ON p.center = ar.customercenter 
                 AND p.id = ar.customerid 
                 AND ar.ar_type = 4  
 LEFT JOIN
-        fernwood.persons tp
+        persons tp
                 ON tp.center = p.transfers_current_prs_center
                 AND tp.id = p.transfers_current_prs_id
                 AND p.external_id IS NULL  

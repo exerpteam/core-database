@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.FULLNAME                                                        AS "Name",
     p.SEX                                                             AS "Gender",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Exerp ST-2641
  SELECT
      cen.SHORTNAME,
      SS.SALES_DATE,

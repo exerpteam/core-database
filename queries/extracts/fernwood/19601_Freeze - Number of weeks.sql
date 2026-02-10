@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         t.name as clubname
         ,sum(t.numberofweeks)

@@ -1,5 +1,0 @@
-SELECT biview.*
-FROM BI_SUBSCRIPTION_STATE_LOG biview
-WHERE
-  biview.CENTER_ID in ($$CENTERS$$)
-  AND biview.ETS < $$TODATE$$ + 24*3600*1000

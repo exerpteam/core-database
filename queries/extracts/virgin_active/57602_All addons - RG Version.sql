@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- To check 15% off offer - copy of VA all addons
  SELECT distinct
          q1.external_ID,
          q1.pt_by_dd_club_name,

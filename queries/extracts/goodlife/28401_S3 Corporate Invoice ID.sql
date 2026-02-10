@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     longtodateC(pr.last_modified,990)AS lastmod,
     pr.s3key_formatted_doc, prs.ref

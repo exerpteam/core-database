@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Tool to identify what the club has tried to do with contract
+
 SELECT 
 	longtodate(s.last_modified) AS ModifiedDate,
 	s.center AS CenterID,

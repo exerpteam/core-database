@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-7653
 SELECT
     TO_CHAR(TO_DATE((:fromdate), 'YYYY-MM-DD'), 'dd-MM-YYYY') AS From_date,
     TO_CHAR(TO_DATE((:todate), 'YYYY-MM-DD'), 'dd-MM-YYYY')   AS To_date,

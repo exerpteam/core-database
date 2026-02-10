@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Clubmangers
 /**
 * Creator: Mikael Ahlberg
 * Purpose: List non signedup members that became leads in given period. Published as report to clubmanager.

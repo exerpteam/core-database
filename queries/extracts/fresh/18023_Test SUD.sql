@@ -1,2 +1,0 @@
-SELECT
-  * from bi_oc_version

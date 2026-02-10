@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT 
 pa.notify_payment,
     ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID                                                                                                               pid,

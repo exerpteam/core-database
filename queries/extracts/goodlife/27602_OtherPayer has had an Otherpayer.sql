@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-9093
 SELECT DISTINCT
     otherpayer.center || 'p' || otherpayer.id AS "OtherPayerId",
     otherpayer.external_id                    AS "Other Payers External Id",

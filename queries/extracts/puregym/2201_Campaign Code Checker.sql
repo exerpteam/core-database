@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      CASE
          WHEN prg.BLOCKED = 1 or (current_timestamp not between longToDate(prg.STARTTIME) and longToDate(prg.ENDTIME))

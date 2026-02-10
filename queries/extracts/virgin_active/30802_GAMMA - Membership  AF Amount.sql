@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT CONCAT(CONCAT(CAST(s.CENTER as CHAR(3)),'ss'),CAST(s.ID as VARCHAR(10))) as membershipId, invl.TOTAL_AMOUNT as AF  from 
 SUBSCRIPTIONS s
 INNER JOIN

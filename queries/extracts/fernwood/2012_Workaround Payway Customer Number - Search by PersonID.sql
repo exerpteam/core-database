@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         p.center || 'p' || p.id AS "PersonID"
 	,longtodatec(pa.creation_time,pa.center) AS "Creation Date"
@@ -26,14 +28,14 @@ SELECT
                         ELSE 'UNDEFINED'
 	END AS "Payment Agreement State"
 FROM 
-        fernwood.persons p
+        persons p
 JOIN 
-        fernwood.account_receivables ar 
+        account_receivables ar 
                 ON p.center = ar.customercenter 
                 AND p.id = ar.customerid 
                 AND ar.ar_type = 4
 JOIN 
-        fernwood.payment_agreements pa 
+        payment_agreements pa 
                 ON ar.center = pa.center 
                 AND ar.id = pa.id
 WHERE 

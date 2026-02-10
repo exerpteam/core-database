@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2707
 /* Based on Cash register sales by payment type */
 SELECT
     TO_CHAR(TRUNC(ADD_MONTHS(((date_trunc('MONTH', now()) + INTERVAL '1 MONTH - 1 day')::date+1),-2)),'YYYY-MM-DD') "PERIOD_FROM"

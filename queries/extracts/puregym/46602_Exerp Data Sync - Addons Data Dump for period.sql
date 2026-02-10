@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3393
 SELECT
     cp.EXTERNAL_ID AS "EXTERNALID",
     prod_addon.CENTER||'prod'||prod_addon.ID "PRODUCTID",

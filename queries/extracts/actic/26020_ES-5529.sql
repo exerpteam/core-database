@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Find PayEx credit card agreement with no CC number 
 SELECT
     ar.CUSTOMERCENTER||'p'||ar.CUSTOMERID                                                                                                                                                                                                        AS MEMBER_ID,
     DECODE (p.status, 0,'Lead', 1,'Active', 2,'Inactive', 3,'Temporary Inactive', 4,'Transfered', 5,'Duplicate', 6,'Prospect', 7,'Deleted',8, 'Anonymized', 9, 'Contact', 'Unknown')                                                                                                                                                                                                        AS PERSON_STATUS,

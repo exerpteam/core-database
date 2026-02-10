@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Only Active and Temp Inactive- no Inactive, Contacts or Leads. Also excludes if they only  have an Active/Frozen  PTDD or BodyScan membership 
 SELECT
     p.CENTER || 'p' || p.ID AS kd_nr,
     NULL vkz,

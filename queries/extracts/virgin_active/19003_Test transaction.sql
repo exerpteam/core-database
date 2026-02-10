@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT   
 OldPid.txtvalue as OldPersonID,
 longtodate(art.TRANS_TIME)as Trans_Date,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Shows the count of contracts not signed for clipcards & subscriptions
 
          SELECT
              --TO_CHAR(longtodateC(creation_time,person_center),'YYYY-MM-DD') as ENTRY_TIME,

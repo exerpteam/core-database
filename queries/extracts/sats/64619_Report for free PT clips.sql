@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-6907
  SELECT
    il.PERSON_CENTER||'p'||il.PERSON_ID   AS "Member ID",
    pr.NAME  AS "Free Clipcard sold",

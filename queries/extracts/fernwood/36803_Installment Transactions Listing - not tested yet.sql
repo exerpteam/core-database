@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -31,36 +33,36 @@ FROM
                 ,-art.unsettled_amount
                 ,'Installment Plan' AS Trans_type
         FROM
-                fernwood.account_receivables ar
+                account_receivables ar
         JOIN
-                fernwood.ar_trans art
+                ar_trans art
                 ON ar.center = art.center
                 AND ar.id = art.id
                 AND ar.ar_type = 4
         JOIN
-                fernwood.persons p
+                persons p
                 ON p.center = ar.customercenter
                 AND p.id = ar.customerid
         JOIN
-                fernwood.installment_plans ip
+                installment_plans ip
                 ON ip.id = art.installment_plan_id 
         JOIN
-                fernwood.art_match arm
+                art_match arm
                 ON arm.art_paid_center = art.center
                 AND arm.art_paid_id = art.id
                 AND arm.art_paid_subid = art.subid
                 AND arm.cancelled_time IS NULL    
         JOIN
-                fernwood.ar_trans artp
+                ar_trans artp
                 ON artp.center = arm.art_paying_center
                 AND artp.id = arm.art_paying_id
                 AND artp.subid = arm.art_paying_subid 
         LEFT JOIN
-                fernwood.employees emp
+                employees emp
                 ON emp.center = artp.employeecenter
                 AND emp.id = artp.employeeid
         LEFT JOIN
-                fernwood.persons empp
+                persons empp
                 ON empp.center = emp.personcenter
                 AND empp.id = emp.personid                         
         WHERE 
@@ -86,33 +88,33 @@ FROM
                 ,-art.unsettled_amount
                 ,'Manual invoice' AS Trans_type
         FROM
-                fernwood.account_receivables ar
+                account_receivables ar
         JOIN
-                fernwood.ar_trans art
+                ar_trans art
                 ON ar.center = art.center
                 AND ar.id = art.id
                 AND ar.ar_type = 4
         JOIN
-                fernwood.persons p
+                persons p
                 ON p.center = ar.customercenter
                 AND p.id = ar.customerid
         JOIN
-                fernwood.art_match arm
+                art_match arm
                 ON arm.art_paid_center = art.center
                 AND arm.art_paid_id = art.id
                 AND arm.art_paid_subid = art.subid
                 AND arm.cancelled_time IS NULL    
         JOIN
-                fernwood.ar_trans artp
+                ar_trans artp
                 ON artp.center = arm.art_paying_center
                 AND artp.id = arm.art_paying_id
                 AND artp.subid = arm.art_paying_subid 
         LEFT JOIN
-                fernwood.employees emp
+                employees emp
                 ON emp.center = artp.employeecenter
                 AND emp.id = artp.employeeid
         LEFT JOIN
-                fernwood.persons empp
+                persons empp
                 ON empp.center = emp.personcenter
                 AND empp.id = emp.personid                         
         WHERE 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select (a.id) ::character varying (255)                                                                               as "ACTIVITY_ID",
     a.name                                                                                                                   as "NAME",
     a.state                                                                                                                 as "STATE",

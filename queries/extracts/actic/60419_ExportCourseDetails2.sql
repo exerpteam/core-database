@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Copy of ExportCourseDetails to remove usage calculations
 /*Export details that are not existing in Exerps CourseAPI.
 This should be extracted on the website and additional information added to course.
 Parameters are for any booking in the course and all the other bookings will be extracted as well*/

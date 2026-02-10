@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 * Extrakt to fetch upcoming bookings (two hours from now).
 * These should be sent as reminders in ActicApp.

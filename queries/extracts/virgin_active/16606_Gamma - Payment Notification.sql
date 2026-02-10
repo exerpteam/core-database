@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT p.CENTER, p.ID, pa.NOTIFY_PAYMENT,  pa.CENTER, pa.ID, pa.SUBID,  pa.CREATION_TIME as CREATIONAGREEMENT
    FROM PERSONS p
 

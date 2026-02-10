@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
  act.CENTER, act.ID, act.SUBID, p.NAME, act.AMOUNT, crt.AMOUNT as cashAmount,
  CONCAT(CONCAT(CAST(act.AGGREGATED_TRANSACTION_CENTER as CHAR(3)),'agt'), CAST(act.AGGREGATED_TRANSACTION_ID as VARCHAR(6))) as AGGREGATED_TRANSACTION,

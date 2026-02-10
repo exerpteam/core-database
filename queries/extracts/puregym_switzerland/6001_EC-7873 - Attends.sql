@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         att.center AS "Center",
         TO_CHAR(longtodateC(att.start_time, att.center), 'dd-MM-YYYY HH24:MI') AS "Point in time",

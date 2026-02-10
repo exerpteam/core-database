@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Net gain report
 SELECT
     NVL(REGION,'Grand')     AS "Region",
     NVL(CENTER,'Total')     AS "Center",

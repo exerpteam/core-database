@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Aged debt report which acts as interim report whilst AR Balance report is being fixed.
 WITH
     params AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      book.NAME,
      par.PARTICIPANT_CENTER || 'p' || par.PARTICIPANT_ID participant_pid,

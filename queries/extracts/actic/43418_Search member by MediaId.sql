@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Henrik Håkanson
 * Purpose: Find member by MediaId (number printed on card).

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     c.name AS "Club Name",
     cnl.person_center || 'p' || cnl.person_id  AS "PersonID",

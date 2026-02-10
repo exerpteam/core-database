@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 	longtodate(b.starttime) AS start_time,
 	longtodate(b.stoptime) AS stop_time,	

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     MEM.external_id      AS "MEMBER ID",
     s.center||'ss'||s.id AS "SUBSCRIPTION ID",

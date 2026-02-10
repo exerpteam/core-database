@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Built for Zena and Gabrielle in March 2021
 -- Deferred Revenue for Transferred Clipcards (including transfers between duplicate Members)
 -- Created On: 2021-03-10
 SELECT 

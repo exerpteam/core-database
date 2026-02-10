@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
          t2.MEMBER_CENTER AS CENTER,
          t2.MEMBER_ID AS ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Kids Camp Membership Status
 with params as (
 SELECT
              c.name as club_of_camp,

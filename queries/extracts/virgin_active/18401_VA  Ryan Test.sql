@@ -1,1 +1,0 @@
-select * from SUBSCRIPTIONS where SUBSCRIPTIONS.CENTER in ($$Scope$$) and SUBSCRIPTIONS.OWNER_CENTER in ($$Scope$$)

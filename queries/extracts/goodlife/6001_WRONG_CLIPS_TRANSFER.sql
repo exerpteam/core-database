@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-1253
 SELECT
         cc.owner_center || 'p' || cc.owner_id AS "New Owner",
         cc.clips_left,

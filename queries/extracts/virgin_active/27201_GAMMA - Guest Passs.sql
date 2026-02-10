@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      i.PAYER_CENTER || 'p' || i.PAYER_ID AS "Member ID",
      TO_CHAR(longtodate(i.TRANS_TIME), 'YYYY-MM-DD HH24:MI') AS "Using Date/Time",

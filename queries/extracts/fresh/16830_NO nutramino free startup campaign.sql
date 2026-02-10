@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3665
  SELECT
      'NO nutramino free startup campaign' AS "Campaign Name",
      '14.12.2017' AS "Campaign start date",

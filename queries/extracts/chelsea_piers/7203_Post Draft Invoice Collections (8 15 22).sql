@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/servicedesk/customer/portal/9/EC-5298
 SELECT
         ch.name AS "Clearinghouse",
         prs.ref AS "Invoice ID",

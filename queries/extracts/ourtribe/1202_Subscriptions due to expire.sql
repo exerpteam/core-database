@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Members have an active subscription with a stop date and any subscriptions in state 'created'. 
 SELECT 
 s.CENTER as "CENTERID",
 s.OWNER_CENTER ||'p'|| s.OWNER_ID AS "PERSONKEY",

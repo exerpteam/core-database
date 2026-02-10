@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      s.center || 'ss' || s.id                                                                                                                                                             AS "Subscription ID",
      p.center || 'p' || p.id                                                                                                                                                              AS "Person ID",

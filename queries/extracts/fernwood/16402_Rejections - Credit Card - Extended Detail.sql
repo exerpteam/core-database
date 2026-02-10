@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2347
+Anthony's report
 WITH
         maxcheckin AS
                 (
@@ -34,17 +37,17 @@ WITH
                         ,p.center
                         ,p.id
                 FROM
-                        fernwood.payment_agreements pag 
+                        payment_agreements pag 
                 JOIN 
-                        fernwood.account_receivables ar 
+                        account_receivables ar 
                                 ON ar.center = pag.center 
                                 AND ar.id = pag.id
                 JOIN 
-                        fernwood.persons p 
+                        persons p 
                                 ON p.center = ar.customercenter 
                                 AND p.id = ar.customerid 
                 JOIN    
-                        fernwood.payment_requests pr 
+                        payment_requests pr 
                                 ON pr.center = pag.center 
                                 AND pr.id = pag.id 
                                 AND pr.agr_subid = pag.subid
@@ -62,15 +65,15 @@ WITH
                         ,s.owner_id
                         ,sao.id
                 FROM                        
-                        fernwood.subscriptions s
+                        subscriptions s
 
                 JOIN
-                        fernwood.subscriptiontypes st
+                        subscriptiontypes st
                                 ON st.center = s.subscriptiontype_center
                                 AND st.ID = s.subscriptiontype_id
                                 AND st.st_type != 2                         
                 JOIN 
-                        fernwood.subscription_addon sao 
+                        subscription_addon sao 
                                 ON sao.subscription_center = s.center 
                                 AND sao.subscription_id = s.id
                                 AND (sao.end_date IS NULL OR sao.end_date > current_date)                        
@@ -84,13 +87,13 @@ WITH
                         ,cc.owner_center
                         ,cc.owner_id 
                 FROM 
-                        fernwood.clipcards cc 
+                        clipcards cc 
                 JOIN 
-                        fernwood.products pro 
+                        products pro 
                                 ON pro.center = cc.center
                                 AND pro.id = cc.ID
                 JOIN
-                        fernwood.product_and_product_group_link pg
+                        product_and_product_group_link pg
                                 ON pro.center = pg.product_center
                                 AND pro.id = pg.product_id
                                 AND pg.product_group_id = 214	 
@@ -114,9 +117,9 @@ WITH
                         ,ar.center
                         ,ar.id
                 FROM
-                        fernwood.account_receivables ar
+                        account_receivables ar
                 JOIN
-                        fernwood.ar_trans art   
+                        ar_trans art   
                                 ON art.center = ar.center    
                                 AND art.id = ar.id        
                 
@@ -253,25 +256,25 @@ FROM
                 ,open_invoices.total AS "Total Overdue Transactions"
                 ,open_invoices.MinDue AS "Oldest Debt"
         FROM 
-                fernwood.payment_agreements pag 
+                payment_agreements pag 
         JOIN 
-                fernwood.account_receivables ar 
+                account_receivables ar 
                         ON ar.center = pag.center 
                         AND ar.id = pag.id
         JOIN 
-                fernwood.persons p 
+                persons p 
                         ON p.center = ar.customercenter 
                         AND p.id = ar.customerid 
         JOIN 
-                fernwood.payment_requests pr 
+                payment_requests pr 
                         ON pr.center = pag.center 
                         AND pr.id = pag.id 
                         AND pr.agr_subid = pag.subid
         JOIN 
-                fernwood.centers c 
+                centers c 
                         ON c.id = pr.center
         JOIN 
-                fernwood.clearinghouses ch 
+                clearinghouses ch 
                         ON ch.id = pr.clearinghouse_id
         LEFT JOIN
                 maxcheckin
@@ -295,7 +298,7 @@ FROM
                         ON PTBalance.owner_center = p.center
                         AND PTBalance.owner_id = p.id  
         LEFT JOIN
-                fernwood.person_ext_attrs peeaEmail
+                person_ext_attrs peeaEmail
                         ON peeaEmail.personcenter = p.center
                         AND peeaEmail.personid = p.id
                         AND peeaEmail.name = '_eClub_Email'
@@ -318,7 +321,7 @@ FROM
                 p.center in (:Scope)
 ) t1
 LEFT JOIN
-    fernwood.persons p ON p.center = t1.center AND p.id = t1.id
+    persons p ON p.center = t1.center AND p.id = t1.id
 LEFT JOIN
 (
         WITH entries AS 

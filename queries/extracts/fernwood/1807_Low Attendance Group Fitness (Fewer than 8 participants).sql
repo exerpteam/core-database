@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS (
     SELECT
@@ -24,13 +26,13 @@ WITH
       ins.fullname AS instructor,
       TRIM(TO_CHAR(longtodateC(b.starttime, b.center), 'Day')) AS weekday,
       TO_CHAR(longtodateC(b.starttime, b.center), 'HH24:MI') AS time_of_day
-    FROM fernwood.bookings b
+    FROM bookings b
     LEFT JOIN (
       SELECT
         booking_center,
         booking_id,
         COUNT(*) AS booked
-      FROM fernwood.participations
+      FROM participations
       WHERE
         (cancelation_reason NOT IN ('USER', 'BOOKING', 'CENTER', 'API') OR cancelation_reason IS NULL)
       GROUP BY booking_center, booking_id
@@ -40,15 +42,15 @@ WITH
         booking_center,
         booking_id,
         COUNT(*) AS participants
-      FROM fernwood.participations
+      FROM participations
       WHERE state = 'PARTICIPATION'
       GROUP BY booking_center, booking_id
     ) p ON p.booking_center = b.center AND p.booking_id = b.id
-    JOIN fernwood.centers c ON c.id = b.center
-    JOIN fernwood.activity ac ON b.activity = ac.id
+    JOIN centers c ON c.id = b.center
+    JOIN activity ac ON b.activity = ac.id
     JOIN params ON params.CENTER_ID = b.center
-    JOIN fernwood.staff_usage su ON su.booking_center = b.center AND su.booking_id = b.id AND su.cancellation_time IS NULL
-    JOIN fernwood.persons ins ON ins.center = su.person_center AND ins.id = su.person_id
+    JOIN staff_usage su ON su.booking_center = b.center AND su.booking_id = b.id AND su.cancellation_time IS NULL
+    JOIN persons ins ON ins.center = su.person_center AND ins.id = su.person_id
 WHERE
   b.starttime BETWEEN params.FromDate AND params.ToDate
   AND ac.activity_group_id NOT IN (201,17,1201,801,10,401,402,1401,1601,2601,2401)

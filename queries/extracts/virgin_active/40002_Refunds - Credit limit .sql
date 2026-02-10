@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report detailing the refunds done by and the corresponding reasons
 WITH
     PARAMS AS
     (

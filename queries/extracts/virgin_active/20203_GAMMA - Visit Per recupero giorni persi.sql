@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.UNIQUE_KEY "RecordID",
     to_char(longToDateC(cin.CHECKIN_TIME,p.center),'YYYY-MM-dd HH24:MI') "VisitDateTime",

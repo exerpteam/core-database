@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct
 ar.CUSTOMERCENTER||'p'||ar.CUSTOMERID AS "Person key",
 art.CENTER||'ar'||art.ID||'art'||art.SUBID AS "Transaction key",

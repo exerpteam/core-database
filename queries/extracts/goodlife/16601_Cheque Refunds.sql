@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract identifies all the transactions related to cheque refunds that go into account 0012-12400-000
 
 select 
   TO_CHAR(longtodateC(ar.trans_time, 100),'YYYY-MM-DD') AS TransactionDate

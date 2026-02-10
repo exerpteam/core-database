@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-5497
 SELECT
     TO_CHAR(p.EXTERNAL_ID) AS "EXTERNALID",
     p.ZIPCODE AS "POSTALCODE",  

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
     p.fullname  as "Member Name",
     sub.id as "Subscription ID"

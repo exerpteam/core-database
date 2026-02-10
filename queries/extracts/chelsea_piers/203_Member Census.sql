@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT 
 ON (per.external_id) 
     c.name as "Business Unit",

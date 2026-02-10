@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- THREE ACCOUNT TYPES: Payment(4), External Debt(5), Installment(6)
 
 -- PAYMENT ACCOUNT
@@ -33,27 +35,27 @@ SELECT
         WHEN pea.txtvalue ILIKE 'no%'  THEN 'No'
         ELSE 'No'
     END AS "eCollect"
-FROM fernwood.persons p
-JOIN fernwood.centers c
+FROM persons p
+JOIN centers c
   ON c.id = p.center
-JOIN fernwood.account_receivables ar 
+JOIN account_receivables ar 
   ON p.center = ar.customercenter 
  AND p.id     = ar.customerid 
  AND ar.ar_type = 4                     -- ✅ PAYMENT
  AND ar.balance != 0 
-LEFT JOIN fernwood.ar_trans art 
+LEFT JOIN ar_trans art 
   ON art.center = ar.center 
  AND art.id     = ar.id
  AND art.status != 'CLOSED'
  AND art.due_date < current_date  
-LEFT JOIN fernwood.payment_accounts pac 
+LEFT JOIN payment_accounts pac 
   ON pac.center = ar.center 
  AND pac.id     = ar.id
-LEFT JOIN fernwood.payment_agreements pag 
+LEFT JOIN payment_agreements pag 
   ON pac.active_agr_center = pag.center 
  AND pac.active_agr_id     = pag.id 
  AND pac.active_agr_subid  = pag.subid
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
   ON pea.personcenter = p.center
  AND pea.personid     = p.id
  AND pea.name         = 'eCollect'
@@ -92,15 +94,15 @@ SELECT
         WHEN pea.txtvalue ILIKE 'no%'  THEN 'No'
         ELSE 'No'
     END AS "eCollect"
-FROM fernwood.persons p
-JOIN fernwood.centers c
+FROM persons p
+JOIN centers c
   ON c.id = p.center
-JOIN fernwood.account_receivables ar 
+JOIN account_receivables ar 
   ON p.center = ar.customercenter 
  AND p.id     = ar.customerid 
  AND ar.ar_type = 5                     -- ✅ EXTERNAL DEBT
  AND ar.balance != 0
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
   ON pea.personcenter = p.center
  AND pea.personid     = p.id
  AND pea.name         = 'eCollect'
@@ -141,18 +143,18 @@ SELECT
         WHEN pea.txtvalue ILIKE 'no%'  THEN 'No'
         ELSE 'No'
     END AS "eCollect"
-FROM fernwood.persons p
-JOIN fernwood.centers c
+FROM persons p
+JOIN centers c
   ON c.id = p.center
-JOIN fernwood.account_receivables ar 
+JOIN account_receivables ar 
   ON p.center = ar.customercenter 
  AND p.id     = ar.customerid 
  AND ar.ar_type = 6                     -- ✅ INSTALLMENT
  AND ar.balance != 0 
-LEFT JOIN fernwood.ar_trans art 
+LEFT JOIN ar_trans art 
   ON art.center = ar.center 
  AND art.id     = ar.id
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
   ON pea.personcenter = p.center
  AND pea.personid     = p.id
  AND pea.name         = 'eCollect'

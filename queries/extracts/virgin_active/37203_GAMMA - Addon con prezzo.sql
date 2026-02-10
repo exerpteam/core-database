@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  REPLACE(CAST(ad.ID  AS VARCHAR(20)),'.', '') as "ADDONID",
  CONCAT(CONCAT(cast(s.CENTER AS VARCHAR(4)),'ss'),CAST(s.ID as VARCHAR(10))) as "MEMBERSHIPID",

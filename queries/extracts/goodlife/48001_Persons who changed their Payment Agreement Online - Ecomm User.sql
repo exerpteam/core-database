@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created For: PDS to find members who updated their banking info online resulting in payment agreements not linked to subscriptions.  Only Ecomm API User 990emp56802.  Created by: Sandra G  Date Added :4.29.2024
 SELECT DISTINCT
 	CASE WHEN p.Id IS NULL
 		THEN ''

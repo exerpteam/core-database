@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     longtodateC(b.starttime,b.center)     AS starttime,
     longtodateC(b.stoptime,b.center)      AS stoptime,

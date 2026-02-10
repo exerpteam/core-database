@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH
 params AS
 (
@@ -20,46 +22,46 @@ SELECT DISTINCT
     COALESCE(prod.name, subprod.name, 'Unknown Product') AS "Product Purchased",
     COALESCE(invl.total_amount, sp.price, 0) AS "Product Amount"
 FROM 
-    fernwood.campaign_codes cc
+    campaign_codes cc
 JOIN 
-    fernwood.privilege_usages pu 
+    privilege_usages pu 
     ON pu.campaign_code_id = cc.id
 JOIN
-    fernwood.persons p
+    persons p
     ON p.center = pu.person_center
     AND p.id = pu.person_id
 JOIN
-    fernwood.centers c
+    centers c
     ON c.id = p.center
 JOIN
     params
     ON params.CENTER_ID = pu.person_center
 -- Get product information from subscriptions
 LEFT JOIN 
-    fernwood.subscription_price sp 
+    subscription_price sp 
     ON sp.id = pu.target_id
     AND pu.target_service = 'SubscriptionPrice'
 LEFT JOIN 
-    fernwood.subscriptions s 
+    subscriptions s 
     ON s.center = sp.subscription_center 
     AND s.id = sp.subscription_id
 LEFT JOIN
-    fernwood.subscriptiontypes st
+    subscriptiontypes st
     ON st.center = s.subscriptiontype_center
     AND st.id = s.subscriptiontype_id                
 LEFT JOIN
-    fernwood.products subprod
+    products subprod
     ON subprod.center = st.center
     AND subprod.id = st.id
 -- Get product information from invoice lines
 LEFT JOIN 
-    fernwood.invoice_lines_mt invl 
+    invoice_lines_mt invl 
     ON invl.center = pu.target_center
     AND invl.id = pu.target_id
     AND invl.subid = pu.target_subid
     AND pu.target_service = 'InvoiceLine'
 LEFT JOIN
-    fernwood.products prod
+    products prod
     ON prod.center = invl.productcenter
     AND prod.id = invl.productid
 WHERE

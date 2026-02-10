@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 
 concat(concat(cast(p.center as varchar(4)),'p'),cast(p.ID as varchar(6))) as PersonId,

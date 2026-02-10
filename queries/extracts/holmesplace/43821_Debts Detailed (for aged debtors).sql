@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on Overdue Debt Laywer Subs with center id
 SELECT
 	P.CENTER AS "Club",
     p.CENTER || 'p' || p.ID AS PersonID,

@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Use for logic app when contracts get created with Exerp, they should be sent with PDF copy of their agreement. This logic app will find out all the contract in the past day, download the PDF and send to Member.  Uses Export Schedules.
+
 WITH
     PARAMS AS
     (

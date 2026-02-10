@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active and Inactive with latest subscription data. If subs empty then PT only or Cancelled only. 
 WITH
      Member AS
      (

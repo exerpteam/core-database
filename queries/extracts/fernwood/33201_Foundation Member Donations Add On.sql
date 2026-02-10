@@ -1,9 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH par AS MATERIALIZED (
   SELECT
     c.id AS center_id,
     datetolongC(TO_CHAR(current_date - interval '7 days', 'YYYY-MM-DD HH24:MI'), c.id) AS from_long,
     datetolongC(TO_CHAR(current_date + interval '1 day',   'YYYY-MM-DD HH24:MI'), c.id) AS to_long
-  FROM fernwood.centers c
+  FROM centers c
   WHERE c.id IN (:Scope)
 ),
 

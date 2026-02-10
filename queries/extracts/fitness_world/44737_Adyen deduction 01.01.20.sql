@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT
         DECODE(pr.STATE,1,'New',2,'Sent',3,'Done',4,'Done, manual',5,'Rejected, clearinghouse',6,'Rejected, bank',7,'Rejected, debtor',8,'Cancelled',10,'Reversed, new',11,'Reversed, sent',12,'Failed, not creditor',13,'Reversed, rejected',14,'Reversed, confirmed',17,'Failed, payment revoked',18,'Done Partial',19,'Failed, Unsupported',20,'Require approval',21,'Fail, debt case exists',22,'Failed, timed out','Undefined') as state

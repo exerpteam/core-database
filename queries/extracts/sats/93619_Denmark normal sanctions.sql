@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 t3."missed classes during the last 60 days",
 t4."Last missed class",

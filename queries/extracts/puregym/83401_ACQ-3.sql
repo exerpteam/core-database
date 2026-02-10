@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     REPLACE(pr.GLOBALID, 'CREATION_', '') AS "ProductGlobalId",
     pg.id       AS "JoiningFeeGroupId"

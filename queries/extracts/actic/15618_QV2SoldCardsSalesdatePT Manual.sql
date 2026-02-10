@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* QV2SoldCardsSalesdatePT Manual
  *
  * mimics the Subscription sales report in Exerp

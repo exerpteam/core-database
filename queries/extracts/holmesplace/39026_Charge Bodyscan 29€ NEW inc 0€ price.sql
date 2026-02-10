@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Set at 2 months after join date, includes members paying 0€ but not if they have a "Free Membership" (any membership with Free Memberships product group included)
+
 WITH
     latest_coa_sale AS
     (

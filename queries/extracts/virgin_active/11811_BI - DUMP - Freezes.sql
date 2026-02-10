@@ -1,1 +1,0 @@
-select * from BI_FREEZES where SUBSCRIPTION_CENTER_ID in ($$scope$$)

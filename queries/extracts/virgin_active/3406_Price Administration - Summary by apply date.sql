@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Summary of Price increases.
 SELECT
     clubId,
     club,

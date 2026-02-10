@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT 
          p.center ||'p'||p.id AS "Person ID"
          ,p.firstname AS "First Name"
@@ -13,24 +15,24 @@ SELECT DISTINCT
                 Else 'Yes'
          END AS "PMW Staff"
          ,oldID.txtvalue AS "Legacy ID"
-FROM fernwood.employees emp
-JOIN fernwood.persons p
+FROM employees emp
+JOIN persons p
         ON p.center = emp.personcenter
         AND p.id = emp.personid
-JOIN fernwood.centers c  
+JOIN centers c  
         ON c.id = p.center
-JOIN fernwood.centers ce
+JOIN centers ce
         ON emp.center = ce.id
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
         ON pea.personcenter = p.center
         AND pea.personid = p.id 
         AND pea.name = '_eClub_Email' 
 LEFT JOIN person_staff_groups psg
         ON p.center = psg.person_center
         AND p.id = psg.person_id 
-LEFT JOIN fernwood.staff_groups sg
+LEFT JOIN staff_groups sg
         ON sg.id = psg.staff_group_id  
-LEFT JOIN fernwood.person_ext_attrs oldID
+LEFT JOIN person_ext_attrs oldID
         ON oldID.personcenter = p.center
         AND oldID.personid = p.id   
         AND oldID.name = '_eClub_OldSystemPersonId'                      

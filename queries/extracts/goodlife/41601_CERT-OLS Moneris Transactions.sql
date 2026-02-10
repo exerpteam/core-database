@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Reviewed in https://clublead.atlassian.net/browse/ST-16327
 WITH accounts_less AS (
 
     SELECT

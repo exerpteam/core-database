@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: Created this to track any Activate and GIPT purchases added to members accounts' as part of the request: SR-321806
 WITH
      params AS
      (

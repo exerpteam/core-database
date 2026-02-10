@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      longToDateC(att.START_TIME,att.CENTER) "Date and time"
    ,p.center || 'p' || p.id member_id

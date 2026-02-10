@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract Showing Invoices & Credit Notes Raised
+https://clublead.atlassian.net/browse/ST-13744
 WITH
   params AS
   (
@@ -20,24 +23,24 @@ SELECT DISTINCT
         ,pemp.center ||'p'||pemp.id as "Employee Person ID"
         ,ar.ref_center||'inv'||ar.ref_id AS "Transaction ID"  
 FROM
-        fernwood.invoices inv
+        invoices inv
 JOIN
-        fernwood.ar_trans ar
+        ar_trans ar
                 ON inv.center = ar.ref_center
                 AND inv.id = ar.ref_id
 JOIN
-        fernwood.persons p
+        persons p
                 ON p.center = inv.payer_center
                 AND p.id = inv.payer_id
 JOIN
-        fernwood.centers c
+        centers c
                 ON c.id = p.center   
 JOIN
-        fernwood.employees emp
+        employees emp
                 ON emp.center = ar.employeecenter
                 AND emp.id = ar.employeeid
 JOIN
-        fernwood.persons pemp
+        persons pemp
                 ON pemp.center = emp.personcenter
                 AND pemp.id = emp.personid 
 JOIN    params 
@@ -62,30 +65,30 @@ SELECT DISTINCT
         ,pemp.center ||'p'||pemp.id as "Employee Person ID"
         ,art.ref_center||'acc'||art.ref_id||'tr'||art.ref_subid AS "Transaction ID"        
 FROM
-        fernwood.ar_trans art
+        ar_trans art
 JOIN
-        fernwood.art_match artm
+        art_match artm
                 ON artm.art_paying_center = art.center
                 AND artm.art_paying_id = art.id
                 AND artm.art_paying_subid = art.subid
                 AND artm.cancelled_time IS NULL        
 JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
                 ON ar.center = art.center
                 AND ar.id = art.id
 JOIN
-        fernwood.persons p
+        persons p
                 ON p.center = ar.customercenter                      
                 AND p.id = ar.customerid                                                               
 JOIN
-        fernwood.centers c
+        centers c
                 ON c.id = p.center
 JOIN
-        fernwood.employees emp
+        employees emp
                 ON emp.center = art.employeecenter
                 AND emp.id = art.employeeid
 JOIN
-        fernwood.persons pemp
+        persons pemp
                 ON pemp.center = emp.personcenter
                 AND pemp.id = emp.personid   
 JOIN    params 

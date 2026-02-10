@@ -1,48 +1,46 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT
-    ss.owner_center||'p'||ss.owner_id as customer,
-    sa.EMPLOYEE_CREATOR_CENTER||'emp'||sa.EMPLOYEE_CREATOR_ID as staff,
-    prod.globalid as addon_product,
-    REPLACE('' || prod.PRICE, '.', ',')  AS NORMAL_UNIT_PRICE,
-    longtodate(sa.creation_time) as sales_date
-From
-     fw.SUBSCRIPTION_ADDON sa
-join fw.masterproductregister m
-    on
-    sa.addon_product_id = m.id
-join fw.subscription_sales ss
-    on 
-    sa.subscription_center = ss.subscription_center
-    and sa.subscription_id= ss.subscription_id
-join fw.products prod
-    on
-    m.globalid = prod.globalid
-JOIN fw.invoicelines invl
-ON
-    prod.ID = invl.PRODUCTID
-    AND prod.CENTER = invl.PRODUCTCENTER
+    ss.owner_center || 'p' || ss.owner_id AS customer,
+    sa.employee_creator_center || 'emp' || sa.employee_creator_id AS staff,
+    prod.globalid AS addon_product,
+    REPLACE(prod.price::text, '.', ',') AS normal_unit_price,
+    longtodate(sa.creation_time) AS sales_date
+FROM fw.subscription_addon sa
+JOIN fw.masterproductregister m
+    ON sa.addon_product_id = m.id
+JOIN fw.subscription_sales ss
+    ON sa.subscription_center = ss.subscription_center
+   AND sa.subscription_id = ss.subscription_id
+JOIN fw.products prod
+    ON m.globalid = prod.globalid
 WHERE
-    ss.owner_center in (:scope)
-    and sa.creation_time >=  :sale_from_date 
-    and sa.creation_time <= :sale_to_date
-	and prod.globalid in (:product_globalid)
-    AND NOT EXISTS
-    (
-        SELECT
-            *
-        FROM
-            fw.CREDIT_NOTE_LINES cnl
-        WHERE
-            cnl.INVOICELINE_CENTER = invl.CENTER
-            AND cnl.INVOICELINE_ID = invl.id
-            AND cnl.INVOICELINE_SUBID = invl.SUBID
+    ss.owner_center IN (:scope)
+    AND sa.creation_time >= :sale_from_date
+    AND sa.creation_time <= :sale_to_date
+    AND prod.globalid IN (
+        'ALL_IN_7',
+        'KOLDING___SVØMNING',
+        'EXTENDED_BCA__ADGANG_'
     )
-group by
+    AND EXISTS (
+        SELECT 1
+        FROM fw.invoicelines invl
+        WHERE invl.productid = prod.id
+          AND invl.productcenter = prod.center
+          AND NOT EXISTS (
+              SELECT 1
+              FROM fw.credit_note_lines cnl
+              WHERE cnl.invoiceline_center = invl.center
+                AND cnl.invoiceline_id = invl.id
+                AND cnl.invoiceline_subid = invl.subid
+          )
+    )
+GROUP BY
     ss.owner_center,
     ss.owner_id,
-    sa.EMPLOYEE_CREATOR_CENTER,
-    sa.EMPLOYEE_CREATOR_ID,
+    sa.employee_creator_center,
+    sa.employee_creator_id,
     prod.globalid,
-    prod.PRICE,
-    sa.creation_time
+    prod.price,
+    sa.creation_time;

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-2852
 https://clublead.atlassian.net/browse/ST-3388
 SELECT '720' As SurveyID, p.CENTER||'p'||p.ID AS PersonID, p.FIRSTNAME, p.LASTNAME, email.TXTVALUE As EMail, c.CHECKIN_CENTER, TO_CHAR(longtodate(c.CHECKIN_TIME), 'YYYY-MM-DD HH24:MI') AS CheckinTime, 

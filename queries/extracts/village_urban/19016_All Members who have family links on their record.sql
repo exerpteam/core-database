@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
 c.name as "Club Name",
  P.CENTER ||'p'|| P.ID "Member ID of linked member",

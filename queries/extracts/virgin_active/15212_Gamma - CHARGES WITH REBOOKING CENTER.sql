@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select concat(concat(cast(p1.center as char(3)), 'p'), cast(p1.id as varchar(10)))  as personId, agr.BANK_ACCNO, agr.EXAMPLE_REFERENCE, agr.EXPIRATION_DATE 
 FROM 
 

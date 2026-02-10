@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4510
 SELECT
     s.OWNER_CENTER || 'p' || s.OWNER_ID pid,
     p.fullname,

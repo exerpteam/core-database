@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Shows total of all memberhip types with state ACTIVE, FROZEN, DEFERRED by Cognos category. Select last day of month. Oncly includes memberships with primary product group being a 'Mem cat' group.
  SELECT DISTINCT
      personid || ', ' || subscriptionId AS "ID",
      OWNER_CENTER AS "CENTER",

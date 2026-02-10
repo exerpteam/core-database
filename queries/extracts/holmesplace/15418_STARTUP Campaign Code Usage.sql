@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     pu.PERSON_CENTER||'p'||pu.PERSON_ID                 AS member_id,
     longtodatec(pu.USE_TIME, pu.PERSON_CENTER)          AS campaign_use_time,

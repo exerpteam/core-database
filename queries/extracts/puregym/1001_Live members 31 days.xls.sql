@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Live members for the past 31 days
  (
  SELECT
      ' Date','Status',

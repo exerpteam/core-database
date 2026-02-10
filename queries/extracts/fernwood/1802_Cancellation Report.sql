@@ -1,10 +1,12 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH 
     jemax AS
     (
         SELECT 
             person_center, person_id, ref_center, ref_id, max(id) AS JournalID
         FROM 
-            fernwood.journalentries 
+            journalentries 
         WHERE 
             jetype = 18
         GROUP BY 
@@ -14,7 +16,7 @@ WITH
     (
         SELECT max(start_time) AS LastVisitDate, person_center AS PersonCenter, person_id AS PersonID 
         FROM 
-            fernwood.attends   
+            attends   
         GROUP BY 
             person_center, person_id
     )                      
@@ -56,13 +58,13 @@ TO_CHAR(TO_TIMESTAMP(a.LastVisitDate / 1000), 'DD-MM-YYYY') AS "Last Visit Date"
         ELSE 0
     END AS "De-Gross" -- 17
 FROM 
-    fernwood.subscriptions s
+    subscriptions s
 JOIN
-    fernwood.persons p
+    persons p
     ON p.center = s.owner_center
     AND p.id = s.owner_id
 JOIN
-    fernwood.subscriptiontypes st
+    subscriptiontypes st
     ON st.center = s.subscriptiontype_center
     AND st.id = s.subscriptiontype_id
 LEFT JOIN
@@ -72,14 +74,14 @@ LEFT JOIN
     AND jemax.ref_center = s.center
     AND jemax.ref_id = s.id
 LEFT JOIN 
-    fernwood.journalentries je
+    journalentries je
     ON jemax.JournalID = je.id
 LEFT JOIN
-    fernwood.employees emp
+    employees emp
     ON emp.center = je.creatorcenter
     AND emp.ID = je.creatorid
 LEFT JOIN
-    fernwood.persons ep
+    persons ep
     ON ep.center = emp.personcenter
     AND ep.ID = emp.personid    
 JOIN
@@ -87,20 +89,20 @@ JOIN
     ON prod.CENTER = st.CENTER
     AND prod.ID = st.ID
 JOIN 
-    fernwood.centers c
+    centers c
     ON c.id = p.center
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaEmail
+    person_ext_attrs peeaEmail
     ON peeaEmail.personcenter = p.center
     AND peeaEmail.personid = p.id
     AND peeaEmail.name = '_eClub_Email'
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaMobile
+    person_ext_attrs peeaMobile
     ON peeaMobile.personcenter = p.center
     AND peeaMobile.personid = p.id
     AND peeaMobile.name = '_eClub_PhoneSMS' 
 LEFT JOIN 
-    fernwood.person_ext_attrs peeaHome
+    person_ext_attrs peeaHome
     ON peeaHome.personcenter = p.center
     AND peeaHome.personid = p.id
     AND peeaHome.name = '_eClub_PhoneHome'
@@ -114,6 +116,6 @@ WHERE
     AND p.center IN (:Scope)
     AND prod.center || 'prod' || prod.id NOT IN 
         (SELECT pg.product_center || 'prod' || pg.product_id AS ID 
-         FROM fernwood.product_and_product_group_link pg 
+         FROM product_and_product_group_link pg 
          WHERE pg.product_group_id = 402)
     AND s.sub_state NOT IN (3, 4, 5, 10)

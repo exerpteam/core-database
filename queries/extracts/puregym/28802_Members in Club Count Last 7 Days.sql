@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- No of people for each hour in each day for each gym
+https://clublead.atlassian.net/browse/ST-4502
 WITH
     params AS
     (

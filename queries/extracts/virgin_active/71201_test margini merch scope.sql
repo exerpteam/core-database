@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT  c.SHORTNAME,  p.NAME as Prodotto, p.EXTERNAL_ID AS "Codice Ma", p.COST_PRICE as "Prezzo acquisto", invl.TOTAL_AMOUNT as "Prezzo vendita", invl.TOTAL_AMOUNT - p.COST_PRICE as "Delta", invl.PRODUCT_COST, longToDate(inv.ENTRY_TIME)
  FROM
  INVOICES inv INNER JOIN

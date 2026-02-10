@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Excludes transferred to cash collection account, rejection and debt collection fees, and entries dated today or yesterday.
 -- Open items, consolidated by Club & Month
 -- Matches detailed report criteria; moves "Installment plan stopped" out of Open,
 -- and duplicates Hypoxi/HDC items into a new column.
@@ -17,12 +19,12 @@ base AS (
       (art.text = 'Installment plan stopped')::int            AS is_installment_stopped,
       -- Duplicate flag for Hypoxi/HDC (case-insensitive, anywhere in text)
       (art.text ILIKE '%hypoxi%' OR art.text ILIKE '%hdc%')::int AS is_hypoxi_hdc
-  FROM fernwood.ar_trans art
-  JOIN fernwood.account_receivables ar
+  FROM ar_trans art
+  JOIN account_receivables ar
     ON ar.center = art.center AND ar.id = art.id
-  JOIN fernwood.persons p
+  JOIN persons p
     ON p.center = ar.customercenter AND p.id = ar.customerid
-  JOIN fernwood.centers c
+  JOIN centers c
     ON c.id = art.center
   JOIN params pa
     ON pa.center_id = art.center

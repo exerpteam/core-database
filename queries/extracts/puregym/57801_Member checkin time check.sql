@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-8517
 SELECT
     p.EXTERNAL_ID                                                        AS "Member ID",
     c.NAME                                                            AS "Center",

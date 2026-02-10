@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     s.OWNER_CENTER || 'p' || s.OWNER_ID pis,
     s.CENTER || 'ss' || s.ID            ssid,

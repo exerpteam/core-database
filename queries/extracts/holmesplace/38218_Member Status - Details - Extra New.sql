@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Calculations date is 1st of the month you are analysing.  It is the latest subscription start date to include as Extra.  So new memberships starting this month are not considered Extra.
+Fixed first day of month (no more Free periods ending on last day of month before)
+
 WITH
     PARAMS AS
     (

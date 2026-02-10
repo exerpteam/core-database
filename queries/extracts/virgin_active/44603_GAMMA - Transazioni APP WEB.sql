@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
          ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID AS "PERSON_ID",
          TO_CHAR(longtodatec(art.trans_time, art.center) , 'YYYY-MM-dd HH24:MI') as "TRANSTIME",

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 Select 
 to_char (longtodate(par.creation_time), 'dd-MM-YYYY HH24:MI') AS CREATIONTIME,

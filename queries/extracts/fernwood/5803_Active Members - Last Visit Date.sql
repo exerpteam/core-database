@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -22,28 +24,28 @@ SELECT DISTINCT
         ,Email.txtvalue AS "Email Address"
         ,pro.name AS "Subscription Name (Membership Type)"
 FROM 
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.subscriptions s
+        subscriptions s
         ON s.owner_center = p.center
         AND s.owner_id = p.id 
         AND s.state in (2,4)
 JOIN
-        fernwood.checkins a
+        checkins a
         ON a.person_center = p.center
         AND a.person_id = p.id
 LEFT JOIN
-        fernwood.person_ext_attrs Mobile
+        person_ext_attrs Mobile
         ON Mobile.personcenter = p.center
         AND Mobile.personid = p.id
         AND Mobile.name = '_eClub_PhoneSMS'        
 LEFT JOIN
-        fernwood.person_ext_attrs Home
+        person_ext_attrs Home
         ON Home.personcenter = p.center
         AND Home.personid = p.id
         AND Home.name = '_eClub_PhoneHome'
 JOIN
-        fernwood.products pro
+        products pro
         ON pro.center = s.SUBSCRIPTIONTYPE_CENTER
         AND pro.ID = s.SUBSCRIPTIONTYPE_ID
 JOIN 
@@ -51,12 +53,12 @@ JOIN
         ON params.CENTER_ID = p.center 
 JOIN
         (SELECT max(checkin_time) AS LastVisitDate, person_center AS PersonCenter, person_id AS PersonID             
-        FROM fernwood.checkins 
+        FROM checkins 
         GROUP BY person_center,person_id ) la
         ON la.PersonCenter = p.center
         AND la.PersonID = p.id 
 LEFT JOIN
-        fernwood.person_ext_attrs email
+        person_ext_attrs email
         ON email.personcenter = p.center
         AND email.personid = p.id 
         AND email.name = '_eClub_Email'                                       

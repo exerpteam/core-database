@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to seewhich payment method that is used on retail sales in a specific scope in a specific period. 
  select
  t1.center,
  t1.name,

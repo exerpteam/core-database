@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-5522
 SELECT
     p.center || 'p' || p.id AS "Person ID",
     p.external_id           AS "External ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
 ch.name as clearinghouse_name,
 pa.creditor_id,

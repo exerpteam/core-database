@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- All PT attends (drop in & bookings)
 SELECT
 	a.CENTER,

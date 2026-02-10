@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
   to_char(to_date('01-JAN-1970','DD-MM-YYYY HH24:MI SS') + 
     (efe.EXPORT_TIME / (1000*60 * 60 * 24) ) ,'DD/MM/YYYY HH24:MI') as oraCreazione,

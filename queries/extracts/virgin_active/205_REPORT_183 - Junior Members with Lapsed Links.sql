@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      CASE rel.RTYPE WHEN 1 THEN 'FRIEND' WHEN 4 THEN 'FAMILY' ELSE 'UNKNOWN - Contact Exerp support' END INVALID_RELATIONSHIP,
      rel.STATUS RELATION_STATUS,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-16391: This extract will be used to make sure that all the kids that have purchased receive a lunch. Daily version.
 WITH
     PARAMS AS
     (

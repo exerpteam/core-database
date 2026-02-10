@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Socios migrados de Gymnasium con fecha de renovación de seguro informada.
 -- SOCIOS MIGRADOS DE GYMNASIUM CON FECHA DE RENOVACIÓN DE SEGURO INFORMADA
 SELECT 
     TO_CHAR(CURRENT_DATE, 'YYYY-MM-DD') AS "TODAY",

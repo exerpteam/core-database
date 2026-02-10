@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT CLIPCARDCENTER||'cc'||CLIPCARDID||'cc'||CLIPCARDSUBID AS Clipcard,
 PERSONCENTER||'p'||PERSONID Person,
 PRODUCTNAME AS Product, 

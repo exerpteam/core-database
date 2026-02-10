@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ingressi entrata e uscita soci
  SELECT
      p.EXTERNAL_ID,
      p.CENTER || 'p' || p.ID AS PERSON_ID,

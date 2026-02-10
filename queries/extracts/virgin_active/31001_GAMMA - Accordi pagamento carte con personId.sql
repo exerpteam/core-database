@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT pa.personCenter, pa.personId, pa1.REF
 FROM (
 SELECT p.CENTER as personCenter, p.ID as personId, pa.CENTER, pa.ID

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	cen.COUNTRY,
 	cen.EXTERNAL_ID 									AS Cost,

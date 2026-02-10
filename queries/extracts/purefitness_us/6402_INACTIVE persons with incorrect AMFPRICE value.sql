@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 'AMFPRICE' attribute is not 'null' or '49' and person state is 'INACTIVE'.
 SELECT
     "Member ID",
 	"Member Name",

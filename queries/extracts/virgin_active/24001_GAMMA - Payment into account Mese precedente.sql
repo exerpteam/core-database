@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 NVL(c3.SHORTNAME,NVL(c2.SHORTNAME,NVL(c1.SHORTNAME, c.SHORTNAME))) AS club, nvl(E2.TXTVALUE,nvl(e1.TXTVALUE,nvl(e.TXTVALUE,CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8)))))) as personId, 
 p.FULLNAME as nominativo, pr.NAME, ar.amount as importo, art.AMOUNT as importoSaldato, 

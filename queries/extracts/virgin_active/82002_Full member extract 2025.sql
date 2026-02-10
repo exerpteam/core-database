@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 08/04/2025 - RG created to exclude PT by DD, Swim, RQs and some other subs
  WITH
      PARAMS AS
      (

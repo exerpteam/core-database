@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      to_char(longToDateC(log.ENTRY_TIME,p.center),'YYYY-MM-DD HH24:MI') "Time",
      cen.SHORTNAME Club,

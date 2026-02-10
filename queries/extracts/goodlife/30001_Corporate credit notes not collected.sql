@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-16333
 SELECT
     longtodateTZ(art.entry_time, 'America/Toronto') TransactionTime,
     art.amount,

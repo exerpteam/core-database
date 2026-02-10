@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Members on whom cash collection request to be changed to state 'New'. 
 SELECT
     ccrOuter.center,

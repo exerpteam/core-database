@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This calculates the total amount based on the period parts where you should use some month the has been renewed as the period
 SELECT
     SUM(total),
     COUNT( center) AS subscriptions,

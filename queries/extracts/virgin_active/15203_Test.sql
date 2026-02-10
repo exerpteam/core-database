@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.name                           AS "Club",
     s.OWNER_CENTER||'p'|| s.OWNER_ID AS "ID Member",

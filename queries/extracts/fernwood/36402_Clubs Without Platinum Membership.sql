@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Lists all clubs in scope that don't offer platinum membership products
 -- Simple diagnostic to check platinum SUBSCRIPTION products by club
 -- This focuses only on subscription products, not all product types
 

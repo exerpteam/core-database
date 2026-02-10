@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 	p.EXTERNAL_ID AS ExterntId,
 	p.CENTER ||'p' || p.ID AS Medlemsnummer,

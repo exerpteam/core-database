@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This report returns members who were granted the PT Comp Session clipcard and used it for a booking. From & To date paramerter goes by entry time of invoice line, therefore this is filtered on when the clipcard was created/sold from MMS.
 WITH
     params AS
     (

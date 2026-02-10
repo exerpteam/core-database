@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- With subscription information.  Some debts are are duplicated if they have more than one subscritpion.
+Keep the one with latest binding end date?
 SELECT
     p.CENTER || 'p' || p.ID AS kd_nr,
     NULL vkz,

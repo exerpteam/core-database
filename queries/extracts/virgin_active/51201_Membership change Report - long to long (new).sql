@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      FULLNAME                    AS "Full name",
      sales_date                  AS "Data upgrade",

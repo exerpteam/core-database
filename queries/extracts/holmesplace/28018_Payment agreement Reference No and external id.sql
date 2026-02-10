@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Payment agreement Reference numbers with Person External Id and Person Id
 
 SELECT 
          p.external_id

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-1637
 SELECT c.ID AS "Clud ID", c.SHORTNAME AS "Club Name", count(*) "Members charged",
   -sum(art.AMOUNT) "Total Admin Fee"
 FROM

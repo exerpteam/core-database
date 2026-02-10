@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
  CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'),  cast(p.ID as varchar(8))) as personId,pr.NAME, p.FULLNAME,  sp.PRICE AS CURRENT_PRICE, COALESCE(ss.PRICE_PERIOD,s.BINDING_PRICE) AS INITIAL_PRICE, s.START_DATE
  FROM PERSONS p

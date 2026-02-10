@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Guests  Add last visit date and exclude gympass. Included ex members with no membership in current club (Transferred). Guests with DOI keep all. Aggregators keep all (exept Gympass). Guests without DOI with visit in last 15 months keep all. More than 15 months migrate only Full name and email. 
 SELECT DISTINCT
     
     center.id                          AS "ExerpClubNumber",

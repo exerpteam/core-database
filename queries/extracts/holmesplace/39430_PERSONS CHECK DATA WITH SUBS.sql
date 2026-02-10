@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Only current Active/Frozen. Need to format subs creation time if possibly or add sales date
 WITH
      Member AS
      (

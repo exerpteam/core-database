@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Simplified IK-report that display the IK-values transaction by transaction.
 
 SELECT
 	INV0.CENTER AS SALES_CENTER

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Audit of clip cards and subscription add-ons sold through API users
 -- Online Shop Product Audit
 -- Audits Clip Cards and Subscription Add-ons sold through online API users
 -- Filters for Sitecore API User (100p2401) and Webapps API User (100p65017)
@@ -19,33 +21,33 @@ clipcard_sales AS (
         invl.total_amount AS "Product Price",
         COUNT(*) AS "Number of Sales"
     FROM 
-        fernwood.clipcards cc
+        clipcards cc
     JOIN
-        fernwood.persons p
+        persons p
         ON p.center = cc.owner_center
         AND p.id = cc.owner_id
     JOIN 
-        fernwood.products prod 
+        products prod 
         ON prod.center = cc.center
         AND prod.id = cc.ID 
     JOIN                                                 
-        fernwood.invoices inv
+        invoices inv
         ON inv.center = cc.invoiceline_center
         AND inv.id = cc.invoiceline_id								
     JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
         ON cc.invoiceline_center = invl.center
         AND cc.invoiceline_id = invl.id
         AND cc.invoiceline_subid = invl.subid
     JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center
     JOIN
         api_users au
         ON au.center_id = inv.employee_center
         AND au.person_id = (
             SELECT emp.personid 
-            FROM fernwood.employees emp 
+            FROM employees emp 
             WHERE emp.center = inv.employee_center 
             AND emp.id = inv.employee_id
         )
@@ -74,29 +76,29 @@ addon_sales AS (
         sao.individual_price_per_unit AS "Product Price",
         COUNT(*) AS "Number of Sales"
     FROM
-        fernwood.subscription_addon sao
+        subscription_addon sao
     JOIN       
-        fernwood.subscriptions s
+        subscriptions s
         ON sao.subscription_center = s.center 
         AND sao.subscription_id = s.id
         AND s.state != 5 
         AND s.sub_state != 8
     JOIN
-        fernwood.persons p
+        persons p
         ON p.center = s.owner_center
         AND p.id = s.owner_id
     JOIN  
-        fernwood.masterproductregister mpr_addon 
+        masterproductregister mpr_addon 
         ON mpr_addon.id = sao.addon_product_id
     JOIN 
-        fernwood.products prod
+        products prod
         ON prod.center = sao.center_id
         AND prod.globalid = mpr_addon.globalid       
     JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center 
     JOIN
-        fernwood.employees emp
+        employees emp
         ON emp.center = sao.employee_creator_center
         AND emp.id = sao.employee_creator_id
     JOIN

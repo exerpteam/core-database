@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-40485
 WITH 
 params AS materialized (
 	SELECT c.id center,

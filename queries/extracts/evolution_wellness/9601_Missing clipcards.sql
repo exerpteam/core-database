@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         i.payer_center || 'p' || i.payer_id AS payer_clipcard,
         il.person_center || 'p' || il.person_id AS assigned_to_incorrectly,

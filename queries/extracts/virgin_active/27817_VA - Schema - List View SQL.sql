@@ -1,3 +1,0 @@
-select VIEW_NAME, TEXT, TEXT_LENGTH 
-from all_views
-WHERE VIEW_NAME = $$VIEW_NAME$$

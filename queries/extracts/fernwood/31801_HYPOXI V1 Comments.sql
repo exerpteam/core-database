@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         p.center ||'p'|| p.id AS "Person ID"
         ,p.external_id AS "External ID"
@@ -20,31 +22,31 @@ SELECT
         ,empp.fullname AS "Comment By"
         ,longtodateC(tl.entry_time,tl.employee_center) AS "Commented ON"
 FROM
-        fernwood.tasks t
+        tasks t
 LEFT JOIN
-        fernwood.task_steps ts
+        task_steps ts
                 ON ts.id = t.step_id
 JOIN
-        fernwood.persons p
+        persons p
                 ON p.center = t.person_center
                 AND p.id = t.person_id
 LEFT JOIN
-        fernwood.task_log tl 
+        task_log tl 
                 ON t.id = tl.task_id  
 LEFT JOIN
-        fernwood.task_log_details tld
+        task_log_details tld
                 ON tld.task_log_id = tl.id
                 AND tld.name = '_eClub_COMMENT'                             
 LEFT JOIN
-        fernwood.persons empp
+        persons empp
                 ON empp.center = tl.employee_center
                 AND empp.id = tl.employee_id
 LEFT JOIN
-        fernwood.persons assignee
+        persons assignee
                 ON assignee.center = t.asignee_center
                 AND assignee.id = t.asignee_id
 JOIN
-        fernwood.centers c
+        centers c
                 ON c.id = t.person_center
 WHERE
         t.type_id = 800

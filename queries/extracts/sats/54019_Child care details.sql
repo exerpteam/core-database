@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-2415
  SELECT
     TO_CHAR(longToDateC(att.START_TIME,att.CENTER),'DD.MM.YYYY HH24:MI') AS "Date and time"
    ,p.center || 'p' || p.id  AS "Member ID"

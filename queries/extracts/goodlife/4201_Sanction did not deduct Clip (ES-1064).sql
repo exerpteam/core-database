@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract is used to audit for Sanctions that did not deduct a Clipcard for a Booking No Show.
 SELECT
     p.participant_center || 'p' || p.participant_id pid
   , p.center

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select att.PERSON_CENTER ||  'p' || att.PERSON_ID as MemberId, att.CENTER as Center, to_char(longtodate(att.START_TIME), 'YYYY-MM-DD HH24:MI') as DateTime
 from FW.ATTENDS att

@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created For: Extract for Other Payer by Person ID
+Created By: Monali Patel
+Date Added: 30 January, 2024
 WITH subscriptions_list AS (
 
 	SELECT

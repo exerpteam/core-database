@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- with last subs in same order as migration file
 WITH
      Member AS
      (

@@ -1,9 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- my test version of the extract with ID 14801
 WITH params AS MATERIALIZED
 (
    SELECT
     TO_CHAR(current_timestamp, 'YYYY-MM-DD HH24:MI:SS.MS') AS batch_id,
-    CAST(dateToLongC('2025-12-10', c.id) AS BIGINT) AS fromDate,
-    CAST(dateToLongC('2025-12-13', c.id) AS BIGINT) AS toDate,
+    CAST(dateToLongC('2026-01-06', c.id) AS BIGINT) AS fromDate,
+    CAST(dateToLongC('2026-01-07', c.id) AS BIGINT) AS toDate,
     c.id AS center_id
 FROM
     CENTERS c

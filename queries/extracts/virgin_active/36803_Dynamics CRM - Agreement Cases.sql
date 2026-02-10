@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by Simon Jackson for integration with Dynamics CRM
  SELECT
      p.CENTER || 'p' || p.id "PERSON_HOME_CENTER_ID"
    , p.FULLNAME "PERSON_FULLNAME"

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- COVID 19 task for extending paid in advance memberships.
 WITH
     params AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-9692
 WITH
     params AS
     (   SELECT
@@ -215,10 +217,10 @@ ON
     AND cq."AID" = last_answer.number_answer
 WHERE
    
-   s.end_date >= params.fromdate
-   and s.end_date < params.todate
-   --je.creation_time >= params.from_Date_ts
-   --AND je.creation_time < params.to_Date_ts
+   -- s.end_date >= params.fromdate
+   -- and s.end_date < params.todate
+   je.creation_time >= params.from_Date_ts
+   AND je.creation_time < params.to_Date_ts
    -- AND s.sub_state IN (3,4,5,6)
    AND prd.globalid in ($$product_grp$$)
    AND s.end_date IS NOT NULL

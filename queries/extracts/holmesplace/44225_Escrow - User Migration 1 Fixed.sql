@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Fixed sponsorship. Get other payers payment type?? Exlclude PTVIP?
 WITH
     product_spons_pg AS
     (

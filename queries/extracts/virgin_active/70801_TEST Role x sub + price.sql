@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.id "center_ID",
 	p.CENTER || 'prod' || p.ID "product_id",

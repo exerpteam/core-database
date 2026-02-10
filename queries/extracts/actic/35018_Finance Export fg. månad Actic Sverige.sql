@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	agt.center,
     'GLE'||GL_EXPORT_BATCH_ID              AS "Reference",

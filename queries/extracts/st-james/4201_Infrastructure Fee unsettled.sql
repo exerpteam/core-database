@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         ar.customercenter || 'p' || ar.customerid AS payer_id,
         il.person_center || 'p' || il.person_id,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2035
 SELECT
     c.id                    AS "Club ID",
     c.NAME                  AS "Club Name",

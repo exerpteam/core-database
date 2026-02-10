@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select part.center, to_char(longtodate(part.START_TIME), 'IW') as WEEK, count(*) as NB, to_char(round(sum (case when pd.GLOBALID is not null then 1 else 0 end) * 100 / count(*), 2), '90.00') || ' %' as TDF
 from fw.participations part

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 * revenue meaning paid at startup
 * Add last person handling the tour

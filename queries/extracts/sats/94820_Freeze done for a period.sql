@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- extract for members who have frozen under a specific period
 WITH
     params AS materialized
     (

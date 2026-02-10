@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Updated extract for ES-27674 to find all instances of clipcard mismatches
 SELECT
     clipcard,
     clip_sum,

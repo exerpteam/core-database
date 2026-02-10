@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH arrears_members AS (
     SELECT
         ar.center,
@@ -5,7 +7,7 @@ WITH arrears_members AS (
         ar.customercenter,
         ar.customerid,
         ar.balance
-    FROM fernwood.account_receivables ar
+    FROM account_receivables ar
     WHERE ar.ar_type = 4
       AND ar.balance < 0
 ),
@@ -13,15 +15,15 @@ payment_requests_today AS (
     SELECT DISTINCT
         p.center AS person_center,
         p.id     AS person_id
-    FROM fernwood.payment_requests pr
-    JOIN fernwood.payment_agreements pag
+    FROM payment_requests pr
+    JOIN payment_agreements pag
       ON pr.center = pag.center
      AND pr.id     = pag.id
      AND pr.agr_subid = pag.subid
-    JOIN fernwood.account_receivables ar
+    JOIN account_receivables ar
       ON pag.center = ar.center
      AND pag.id     = ar.id
-    JOIN fernwood.persons p
+    JOIN persons p
       ON ar.customercenter = p.center
      AND ar.customerid     = p.id
     WHERE pr.req_date = (now() AT TIME ZONE 'Australia/Melbourne')::date
@@ -36,8 +38,8 @@ latest_debt_task AS (
         t.asignee_id,
         t.asignee_center,
         ROW_NUMBER() OVER (PARTITION BY t.person_center, t.person_id ORDER BY t.last_update_time DESC) AS rn
-    FROM fernwood.tasks t
-    JOIN fernwood.task_types tt
+    FROM tasks t
+    JOIN task_types tt
       ON tt.id = t.type_id
      AND tt.external_id = 'DM_NEW'
     WHERE t.status NOT IN ('CLOSED','DELETED')
@@ -79,7 +81,7 @@ SELECT
     /* ✅ new column added at the end */
     COALESCE((
         SELECT SUM(pr.req_amount)::numeric
-        FROM fernwood.payment_requests pr
+        FROM payment_requests pr
         WHERE pr.req_date = (now() AT TIME ZONE 'Australia/Melbourne')::date
           AND pr.center    = pas.center
           AND pr.id        = pas.id
@@ -87,18 +89,18 @@ SELECT
     ), 0) AS payments_today
 
 FROM arrears_members ar
-JOIN fernwood.persons p
+JOIN persons p
   ON p.center = ar.customercenter
  AND p.id     = ar.customerid
-JOIN fernwood.centers c
+JOIN centers c
   ON c.id = p.center
 LEFT JOIN payment_requests_today prt
   ON prt.person_center = p.center
  AND prt.person_id     = p.id
-LEFT JOIN fernwood.payment_accounts pac
+LEFT JOIN payment_accounts pac
   ON pac.center = ar.center
  AND pac.id     = ar.id
-LEFT JOIN fernwood.payment_agreements pas
+LEFT JOIN payment_agreements pas
   ON pac.active_agr_center = pas.center
  AND pac.active_agr_id     = pas.id
  AND pac.active_agr_subid  = pas.subid
@@ -106,9 +108,9 @@ LEFT JOIN latest_debt_task task
   ON task.person_center = p.center
  AND task.person_id     = p.id
  AND task.rn = 1
-LEFT JOIN fernwood.task_steps ts
+LEFT JOIN task_steps ts
   ON ts.id = task.step_id
-LEFT JOIN fernwood.persons assignee
+LEFT JOIN persons assignee
   ON assignee.center = task.asignee_center
  AND assignee.id     = task.asignee_id
 WHERE

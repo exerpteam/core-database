@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 case 
         when ac.activity_type = 2 THEN 'Class'

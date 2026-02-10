@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Count usage of resource grouped by center
 /**
 * Creator: Stein Rudsengen
 * ServiceTicket: N/A

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      CASE
          WHEN (sub.end_date > longtodateC(sc.CHANGE_TIME, sub.center)) AND sc.EMPLOYEE_CENTER = :APICenter AND sc.EMPLOYEE_ID = :APIId THEN 'ONLINE'

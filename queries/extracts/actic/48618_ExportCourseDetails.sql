@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Export course details missing in courses API
 /*Export details that are not existing in Exerps CourseAPI.
 This should be extracted on the website and additional information added to course.
 Parameters are for any booking in the course and all the other bookings will be extracted as well*/

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to see how many free gift cards that have been added and by who. 
  WITH
      params AS
      (

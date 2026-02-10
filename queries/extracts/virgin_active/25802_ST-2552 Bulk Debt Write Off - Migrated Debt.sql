@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2552
 SELECT
     i1."Member club"
   , i1."Membership number"

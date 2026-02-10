@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract API used for ensuring members can only purchase either Get into PT or Kickstart once online
 SELECT
 p.CENTER || 'p' || p.ID "member ID",
 p.external_id,

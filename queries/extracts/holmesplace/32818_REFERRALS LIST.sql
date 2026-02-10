@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used for Referrals DE. Includes Membership details of existing member
 SELECT DISTINCT 
     r.RELATIVECENTER || 'p' || r.RELATIVEID    AS  "ID ExistingMem", 
 	CASE pe.status

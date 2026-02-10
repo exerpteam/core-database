@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Excludes shifts and activites not bookable online. Added Memberweb as name for id 43813 and "Club" for everyone else who booked the appointment in exerp directly.
 
 
 WITH

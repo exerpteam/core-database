@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3321
+https://clublead.atlassian.net/browse/ES-7436
  SELECT
      c.shortname                                                                                                              AS CreditCenter,
      CASE cnl.canceltype  WHEN 0 THEN  'Wrong sale'  WHEN 1 THEN  'Faulty product'  WHEN 2 THEN  'Product returned'  WHEN 3 THEN 'Subscription changed'  ELSE 'Unknown' END AS Reason,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-6806
  SELECT
     c.SHORTNAME                                                                  AS "CLUB",
     s.owner_center||'p'||s.OWNER_ID                                              AS "MEMBER ID",

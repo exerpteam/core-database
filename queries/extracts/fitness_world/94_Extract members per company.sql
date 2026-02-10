@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT ca.center as companycenter, ca.id as companyid, ca.subid as agreementid,
  c.lastname as company , ca.name as agreement, p.center||'p'||p.id as Customer,

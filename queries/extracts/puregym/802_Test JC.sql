@@ -1,1 +1,0 @@
-select * from bi2_person_type_log where "ETS" is null

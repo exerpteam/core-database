@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- former "Ticket 72108 - price change 01.02.16"
 SELECT
     p.center || 'p' || p.id AS "Member ID",

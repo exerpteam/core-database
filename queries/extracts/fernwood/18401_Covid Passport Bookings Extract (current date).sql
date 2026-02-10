@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-3050
 WITH
           params AS
           (
@@ -45,62 +47,62 @@ WITH
         END AS "Privilege used"
         ,acg.name AS "Activity Group"
 FROM    
-        fernwood.participations part
+        participations part
 JOIN    
-        fernwood.persons p 
+        persons p 
         ON p.center = part.participant_center
         AND p.id = part.participant_id
 JOIN    
-        fernwood.bookings b
+        bookings b
         ON b.center = part.booking_center
         AND b.id = part.booking_id
 JOIN    
         params 
         ON params.CENTER_ID = part.booking_center
 JOIN 
-        fernwood.activity ac
+        activity ac
         ON b.activity = ac.id  
 JOIN 
-        fernwood.activity_group acg
+        activity_group acg
         ON acg.id = ac.activity_group_id  
 LEFT JOIN
-        fernwood.person_ext_attrs covid
+        person_ext_attrs covid
         ON covid.personcenter = p.center
         AND covid.personid = p.id
         AND covid.name = 'covidpassport'     
 LEFT JOIN 
-        fernwood.privilege_usages pu
+        privilege_usages pu
         ON pu.target_service = 'Participation'
         AND pu.target_center = part.center
         AND pu.target_id = part.id   
 LEFT JOIN
-        fernwood.subscriptions s
+        subscriptions s
         ON s.owner_center = pu.person_center
         AND s.owner_id = pu.person_id
         AND s.center = pu.source_center
         AND s.id = pu.source_id
 LEFT JOIN 
-        fernwood.products pro
+        products pro
         ON pro.center = s.subscriptiontype_center
         AND pro.id = s.subscriptiontype_id        
 LEFT JOIN
-        fernwood.clipcards cc
+        clipcards cc
         ON cc.owner_center = pu.person_center
         AND cc.owner_id = pu.person_id
         AND cc.center = pu.source_center
         AND cc.id = pu.source_id
 	AND cc.subid = pu.source_subid   
 LEFT JOIN 
-        fernwood.products procc
+        products procc
         ON procc.center = cc.center
         AND procc.id = cc.id
 LEFT JOIN 
-        fernwood.subscription_addon sao
+        subscription_addon sao
         ON sao.id = pu.source_id
         AND pu.source_center IS NULL
         AND pu.target_service = 'Participation'
 LEFT JOIN 
-        fernwood.masterproductregister mpr
+        masterproductregister mpr
         ON mpr.id = sao.addon_product_id                                   
 WHERE 
         p.center in (:scope)

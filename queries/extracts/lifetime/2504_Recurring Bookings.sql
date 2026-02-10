@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select t.instructorname, t.BookingName, t.dayofweek, t.bookingresource ||' @ '|| t.centername as ResourceName, t.message
 from
 (

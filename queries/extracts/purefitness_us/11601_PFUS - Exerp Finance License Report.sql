@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 ----MAIN QUERY START----
 
 /* lead, temp inactive & active member count */

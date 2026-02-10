@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Fixed Sponsorship. Fixed duplicates card type excludes giftcard and deleted payment agreements in account receivables. Cant see which bank details are ok/ended, reported to exerp
 WITH
     product_spons_pg AS
     (

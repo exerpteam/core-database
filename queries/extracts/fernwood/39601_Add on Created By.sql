@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
          p.center||'p'||p.id AS personID
          ,longtodatec(sao.creation_time,sao.center_id) AS creationdate

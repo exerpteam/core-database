@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- KPI needs to setup and then KPI field value need to update in this extract. Also check area parent = 61?
 SELECT
     e1.*,

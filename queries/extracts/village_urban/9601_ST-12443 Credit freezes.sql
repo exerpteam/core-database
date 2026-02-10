@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to assess what members should receive a credit note for charged freezes that have been applied. 
 WITH
     params AS
     (

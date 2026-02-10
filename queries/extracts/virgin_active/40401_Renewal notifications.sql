@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4757
 SELECT
     s.center  AS CENTER,
     s.id          AS ID,

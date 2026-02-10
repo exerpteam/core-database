@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active centre config with extended attributes
 SELECT
      cen.ID,
      cen.SHORTNAME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT distinct
          TO_CHAR(CURRENT_DATE,'dd-mon-yyyy') AS extractdate,
          CASE

@@ -1,1 +1,3 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT * FROM INVOICELINES WHERE PERSON_ID = $$PERSONID$$ AND PERSON_CENTER = $$CENTERID$$

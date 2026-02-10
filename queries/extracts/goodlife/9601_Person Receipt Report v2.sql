@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2979
 SELECT
     p.center || 'p' || p.id             AS "Person ID",
     p.center                            AS "Center Id",

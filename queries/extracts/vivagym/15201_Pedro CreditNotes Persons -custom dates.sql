@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- my test version of the extract with ID 15003
 WITH params AS MATERIALIZED
 (
    SELECT

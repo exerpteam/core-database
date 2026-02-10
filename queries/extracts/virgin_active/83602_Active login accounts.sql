@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: 06.08.25 - Created to review as part of the Exerp MFA role out
 SELECT 
         --EXTERNAL_ID,
         C.Shortname as Club,

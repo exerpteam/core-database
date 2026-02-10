@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- testing
 SELECT
     COUNT(m.Center),
     TO_CHAR(TRUNC(longtodate(m.SENTTIME),'MONTH'),'MMMM yyyy') AS MONTH,

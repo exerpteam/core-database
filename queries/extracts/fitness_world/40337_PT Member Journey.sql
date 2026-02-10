@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-2931
 SELECT p.CENTER||'p'||p.ID AS "MemberID", p.SEX AS "Sex", floor(months_between(exerpsysdate(), p.BIRTHDATE) / 12) AS "Age", c.NAME AS "Club Name" , to_char(p.FIRST_ACTIVE_START_DATE,'YYYY-MM-dd') AS "Member First Active", count(*) AS "PT Attends"
 FROM 

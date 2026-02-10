@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to see a members current level, number of unbroken membership days, number of check-ins, level change date and last active start date. 
  SELECT
      results.CENTER ,
      results.ID ,

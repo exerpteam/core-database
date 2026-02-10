@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Scope - based on States
+Date - based on Expiry Date
 WITH
   params AS
   (
@@ -42,16 +45,16 @@ SELECT distinct
          END AS "State"
 ,cc.center||'cc'||cc.id||'cc'||cc.subid
 FROM 
-        fernwood.persons p
+        persons p
 JOIN 
-        fernwood.clipcards cc 
+        clipcards cc 
         ON cc.owner_center = p.center 
         AND cc.owner_id = p.id
 JOIN 
-        fernwood.centers c 
+        centers c 
         ON c.id = p.center
 JOIN 
-        fernwood.products pro 
+        products pro 
         ON pro.center = cc.center
         AND pro.id = cc.ID
 JOIN 

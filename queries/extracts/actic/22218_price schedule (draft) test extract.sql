@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     s.CENTER || 'ss' || s.ID subs_Id,
     s.OWNER_CENTER || 'p' || s.OWNER_ID person_Id,

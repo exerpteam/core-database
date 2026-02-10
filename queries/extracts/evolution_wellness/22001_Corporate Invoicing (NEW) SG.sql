@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 --Added Freeze Start Date, Freese End Date, Cancellation Date on 20250626
 --Change the center from Company center to Member Home Club on 20250703
 --Change data fields First Billed Month and Last Billed Month on 20250715

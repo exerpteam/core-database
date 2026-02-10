@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/issues/EC-8358
+excluding 'Drinks' & 'Solarium'
  SELECT
      p.FIRSTNAME,
      p.LASTNAME,

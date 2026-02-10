@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-8838
  SELECT DISTINCT
      COALESCE(c.shortname,('AREA: '||a.name)) AS "Override scope",
      mpr.GLOBALID                        AS "Produt Global ID",

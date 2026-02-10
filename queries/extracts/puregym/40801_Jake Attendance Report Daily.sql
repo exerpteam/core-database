@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.CURRENT_PERSON_CENTER                                                      AS remote_site_id ,
     p.CURRENT_PERSON_CENTER ||'p'|| p.CURRENT_PERSON_ID                          AS remote_user_id ,

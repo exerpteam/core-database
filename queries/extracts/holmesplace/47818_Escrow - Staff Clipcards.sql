@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Staff only. Excludes most clips which are not PT
 -- Parameters: Center(SCOPE)
 
 SELECT

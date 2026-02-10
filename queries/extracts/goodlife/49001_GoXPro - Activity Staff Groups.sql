@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by: Sandra Gupta Created for: GXP Integration  Created on: Sept 17, 2024. Enable for API set by Mark Hanna as requested by Sandra via email Sept 18, 2024. 
 SELECT
   a.id as "Activity ID",
   a.name as "Activity Name",

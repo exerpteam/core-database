@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 SELECT
     b.center||'bk'||b.id         AS bookingid,
     longtodateC(B.starttime,990) AS start_time,

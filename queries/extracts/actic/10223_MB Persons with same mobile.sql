@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	p1.CENTER AS p1_CENTER,
     p1.CENTER || 'p' || p1.ID p1_id,

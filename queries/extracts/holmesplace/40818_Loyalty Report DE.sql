@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active and Temp Inactive, not inc Staff or under 12 years old
 SELECT
      
      c.ID AS CENTER_ID,

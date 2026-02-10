@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- No longer used since we moved to the app. 
 WITH
           params AS MATERIALIZED
           (
@@ -61,14 +63,14 @@ SELECT
                 ELSE 'Undefined' 
         END AS Reason
 FROM
-        fernwood.ar_trans art
+        ar_trans art
 JOIN 
-        fernwood.payment_request_specifications prs        
+        payment_request_specifications prs        
         ON art.payreq_spec_center = prs.center
         AND art.payreq_spec_id = prs.id
         AND art.payreq_spec_subid = prs.subid        
 JOIN        
-        fernwood.payment_requests pr
+        payment_requests pr
         ON prs.center = pr.inv_coll_center
         AND prs.id = pr.inv_coll_id
         AND prs.subid = pr.inv_coll_subid  
@@ -76,20 +78,20 @@ JOIN
         params 
         ON params.center_id = pr.center 
 JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
         ON invl.center = art.ref_center
         AND invl.id = art.ref_id
         AND invl.installment_plan_id IS NULL
         AND invl.reason NOT IN (6,30)   
 JOIN 
-        fernwood.persons p 
+        persons p 
         ON p.center = invl.person_center
         AND p.id = invl.person_id 
 JOIN
-        fernwood.centers cpr
+        centers cpr
         ON cpr.id = pr.center
 JOIN
-        fernwood.centers cinv
+        centers cinv
         ON cinv.id = invl.center                                                                                       
 WHERE
         art.collected = 1

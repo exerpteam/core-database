@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- PT Sales and their contract signed status (CF)
 WITH params AS MATERIALIZED (
     SELECT
         id AS center_id,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
          t1.Bookdate AS "Book date",
          t1.Text AS "Text",

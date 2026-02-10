@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Will find all members who meet criteria for "FREEDOMPASS24HOURACCESS = null
 SELECT DISTINCT
     p.center || 'p' || p.id AS "Person ID",
     p.external_id AS "External ID",

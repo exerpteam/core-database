@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created For: Jesse G, Diane C - to help with saved free days clean up
+Created by: Sandra G
+Date Added: November 2023
 WITH subscriptions_list AS (
 
 	SELECT

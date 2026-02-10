@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     sppl.INVOICELINE_CENTER || 'inv' || sppl.INVOICELINE_ID || 'ln' || sppl.INVOICELINE_SUBID SALES_LINE_ID,
     TO_CHAR(spp.FROM_DATE,'yyyy-MM-dd')                                                       FROM_DATE,

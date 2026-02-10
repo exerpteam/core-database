@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  List products sold in campaign "Öppet hus student"
 /**
 * Creator: Exerp
 * Modified by: Stein Rudsengen.

@@ -1,8 +1,10 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-1764
 SELECT
         c.name,
         p.center || 'p' || p.id AS PersonId,
         e.center || 'emp' || e.id AS LoginId,
-        fernwood.bi_decode_field('PERSONS','STATUS',p.status) as status,
+        bi_decode_field('PERSONS','STATUS',p.status) as status,
         p.fullname,
         pea.txtvalue AS LegacyId,
         (CASE
@@ -13,20 +15,20 @@ SELECT
         ,e.last_login AS "Last Login"
         ,TO_CHAR(longtodateC(t2.LastClass,t2.PersonCenter),'YYYY-MM-DD') AS "Last Booking"
 FROM 
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.centers c ON p.center = c.id
+        centers c ON p.center = c.id
 JOIN
-        fernwood.employees e ON p.center = e.personcenter AND p.id = e.personid
+        employees e ON p.center = e.personcenter AND p.id = e.personid
 LEFT JOIN
-        fernwood.person_ext_attrs pea ON pea.personcenter = p.center AND pea.personid = p.id AND pea.NAME = '_eClub_OldSystemPersonId'
+        person_ext_attrs pea ON pea.personcenter = p.center AND pea.personid = p.id AND pea.NAME = '_eClub_OldSystemPersonId'
 LEFT JOIN 
 (
         SELECT
                 eph.employee_center,
                 eph.employee_id
         FROM
-                fernwood.employee_password_history eph
+                employee_password_history eph
         GROUP BY 
                 eph.employee_center,
                 eph.employee_id

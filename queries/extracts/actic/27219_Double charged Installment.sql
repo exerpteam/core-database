@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     ar.CUSTOMERCENTER||'p'|| ar.CUSTOMERID AS memberid,
     --    art.COLLECTED,

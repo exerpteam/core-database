@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select
 t1.bookdate as"date",
 t1.product as "Product / Global account",

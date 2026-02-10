@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
                 ss.sales_date,
 				s.owner_center || 'p' ||s.owner_id AS Member,

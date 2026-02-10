@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- There can be multiple entries of members if they have more than one pin blocked.
 SELECT
     p.CENTER || 'p' || p.ID   AS PersonID,
 	p.firstname               AS Firstname,

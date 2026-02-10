@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to help audit for members that registered for camps but still have clips left - i.e. bookings didn't get created
 --ST-16433
 SELECT DISTINCT
     t.person_center || 'p' || t.person_id AS "Person Number",

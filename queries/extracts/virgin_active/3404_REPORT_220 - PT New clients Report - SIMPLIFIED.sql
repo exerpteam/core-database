@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      longToDate(MAX(inv.TRANS_TIME))     invoice_created,
      invl.PERSON_CENTER || 'p' || invl.PERSON_ID user_id,

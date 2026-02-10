@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to help Tammy and Nathan until we get a the process finailized extract not tuned to multiple payment agreement.
 SELECT
     p.firstname,
     p.lastname, 

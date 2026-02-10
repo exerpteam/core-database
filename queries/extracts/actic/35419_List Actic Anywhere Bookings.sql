@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List the bookings made by the Twiik User
 SELECT 
 	per.CENTER, 
 	per.ID,

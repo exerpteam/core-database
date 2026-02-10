@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         t5.CenterName,
         t5.external_id AS Costcenter,

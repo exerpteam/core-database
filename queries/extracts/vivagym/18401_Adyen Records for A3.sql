@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Exports all the records related with Adyen to be imported in A3
 SELECT
 		MAX(original_query.todate) AS fecha_cobro,
 		original_query.center_id AS centro,

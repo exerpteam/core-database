@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Campaign discounts used including system set
  SELECT
          t1.NAME,
          t1.CAMPAIGN_NAME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
          t1.AccountBalance AS "Account Balance",
          s.BINDING_END_DATE AS "Binding Date",

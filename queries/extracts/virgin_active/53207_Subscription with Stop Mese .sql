@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Subscription with Stop per schedulazione 
  WITH
      v_sub AS
      (

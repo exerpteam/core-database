@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Member numbers based on KPIs
 WITH
     V_EXCLUDED_SUBSCRIPTIONS AS
     (

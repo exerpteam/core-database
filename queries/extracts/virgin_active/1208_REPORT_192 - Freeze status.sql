@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: amended 05/10/21 to exluce any member PI info -approved by Ebbie
 SELECT DISTINCT
      p.center || 'p' || p.id AS  "PID",
      s.CENTER || 'ss' || s.ID "Membership Number",

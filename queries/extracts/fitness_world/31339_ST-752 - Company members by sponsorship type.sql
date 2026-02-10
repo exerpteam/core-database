@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- * TYPE: 
  INCLUDE: This will give you the members that are on an agreements that has ANY sponsor variant defined in SPONSORSHIP below
 EXCLUDE: This will give you the members that are on an agreements that DON'T HAVE ANY sponsor variant defined in SPONSORSHIP below

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Single use extract for backdating sub extra data missed due to MD import failures.
 WITH
     params AS materialized
     (

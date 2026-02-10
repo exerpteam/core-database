@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     pu.PERSON_CENTER ||'p'|| pu.PERSON_ID AS  "PERSON_ID",
     cc.ID,

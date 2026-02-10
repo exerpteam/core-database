@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Updated 17/11/2020 with the fix applied from Exerp's side as part of EC-388 , to include the free and paying adult guest subscriptions
  SELECT
      /*+ NO_BIND_AWARE */
      centre.SHORTNAME                      club,

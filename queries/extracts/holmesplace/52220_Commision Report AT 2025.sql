@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- need to add starter pack amounts somehow. Try to combine admin fee and Join amount in one column
 SELECT
 
 	ss.sales_date										AS "SalesDate",

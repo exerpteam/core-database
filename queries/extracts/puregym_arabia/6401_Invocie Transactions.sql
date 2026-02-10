@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Returns list of transactions included in a members invoice
 SELECT
     *
 FROM

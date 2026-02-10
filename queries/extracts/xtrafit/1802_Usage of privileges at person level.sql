@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-11707
+part 2
+
+https://clublead.atlassian.net/wiki/spaces/XF/pages/976289937/Custom+extract+for+tracking+the+usage+of+resources+benefits+from+PLUS+subscription
 WITH
     PARAMS AS
     (

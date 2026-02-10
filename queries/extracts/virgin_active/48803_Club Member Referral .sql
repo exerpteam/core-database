@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 24/12: Member referral report adapted for club use - Ref: #SR-232627
  -- Parameters: from_date(LONG_DATE),to_date(LONG_DATE),scope(SCOPE)
  SELECT
      --c.SHORTNAME                                                                                                                                                                            AS center,

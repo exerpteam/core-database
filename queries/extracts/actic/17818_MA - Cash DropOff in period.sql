@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Dedicated to TeleSales
 
 SELECT 
     cen.COUNTRY,

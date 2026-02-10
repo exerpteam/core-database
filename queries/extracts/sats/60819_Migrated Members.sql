@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract show migrated member person id in SATS and from legacy system.
  SELECT
      pe.personcenter || 'p' || pe.personid AS SATSPersonId,
      pe.txtvalue                           AS MigratedPersonId,

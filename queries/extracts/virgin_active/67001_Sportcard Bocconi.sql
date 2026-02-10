@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
      p.center||'p'||p.id       AS "Person ID",
      to_char(to_date(Sportcard.TXTVALUE, 'YYYY-MM-DD'),'dd/mm/yyyy') AS "Sportcard Bocconi"

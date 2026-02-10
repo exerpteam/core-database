@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 Select id, shortname, startupdate, country, web_name
 From centers
 WHERE startupdate > CURRENT_DATE

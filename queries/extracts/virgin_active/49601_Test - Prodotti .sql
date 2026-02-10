@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Test - Prodotti
  SELECT   c.id, c.SHORTNAME as club,
  CONCAT(CONCAT(cast(ST.CENTER as char(3)),'SS'), cast(st.ID as varchar(8))) as subscriptionId, p.NAME as nome, p.PRICE as prezzoMensile, a.PRICE as prezzoAttivazione, p.GLOBALID as GLOBALID
  FROM

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Manual credits not pulling through to this report
 WITH
   params AS
   (
@@ -45,38 +47,38 @@ FROM
                         ,prs.ref AS "Payment request Reference" 
                         ,pag.ref AS "Payway Customer Number"
                 FROM
-                        fernwood.payment_requests pr
+                        payment_requests pr
                 JOIN 
-                        fernwood.payment_request_specifications prs
+                        payment_request_specifications prs
                         ON prs.center = pr.inv_coll_center
                         AND prs.id = pr.inv_coll_id
                         AND prs.subid = pr.inv_coll_subid
                 JOIN
-                        fernwood.payment_agreements pag
+                        payment_agreements pag
                         ON pr.center = pag.center 
                         AND pr.id = pag.id 
                         AND pr.agr_subid = pag.subid     
                 JOIN 
-                        fernwood.account_receivables ar 
+                        account_receivables ar 
                         ON ar.center = pag.center 
                         AND ar.id = pag.id
                 JOIN 
-                        fernwood.persons p 
+                        persons p 
                         ON p.center = ar.customercenter 
                         AND p.id = ar.customerid
                 JOIN
-                        fernwood.ar_trans art
+                        ar_trans art
                         ON art.payreq_spec_center = prs.center
                         AND art.payreq_spec_id = prs.id
                         AND art.payreq_spec_subid = prs.subid
                         AND art.collected = 1
                 JOIN
-                        fernwood.account_trans act
+                        account_trans act
                         ON act.center = art.ref_center
                         AND act.id = art.ref_id
                         AND act.subid = art.ref_subid 
                 JOIN
-                        fernwood.accounts credit
+                        accounts credit
                         ON credit.center = act.credit_accountcenter
                         AND credit.id = act.credit_accountid
                 JOIN 
@@ -126,48 +128,48 @@ FROM
                         ,pag.ref AS "Payway Customer Number"
                         ,prod.name AS "Product Name"
                 FROM
-                        fernwood.payment_requests pr
+                        payment_requests pr
                 JOIN 
-                        fernwood.payment_request_specifications prs
+                        payment_request_specifications prs
                         ON prs.center = pr.inv_coll_center
                         AND prs.id = pr.inv_coll_id
                         AND prs.subid = pr.inv_coll_subid
                 JOIN
-                        fernwood.payment_agreements pag
+                        payment_agreements pag
                         ON pr.center = pag.center 
                         AND pr.id = pag.id 
                         AND pr.agr_subid = pag.subid     
                 JOIN 
-                        fernwood.account_receivables ar 
+                        account_receivables ar 
                         ON ar.center = pag.center 
                         AND ar.id = pag.id
                 JOIN 
-                        fernwood.persons p 
+                        persons p 
                         ON p.center = ar.customercenter 
                         AND p.id = ar.customerid
                 JOIN
-                        fernwood.ar_trans art
+                        ar_trans art
                         ON art.payreq_spec_center = prs.center
                         AND art.payreq_spec_id = prs.id
                         AND art.payreq_spec_subid = prs.subid
                         AND art.collected = 1
                         AND art.ref_type IN ('INVOICE') 
                 JOIN
-                        fernwood.invoice_lines_mt invl
+                        invoice_lines_mt invl
                         ON invl.center = art.ref_center
                         AND invl.id = art.ref_id
                         AND invl.installment_plan_id IS NULL
                 LEFT JOIN
-                        fernwood.products prod
+                        products prod
                         ON prod.center = invl.productcenter
                         AND prod.id = invl.productid                         
                 JOIN
-                        fernwood.account_trans act
+                        account_trans act
                         ON invl.account_trans_center = act.center
                         AND invl.account_trans_id = act.id
                         AND invl.account_trans_subid  = act.subid                
                 JOIN
-                        fernwood.accounts credit
+                        accounts credit
                         ON credit.center = act.credit_accountcenter
                         AND credit.id = act.credit_accountid                             
                 JOIN 
@@ -222,38 +224,38 @@ JOIN
                                 ,prs.ref AS "Payment request Reference" 
                                 ,pag.ref AS "Payway Customer Number"
                         FROM
-                                fernwood.payment_requests pr
+                                payment_requests pr
                         JOIN 
-                                fernwood.payment_request_specifications prs
+                                payment_request_specifications prs
                                 ON prs.center = pr.inv_coll_center
                                 AND prs.id = pr.inv_coll_id
                                 AND prs.subid = pr.inv_coll_subid
                         JOIN
-                                fernwood.payment_agreements pag
+                                payment_agreements pag
                                 ON pr.center = pag.center 
                                 AND pr.id = pag.id 
                                 AND pr.agr_subid = pag.subid     
                         JOIN 
-                                fernwood.account_receivables ar 
+                                account_receivables ar 
                                 ON ar.center = pag.center 
                                 AND ar.id = pag.id
                         JOIN 
-                                fernwood.persons p 
+                                persons p 
                                 ON p.center = ar.customercenter 
                                 AND p.id = ar.customerid
                         JOIN
-                                fernwood.ar_trans art
+                                ar_trans art
                                 ON art.payreq_spec_center = prs.center
                                 AND art.payreq_spec_id = prs.id
                                 AND art.payreq_spec_subid = prs.subid
                                 AND art.collected = 1
                         JOIN
-                                fernwood.account_trans act
+                                account_trans act
                                 ON act.center = art.ref_center
                                 AND act.id = art.ref_id
                                 AND act.subid = art.ref_subid 
                         JOIN
-                                fernwood.accounts credit
+                                accounts credit
                                 ON credit.center = act.credit_accountcenter
                                 AND credit.id = act.credit_accountid                             
                         JOIN 
@@ -301,44 +303,44 @@ JOIN
                                 ,prs.ref AS "Payment request Reference" 
                                 ,pag.ref AS "Payway Customer Number"
                         FROM
-                                fernwood.payment_requests pr
+                                payment_requests pr
                         JOIN 
-                                fernwood.payment_request_specifications prs
+                                payment_request_specifications prs
                                 ON prs.center = pr.inv_coll_center
                                 AND prs.id = pr.inv_coll_id
                                 AND prs.subid = pr.inv_coll_subid
                         JOIN
-                                fernwood.payment_agreements pag
+                                payment_agreements pag
                                 ON pr.center = pag.center 
                                 AND pr.id = pag.id 
                                 AND pr.agr_subid = pag.subid     
                         JOIN 
-                                fernwood.account_receivables ar 
+                                account_receivables ar 
                                 ON ar.center = pag.center 
                                 AND ar.id = pag.id
                         JOIN 
-                                fernwood.persons p 
+                                persons p 
                                 ON p.center = ar.customercenter 
                                 AND p.id = ar.customerid
                         JOIN
-                                fernwood.ar_trans art
+                                ar_trans art
                                 ON art.payreq_spec_center = prs.center
                                 AND art.payreq_spec_id = prs.id
                                 AND art.payreq_spec_subid = prs.subid
                                 AND art.collected = 1
                                 AND art.ref_type IN ('INVOICE') 
                         JOIN
-                                fernwood.invoice_lines_mt invl
+                                invoice_lines_mt invl
                                 ON invl.center = art.ref_center
                                 AND invl.id = art.ref_id
                                 AND invl.installment_plan_id IS NULL
                         JOIN
-                                fernwood.account_trans act
+                                account_trans act
                                 ON invl.account_trans_center = act.center
                                 AND invl.account_trans_id = act.id
                                 AND invl.account_trans_subid  = act.subid                
                         JOIN
-                                fernwood.accounts credit
+                                accounts credit
                                 ON credit.center = act.credit_accountcenter
                                 AND credit.id = act.credit_accountid                             
                         JOIN 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to show abandoned OJs
  SELECT
  c.SHORTNAME AS Club,
  to_date(personCreation.txtvalue, 'YYYY-MM-DD')  AS CreationDate,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Only lists members who are sponsored
 WITH
     product_spons_pg AS
     (

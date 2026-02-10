@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- If email is empty or if email not empty but allow email is No or empty, include in list. Not staff. Not blacklisted
 WITH
      Member AS
      (

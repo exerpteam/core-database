@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	p.fullname,
 	TO_CHAR(longtodateC(c.transtime, c.center), 'YYYY-MM-DD HH24:MI:SS') AS TransTime,

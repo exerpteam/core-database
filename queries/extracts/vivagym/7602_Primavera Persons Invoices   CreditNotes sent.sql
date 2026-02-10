@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         longtodatec(el.time_stamp, el.reference_center) AS Sync_date,
         i.payer_center || 'p' || i.payer_id AS PersonId,

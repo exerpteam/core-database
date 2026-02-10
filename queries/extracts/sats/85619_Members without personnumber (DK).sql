@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-6731
 select distinct on (p.center,p.id)
 
 p.center||'p'||p.id as member_key,

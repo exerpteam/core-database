@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-10063
 SELECT
     c.name                          AS "Scope"
     , pr.globalid                   AS "Product"

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- testar exekvera aktiva
 SELECT DISTINCT 
 	P.CENTER, 
 	P.ID, 

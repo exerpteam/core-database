@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- extract finance #8
 WITH
     PARAMS AS NOT MATERIALIZED
     (

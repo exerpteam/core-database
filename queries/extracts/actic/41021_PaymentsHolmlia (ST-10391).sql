@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to find Oslo Holmia revenue parts
 SELECT
     p.CENTER||'p'||p.ID                                                                                                                                                                                                        AS "MemberId",
     s.center||'ss'||s.id                                                                                                                                                                                                        AS "SubscriptionId",

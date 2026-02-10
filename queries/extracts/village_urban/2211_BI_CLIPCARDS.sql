@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      biview."CLIPCARD_ID",biview."PERSON_ID",biview."COMPANY_ID",biview."CLIPS_LEFT",biview."CLIPS_INITIAL",biview."SALES_LINE_ID",
      biview."VALID_FROM_DATE",biview."VALID_UNTIL_DATE",biview."BLOCKED",biview."CANCELLED",biview."CANCELLATION_TIME",biview."ASSIGNED_EMPLOYEE_ID",biview."CENTER_ID",biview."ETS"

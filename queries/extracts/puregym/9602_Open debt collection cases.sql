@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     CCC.CENTER                  AS CCC_CENTER,
     CCC.ID                      AS CCC_ID,

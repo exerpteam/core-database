@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2477
+Lists all company debt that is older than 2 years BUT below 10 000 SEK, 10 000 NOK and 1 000 EUR
 -- all corparate debt that is older than 2 years but less then 10.000 SEK, 10.000 NOK or 1000 EUR
 WITH t AS 
 (

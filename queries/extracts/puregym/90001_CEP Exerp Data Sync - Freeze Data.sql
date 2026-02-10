@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     P.EXTERNAL_ID  AS "EXTERNAL_ID",
     SFP.START_DATE AS "FREEZE_START_DATE",

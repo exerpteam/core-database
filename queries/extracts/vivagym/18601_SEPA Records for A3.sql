@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Exports all the records related with SEPA to be imported in A3
 WITH params AS MATERIALIZED
 (
         SELECT

@@ -1,2 +1,0 @@
- select *
- from sats.companyagreements 

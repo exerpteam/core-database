@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Related to ST-907
 SELECT
     e.NAME                                    extract_name
   , e.id                                      extract_id

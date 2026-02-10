@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Looks for member bookings that were cancelled, but where a bug caused the member to still show as participating, resulting in an incorrect clip being deducted when the member signed in for another booking that day.
 SELECT DISTINCT
     p.center||'p'||p.id                        AS memberid,
     p.fullname                                    membername,

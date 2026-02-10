@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  TO_CHAR(longToDate(crt.TRANSTIME),'yyyy-mm-dd') "DATE",
  longToDate(crt.TRANSTIME) transaction_time,

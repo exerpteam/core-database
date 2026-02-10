@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Scheduled booking audit to be emailed to Caleb.
 WITH
     params AS
     (

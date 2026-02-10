@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Amount of sales made by the GymPass API User
 SELECT
         pr.name,
         emp.center || 'emp' || emp.id as emp_number,

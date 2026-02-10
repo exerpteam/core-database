@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Birthday Anniversary Report
 -- This report finds members who had a birthday (anniversary) within a specified date range
 -- Example: For date range 01/10/2025 - 07/10/2025, will find anyone born on Oct 1-7 of any year

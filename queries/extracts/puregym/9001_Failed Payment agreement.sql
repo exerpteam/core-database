@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT distinct 
     c.SHORTNAME                                  club_name
   , ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID AS p_number

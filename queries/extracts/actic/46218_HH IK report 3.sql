@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- HH version of Community report. Should be used to only specify transactions made by memberservice
 /* Based on Cash register sales by payment type */
 SELECT
     TO_CHAR(longtodate(:FromDate), 'dd.MM.yyyy') PERIOD_FROM

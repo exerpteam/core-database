@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Compares product configuration for one selected product to all products with the entered global ID. It's possible to use % as a wildcard at the end of the Global ID, for example MCA_SEMI_PVT_60_MIN_SUB_LV% or MCA%
 WITH
     baseline AS
     (

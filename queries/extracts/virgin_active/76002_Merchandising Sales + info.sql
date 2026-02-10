@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
         TO_CHAR(longtodate(inv.trans_time), 'dd-MM-YYYY HH24:MI') AS TRANSACTIONTIME,
         pr.name AS PRODUCTNAME,

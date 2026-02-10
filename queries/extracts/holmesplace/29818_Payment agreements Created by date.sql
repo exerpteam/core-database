@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes all agreements regardless of who created them. Online and Offline. Use "default" column to see if they are the agreement currently in use for the member
 SELECT distinct
   p.center as "Centre id", 
   c.name as "Centre name",

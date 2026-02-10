@@ -1,3 +1,9 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Need to know the clearinghouse ID before you can run this report
+Adyen cleraring house Ids:
+BPL	 8207, HUT 7809, MIL  8208, VIC  7810
+CPL 7609, GVA 8008, LAU 8009, SEE 7808,  ZUR 8010
+
 SELECT
 ch.NAME AS "Clearinghouse",
 pcc.NAME as "Payment cycle",

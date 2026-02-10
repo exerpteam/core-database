@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Lookup product availability by product globalid.
+
+Approved in https://goodlifefitness.atlassian.net/browse/ISSUE-38649
 WITH list AS (
 SELECT DISTINCT
 

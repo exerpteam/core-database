@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- DEV-51611
 WITH
     params AS MATERIALIZED
     (

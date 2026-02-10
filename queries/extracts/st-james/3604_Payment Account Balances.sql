@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Members with a balance on their payment account
 SELECT
         p.center,
         p.center || 'p' || p.id AS personid,

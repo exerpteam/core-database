@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
   per.EXTERNAL_ID AS "EXTERNAL_ID", TRUNC(LongToDate(b.STARTTIME)) as "DATA", TO_CHAR(longtodateTZ(b.STARTTIME, 'Europe/Rome'), 'HH24:MI') as "ORA", c.SHORTNAME as "CLUB",  a.NAME AS "NAME",
  CASE

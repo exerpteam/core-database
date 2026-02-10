@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extracts shows you the upcoming corporate and member events that will take place in the next 7 days.
 SELECT c.name as "Center Name",
        a.name as "Event Name", 
        to_char(longtodatec(b.starttime, b.center), 'MM/DD/YYYY HH24:MI:SS') as "Event Date",

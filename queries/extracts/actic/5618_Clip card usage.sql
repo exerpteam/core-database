@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Exerp
 * Purpose: List usages of Clipcards by selecting where products from ProductGroup 'Personal Training' is bought.

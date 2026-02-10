@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT S.CENTER, s.CENTER || 'ss' || s.ID "Subscription ID", 
 CASE  s.STATE  WHEN 2 THEN 'Active'  WHEN 3 THEN 'Ended'  WHEN 4 THEN 'Frozen'  WHEN 7 THEN 'Window'  WHEN 8 THEN 'Created' ELSE 'Unknown' END as STATE, 
 CASE  s.SUB_STATE  WHEN 1 THEN 'None'  WHEN 6 THEN  'Transferred'  WHEN 9 THEN 'Blocked' END AS SUB_STATE, 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- 2025 Wrap-Up: Complete Metrics - Visits, Classes, PT, Wellness, and Challenges by Club
 -- Target Type: Other
 -- Description: Shows all metrics including challenge participants in one report per club for 2025

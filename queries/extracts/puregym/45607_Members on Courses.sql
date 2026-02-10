@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3766
 SELECT
     TO_CHAR(longtodateC(b.STARTTIME,b.CENTER),'YYYY-MM-DD') AS "Date",
     b.Name                                                  AS "Name",

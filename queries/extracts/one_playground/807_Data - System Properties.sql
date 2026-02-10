@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH cte_system_information as (
     SELECT
         case when areas.parent is null then 'T' else 'A' end as scope_type,

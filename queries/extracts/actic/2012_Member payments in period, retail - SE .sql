@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT * FROM
 (SELECT
     art.TRANS_TIME as "TRANS_TIME",

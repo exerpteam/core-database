@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List sold products by producttype and scope.
+Usage: Identify sold products outside cashregister as well.
+Creator: Henrik Håkanson
 /**
 * List sold products by producttype and scope.
 * Usage: Identify sold products outside cashregister as well.

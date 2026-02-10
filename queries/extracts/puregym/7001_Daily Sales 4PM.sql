@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created in 2014 by DB
  SELECT
      e1.*,
      e1."Today's Joiners 4pm"-e1."Today's Leavers 4pm" AS "Today's Net Gain 4pm"

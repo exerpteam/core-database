@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ST-2369-ver2
 WITH
     PARAMS AS
     (

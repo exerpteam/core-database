@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Set at 2 months after join date (to avoid charging freemiums!). Includes if BS25 is yes.  Counts 6 months after last charge of COA or BS RCC
 WITH
     latest_coa_sale AS
     (

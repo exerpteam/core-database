@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Developed in ST-3184.
+Updated in ST-6787.
 SELECT
     CC.CENTER  AS "Center",
     cent.NAME  AS "CenterName",

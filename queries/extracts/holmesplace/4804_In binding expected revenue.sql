@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Calculates outstanding expected revenue based on binding price, start date and todays date (the closest). Prce changes or freezes not taken into consideration
 SELECT
     SUM(NVL(expected_revenue_addon,0)) + MAX(expected_revenue) revenue,
     NAME,

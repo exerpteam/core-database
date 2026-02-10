@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Copied extract from FDK
  SELECT
  DISTINCT prod.GLOBALID,
  prod.NAME,

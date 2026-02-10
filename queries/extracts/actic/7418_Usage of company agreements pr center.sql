@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- agreements not used isn't, and can't be, listed
 select
     count(distinct(p.center||'p'||p.id)) as customer_count,
     ca.name as companyagreement_name,

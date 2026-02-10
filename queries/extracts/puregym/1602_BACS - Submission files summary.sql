@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select clo.id as "File id", to_char(clo.SENT_DATE, 'YYYY-MM-DD') as "Submit date", to_char(clo.REQUESTED_DATE, 'YYYY-MM-DD') as "Collection date"
  , clo.INVOICE_COUNT as "Count"
  , clo.TOTAL_AMOUNT "Total £"

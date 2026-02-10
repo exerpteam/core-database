@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- H&B Commision report based on sales made
  SELECT DISTINCT
      s.center                            AS "Sales Center",
      longtodateC(s.trans_time, s.center) AS "Sales Date",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- updated EC-7078 & EC-7112
 SELECT
  ch.NAME                        AS "Clearinghouse",
  pcc.NAME                       AS "Payment cycle",

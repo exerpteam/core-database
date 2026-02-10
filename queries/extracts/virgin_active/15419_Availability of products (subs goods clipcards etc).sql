@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Lista completa prodotti (sub/goods/clipcard/etc): 1 riga per ogni club in cui è disponibile + specifica global name
  SELECT
  distinct
          MPR.CACHED_PRODUCTNAME "Product Name",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
         SELECT
             personexternalid as "Person External ID",
             PERSONTYPE as "Person Type",            

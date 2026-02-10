@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Will return all members with an active subscription and an open debt case, where current debt step has been the same for x days
 WITH params AS (
 SELECT

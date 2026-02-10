@@ -1,4 +1,0 @@
-SELECT
-    *
-FROM
-    BI_QUESTIONNAIRES

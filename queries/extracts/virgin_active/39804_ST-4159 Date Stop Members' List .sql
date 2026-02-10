@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4159
  SELECT DISTINCT
      c.NAME Club,
      p.CENTER || 'p' || p.ID "Membership Number",

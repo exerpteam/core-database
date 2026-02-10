@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- removed PT product price excl VAT due to slowness. 
 
 
 WITH

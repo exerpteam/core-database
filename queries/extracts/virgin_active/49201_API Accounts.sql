@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG: Lists all active users with access to APIs
 SELECT
 	emp.center||'emp'||emp.id as EMPLOYEE_ID,
 	emp.LAST_LOGIN,

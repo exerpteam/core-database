@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-6916
 SELECT distinct on (cc.center,cc.id,cc.subid)
         p.center||'p'||p.id                                                           AS "MemberID",
         pr.name                                                                       AS "PT product",

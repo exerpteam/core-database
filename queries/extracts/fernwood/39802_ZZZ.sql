@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
   art.center,
   longtodateC(art.trans_time, art.center) AS dt,
@@ -7,13 +9,13 @@ SELECT
   act.info_type,
   act.text,
   act.info
-FROM fernwood.account_trans act
-JOIN fernwood.ar_trans art
+FROM account_trans act
+JOIN ar_trans art
   ON act.center = art.ref_center
  AND act.id     = art.ref_id
  AND act.subid  = art.ref_subid
  AND art.ref_type = 'ACCOUNT_TRANS'
-JOIN fernwood.account_receivables ar
+JOIN account_receivables ar
   ON ar.center = art.center
  AND ar.id     = art.id
 WHERE act.info_type IN (8,23)

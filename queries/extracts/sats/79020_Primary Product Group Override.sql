@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-3409 Lists products with product group overrides and the override country
  WITH
      params AS
      (

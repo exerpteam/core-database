@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- http://jira:8080/browse/FIGHTCLUB-6319
 WITH
     PARAMS AS
     (

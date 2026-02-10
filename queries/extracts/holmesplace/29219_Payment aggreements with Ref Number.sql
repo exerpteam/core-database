@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes all Person Status
 
 SELECT 
          p.external_id

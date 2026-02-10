@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active HYPOXI members who have not visited in the last 5 days and have no future bookings.
 WITH
     params AS MATERIALIZED
     (

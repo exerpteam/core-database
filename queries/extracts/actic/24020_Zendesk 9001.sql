@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract the returns all Swedish credit card transactions for the previous day. 
 WITH
     PARAMS AS
     (

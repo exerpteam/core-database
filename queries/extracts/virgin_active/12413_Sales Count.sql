@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report to show live sales
  SELECT
      cen.SHORTNAME,
      SS.SALES_DATE,

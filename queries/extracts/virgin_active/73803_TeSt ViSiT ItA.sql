@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
   SELECT 
 	TO_CHAR(t1.prev_day, 'Day')                        AS weekday,
 	TO_CHAR(t1.prev_day2, 'Day')                        AS weekday,

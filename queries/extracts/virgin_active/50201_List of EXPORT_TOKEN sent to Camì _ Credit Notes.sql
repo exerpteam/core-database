@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
   TO_CHAR(longtodate(inv.entry_time),' DD-MM-YYYY HH24:MI') "entry time" ,  TO_CHAR(longtodate(inv.trans_time),' DD-MM-YYYY HH24:MI') "transaction time" , ilm.total_amount , inv.*
 FROM

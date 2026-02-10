@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-6076
+https://clublead.atlassian.net/browse/ST-3466
+https://clublead.atlassian.net/browse/ST-3602
+
  -- Parameters: scope(SCOPE)
  SELECT DISTINCT
      CAST(c.center AS VARCHAR)          center,

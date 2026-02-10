@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.SHORTNAME                                                                                                                                                AS "Center",
     TO_CHAR(longtodate(bk.STARTTIME), 'YYYY-MM-DD')                                                                                                               dato,

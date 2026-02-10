@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Teen Fitness Teens and Parents with external id added for email campaign
 SELECT
 
 p.center||'p'||p.id AS teen_id

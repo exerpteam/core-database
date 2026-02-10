@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         pea.personcenter AS "Member Center",
         CAST(pea.personid AS TEXT) AS "Member ID",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-2389, updated with filters in https://clublead.atlassian.net/browse/EC-4538
 
 
 SELECT

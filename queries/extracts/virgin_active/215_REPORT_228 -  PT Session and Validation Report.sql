@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 06.03.23 - Added 3 new fields to this report for James Shilling from SR-283104
 SELECT
      c.NAME Club,
 	 ins.Center ||'p'|| ins.id "PT Membership Number",--RG 31.01.22 - added this for Georgina to pull in the PT memberhip number

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Testing auto version of new Daily report kpis with changes to EXTRA. Extra column empty for the 2nd April
 WITH
     PARAMS AS
     (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to identify contracts not generated on upgrade/downgrade while waiting for development fix
 WITH
     params AS
     (

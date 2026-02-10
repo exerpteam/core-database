@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Online cancellation requests
  SELECT
      p.CENTER ||'p'|| p.ID as PersonId,
      p.FULLNAME                                                                     AS "Member Name",

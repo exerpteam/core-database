@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         p.center||'p'||p.id as "Person ID"
         ,pea.txtvalue
@@ -14,9 +16,9 @@ SELECT
         ,sp.from_date AS "Price Change From"
         ,sp.to_date AS "Price Change To"     
 FROM 
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.subscriptions s
+        subscriptions s
         ON s.owner_center = p.center
         AND s.owner_id = p.id
         AND s.state not in (3,5,6,9,10) 
@@ -26,7 +28,7 @@ JOIN
         AND sp.subscription_id = s.id
         AND sp.to_date >= current_date
 LEFT JOIN
-        fernwood.person_ext_attrs pea
+        person_ext_attrs pea
         ON pea.personcenter = p.center
         AND pea.personid = p.id 
         AND pea.name = '_eClub_OldSystemPersonId'

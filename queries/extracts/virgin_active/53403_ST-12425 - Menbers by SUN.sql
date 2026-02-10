@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- For all persons in state 'Active' or 'Temporary Inactive', show payer (either other payer or themselves):
+- Payer can be in any state.
+- Show SUN of active (default) payment agreement.
+- Show state of active (default) payment agreement.
  SELECT
   mem.memberid "Member Id",
  CASE mem.STATUS WHEN 0 THEN 'LEAD' WHEN 1 THEN 'ACTIVE' WHEN 2 THEN 'INACTIVE' WHEN 3 THEN 'TEMPORARYINACTIVE' WHEN 4 THEN 'TRANSFERRED' WHEN 5 THEN 'DUPLICATE' WHEN 6 THEN 'PROSPECT' WHEN 7 THEN 'DELETED' WHEN 8 THEN 'ANONYMIZED' WHEN 9 THEN 'CONTACT' ELSE 'Undefined' END AS "Member status",

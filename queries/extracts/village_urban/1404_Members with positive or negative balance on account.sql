@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
  p.CENTER ||'p'|| p.ID as PERSONID,
  p.FULLNAME as FULLNAME,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Mikael Ahlberg
 * Purpose: List all members that are considered to be a slow trainer.

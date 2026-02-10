@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- members who do have a stop date a different date than last of the month. EC-10559
 WITH sc_stop AS (
     SELECT *

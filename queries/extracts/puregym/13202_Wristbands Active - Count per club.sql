@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      COALESCE(c.NAME,'Grand') as "Club Name",
      c.id   AS "Club ID",

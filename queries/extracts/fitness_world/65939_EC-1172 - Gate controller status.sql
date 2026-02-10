@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- An overview of gate controller status at each center. 
 SELECT DISTINCT
     cli.center,

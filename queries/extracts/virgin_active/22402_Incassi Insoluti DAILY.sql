@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
  longtodate(prs.LAST_MODIFIED) as ultimaModifica, CONCAT(CONCAT(cast(p1.CENTER as char(3)),'p'), cast(p1.ID as varchar(8))) as perosndId, p1.FULLNAME as nominativo,
  CASE pr.STATE  WHEN 1 THEN  'PS_NEW'  WHEN 2 THEN  'PS_SENT'  WHEN 3 THEN  'PS_DONE'  WHEN 5 THEN  'PS_REJECTED_BY_CLEARINGHOUSE'  WHEN 12 THEN  'PS_FAIL_NO_CREDITOR'  WHEN 17 THEN 'PS_FAIL_REJ_DEB_REVOKED' END "Stato",

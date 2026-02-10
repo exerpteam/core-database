@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Show employee login attempts to client which have greater then 100 attemps given a date range.
 SELECT
     staff_ID,
     fullname,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     ss.OWNER_CENTER || 'p' || ss.OWNER_ID                       AS "Member ID",
     owner.FULLNAME                                              AS "Full Name",

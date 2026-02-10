@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 181125 - Created for tracking all users that have activated MFA on Exerp login
 SELECT 
         CASE 
                 WHEN enterprise_subject IS NOT NULL THEN 'Activated'

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 --21p3364
 SELECT
     pr.DUE_DATE,

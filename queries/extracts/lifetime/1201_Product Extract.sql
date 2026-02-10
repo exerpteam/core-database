@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Contains:
+Global ID
+Product Name
+External ID
 SELECT
     mp.globalid AS EXERP_GLOBALID,
     mp.cached_productname AS PRODUCT_NAME,

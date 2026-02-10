@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     ca.CENTER || 'p' || ca.ID AS company_id,
     comp.LASTNAME AS company,

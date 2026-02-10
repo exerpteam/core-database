@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- #195349 To fix the ERROR: date field value out of range: 2025-13-01
  
 WITH params AS MATERIALIZED

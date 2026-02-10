@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Output gives Leavers KPI as a count per club.
 WITH PARAMS as materialized
  (
          SELECT 

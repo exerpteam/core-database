@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
      SELECT DISTINCT
     s.CENTER ||'ss'|| s.id as main_subscription,
      p.center ||'p'|| p.id as memberid,

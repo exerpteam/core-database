@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         p.center || 'p' || p.id AS PersonId,
         c.shortname as "Home Club",
@@ -9,27 +11,27 @@ SELECT
         sgc.name As Scope,
         sg.name AS "Staff Group"    
 FROM
-        fernwood.persons p
+        persons p
 LEFT JOIN
-        fernwood.employees emp
+        employees emp
                 ON emp.personcenter = p.center
                 AND emp.personid = p.id
                 AND emp.blocked = 'false'
 LEFT JOIN
-        fernwood.centers cemp
+        centers cemp
                 ON cemp.id = emp.center
 LEFT JOIN
-        fernwood.centers c
+        centers c
                 ON c.id = p.center                                              
 LEFT JOIN
-        fernwood.person_staff_groups psg
+        person_staff_groups psg
                 ON psg.person_center = p.center
                 AND psg.person_id = p.id 
 LEFT JOIN
-        fernwood.staff_groups sg
+        staff_groups sg
                 ON sg.id = psg.staff_group_id
 LEFT JOIN 
-        fernwood.centers sgc
+        centers sgc
                 ON sgc.id = psg.scope_id                                   
 WHERE
     p.persontype = 2

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
      
 SELECT
  sub.owner_center||'p'||sub.owner_id "Member", sub.center||'ss'||sub.id "SubscriptionKey" ,   spp.*

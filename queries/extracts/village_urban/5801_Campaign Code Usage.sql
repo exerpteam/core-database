@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-15254 - Simple extract to get campaign code usage
  SELECT DISTINCT
  pu.PERSON_CENTER ||'p'|| pu.PERSON_ID as  "PERSON_ID",
  c.name as "Club Name", 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- From Escrow guests but includes Leads Prospects and Contacts plus ex members with no subscription
 SELECT DISTINCT
     
     center.id                          AS "ExerpClubNumber",

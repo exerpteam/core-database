@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.CENTER || 'prod' || p.ID                         "PRODUCTS.PRODUCT_ID",
     CAST ( p.CENTER AS VARCHAR(255))                   "PRODUCTS.PRODUCT_CENTER",

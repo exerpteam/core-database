@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3759
 SELECT 
            cen.NAME                                                                                                                    AS "Home club"
           ,bookingcen.name                                                                                                             AS "Booking center"

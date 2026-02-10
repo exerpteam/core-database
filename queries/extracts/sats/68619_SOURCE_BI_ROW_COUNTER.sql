@@ -1,1 +1,0 @@
-SELECT count(*)  from bi2_participation where ets > 1577959204000

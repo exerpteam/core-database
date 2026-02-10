@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of all members and their subscriptions including personal information. 
 WITH
     params AS MATERIALIZED (
         SELECT c.id AS CENTER_ID

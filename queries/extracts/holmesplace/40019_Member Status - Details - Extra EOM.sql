@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Use for last day of month
 WITH
     PARAMS AS
     (

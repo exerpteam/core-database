@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract has been made to make sure  the Replace functionality does not create corrupted data on the Staff Usage. As long as it returns nothing we are good
 WITH
 PARAMS AS
 (

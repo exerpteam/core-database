@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-13728
  SELECT
 Q.name, x.questionid,x.questiontext,y.answerid,y.answertext
      from   PUREGYM.QUESTIONNAIRES Q,

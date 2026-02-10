@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      /*core2.ROW_NBR,*/
      longToDateC(core2.THIS,core2.center) last_invoiced,

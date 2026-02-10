@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH RECURSIVE subs (center,id,transferred_center,transferred_id)  AS (
 
         -- Get original subscription id if transferred to get person id at time of sale

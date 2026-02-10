@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  Select distinct
  p.globalid as "GlobalID",
  pg.id  as "Product Group",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 
 TO_CHAR(LONGTODATEC(b.starttime,b.center),'YYYY-MM-DD HH24:MI:SS')  AS "Start Time (Local)"

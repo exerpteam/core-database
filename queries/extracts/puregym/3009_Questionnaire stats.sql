@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
     qc.name as questionnaire_campaign,
     q.name,

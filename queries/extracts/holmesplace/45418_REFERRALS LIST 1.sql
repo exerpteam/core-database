@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Original list without ex member subscription detials
 SELECT DISTINCT 
     r.RELATIVECENTER || 'p' || r.RELATIVEID     AS "Member ID", -- referring member
 	CASE pe.status

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT c.SHORTNAME as club, p.CENTER || 'p' || p.ID as personIdMinore, CONCAT(CONCAT(p.FIRST_NAME, ' '), p.LAST_NAME) as nominativoMinore, p1.CENTER || 'p' || p1.ID as personIdGenitore,CONCAT(CONCAT(p1.FIRSTNAME, ' '), p1.LASTNAME) as nominativoGenitore, r.STATUS, p.DATE_OF_BIRTH FROM PERSONS_VW P
 INNER JOIN RELATIVES r
 ON p.CENTER = r.RELATIVECENTER

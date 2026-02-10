@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Created by: Sandra G Created on: 5.7.24  Created for: DE Team to see which email templates are sent the most  Note: run with small date range or it will hang
 SELECT
 
 

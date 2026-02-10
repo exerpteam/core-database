@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     pcl.person_center||'p'||pcl.person_id    former_person_id,
     pcl2.new_value                        AS first_name,

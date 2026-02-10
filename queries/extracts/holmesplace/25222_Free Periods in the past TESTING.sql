@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Start date in the past. End date in the past
 
 
 SELECT

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH j AS (
   SELECT
       je.person_center,
@@ -38,33 +40,33 @@ SELECT
     CASE WHEN pea.txtvalue ILIKE 'yes%' THEN 'Yes' ELSE 'No' END AS "eCollect",
     COALESCE(staff_from_emp.fullname, staff_direct.fullname, '') AS "Staff Name"
 FROM j
-JOIN fernwood.persons p
+JOIN persons p
   ON p.center = j.person_center AND p.id = j.person_id
-JOIN fernwood.centers c
+JOIN centers c
   ON c.id = p.center
-LEFT JOIN fernwood.account_receivables pay_ar
+LEFT JOIN account_receivables pay_ar
   ON pay_ar.customercenter = j.person_center
  AND pay_ar.customerid     = j.person_id
  AND pay_ar.ar_type        = 4
-LEFT JOIN fernwood.account_receivables inst_ar
+LEFT JOIN account_receivables inst_ar
   ON inst_ar.customercenter = j.person_center
  AND inst_ar.customerid     = j.person_id
  AND inst_ar.ar_type        = 6
-LEFT JOIN fernwood.account_receivables ext_ar
+LEFT JOIN account_receivables ext_ar
   ON ext_ar.customercenter = j.person_center
  AND ext_ar.customerid     = j.person_id
  AND ext_ar.ar_type        = 5
-LEFT JOIN fernwood.person_ext_attrs pea
+LEFT JOIN person_ext_attrs pea
   ON pea.personcenter = j.person_center
  AND pea.personid     = j.person_id
  AND pea.name         = 'eCollect'
-LEFT JOIN fernwood.employees e
+LEFT JOIN employees e
   ON e.center = j.author_center
  AND e.id     = j.author_id
-LEFT JOIN fernwood.persons staff_from_emp
+LEFT JOIN persons staff_from_emp
   ON staff_from_emp.center = e.personcenter
  AND staff_from_emp.id     = e.personid
-LEFT JOIN fernwood.persons staff_direct
+LEFT JOIN persons staff_direct
   ON staff_direct.center = j.author_center
  AND staff_direct.id     = j.author_id
 ORDER BY

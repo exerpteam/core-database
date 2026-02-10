@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes all subscriptions Active Frozen and Created so there will be duplicates.
 
 
 WITH

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Will pull all activity data for a selected activity group for identifying misconfigurations found in the activity audit extract
 SELECT
     ag.name AS activitygroup,
     ag.id   AS activitygroup_id,

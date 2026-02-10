@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- For Michelle and Rosie (from Exerp ticlet: EC-8781
 WITH CONTACT_PERSON AS
 (
     SELECT

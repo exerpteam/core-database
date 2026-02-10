@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Active Temp Inactive Prospect Contsct and Lead if clips or payer and inactive if has corona comp
 WITH
     product_spons_pg AS
     (

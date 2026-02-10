@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
         params AS
         (
@@ -27,9 +29,9 @@ SELECT
                 WHEN inv.employee_center ||'emp'|| inv.employee_id = '100emp409' THEN 'MWC'        
         END AS "Payment Source"             
 FROM
-        fernwood.invoices inv
+        invoices inv
 JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
         ON invl.center = inv.center
         AND inv.id = invl.id
         AND invl.reason NOT IN (2,6)
@@ -38,7 +40,7 @@ JOIN
         ON p.center = inv.payer_center                      
         AND p.id = inv.payer_id
 JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON art.ref_center = invl.center
         AND art.ref_id = invl.id
         AND art.ref_type = 'INVOICE'
@@ -49,7 +51,7 @@ JOIN
         AND artm.art_paid_subid = art.subid
         AND artm.cancelled_time IS NULL 
 JOIN
-        fernwood.ar_trans artp
+        ar_trans artp
         ON artp.center = artm.art_paying_center
         AND artp.id = artm.art_paying_id
         AND artp.subid = artm.art_paying_subid               
@@ -57,7 +59,7 @@ JOIN
         params
         ON params.center_id = inv.center 
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = inv.center                            
 WHERE
         inv.employee_center ||'emp'|| inv.employee_id  IN ('100emp409','100emp2202','100emp20601','100emp19603','100emp2605') 
@@ -85,18 +87,18 @@ SELECT
                 WHEN art.employeecenter ||'emp'|| art.employeeid = '100emp409' THEN 'MWC'        
         END AS "Payment Source"  
 FROM 
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.customercenter = p.center
         AND ar.customerid = p.id
 JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON art.center = ar.center
         AND art.id = ar.id
         AND art.ref_type = 'ACCOUNT_TRANS'
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = p.center
 JOIN
         params
@@ -124,17 +126,17 @@ SELECT
                 WHEN inv.employee_center ||'emp'|| inv.employee_id = '100emp409' THEN 'MWC'        
         END AS "Payment Source"    
 FROM
-        fernwood.invoices inv
+        invoices inv
 JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
         ON invl.center = inv.center
         AND inv.id = invl.id
         AND invl.reason != 2
 JOIN
-        fernwood.cashregistertransactions crt
+        cashregistertransactions crt
         ON crt.paysessionid = inv.paysessionid
 JOIN
-        fernwood.cashregisters cr
+        cashregisters cr
         ON cr.center = crt.center
         AND cr.id = crt.id
         AND cr.name like 'Web%'               
@@ -146,7 +148,7 @@ JOIN
         params
         ON params.center_id = inv.center 
 JOIN
-        fernwood.centers c
+        centers c
         ON c.id = inv.center
 WHERE 
         inv.employee_center ||'emp'|| inv.employee_id  IN ('100emp409','100emp2202','100emp20601','100emp19603','100emp2605')    

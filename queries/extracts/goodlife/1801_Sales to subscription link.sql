@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Provide a link between a sales line ad and the related subscription
 SELECT
     biview."SALES_LINE_ID",
     biview."SUBSCRIPTION_ID"

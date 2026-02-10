@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Birthday Date Range Report
 -- This report show members whose birthdate falls within a specified date range
 

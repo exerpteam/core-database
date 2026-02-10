@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Creator: Henrik Håkanson
 * Purpose: Lookup members that initially bought a trial period and then became an active member.

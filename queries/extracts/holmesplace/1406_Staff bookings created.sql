@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- With name of staff who created the booking
 
 SELECT
     b.CENTER booking_center,

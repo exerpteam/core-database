@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Freezes ending after Migration date. Send to PGM for migration. Freeze reasons converted to the ones in PGM. Frozen PT VIP are missing, will have to freeze manually?. Added exerp contract id, tell Pawel to use it to freeze the main contracts.
 SELECT DISTINCT
 	'1' AS "IsUpdate",
 	p.external_id AS "UserId",

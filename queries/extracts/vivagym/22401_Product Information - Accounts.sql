@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     center,
     name,
@@ -81,6 +83,32 @@ SELECT
 		WHEN '7201' THEN 'Merchandising Boxeo'
         WHEN '7401' THEN 'Boxer - King of the ring'
         WHEN '7601' THEN 'Boxer - Padwork Boxing'
+		WHEN '7801' THEN 'Freezer Bocer (INC)'
+		WHEN '8003' THEN 'Boxer - ADDON HIIT 2Días (INC)'
+		WHEN '8201' THEN 'Boxer - Cuota Adulto Ilim (INC)'
+		WHEN '8401' THEN 'Boxer - Cuota Adulto 2d (INC)'
+		WHEN '8402' THEN 'Pasaporte Algarve'
+		WHEN '8601' THEN 'Boxer - Cuota Junior (INC)'
+		WHEN '8602' THEN 'Boxer - Cuota HIIT 2Días (INC)'
+		WHEN '8801' THEN 'Boxer - Cuota HIIT 3Días (INC)'
+		WHEN '9001' THEN 'Boxer - ADDON HIIT 3Días (INC)'
+		WHEN '9201' THEN 'Boxer - Daypass'
+		WHEN '9401' THEN 'Drink'
+		WHEN '10001' THEN 'Pro-rata Cuota Iberia (INC)'
+		WHEN '10001' THEN 'Pro-rata Cuota Iberia (INC)'
+		WHEN '10201' THEN 'Pro-rata Cuota ONE (INC)'
+		WHEN '10401' THEN 'Pro-rata Cuota FLEX (INC)'
+		WHEN '10402' THEN 'Pro-rata Cuota PRIME (INC)'
+		WHEN '9601' THEN 'Pro-rata Cuota Club (INC)'
+		WHEN '9801' THEN 'Pro-rata Cuota Zone (INC)'
+		WHEN '8002' THEN 'Pro-rata Cuota BoxerKid (INC)'
+		WHEN '10404' THEN 'Pro-rata Cuota Platino (INC)'
+		WHEN '10403' THEN 'Pro-rata Cuota Premium (INC)'
+		WHEN '9402' THEN 'Pro-rata Cuota Montlhy (INC)'
+		WHEN '8001' THEN 'Pro-rata Cuota BoxerClub (INC)'
+		WHEN '10601' THEN 'Pro-rata Cuota Adulto Boxing (INC)'
+		WHEN '10801' THEN 'Pro-rata Cuota HIIT Boxing (INC)'
+		WHEN '9802' THEN 'Pro-rata Cuota Junior Boxing (INC)'
         ELSE p.product_account_config_id::text
     END AS product_account_config_match
 FROM products AS p

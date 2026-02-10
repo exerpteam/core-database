@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- added PAID Column (settled amount).  Excludes payment requests if resent for the same due date period. Keeps the most recent one requested. But we seem to loose some poeple completely. Need to fix
 WITH
     PAY_REQUESTS AS
     (

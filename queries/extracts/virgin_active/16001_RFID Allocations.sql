@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to establish how many members have an RFID band at a club
  SELECT DISTINCT
      p.CENTER || 'p' || p.id member_id,
      ' ' || ei.IDENTITY || ' ' "CARDNO",

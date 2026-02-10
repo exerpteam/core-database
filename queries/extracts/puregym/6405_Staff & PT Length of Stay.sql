@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     c.NAME AS "Center Name",
 p.center||'p'||p.id as "Person ID", 

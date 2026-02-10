@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 07.07.22 - Copy of the PT Revenue - member detail report, with Age and gender added for Liam McKenna
 WITH
      params AS
      (

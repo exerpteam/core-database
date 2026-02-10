@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- 8-week visit list (one row per visit) + transfer_to + AR columns, multi-center
 WITH params AS (
   SELECT CURRENT_DATE::date AS today,

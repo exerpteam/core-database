@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p.center || 'p' || p.id AS PersonId,
     p.external_id,
@@ -47,27 +49,27 @@ SELECT
             ELSE 'NO'
         END) ActiveClipcard
 FROM
-    fernwood.persons p
+    persons p
 LEFT JOIN
-    fernwood.person_ext_attrs email
+    person_ext_attrs email
 ON
     p.center = email.personcenter
 AND p.id = email.personid
 AND email.name = '_eClub_Email'
 LEFT JOIN
-    fernwood.person_ext_attrs oldid
+    person_ext_attrs oldid
 ON
     p.center = oldid.personcenter
 AND p.id = oldid.personid
 AND oldid.name = '_eClub_OldSystemPersonId'
 LEFT JOIN
-    fernwood.person_ext_attrs token
+    person_ext_attrs token
 ON
     p.center = token.personcenter
 AND p.id = token.personid
 AND token.name = '_eClub_WellnessCloudUserPermanentToken'
 LEFT JOIN
-    fernwood.person_ext_attrs sms
+    person_ext_attrs sms
 ON
     p.center = sms.personcenter
 AND p.id = sms.personid
@@ -78,9 +80,9 @@ LEFT JOIN
             p.center,
             p.id
         FROM
-            fernwood.persons p
+            persons p
         JOIN
-            fernwood.subscriptions s
+            subscriptions s
         ON
             p.center = s.owner_center
         AND p.id = s.owner_id
@@ -96,9 +98,9 @@ LEFT JOIN
             p.center,
             p.id
         FROM
-            fernwood.persons p
+            persons p
         JOIN
-            fernwood.clipcards c
+            clipcards c
         ON
             p.center = c.owner_center
         AND p.id = c.owner_id

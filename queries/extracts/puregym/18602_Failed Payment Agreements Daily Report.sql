@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      c.NAME as "Club name",
      ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID AS "P Number",

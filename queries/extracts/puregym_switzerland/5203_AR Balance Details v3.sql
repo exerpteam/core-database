@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 Aim: this report should copy AR Balance report without aggregating transactions
 ARBalance report seems to simply sum up all transactions based on trans_time <= cut_off on accounts

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     c.ID             AS "VISIT_ID",
     c.CHECKIN_CENTER AS "CHECKIN_CENTER_ID",

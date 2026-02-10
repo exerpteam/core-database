@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Companies with or without an agreement or members. Includes Suppliers are filtered out
 select
     com.lastname as company_name,     
 

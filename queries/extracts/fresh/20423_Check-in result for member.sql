@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Get the check-ins with their result for a specific member 
  select
  c.SHORTNAME AS CHECKIN_CENTER,
  longtodateC(ci.CHECKIN_TIME, ci.CHECKIN_CENTER) AS CHECKIN_TIME,

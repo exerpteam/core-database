@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         t2.Center AS "Center",
         t2.AccountType AS "Account type",

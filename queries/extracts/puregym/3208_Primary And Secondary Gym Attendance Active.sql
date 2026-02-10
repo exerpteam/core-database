@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Very heavy!
 SELECT
     per.FULLNAME,
     per.center || 'p' || per.id AS "P ref",

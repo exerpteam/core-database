@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to see if any retail privileges have been used during a period, for which products, the normal price of the product and the discounted price. 
  WITH
      params AS
      (

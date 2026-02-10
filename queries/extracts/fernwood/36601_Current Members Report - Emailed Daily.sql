@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of active & temporariy inactive members. Includes staff and complimentary. Personal details removed - this report is being emailed to Anthony daily. 
 WITH
     params AS MATERIALIZED
     (

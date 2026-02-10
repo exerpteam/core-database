@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  select
          to_char(longToDateC(i.ENTRY_TIME,i.payer_center),'YYYY-MM-dd') Invoice_Date_Time,
          i.payer_center || 'p' || i.Payer_id "Payer_ID",

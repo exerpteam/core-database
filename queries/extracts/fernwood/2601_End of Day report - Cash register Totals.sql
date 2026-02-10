@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
           params AS
           (
@@ -51,9 +53,9 @@ FROM
                                         ,crt.employeecenter||'p'||crt.employeeid AS "Employee ID"
                                         ,c.name AS "Center"                                                                          
                                 FROM 
-                                        fernwood.cashregistertransactions crt
+                                        cashregistertransactions crt
                                 JOIN 
-                                        fernwood.centers c
+                                        centers c
                                         ON c.id = crt.center        
                                 JOIN 
                                         params 

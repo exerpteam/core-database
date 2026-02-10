@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-4507, automatic AG list for sweden. Other payer to members with EFT memberships sold the last 90days without an OK agreement.
  WITH
          params AS
          (

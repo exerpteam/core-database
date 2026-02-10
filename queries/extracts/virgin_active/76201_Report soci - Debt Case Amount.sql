@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Estrae lista soci con debt case. In caso di altro titolare dei pagamenti estrae solo dati del titolare avente debt case popolato.
 SELECT DISTINCT
 	p.CENTER || 'p' || p.ID AS Person_ID,
 	s.CENTER || 'ss' || s.ID AS Subscription_ID,

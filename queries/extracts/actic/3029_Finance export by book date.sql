@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
     sums.gl_export_batch_id,
 c.EXTERNAL_ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Report to get the lead from the tablet that have accepted to received commercial information
        WITH
             params AS
             (

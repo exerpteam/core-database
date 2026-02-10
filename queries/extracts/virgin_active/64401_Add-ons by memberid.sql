@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
    per.center||'p'||per.id             AS customer,
 		sa.center_id 								  as add_on_scope,

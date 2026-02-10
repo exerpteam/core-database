@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Only HP Boutique membership, not Classic VIP. Currently Active Frozen or Created memberships.
 SELECT
 	c.Shortname						AS "Club",
     p.CENTER ||'p'|| p.ID           AS "Member ID",

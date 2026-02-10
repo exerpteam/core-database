@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT distinct
      bo.name                                                         AS "Classname",
      TO_CHAR(longToDate(bo.STARTTIME),'hh24:mi')                         AS "Class time",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This is meant to identify cases where the access privilege was incorrectly set. Once these have been corrected, extract should be deleted.
 SELECT
     b.name                              AS ACTIVITY,
     longtodateC(b.starttime,b.center)   AS start_time,

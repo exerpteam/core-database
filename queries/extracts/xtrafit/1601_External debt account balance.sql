@@ -1,1 +1,3 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT p.center || 'p' || p.id AS "PERSONKEY", ar.balance FROM account_receivables ar JOIN persons p ON p.center = ar.customercenter AND p.id = ar.customerid WHERE ar.balance <> 0 AND ar.ar_type = 5 -- AND p.sex != 'C' AND p.center IN (:Scope) 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select bk.center as BOOKING_CENTER, bk.id as BOOKING_ID, bk.owner_center as PERSON_CENTER, bk.owner_id as PERSON_ID, 
 bk.center || 'bk' || bk.id as BookingId
 --, count(*) 

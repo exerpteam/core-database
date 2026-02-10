@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 --Add filter and c.Country = 'MY'
 
 WITH pmp_xml AS (

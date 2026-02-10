@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         cp.center || 'p' || cp.id AS PersonId,
         tr.center || 'p' || tr.id AS TransferredPersonId

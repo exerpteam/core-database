@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Member numbers based on KPIs
 SELECT
     NVL(CENTER,'Total '|| TO_CHAR(MAX("DATE"),'DD/MM/YYYY')) AS "Club",
     CENTER_ID AS "Club_ID",

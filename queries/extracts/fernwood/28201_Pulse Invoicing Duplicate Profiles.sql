@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 -- Duplicate members within the SAME club where
 --   • base name (first two words) matches, AND
 --   • DATE OF BIRTH matches

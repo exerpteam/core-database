@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-19387
 SELECT
     p.CENTER||'p'||p.id AS memberid,
     p.FULLNAME,

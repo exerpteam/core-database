@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     att.BOOKING_RESOURCE_CENTER AS center,
     to_char(longtodate(att.START_TIME),'MONTH') as MONTH,

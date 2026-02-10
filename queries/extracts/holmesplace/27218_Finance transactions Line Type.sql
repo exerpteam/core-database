@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Information in Text is complete and you can select specific types of transactions in filter
 
 WITH
     params AS

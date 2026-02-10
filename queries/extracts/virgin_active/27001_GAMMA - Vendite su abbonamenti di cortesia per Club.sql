@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT c.SHORTNAME as club, CONCAT(CONCAT(cast(p.CENTER as char(3)),'p'), cast(p.ID as varchar(8))) as personId, p.FULLNAME as nominativo, pr.NAME as abbonamentoConcluso, pr1.NAME AS nuovoAbbonamento, s1.START_DATE as dataInizioNuovoAbbonamento, s.END_DATE as dataFineVecchioAbbonamneto, ss.SALES_DATE as dataVendita from 
 SUBSCRIPTIONS s
 INNER JOIN PERSONS p

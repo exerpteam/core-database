@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Select by entry date
 SELECT DISTINCT
     (s.owner_center||'p'||s.owner_id) AS memberid,
     sfp.start_date                    AS FreezeStartDate,

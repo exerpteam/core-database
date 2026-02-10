@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     ag.id AS "Activity Group ID",
     ag.name AS "Activity Group Name",

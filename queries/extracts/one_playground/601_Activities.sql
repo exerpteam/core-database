@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
          a.id as "Activity ID",
          a.name as "Activity Name",

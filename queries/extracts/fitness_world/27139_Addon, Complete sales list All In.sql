@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 SELECT DISTINCT
     t1.Addon_center          AS "Subscription Add-on Center ID",

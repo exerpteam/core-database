@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Dates set for November to test Freezes stopped part way trough
 
 WITH
     PARAMS AS

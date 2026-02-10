@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- These are correct members which have payment request specification not equal to request amount and linked to payment request created before 180 days.
 SELECT
     ccrOuter.center,

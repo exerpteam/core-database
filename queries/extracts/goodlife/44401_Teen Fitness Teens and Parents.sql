@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used June 2023 to find teens and parents to send correction email from Adobe. Teens with more than one parent will appear on two rows in this report.
 
 
 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Need to validate. Includes if Credit or Debit GL ext ids are 1000801','1000809 with Pilates 1000815
 
 
 WITH

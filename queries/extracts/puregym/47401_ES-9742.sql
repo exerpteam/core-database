@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- ES-9742 YesMail extract for the period 21/05 - 26/05 
 WITH
     any_club_in_scope AS
     (

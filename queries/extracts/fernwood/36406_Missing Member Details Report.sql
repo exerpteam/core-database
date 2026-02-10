@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This report identifies ACTIVE members with incomplete or missing profile information including: Email address, mobile phone, physical address, emergency contact details & email/SMS preferences. Ability to filter by all, New members (joined in the past 90 days) or Existing members (90 days or older). Excludes staff person types. 
 -- Missing Member Details Report
 -- This report identifies active members with missing required information
 -- Author: Based on Exerp database structure

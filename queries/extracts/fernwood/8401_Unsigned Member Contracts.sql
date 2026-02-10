@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
                 t2."Person ID"
                 ,t2."Member Name"
@@ -48,11 +50,11 @@ FROM
                 centers c
                         ON p.center = c.id
         JOIN 
-                fernwood.subscriptions s
+                subscriptions s
                         ON doc.ref_center = s.center
                         AND doc.ref_id = s.id 
         JOIN
-                fernwood.products pro
+                products pro
                         ON pro.center = s.subscriptiontype_center
                         AND pro.id = s.subscriptiontype_id                
         WHERE 

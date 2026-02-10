@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH params AS
 (
       SELECT
@@ -25,27 +27,27 @@ filtered_data AS
         c.name AS "Club Name",
         art.text AS "Description"
     FROM
-        fernwood.account_trans act
+        account_trans act
     JOIN
-        fernwood.ar_trans art
+        ar_trans art
         ON act.center = art.ref_center
         AND act.id = art.ref_id
         AND act.subid = art.ref_subid
         AND art.ref_type = 'ACCOUNT_TRANS'
     JOIN
-        fernwood.accounts credit
+        accounts credit
         ON credit.center = act.credit_accountcenter
         AND credit.id = act.credit_accountid
         AND credit.external_id = '02.00.1283'
     JOIN
-        fernwood.accounts debit
+        accounts debit
         ON debit.center = act.debit_accountcenter
         AND debit.id = act.debit_accountid 
     JOIN
-        fernwood.centers c
+        centers c
         ON c.id = act.center   
     JOIN
-        fernwood.account_receivables ar
+        account_receivables ar
         ON ar.center = art.center
         AND ar.id = art.id              
     LEFT JOIN
@@ -57,14 +59,14 @@ filtered_data AS
             ar.customercenter,
             ar.customerid
         FROM
-            fernwood.payment_requests pr
+            payment_requests pr
         JOIN
-            fernwood.payment_agreements pag
+            payment_agreements pag
             ON pr.center = pag.center 
             AND pr.id = pag.id 
             AND pr.agr_subid = pag.subid 
         JOIN
-            fernwood.account_receivables ar 
+            account_receivables ar 
             ON ar.center = pag.center 
             AND ar.id = pag.id
         ) pr                      

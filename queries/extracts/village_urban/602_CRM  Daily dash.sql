@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     'BOOKING' TYPE,
     /* TO_CHAR(b.ID) booking_id, */

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 	friend.external_id AS FriendExternal,
 		friend.fullname AS Friend,
 		associate.external_id AS AssociateExternal,

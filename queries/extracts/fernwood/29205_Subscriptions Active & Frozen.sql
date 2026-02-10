@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of all current members and their subscriptions not including personal information.
 WITH
     params AS MATERIALIZED
     (

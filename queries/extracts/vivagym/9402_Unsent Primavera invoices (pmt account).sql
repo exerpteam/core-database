@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Invoices never sent to Prim, specific list
 SELECT
         r1.*
 FROM

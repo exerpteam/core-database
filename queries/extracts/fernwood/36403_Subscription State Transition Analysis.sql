@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Analyzes actual subscription records in chronological order
+. Examines state transitions (ACTIVE → ENDED → ACTIVE)
 -- Alternative approach: Track members who rejoined by analyzing subscription state transitions
 -- This looks for members who have had ended subscriptions followed by new active ones
 

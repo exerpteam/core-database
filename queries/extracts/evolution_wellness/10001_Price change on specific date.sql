@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     Case when oldid.txtvalue is not null
     then oldid.txtvalue

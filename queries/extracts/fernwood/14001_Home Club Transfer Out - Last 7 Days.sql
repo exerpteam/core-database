@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-870
 SELECT
             newp.external_id AS "External ID"
             ,oldp.center || 'p' || oldp.id AS "Old Person ID"
@@ -27,71 +29,71 @@ SELECT
             ,pro.name AS "Clip Card Name at time of transfer"
             ,-ccu.clips AS "Number of Clips"
 FROM
-        fernwood.persons oldp
+        persons oldp
 JOIN
-        fernwood.PERSON_EXT_ATTRS pea
+        PERSON_EXT_ATTRS pea
                 ON pea.PERSONCENTER= oldp.CENTER
                 AND pea.PERSONID= oldp.ID
                 AND pea.NAME = '_eClub_TransferredToId'
 JOIN
-        fernwood.PERSON_EXT_ATTRS trd
+        PERSON_EXT_ATTRS trd
                 ON trd.PERSONCENTER= oldp.CENTER
                 AND trd.PERSONID= oldp.ID
                 AND trd.NAME = '_eClub_TransferDate'
 JOIN
-        fernwood.persons newp
+        persons newp
                 ON newp.center || 'p' || newp.id = pea.txtvalue
 				AND newp.STATUS IN (1,3)
 JOIN
-        fernwood.centers fromcenter
+        centers fromcenter
                 ON fromcenter.ID=oldp.center
 JOIN
-        fernwood.centers tocenter
+        centers tocenter
                 ON tocenter.ID=newp.center
 LEFT JOIN
-        fernwood.subscriptions olds
+        subscriptions olds
                 ON olds.owner_center = oldp.center
                 AND olds.owner_id = oldp.id
                 and olds.sub_state = 6
 LEFT JOIN
-        fernwood.products pold
+        products pold
                 ON pold.center = olds.subscriptiontype_center
                 AND pold.id = olds.subscriptiontype_id              
 LEFT JOIN
-        fernwood.subscriptions news
+        subscriptions news
                 ON news.owner_center = newp.center
                 AND news.owner_id = newp.id
                 AND news.invoiceline_center = oldp.center
 LEFT JOIN
-        fernwood.products pnew
+        products pnew
                 ON pnew.center = news.subscriptiontype_center
                 AND pnew.id = news.subscriptiontype_id 
 JOIN
-        fernwood.person_change_logs pcl
+        person_change_logs pcl
                 ON pcl.person_center = oldp.center
                 AND pcl.person_id = oldp.id
                 AND pcl.change_attribute = '_eClub_TransferredToId'
 JOIN
-        fernwood.employees emp
+        employees emp
                 ON emp.center = pcl.employee_center
                 AND emp.id = pcl.employee_id
 JOIN
-        fernwood.persons empp
+        persons empp
                 ON emp.personcenter = empp.center
                 AND emp.personid = empp.id   
 LEFT JOIN
-        fernwood.clipcards cc
+        clipcards cc
                 ON cc.owner_center = oldp.center
                 AND cc.owner_id = oldp.id
                 AND trd.txtvalue = TO_CHAR(longtodateC(cc.valid_until,cc.center),'YYYY-MM-DD')  
 LEFT JOIN
-        fernwood.card_clip_usages ccu
+        card_clip_usages ccu
                 ON ccu.card_center = cc.center
                 AND ccu.card_id = cc.id
                 AND ccu.card_subid = cc.subid 
                 AND ccu.type = 'TRANSFER_FROM'                           
 LEFT JOIN
-        fernwood.products pro 
+        products pro 
                 ON pro.center = cc.center
                 AND pro.id = cc.ID                                                                                                                                                                                                                                                      
 WHERE

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- An extract for finding members that have an expired credit card agreement + have other payer.
  SELECT DISTINCT
              PAG.CENTER AS INNER_CENTER,
              PAG.ID     AS INNER_ID,

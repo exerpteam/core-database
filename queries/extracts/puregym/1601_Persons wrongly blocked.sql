@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Get list of members who start in the future and have a blocked period though they have no outstanding balance anymore
  SELECT
      sub.CENTER,
      sub.ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      inv.CENTER || 'inv' || inv.ID       inv_id,
      longToDate(inv.TRANS_TIME ) sales_date,

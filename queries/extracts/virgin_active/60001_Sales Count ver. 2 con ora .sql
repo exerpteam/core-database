@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Clone ver 2 - Sales Count ver. 2 con ora  
 SELECT
      t1.SHORTNAME,
      t1.SALES_DATE,

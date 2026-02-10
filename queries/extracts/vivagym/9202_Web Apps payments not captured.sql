@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Web Apps payments not captured in Web Apps
 WITH
             params AS
             (

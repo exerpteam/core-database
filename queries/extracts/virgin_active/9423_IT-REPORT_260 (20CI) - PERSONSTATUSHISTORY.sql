@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 This should record changes to the external attribute that keeps track of the person status.
 Since this is not yet implemented we just check for address changes but this needs to be updated.

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- https://clublead.atlassian.net/browse/ST-3457
 
 SELECT DISTINCT ar_total.center||'p'||ar_total.id as MemberID, ar_total.fullname, ar_total."Total_ART" AS Correction, ar_total.entry_date AS Entry_Date, cl.Text AS Description FROM

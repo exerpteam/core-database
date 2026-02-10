@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT DISTINCT
      p.CENTER||'p'||p.ID                    AS "COMPANY_ID",
      ca.center||'p'||ca.id||'rpt'||ca.SUBID AS "COMPANY_AGREEMENT_ID",

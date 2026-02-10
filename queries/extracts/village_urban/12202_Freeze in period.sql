@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      per.CENTER||'p'||per.id as MemberID,
      sub.START_DATE subStart,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p2.EXTERNAL_ID                                                                AS "External ID",
     TO_CHAR(longtodatetz(att.START_TIME, 'Europe/London'), 'YYYY-MM-dd HH24:MI') AS "Visit date and time",

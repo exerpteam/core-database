@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select *--count(*),personcenter||'p'||personid as person_id
 from person_ext_attrs p
 where --name = '_eClub_Email' and 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Workaround for 'Leavers by Post Code' extract - Temporary until PARAMS bug is fixed.  
 
 SELECT
     Z  AS "Street Post Code",

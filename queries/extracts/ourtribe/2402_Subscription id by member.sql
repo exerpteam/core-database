@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of members to retrieve subscription ids. Will retrieve ids of all subscription states.
 SELECT 
 s.CENTER as "CENTERID",
 s.OWNER_CENTER ||'p'|| s.OWNER_ID AS "PERSONKEY",

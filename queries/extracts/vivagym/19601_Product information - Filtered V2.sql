@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT center, shortname, blocked, p.name,price, globalid, show_in_sale, show_on_web, mapi_selling_points
 FROM products as p LEFT JOIN centers as c ON p.center = c.id
 WHERE p.globalid IN ('CREATION_MF_CLUB_PT', 

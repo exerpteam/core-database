@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Sales Count ST-2641(new) - OLD NON USARE 
 SELECT
     t1.SHORTNAME,
     t1.SALES_DATE,

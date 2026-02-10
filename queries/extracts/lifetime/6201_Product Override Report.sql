@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-11684
 SELECT
     p.cached_productname as "Product Name",
     pg.name as "Product Group",

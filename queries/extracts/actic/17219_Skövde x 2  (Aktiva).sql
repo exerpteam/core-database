@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select
    E.IDENTITY as cardno,
    MAX(P.CENTER) as sit_nr,

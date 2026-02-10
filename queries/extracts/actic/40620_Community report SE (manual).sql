@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Används för rapportering av autogirointäkter till kommunen. Liknande automatiserat extrakt finns för automatisk export.
+Detta extrakt erbjuder möjlighet att välja period enligt önskemål. ST-1652 
 /**
 * Creator: Henrik Håkanson.
 * Purpose: Based on Extract ST-1652 - Community Report SE. Extract generate economic reporting for AG revenue by community clubs.

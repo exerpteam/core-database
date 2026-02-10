@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Refund ex Id 5004125 for Germany
 Select
 c.shortname as "Beschreibung (intern)",
 p.center ||'p'|| p.id as "Kategorie", 

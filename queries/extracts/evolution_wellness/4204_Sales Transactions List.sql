@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- every POS sale in the period + evey pay into account allocated where the payment was after the
 -- sale
 WITH

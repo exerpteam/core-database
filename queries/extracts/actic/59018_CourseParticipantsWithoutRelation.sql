@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
 	per.EXTERNAL_ID AS "EXTERNAL_ID",
 	per.CENTER ||'p'|| per.ID AS "MEMBERNUMER",

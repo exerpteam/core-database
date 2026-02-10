@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/servicedesk/customer/portal/9/EC-4752
+
+approved 7/29/22
 WITH params AS MATERIALIZED
 (
         SELECT

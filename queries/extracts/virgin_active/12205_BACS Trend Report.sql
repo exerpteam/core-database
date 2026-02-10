@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  with params as (
         select cast(:date_month as date) AS DATE_P
  )

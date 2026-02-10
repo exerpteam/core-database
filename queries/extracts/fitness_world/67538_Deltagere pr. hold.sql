@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select
 count (distinct(par.PARTICIPANT_CENTER || 'p' || par.PARTICIPANT_ID)) as Antal_bookinger,

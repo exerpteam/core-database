@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         c.name AS "Club Name"
 		,p.center || 'p' || p.id AS "Person ID"
@@ -6,12 +8,12 @@ SELECT
         ,p.lastname AS "Last Name"
         ,ar.balance AS "Debt Collector Account Balance"   
 FROM 
-        fernwood.persons p
+        persons p
 JOIN
-        fernwood.centers c
+        centers c
 		ON c.id = p.center   
 JOIN 
-        fernwood.account_receivables ar 
+        account_receivables ar 
         ON p.center = ar.customercenter 
         AND p.id = ar.customerid 
         AND ar.ar_type = 5 

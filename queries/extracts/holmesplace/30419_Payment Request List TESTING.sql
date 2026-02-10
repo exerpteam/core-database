@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Add clearing houses - name and lots of dates and invoice number.  Decode  payment reques states. Only get people with overdue debt
 	
 select 
 	p.external_id,

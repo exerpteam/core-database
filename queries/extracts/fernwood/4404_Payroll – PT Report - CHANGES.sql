@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH
   params AS
   (
@@ -40,24 +42,24 @@ SELECT DISTINCT
         ,p2.center||'p'||p2.id AS "Instructor ID"
         ,p2.fullname AS "Instructor Name"             
 FROM 
-        fernwood.participations part
+        participations part
 JOIN 
-        fernwood.persons p 
+        persons p 
         ON p.center = part.participant_center
         AND p.id = part.participant_id
 JOIN 
-        fernwood.bookings b
+        bookings b
         ON b.center = part.booking_center
         AND b.id = part.booking_id
 JOIN 
         params 
         ON params.CENTER_ID = part.booking_center
 JOIN 
-        fernwood.activity ac
+        activity ac
         ON b.activity = ac.id
         AND ac.id in (803,2,601,3401,3,9003,24608,24207,3,23445,24405)
 JOIN 
-        fernwood.STAFF_USAGE su
+        STAFF_USAGE su
         ON su.BOOKING_CENTER = b.center
         AND su.BOOKING_ID = b.id
         AND     
@@ -67,7 +69,7 @@ JOIN
                 (su.state = 'CANCELLED' AND part.cancelation_reason = 'NO_PRIVILEGE')
         )                                
 LEFT JOIN 
-        fernwood.persons p2
+        persons p2
         ON p2.CENTER = su.PERSON_CENTER
         AND p2.id = su.PERSON_ID          
 WHERE 

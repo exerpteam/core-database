@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- EC-7617
 SELECT
 inv.center,
 invl.quantity,

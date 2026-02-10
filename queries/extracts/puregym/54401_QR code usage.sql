@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-7271
  SELECT
      p.EXTERNAL_ID                                  AS "External ref",
      CASE c.IDENTITY_METHOD  WHEN 5 THEN  'PIN'  WHEN 7 THEN  'QR' END   AS "PIN/QR flag",

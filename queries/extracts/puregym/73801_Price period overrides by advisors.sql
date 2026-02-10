@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Testing
 SELECT
  p.center ||'p'|| p.id                                   AS "Person ID",
 s.center ||'ss'|| s.id as "Subscription ID",

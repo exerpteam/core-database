@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- New version of 16202 that can be ran for Italy as well as the UK
  WITH
      params AS
      (

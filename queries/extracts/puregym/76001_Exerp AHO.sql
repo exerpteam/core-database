@@ -1,1 +1,0 @@
-select :fromdate from dual

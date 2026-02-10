@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-3627
+https://clublead.atlassian.net/browse/ST-4019
+https://clublead.atlassian.net/browse/ES-9794
 WITH
     params AS
     (

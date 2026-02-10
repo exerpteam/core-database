@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
   params AS
   (
@@ -21,7 +23,7 @@ SELECT
         ,CAST(p.participants AS numeric)/ CAST(b.class_capacity AS numeric) * 100 as "% of capacity"
         ,ins.fullname AS "Instructor"
 FROM 
-        fernwood.bookings b
+        bookings b
 LEFT JOIN 
         (
         SELECT 
@@ -29,7 +31,7 @@ LEFT JOIN
                 ,booking_id
                 ,count(*) as booked 
         FROM 
-                fernwood.participations
+                participations
         WHERE 
                 (cancelation_reason not in ('USER','BOOKING','CENTER','API') OR cancelation_reason IS NULL)  
         GROUP BY  
@@ -44,7 +46,7 @@ LEFT JOIN
                 ,booking_id
                 ,count(*) as participants 
         FROM 
-                fernwood.participations
+                participations
         WHERE 
                 state = 'PARTICIPATION' 
         GROUP BY  
@@ -53,21 +55,21 @@ LEFT JOIN
                 ON p.booking_center = b.center 
                 and p.booking_id = b.id                                 
 JOIN 
-        fernwood.centers c 
+        centers c 
                 ON c.ID = b.center
 JOIN 
-        fernwood.activity ac 
+        activity ac 
                 ON b.activity = ac.id
 JOIN 
         params 
                 ON params.CENTER_ID = b.center  
 JOIN 
-        fernwood.staff_usage su 
+        staff_usage su 
                 ON su.booking_center = b.center 
                 AND su.booking_id = b.id 
                 AND su.cancellation_time IS NULL
 JOIN 
-        fernwood.persons ins 
+        persons ins 
                 ON ins.center = su.person_center 
                 AND ins.id = su.person_id 
 WHERE

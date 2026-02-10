@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Paid for version. Dont need, use other one.  Need to include people who dont have DD payment agreement if their payer has one...if I change the pa to op instead of p I only get the missing ones.. P are the payers and paid for by, op are the payers
 SELECT DISTINCT
     
     center.id                          AS "ClubId",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract can Identify 32-bit contoler architecture
 SELECT DISTINCT
      ON
         (

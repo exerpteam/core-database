@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/wiki/pages/viewpage.action?pageId=120553731
  WITH
      params AS
      (

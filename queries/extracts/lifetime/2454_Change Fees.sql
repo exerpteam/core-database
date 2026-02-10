@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select 
 scf.id, scf.scope_type || scf.scope_id as "Scope"
 , sub_from_mpr.globalid as "Subscription_From"

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 with c as (
 SELECT table_name, ordinal_position, 
  column_name|| ' ' || data_type col

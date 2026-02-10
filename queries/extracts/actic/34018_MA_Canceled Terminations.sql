@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
 c.name,  
 j.PERSON_CENTER || 'p' || j.PERSON_ID PERSONID, 

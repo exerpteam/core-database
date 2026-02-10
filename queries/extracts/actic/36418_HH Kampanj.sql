@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     s.OWNER_CENTER||'p'||s.OWNER_ID   AS MemberID,
 	per.firstname,

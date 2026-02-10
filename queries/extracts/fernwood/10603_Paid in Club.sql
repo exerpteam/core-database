@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
         CAST(longtodatec(art.entry_time,art.center) AS Date) AS "Payment Date"
         ,art.amount AS "Amount paid (Gross)"

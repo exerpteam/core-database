@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to report on ADDACS files
 WITH PARAMS AS materialized
 (
    SELECT 

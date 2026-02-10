@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2785
 SELECT p.CENTER || 'p' || p.ID AS "Member ID", pag.CENTER AS "Center", p.FULLNAME AS "Member Name", pag.BANK_ACCOUNT_HOLDER AS "Bank Account Owner", pag.BANK_ACCOUNT_NUMBER_HASH  AS "Bank Account Hash", longToDateTZ(pag.CREATION_TIME, 'Europe/London') AS "Date of aggrement"
 FROM
     PERSONS p

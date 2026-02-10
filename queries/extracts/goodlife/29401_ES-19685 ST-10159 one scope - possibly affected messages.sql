@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Pulls a list of members with email address from one of the blocked domains, who had a contract email sent since November 19 2019
 SELECT
     p.center ||'p'|| p.id                           AS member,
     email.txtvalue                                  AS email_domain,

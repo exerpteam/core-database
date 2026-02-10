@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Current Active Frozen or Created Memberships - Based on memberships containing Boutique product group. Includes Classic Vip.
 SELECT
 	c.Shortname						AS "Club",
     p.CENTER ||'p'|| p.ID           AS "Member ID",

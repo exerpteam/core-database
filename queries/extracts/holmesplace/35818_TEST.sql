@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
             pu.PERSON_CENTER,
             pu.PERSON_ID,

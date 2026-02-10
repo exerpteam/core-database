@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
  * Terminated Cards APP API User
  * mimics the Subscription sales report Exerp

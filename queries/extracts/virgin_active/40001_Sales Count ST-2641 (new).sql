@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-4961
+https://clublead.atlassian.net/browse/ES-13456
+https://clublead.atlassian.net/browse/ST-6859
  SELECT
      t1.SHORTNAME,
      t1.SALES_DATE,

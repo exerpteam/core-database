@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT usages.*,
  CASE WHEN creditNotes.AMOUNT IS NOT NULL
  THEN creditNotes.AMOUNT

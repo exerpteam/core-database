@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 --FT 1 "15 Days"
 SELECT
         p.center ||'p'|| p.id AS "Member ID"

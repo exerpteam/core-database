@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         longtodatec(ccc.start_datetime,ccc.personcenter) as stardate,
         longtodatec(ccc.closed_datetime,ccc.personcenter) as enddate,

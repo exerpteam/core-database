@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     COUNT(p.center),
 	pea_email.txtvalue

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH
     RECURSIVE centers_in_area AS
     (
@@ -385,8 +387,7 @@ WITH
                     longtodatec(cn.entry_time,cn.center) BETWEEN shifts.register_open AND shifts.register_close
                     AND
                     cnl.total_amount != 0
-                    AND
-                    cn.paysessionid IS NULL
+
                 GROUP BY
                     shifts.cash_register_center,
                     shifts.cash_register_id,

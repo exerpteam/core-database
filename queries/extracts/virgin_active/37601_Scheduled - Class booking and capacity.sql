@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This is report ID: 16202 converted to run for the previous day, so that this could be scheduled
  WITH
  params AS
      (

@@ -1,3 +1,9 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract that finds two reported issues : 
+
+Case 1 = PCI-PAL payment with 1% 'change' 
+
+Case 2 = External device CC transaction registered against a cash register with POS payment method 
  SELECT
      c.SHORTNAME                                                        AS "CENTER",
      TO_CHAR(longtodateC(a."TRANSACTION_TIME",c.id),'YYYY-MM-dd HH24:MI') AS "TRANSACTION_TIME",

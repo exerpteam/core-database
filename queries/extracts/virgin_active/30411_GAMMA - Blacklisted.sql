@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT p.EXTERNAL_ID AS "EXTERNAL_ID" FROM PERSONS p
  INNER JOIN CENTERS c
  ON p.CENTER = c.ID

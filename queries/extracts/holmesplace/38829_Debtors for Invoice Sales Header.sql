@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 1 line per invoice.
 WITH
 	PAY_REQUESTS AS
 		(

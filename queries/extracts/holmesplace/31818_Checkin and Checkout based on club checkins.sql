@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Includes Staff. Based on who has checked into the club, regardless of which club they are from.
 SELECT
     p.center ||'p'|| p.id as "Person Id",
 	c.city as scope,

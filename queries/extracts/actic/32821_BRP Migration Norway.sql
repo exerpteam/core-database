@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         st.ST_TYPE,
         s.center || 'ss' || s.id AS Subscriptionid,

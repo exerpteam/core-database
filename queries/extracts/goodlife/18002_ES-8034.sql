@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     TO_CHAR(longtodatec(cn.ENTRY_TIME,cn.CENTER),'YYYY-MM-DD')      AS entrytime,
     cn.EMPLOYEE_CENTER||'emp'||cn.EMPLOYEE_ID AS emp,

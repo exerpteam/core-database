@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Export transactions to NETS for evaluation of creditrisk.
+Is exported monthly to SFTP and collected by NETS.
 WITH
     PARAMS AS materialized
     (

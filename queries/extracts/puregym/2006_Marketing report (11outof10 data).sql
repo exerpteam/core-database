@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract of imported marketing data from 11outof10. Data will not change.
 select
         C.ID,
         C.NAME,

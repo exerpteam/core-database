@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- All types of Free Pass enquiries where note begins 'Free Pass'
 SELECT
     p.CENTER ||'p'|| p.ID as PersonId,
     p.FULLNAME                                                                     AS "Member Name",

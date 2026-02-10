@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 select p.center ||'p'|| p.id,p.fullname,c.name from persons p join centers c on p.center = c.id where 
 (
         p.center, p.id) IN

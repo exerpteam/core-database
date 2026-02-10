@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select ccOuter.PERSONCENTER||'p'||ccOuter.PERSONID, sum(ccrOuter.REQ_AMOUNT),  count(*) from  
     cashcollection_requests ccrOuter

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Trying to add bar codes to goods products but is empty
 
 SELECT
 

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- change trans paid date to due date testing
 WITH
     params AS
     (

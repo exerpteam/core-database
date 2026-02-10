@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     firstname||' '||lastname AS "Member name", center||'p'||id AS "Member ID",
     -- as "Email",

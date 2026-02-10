@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     --    i1.SALES_DATE,
     --    i1.OWNER_CENTER,

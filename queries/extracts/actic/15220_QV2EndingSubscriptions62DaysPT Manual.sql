@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /* QV2EndingSubscriptions62DaysPT Manual
  *
  * Subscriptions with end_date within 62 days

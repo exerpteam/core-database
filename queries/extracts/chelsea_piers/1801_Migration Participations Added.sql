@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
         part.participant_center || 'p' || part.participant_id AS PersonId,
         pea.txtvalue as mosoid,

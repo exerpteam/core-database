@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ES-25924
 WITH
   params AS
   (
@@ -19,13 +21,13 @@ SELECT DISTINCT
                 Else 'Yes'
         END AS "Installment Account"                
 FROM
-        fernwood.invoices inv
+        invoices inv
 JOIN
-        fernwood.invoice_lines_mt invl
+        invoice_lines_mt invl
         ON invl.center = inv.center
         AND invl.id = inv.id  
 JOIN
-        fernwood.ar_trans ar
+        ar_trans ar
         ON ar.ref_center = invl.center 
         AND ar.ref_id = invl.id 
         AND ar.ref_type = 'INVOICE' 
@@ -43,17 +45,17 @@ LEFT JOIN
                 ,ar.balance AS "Installment Plan Account Balance"
                 ,ip.id AS "Installemtn ID"
         FROM 
-                fernwood.installment_plans ip
+                installment_plans ip
         JOIN
-                fernwood.installment_plan_configs ipc
+                installment_plan_configs ipc
                 ON ipc.id = ip.ip_config_id
         LEFT JOIN
-                fernwood.person_ext_attrs pea
+                person_ext_attrs pea
                 ON pea.personcenter = ip.person_center
                 AND pea.personid = ip.person_id 
                 AND pea.name = '_eClub_OldSystemPersonId' 
         LEFT JOIN
-                fernwood.account_receivables ar
+                account_receivables ar
                 ON ar.customercenter = ip.person_center
                 AND ar.customerid = ip.person_id 
                 AND ar.ar_type = 6
@@ -63,7 +65,7 @@ LEFT JOIN
         ON ip.person_center = inv.payer_center
         AND ip.person_id = inv.payer_id
 JOIN
-        fernwood.persons p
+        persons p
         ON p.center = inv.payer_center
         AND p.id = inv.payer_id 
 JOIN 

@@ -1,9 +1,11 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT 
     c.id AS "Club ID",
     c.name AS "Club Name",
     c.state AS "State"
 FROM 
-    fernwood.centers c
+    centers c
 WHERE 
     c.id IN (:Scope)
 ORDER BY 

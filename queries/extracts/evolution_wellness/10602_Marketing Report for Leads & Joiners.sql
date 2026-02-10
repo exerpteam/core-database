@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 -- Add new column "Tag" #194930
 -- Add new column "External ID","Signed Guest Waiver" and show the latest subscription #194930
 With

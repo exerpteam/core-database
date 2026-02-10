@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 --Extract Requirements: Sales Report for all 'DONATE SPIN4KIDS' Products, Date Parameters
 --Name of donor
 --Address

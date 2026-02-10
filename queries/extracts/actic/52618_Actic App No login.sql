@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract to find members for a given club that has never logged in to the app.
+
 SELECT 
 	per.EXTERNAL_ID AS ExterntId,
 	per.CENTER ||'p' || per.ID AS Medlemsnummer,

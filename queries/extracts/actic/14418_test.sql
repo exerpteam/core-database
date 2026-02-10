@@ -1,3 +1,0 @@
-select * from SUBSCRIPTIONS
-where
-OWNER_CENTER = 18

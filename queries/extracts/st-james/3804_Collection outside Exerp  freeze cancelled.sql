@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         longtodatec(sfp.entry_time, sfp.subscription_center) freeze_entry_time,
         longtodatec(sfp.cancel_time, sfp.subscription_center) freeze_cancel_time,

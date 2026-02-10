@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Based on creation dates of the memberships. Only Active/Temp inactive members
+Memberships with Boutique included in product groups (doesnt have to be primary)
+Use for Daily export (memberships sold previouse day)
 SELECT
     salesperson.FULLNAME AS "SalesPerson",
     ss.OWNER_CENTER || 'p' || ss.OWNER_ID AS "MemberID",

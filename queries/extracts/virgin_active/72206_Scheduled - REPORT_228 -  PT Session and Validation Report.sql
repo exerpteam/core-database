@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- RG 022123 - Added for James Shilling on request from EC-7525
 WITH
      params AS
      (

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 --Returns all emails that is present more than one time in the database and a column with the count of occurrences.
  
 SELECT

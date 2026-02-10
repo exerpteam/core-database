@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- List of subscriptions with prices
  SELECT
      c.name AS "Club name",
      CASE

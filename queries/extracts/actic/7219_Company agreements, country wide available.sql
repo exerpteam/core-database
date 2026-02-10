@@ -1,3 +1,14 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 1) the membership count is pr. agreement, NOT pr product.
+
+2) the rebate price shows what's on the privilege in the agreement.
+
+3) to get an agreement listed it has to be;
+   a)active
+   b)there needs to be active customers on it (no active customers -> no
+agreement will be listed)
+
+4) ONLY agreements set to be available for the ENTIRE chosen country is shown. So a subset of f.ex swedish clubs will not be shown (single and sets of clubs will be covered by another script).
 SELECT
     decode(ca.availability,'A2', 'SWEDEN', 'A4', 'Norway') as country,
     ca.availability,

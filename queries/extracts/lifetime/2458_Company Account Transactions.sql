@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- This extract pulls a list of transactions on a company's account based on parameters provided. The user can specify the Invoice ID, Company id, or both, as well as whether or not the transaction has been invoiced. 
 SELECT
 
 a.EntryDate AS "Entry Date",

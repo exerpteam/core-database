@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH date_scope AS (
     SELECT 
         (:start_date)::DATE AS start_date,

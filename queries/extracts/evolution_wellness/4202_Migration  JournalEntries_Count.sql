@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         pea.txtvalue AS PersonId,
         SUM(CASE WHEN je.name = 'PreviousLegacyMembershipNumber' THEN 1 ELSE 0 END) AS total_type_PreviousLegacyMembershipNumber,

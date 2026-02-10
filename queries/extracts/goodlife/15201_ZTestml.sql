@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /*
 SELECT br.name, br.center as BookingResourceCenter, br.id as BookingResourceId, att.id, att.center, att.person_center as PersonCenter, att.person_id, att.state, att.attend_using_card, 
     to_char(longtodatec(att.start_time, 100),'yyyy-MM-dd HH24:MI:SS') AS "START_TIME",

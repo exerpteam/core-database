@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
         mem.center ||'p'|| mem.id AS "Person ID"
         ,mem.fullname AS "Person Full Name"

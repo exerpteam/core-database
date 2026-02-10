@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Soci con 2 abbonamenti attivi contemporaneamente
  SELECT CONCAT(CONCAT(cast(s.CENTER as char(3)),'p'), cast(s.ID as varchar(8))) as personId, s.FULLNAME, prod.Name as subName,  s.NSub, s1.START_DATE, s1.END_DATE, s1.BINDING_END_DATE
  FROM (
  select

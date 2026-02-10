@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Test for products
 /*select p.NAME,p.CENTER,p.ID,pg.NAME,pg.ID from PRODUCTS p 
 left join PRODUCT_GROUP pg on
 	p.PRIMARY_PRODUCT_GROUP_ID = pg.ID*/

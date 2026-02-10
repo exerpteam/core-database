@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-1858
  SELECT
      gc.CENTER || 'gc' || gc.ID "GIFT CARD ID" ,
      prod.NAME GIFTCARD_NAME ,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-5725
 SELECT DISTINCT
     pr.full_reference                              AS "Payment Request Reference",
     pr.REQ_AMOUNT                                  AS "Requested amount",

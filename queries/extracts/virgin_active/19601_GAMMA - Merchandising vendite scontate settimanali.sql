@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT   c.SHORTNAME as "CLUB",  empl1.FULLNAME as "EMPLOYER", person.FULLNAME as "PERSON", payer.FULLNAME AS "PAYER", p.NAME AS "NAME", invl.TOTAL_AMOUNT as "AMOUNT",
  invl.PRODUCT_NORMAL_PRICE as "NORMALPRICE",
  invl.PRODUCT_NORMAL_PRICE - invl.TOTAL_AMOUNT as "PRICEDELTA",

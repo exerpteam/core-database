@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Rquest for free one day pass
  SELECT
      p.CENTER ||'p'|| p.ID as PersonId,
      p.FULLNAME                                                                     AS "Member Name",

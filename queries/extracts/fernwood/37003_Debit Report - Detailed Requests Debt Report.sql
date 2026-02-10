@@ -1,8 +1,10 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH dd AS (
   SELECT
       -1::int                AS club_id,          -- DD total (no per-club split available here)
       SUM(ci.total_amount)   AS dd_collected
-  FROM fernwood.clearing_in ci
+  FROM clearing_in ci
   WHERE ci.received_date BETWEEN DATE '2025-07-01' AND DATE '2025-07-31'
     AND ci.state = 5                                  -- success
 ),
@@ -10,7 +12,7 @@ cc AS (
   SELECT
       cct.center            AS club_id,
       SUM(cct.amount)       AS cc_collected
-  FROM fernwood.creditcardtransactions cct
+  FROM creditcardtransactions cct
   WHERE to_timestamp(cct.transtime/1000.0)
         >=  TIMESTAMP '2025-07-01'
     AND to_timestamp(cct.transtime/1000.0)

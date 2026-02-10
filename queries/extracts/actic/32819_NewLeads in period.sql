@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     cen.NAME,
 j.CREATORCENTER || 'emp' || j.creatorID as creator_Employee,

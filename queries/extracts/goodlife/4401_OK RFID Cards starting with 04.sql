@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 SELECT  
         e.ref_center || 'p' || e.ref_id as "PersonId",
         e.identity AS "MembercardId"

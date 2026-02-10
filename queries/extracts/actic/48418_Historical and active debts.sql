@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract of debts during a period.
+Contain information of active as well as historical debts.
 SELECT 
 	--cc.CENTER,	
 	--cc.ID,

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 
 select p.center, p.id, p.FULLNAME, pag.ref, pag.BANK_ACCOUNT_HOLDER,
 decode(sub.STATE, 2, 'ACTIVE', 4, 'FROZEN', 8, 'CREATED') as SubscriptionState,

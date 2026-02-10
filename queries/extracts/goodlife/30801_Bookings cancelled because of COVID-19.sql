@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     a.name                               AS activity_name,
     c.name                               AS center_name,

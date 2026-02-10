@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- Customers having EVENT_TOURDEFRANCE
 with min. 21 participations to selected classes and min 1 time KONGEETAPE, within period
 SELECT

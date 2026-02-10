@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Used to pull a full set of data for the product audit baseline product and any audit result products
 SELECT DISTINCT
     -------------------------------
     -------for subscription product

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- copy of ID 10001 but for Adyen SEPA
 WITH params AS MATERIALIZED
 (
         SELECT

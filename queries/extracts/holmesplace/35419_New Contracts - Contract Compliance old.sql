@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- For Commission
+eXcludes online sales
 SELECT
     (
         CASE sub.CENTER

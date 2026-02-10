@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
    TO_CHAR(longtodateTZ(acl.entry_time, 'Europe/Rome'),'DD-MM-YYYY')  "Dt_act_PaymentAgreement",
  clh.name "Clearinghouse name",

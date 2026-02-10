@@ -1,3 +1,6 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- with DIPLOMAT vat rate and name changed to 0
+Added days before due from payment cycle config as extra column, maybe use for Zlg-Bedingungscode column
 SELECT
 	'INVOICE' AS "Belegart(OK)",
 	P.CENTER || 'inv' ||invl.id AS "Nr (invlineID)",

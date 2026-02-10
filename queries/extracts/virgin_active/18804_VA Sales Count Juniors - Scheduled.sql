@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Copy of the Sales count extract showinng only junior mem cats
 SELECT
 
 	cen.SHORTNAME Club,

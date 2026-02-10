@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Frind transactions for center and period that was made with type Other (Epassi or Actiway)
 /**
 * Creator: Henrik Håkanson
 * ServiceTicket: N/A Request from Club Färjestad

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 WITH ranked_schedules AS (
   SELECT
     ROW_NUMBER() OVER (PARTITION BY subscription_price.subscription_id ORDER BY subscription_price.entry_time DESC) AS rn,

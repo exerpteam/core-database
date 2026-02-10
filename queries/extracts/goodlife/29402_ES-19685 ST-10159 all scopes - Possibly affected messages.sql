@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT DISTINCT
     p.center||'p'||p.id as memberid,    
     to_char((longtodateTZ(m.senttime, 'America/Toronto')), 'YYYY-MM-DD HH24:MI:SS') as creationtime,

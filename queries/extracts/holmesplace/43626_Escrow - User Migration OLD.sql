@@ -1,3 +1,8 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Add sponsored amount
+Move columns and add blank for conversion - payement type, payment plan name, is active, contract type, source, offer, 
+Fix is active/is guest - based on "counts towards member"?? Add PT and Addons??
+Copy and change to Prospects and Leads
 SELECT DISTINCT
     
     center.id                          AS "ExerpClubNumber",

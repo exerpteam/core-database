@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/ST-2442
 SELECT
     cen.ID                                AS "GYMID",
     cen.SHORTNAME                         AS "SHORTNAME",

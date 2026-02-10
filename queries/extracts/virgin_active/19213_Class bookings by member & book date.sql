@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Same report as Class bookings by members, but the date range has been changed from 'date of class', to 'date booking made'.
  select distinct
  "Club name",
  "Class name",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- In work extract. Can be removed
 /**
 * Creator: Martin Blomgren.
 * Purpose: lists products in a given scope.

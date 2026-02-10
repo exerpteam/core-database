@@ -1,1 +1,0 @@
-select * from BI_PERSONS

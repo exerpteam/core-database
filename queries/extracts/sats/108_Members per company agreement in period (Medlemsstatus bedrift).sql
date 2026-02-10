@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT ca.center as companycenter, ca.id as companyid, ca.subid as agreementid, c.lastname as company , ca.name as agreement, mc.lastname as mothercompany, mc.center as mccenter, mc.id as mcid, key.firstname || ' ' || key.lastname as employeeName, ( SELECT COUNT(*) FROM /*company agreement relation*/ RELATIVES rel , /* persons under agreement*/ PERSONS p , subscriptions s WHERE rel.RELATIVECENTER = ca.CENTER AND rel.RELATIVEID = ca.ID AND rel.RELATIVESUBID = ca.SUBID AND rel.RTYPE = 3 AND rel.CENTER = p.CENTER AND rel.ID = p.ID AND rel.RTYPE = 3 AND s.OWNER_CENTER = rel.CENTER AND s.OWNER_ID = rel.ID AND
  s.start_date < :fromDate
   AND

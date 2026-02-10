@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- 
 WITH
   params AS
   (
@@ -26,23 +28,23 @@ SELECT
                 ELSE 'UNKNOWN'
         END AS "Booking creation interface"
 FROM    
-        fernwood.participations part
+        participations part
 JOIN    
-        fernwood.persons p 
+        persons p 
         ON p.center = part.participant_center
         AND p.id = part.participant_id
 JOIN    
-        fernwood.bookings b
+        bookings b
         ON b.center = part.booking_center
         AND b.id = part.booking_id
 JOIN    
         params 
         ON params.CENTER_ID = part.booking_center
 JOIN 
-        fernwood.activity ac
+        activity ac
         ON b.activity = ac.id  
 JOIN 
-        fernwood.activity_group acg
+        activity_group acg
         ON acg.id = ac.activity_group_id                                                                              
 WHERE 
         p.center in (:Scope)

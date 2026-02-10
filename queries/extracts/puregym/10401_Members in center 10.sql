@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     'Birmingham City Centre'                                                                                                                                 AS PERSON_CENTER,
     att.PERSON_CENTER||'p'||att.PERSON_ID                                                                                                                    AS PERSON_ID,

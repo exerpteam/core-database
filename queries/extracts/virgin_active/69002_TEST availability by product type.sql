@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- prodotti attivi
 SELECT
 distinct
 	MPR.CACHED_PRODUCTNAME "Product Name",

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
      mpr.CACHED_PRODUCTNAME,
      COALESCE(c.NAME,a.NAME) AS "Scope Name",

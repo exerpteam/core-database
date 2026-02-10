@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Highlights members who have not yet had a picture added to their account.
  SELECT
      --p.CENTER                                                                                                                                                                          "ClubID",
      c.shortname                                                                                                                                                                       "Club",

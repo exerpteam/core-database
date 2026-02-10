@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 --  
 select distinct 
 su.person_center ||'p'|| su.person_id as INSTRUCTOR_PERSON_ID, p.external_id AS EXTERNAL_ID, p.FULLNAME as INSTRUCTOR_NAME, pea.txtvalue AS EMAIL

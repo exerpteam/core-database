@@ -1,3 +1,7 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/servicedesk/customer/portal/9/EC-5132
+
+approved 8/9/22
 SELECT
     p.center || 'p' || p.id                 AS PersonId,
     ar.balance                              AS InstallmentAccountBalance,

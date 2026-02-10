@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Extract indentifies applicable member subscriptions that were transferred within the last 1-90 days
 SELECT
 p_2.external_id
 ,sub_2.owner_center ||'p'|| sub_2.owner_id AS member_id_2

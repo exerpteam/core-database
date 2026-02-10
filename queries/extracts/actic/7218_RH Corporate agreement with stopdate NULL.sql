@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 /**
 * Extract to fetch all companyagreements without stopdate.
 * 2020-03-16 modified by Henrik Håkanson, added restrictions for ca.STATE and p.STATUS in order to exclude unecessary data.

@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- Old FME with Italy members removed - Ref: ST-8072
  SELECT DISTINCT
      "Club",
      "Member ID",

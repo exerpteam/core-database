@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     p1.center              AS product_center,
     p1.id                  AS product_id,

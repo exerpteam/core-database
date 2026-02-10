@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+-- https://clublead.atlassian.net/browse/EC-642
  SELECT
      t2.personcenter||'p'||t2.personid MemberID,
      t2.Club,

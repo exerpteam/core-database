@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
  SELECT
  longtodate(art.entry_time) Invoice_Date,
   coalesce (cl.person_center, il.person_center) ||'p'||  coalesce (cl.person_id, il.person_id) Member_key,

@@ -1,4 +1,4 @@
--- This is the version from 2026-02-05
+-- The extract is extracted from Exerp on 2026-02-08
 -- til at sammenligne med manuelle udtræk
 SELECT DISTINCT ON (ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID, cc.amount, cc.CURRENTSTEP_DATE)
     ar.CUSTOMERCENTER || 'p' || ar.CUSTOMERID as memberid,

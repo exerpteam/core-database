@@ -1,3 +1,5 @@
+-- The extract is extracted from Exerp on 2026-02-08
+--  
 SELECT
     createdBy.Fullname AS "Created by",
     salesperson.FULLNAME "SALES STAFF",
